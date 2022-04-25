@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Ranking()),
+                                  builder: (context) => UsuariosPage()),
                             );
                           },
                         ),

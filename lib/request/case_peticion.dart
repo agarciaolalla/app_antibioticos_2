@@ -7,7 +7,7 @@ import 'package:app_antibioticos/models/models.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 
 Future<List<Case>> listCasos() async {
-  final response = await http.get(Uri.parse(conexion0 + "/api/case"));
+  final response = await http.get(Uri.parse(conexion1 + "/api/case"));
 
   return compute(goToList, response.body);
 }

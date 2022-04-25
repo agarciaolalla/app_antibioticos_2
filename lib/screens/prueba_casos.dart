@@ -1,71 +1,54 @@
 import 'package:app_antibioticos/models/models.dart';
-import 'package:app_antibioticos/models/case_model.dart';
-import 'package:app_antibioticos/request/case_peticion.dart';
 import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:app_antibioticos/request/case_peticion.dart';
 
-class Casos extends StatefulWidget {
-  const Casos({Key? key}) : super(key: key);
+class UsuariosPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => HomeCasos();
+  _UsuariosPageState createState() => _UsuariosPageState();
 }
 
-class HomeCasos extends State<Casos> {
+class _UsuariosPageState extends State<UsuariosPage> {
+  // ignore: prefer_final_fields
+  RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
+
+  List<Case> usuarios = [];
+
+  @override
+  void initState() {
+    _cargarUsuarios();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Casos"),
+        title: const Text('Hola'),
       ),
-      body: getCasos(context, listCasos()),
+      //este SmartRefresher me permite recargar o refrescar la pagina actulizando
+      body: ListView.separated(
+          itemBuilder: (_, i) => _usuarioLisTitle(usuarios[i]),
+          separatorBuilder: (_, i) => const Divider(),
+          itemCount: usuarios.length),
     );
   }
 
-  Widget getCasos(BuildContext context, Future<List<Case>> futureClient) {
-    return FutureBuilder(
-      future: futureClient,
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        switch (snapshot.connectionState) {
-          //En este case estamos a la espera de la respuesta, mientras tanto mostraremos el cargando...
-          case ConnectionState.waiting:
-            return const Center(child: CircularProgressIndicator());
-
-          case ConnectionState.done:
-            if (snapshot.hasError) {
-              return Container(
-                alignment: Alignment.center,
-                child: Center(
-                  child: Text('Error: ${snapshot.error}'),
-                ),
-              );
-            }
-            // print(snapshot.data);
-
-            return snapshot.data != null
-                ? casoList(snapshot.data)
-                : Container(
-                    alignment: Alignment.center,
-                    child: const Center(
-                      child: Text('Sin Datos'),
-                    ),
-                  );
-          default:
-            return const Text('Recarga la pantalla....!');
-        }
-      },
+  ListTile _usuarioLisTitle(Case usuario) {
+    return ListTile(
+      title: Text(usuario.numero),
     );
   }
 
-  Widget casoList(List<Case> jugadores) {
-    return ListView.builder(
-      itemCount: jugadores.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(jugadores[index].numero),
-          leading: CircleAvatar(
-            child: Text((index + 1).toString()),
-          ),
-        );
-      },
-    );
+  _cargarUsuarios() async {
+    usuarios = await listCasos();
+
+    setState(() {});
+    // monitor network fetch
+    //await Future.delayed(Duration(milliseconds: 1000));
+    // if failed,use refreshFailed()
+    _refreshController.refreshCompleted();
   }
 }
