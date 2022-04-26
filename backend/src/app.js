@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 app.use(require('./routes/player.route'))
-app.use(require('./routes/case.route'))
+app.use(require('./routes/firstquestion.route'))
 
 
 

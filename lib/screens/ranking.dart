@@ -1,6 +1,9 @@
+import 'package:app_antibioticos/models/models.dart';
 import 'package:app_antibioticos/models/player_model.dart';
 import 'package:app_antibioticos/request/player_peticion.dart';
 import 'package:flutter/material.dart';
+
+import '../request/firsquestion_peticion.dart';
 
 class Ranking extends StatefulWidget {
   const Ranking({Key? key}) : super(key: key);
@@ -15,11 +18,12 @@ class HomeRanking extends State<Ranking> {
       appBar: AppBar(
         title: const Text("Ranking"),
       ),
-      body: getClients(context, listClient()),
+      body: getClients(context, listFirstQuestion()),
     );
   }
 
-  Widget getClients(BuildContext context, Future<List<Player>> futureClient) {
+  Widget getClients(
+      BuildContext context, Future<List<Firstquestion>> futureClient) {
     return FutureBuilder(
       future: futureClient,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -53,17 +57,13 @@ class HomeRanking extends State<Ranking> {
     );
   }
 
-  Widget clientList(List<Player> jugadores) {
+  Widget clientList(List<Firstquestion> jugadores) {
     return ListView.builder(
       itemCount: jugadores.length,
       itemBuilder: (context, index) {
-        jugadores.sort((a, b) {
-          return int.parse(b.points).compareTo(int.parse(a.points));
-          //softing on numerical order (Descending order by Roll No integer)
-        });
         return ListTile(
-          title: Text(jugadores[index].name + " " + jugadores[index].surname),
-          subtitle: Text(jugadores[index].points),
+          title: Text(jugadores[index].idCaso),
+          subtitle: Text(jugadores[index].pregunta),
           leading: CircleAvatar(
             child: Text((index + 1).toString()),
           ),
