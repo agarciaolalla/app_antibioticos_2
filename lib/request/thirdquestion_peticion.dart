@@ -6,16 +6,16 @@ import 'package:http/http.dart' as http;
 
 import 'package:app_antibioticos/models/models.dart';
 
-Future<List<Secondquestion>> listFirstQuestion() async {
-  final response = await http.get(Uri.parse(conexion1 + "/api/secondquestion"));
+Future<List<Thirdquestion>> listThirdQuestion() async {
+  final response = await http.get(Uri.parse(conexion1 + "/api/thirdquestion"));
 
-  return compute(goToList, response.body);
+  return compute(goToListThirdQuestion, response.body);
 }
 
-List<Secondquestion> goToList(String responseBody) {
+List<Thirdquestion> goToListThirdQuestion(String responseBody) {
   final pasar = json.decode(responseBody);
 
-  return pasar['secondquestion']
-      .map<Secondquestion>((json) => Secondquestion.fromJson(json))
+  return pasar['thirdquestion']
+      .map<Thirdquestion>((json) => Thirdquestion.fromJson(json))
       .toList();
 }

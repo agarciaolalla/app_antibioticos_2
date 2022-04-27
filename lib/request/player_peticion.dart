@@ -9,10 +9,10 @@ import 'package:app_antibioticos/models/models.dart';
 Future<List<Player>> listClient() async {
   final response = await http.get(Uri.parse(conexion1 + "/api/player"));
 
-  return compute(goToList, response.body);
+  return compute(goToListPlayer, response.body);
 }
 
-List<Player> goToList(String responseBody) {
+List<Player> goToListPlayer(String responseBody) {
   final pasar = json.decode(responseBody);
 
   return pasar['player'].map<Player>((json) => Player.fromJson(json)).toList();
