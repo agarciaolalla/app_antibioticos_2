@@ -15,7 +15,7 @@ Future<List<Firstquestion>> listFirstQuestion() async {
 List<Firstquestion> goToList(String responseBody) {
   final pasar = json.decode(responseBody);
 
-  return pasar['case']
+  return pasar['firstquestion']
       .map<Firstquestion>((json) => Firstquestion.fromJson(json))
       .toList();
 }
