@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:app_antibioticos/theme/app_theme.dart';
-import 'package:app_antibioticos/screens/screens.dart';
+import 'package:app_antibioticos/routes/routes.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       title: 'App Antibióticos',
-      //home: const Ranking(),
-      home: const HomeScreen(),
+      routes: appRoutes,
+      initialRoute: 'home',
     );
   }
 }
