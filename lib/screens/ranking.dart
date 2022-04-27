@@ -16,12 +16,11 @@ class HomeRanking extends State<Ranking> {
       appBar: AppBar(
         title: const Text("Ranking"),
       ),
-      body: getClients(context, listThirdQuestion()),
+      body: getClients(context, listClient()),
     );
   }
 
-  Widget getClients(
-      BuildContext context, Future<List<Thirdquestion>> futureClient) {
+  Widget getClients(BuildContext context, Future<List<Player>> futureClient) {
     return FutureBuilder(
       future: futureClient,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -55,13 +54,17 @@ class HomeRanking extends State<Ranking> {
     );
   }
 
-  Widget clientList(List<Thirdquestion> jugadores) {
+  Widget clientList(List<Player> jugadores) {
     return ListView.builder(
       itemCount: jugadores.length,
       itemBuilder: (context, index) {
+        jugadores.sort((a, b) {
+          return int.parse(b.points).compareTo(int.parse(a.points));
+          //softing on numerical order (Descending order by Roll No integer)
+        });
         return ListTile(
-          title: Text(jugadores[index].idCaso),
-          subtitle: Text(jugadores[index].pregunta),
+          title: Text(jugadores[index].name + " " + jugadores[index].surname),
+          subtitle: Text(jugadores[index].points),
           leading: CircleAvatar(
             child: Text((index + 1).toString()),
           ),
