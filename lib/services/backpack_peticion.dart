@@ -9,10 +9,10 @@ import 'package:app_antibioticos/models/models.dart';
 Future<List<Backpack>> listBackpack() async {
   final response = await http.get(Uri.parse(conexion0 + "/api/backpack"));
 
-  return compute(goToList, response.body);
+  return compute(goToListBackpack, response.body);
 }
 
-List<Backpack> goToList(String responseBody) {
+List<Backpack> goToListBackpack(String responseBody) {
   final pasar = json.decode(responseBody);
 
   return pasar['backpack']

@@ -9,10 +9,10 @@ import 'package:app_antibioticos/models/models.dart';
 Future<List<Thirdanswer>> listThirdAnswer() async {
   final response = await http.get(Uri.parse(conexion1 + "/api/thirdanswer"));
 
-  return compute(goToList, response.body);
+  return compute(goToListThirdAnswer, response.body);
 }
 
-List<Thirdanswer> goToList(String responseBody) {
+List<Thirdanswer> goToListThirdAnswer(String responseBody) {
   final pasar = json.decode(responseBody);
 
   return pasar['thirdanswer']

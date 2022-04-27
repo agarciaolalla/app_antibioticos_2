@@ -1,11 +1,7 @@
-import 'package:app_antibioticos/models/models.dart';
-import 'package:app_antibioticos/models/player_model.dart';
-import 'package:app_antibioticos/request/firstanswer_peticion.dart';
-import 'package:app_antibioticos/request/player_peticion.dart';
-import 'package:app_antibioticos/request/thirdquestion_peticion.dart';
 import 'package:flutter/material.dart';
 
-import '../request/thirdquestion_peticion.dart';
+import 'package:app_antibioticos/models/models.dart';
+import 'package:app_antibioticos/services/services.dart';
 
 class Ranking extends StatefulWidget {
   const Ranking({Key? key}) : super(key: key);
