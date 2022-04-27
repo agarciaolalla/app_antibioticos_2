@@ -1,9 +1,10 @@
 import 'package:app_antibioticos/models/models.dart';
 import 'package:app_antibioticos/models/player_model.dart';
+import 'package:app_antibioticos/request/firstanswer_peticion.dart';
 import 'package:app_antibioticos/request/player_peticion.dart';
 import 'package:flutter/material.dart';
 
-import '../request/firsquestion_peticion.dart';
+import '../request/firstanswer_peticion.dart';
 
 class Ranking extends StatefulWidget {
   const Ranking({Key? key}) : super(key: key);
@@ -18,12 +19,12 @@ class HomeRanking extends State<Ranking> {
       appBar: AppBar(
         title: const Text("Ranking"),
       ),
-      body: getClients(context, listFirstQuestion()),
+      body: getClients(context, listFirstAnswer()),
     );
   }
 
   Widget getClients(
-      BuildContext context, Future<List<Firstquestion>> futureClient) {
+      BuildContext context, Future<List<Firstanswer>> futureClient) {
     return FutureBuilder(
       future: futureClient,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -57,13 +58,13 @@ class HomeRanking extends State<Ranking> {
     );
   }
 
-  Widget clientList(List<Firstquestion> jugadores) {
+  Widget clientList(List<Firstanswer> jugadores) {
     return ListView.builder(
       itemCount: jugadores.length,
       itemBuilder: (context, index) {
         return ListTile(
           title: Text(jugadores[index].idCaso),
-          subtitle: Text(jugadores[index].pregunta),
+          subtitle: Text(jugadores[index].solucion),
           leading: CircleAvatar(
             child: Text((index + 1).toString()),
           ),

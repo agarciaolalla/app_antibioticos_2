@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final secondquestion = secondquestionFromJson(jsonString);
-
 import 'dart:convert';
 
 Secondquestion secondquestionFromJson(String str) =>
@@ -19,12 +15,12 @@ class Secondquestion {
   String pregunta;
 
   factory Secondquestion.fromJson(Map<String, dynamic> json) => Secondquestion(
-        idCaso: json["id_caso"],
+        idCaso: json["idcaso"],
         pregunta: json["pregunta"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id_caso": idCaso,
+        "idcaso": idCaso,
         "pregunta": pregunta,
       };
 }
