@@ -27,7 +27,7 @@ class Thirdanswer {
   String cantidad;
 
   factory Thirdanswer.fromJson(Map<String, dynamic> json) => Thirdanswer(
-        idCaso: json["id_caso"],
+        idCaso: json["idcaso"],
         antibiotico: json["antibiotico"],
         duracion: json["duracion"],
         intervalo: json["intervalo"],
@@ -35,7 +35,7 @@ class Thirdanswer {
       );
 
   Map<String, dynamic> toJson() => {
-        "id_caso": idCaso,
+        "idcaso": idCaso,
         "antibiotico": antibiotico,
         "duracion": duracion,
         "intervalo": intervalo,

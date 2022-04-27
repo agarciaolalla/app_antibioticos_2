@@ -19,12 +19,12 @@ class Thirdquestion {
   String pregunta;
 
   factory Thirdquestion.fromJson(Map<String, dynamic> json) => Thirdquestion(
-        idCaso: json["id_caso"],
+        idCaso: json["idcaso"],
         pregunta: json["pregunta"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id_caso": idCaso,
+        "idcaso": idCaso,
         "pregunta": pregunta,
       };
 }
