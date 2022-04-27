@@ -12,8 +12,10 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(require('./routes/player.route'))
 app.use(require('./routes/firstquestion.route'))
+app.use(require('./routes/firstanswer.route'))
+app.use(require('./routes/secondquestion.route'))
+app.use(require('./routes/secondanswer.route'))
+app.use(require('./routes/thirdanswer.route'))
 app.use(require('./routes/backpack.route'))
-
-
 
 module.exports = app;
