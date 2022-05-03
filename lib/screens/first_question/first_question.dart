@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'package:app_antibioticos/models/models.dart';
@@ -10,18 +12,20 @@ class FirstQuestion extends StatefulWidget {
 }
 
 class HomeFirstQuestion extends State<FirstQuestion> {
+  List<bool> valores = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Ranking"),
       ),
-      body: getClients(context, listFirstQuestion()),
+      body: getClients(context, listFirstAnswer()),
     );
   }
 
   Widget getClients(
-      BuildContext context, Future<List<Firstquestion>> futureClient) {
+      BuildContext context, Future<List<Firstanswer>> futureClient) {
     return FutureBuilder(
       future: futureClient,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -55,17 +59,20 @@ class HomeFirstQuestion extends State<FirstQuestion> {
     );
   }
 
-  Widget clientList(List<Firstquestion> jugadores) {
+  Widget clientList(List<Firstanswer> lista) {
+    for (var i = 0; i < lista.length; i++) {
+      valores.add(false);
+    }
     return ListView.builder(
-      itemCount: jugadores.length,
+      itemCount: lista.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(jugadores[index].idCaso),
-          subtitle: Text(jugadores[index].pregunta),
-          leading: CircleAvatar(
-            child: Text((index + 1).toString()),
-          ),
-        );
+        return SwitchListTile.adaptive(
+            activeColor: Colors.indigo,
+            title: Text(lista[index].respuesta),
+            value: valores[index],
+            onChanged: (value) => setState(() {
+                  valores[index] = value;
+                }));
       },
     );
   }
