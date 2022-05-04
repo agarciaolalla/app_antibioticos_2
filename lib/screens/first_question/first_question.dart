@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:convert';
 
 //import 'package:app_antibioticos/models/models.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 
 class FirstQuestion extends StatefulWidget {
@@ -22,10 +23,16 @@ class HomeFirstQuestion extends State<FirstQuestion> {
     getFirstQuestion();
   }
 
-  String idcaso = "0";
+  String idcaso = "1";
   List listAnswer = [];
   String question = "";
+  bool comprobar = false;
+  Color verde = Colors.white;
+  Color rojo = Colors.white;
   List valorSwitch = [];
+  List comprobarRespuesta = [];
+  int x = 0;
+  bool notifyswitch = false;
 
   Future getFirstAnswer() async {
     List returnlista = [];
@@ -67,28 +74,84 @@ class HomeFirstQuestion extends State<FirstQuestion> {
 
   @override
   Widget build(BuildContext context) {
-    for (var i = 0; i < listAnswer.length; i++) {
-      valorSwitch.add(false);
+    if (x == 0) {
+      for (var i = 0; i < listAnswer.length; i++) {
+        valorSwitch.add(false);
+        comprobarRespuesta.add(true);
+      }
     }
-
+    if (comprobar == true) {
+      verde = Colors.green;
+      rojo = Colors.red;
+    } else {
+      verde = Colors.white;
+      rojo = Colors.white;
+    }
     return Scaffold(
       appBar: AppBar(
-        title: Text(question),
+        title: const Text("Primera Pregunta"),
         backgroundColor: Colors.indigo[900],
       ),
-      body: ListView.builder(
-        itemCount: listAnswer == null ? 0 : listAnswer.length,
-        itemBuilder: (BuildContext context, int index) {
-          return SwitchListTile.adaptive(
-              activeColor: Colors.indigo,
-              title: Text(
-                  "${listAnswer[index]["respuesta"]} ${listAnswer[index]["solucion"]}"),
-              value: valorSwitch[index],
-              onChanged: (value) => setState(() {
-                    valorSwitch[index] = value;
-                  }));
-        },
-      ),
+      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        Text(question),
+        ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: listAnswer == null ? 0 : listAnswer.length,
+          itemBuilder: (BuildContext context, int index) {
+            return SwitchListTile.adaptive(
+                activeColor: Colors.indigo,
+                tileColor: comprobarRespuesta[index] != null &&
+                        comprobarRespuesta[index] == false
+                    ? verde
+                    : rojo,
+                title: Text(
+                    "${listAnswer[index]["respuesta"]} ${listAnswer[index]["solucion"]}"),
+                value: valorSwitch[index],
+                onChanged: notifyswitch
+                    ? null
+                    : (value) => setState(() {
+                          valorSwitch[index] = value;
+                        }));
+          },
+        ),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              for (var i = 0; i < listAnswer.length; i++) {
+                if (valorSwitch[i] == true) {
+                  if (listAnswer[i]["solucion"] == "1") {
+                    comprobarRespuesta[i] = true;
+                  } else {
+                    comprobarRespuesta[i] = false;
+                  }
+                } else {
+                  if (listAnswer[i]["solucion"] != "1") {
+                    comprobarRespuesta[i] = true;
+                  } else {
+                    comprobarRespuesta[i] = false;
+                  }
+                }
+              }
+              comprobar = true;
+              x = 1;
+              notifyswitch = true;
+            });
+          },
+          child: const Text('Comprobar'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            if (comprobar == true) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Ranking()),
+              );
+            }
+          },
+          child: const Text('Siguiente'),
+        ),
+      ]),
     );
   }
 }
