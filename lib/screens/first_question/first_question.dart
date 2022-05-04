@@ -1,9 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
-import 'package:app_antibioticos/models/models.dart';
-import 'package:app_antibioticos/services/services.dart';
+//import 'package:app_antibioticos/models/models.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
 
 class FirstQuestion extends StatefulWidget {
   const FirstQuestion({Key? key}) : super(key: key);
@@ -12,68 +15,80 @@ class FirstQuestion extends StatefulWidget {
 }
 
 class HomeFirstQuestion extends State<FirstQuestion> {
-  List<bool> valores = [];
+  @override
+  void initState() {
+    super.initState();
+    getFirstAnswer();
+    getFirstQuestion();
+  }
+
+  String idcaso = "0";
+  List listAnswer = [];
+  String question = "";
+  List valorSwitch = [];
+
+  Future getFirstAnswer() async {
+    List returnlista = [];
+    Map data;
+    http.Response response =
+        await http.get(Uri.parse(conexion1 + "/api/firstanswer"));
+    // debugPrint(response.body);
+    data = json.decode(response.body);
+
+    setState(() {
+      returnlista = data['firstanswer'];
+
+      for (var i = 0; i < returnlista.length; i++) {
+        if (returnlista[i]["idcaso"] == idcaso) {
+          listAnswer.add(returnlista[i]);
+        }
+      }
+    });
+  }
+
+  Future getFirstQuestion() async {
+    List returnlista = [];
+    Map data;
+    http.Response response =
+        await http.get(Uri.parse(conexion1 + "/api/firstquestion"));
+    // debugPrint(response.body);
+    data = json.decode(response.body);
+
+    setState(() {
+      returnlista = data['firstquestion'];
+
+      for (var i = 0; i < returnlista.length; i++) {
+        if (returnlista[i]["idcaso"] == idcaso) {
+          question = returnlista[i]["pregunta"];
+        }
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    for (var i = 0; i < listAnswer.length; i++) {
+      valorSwitch.add(false);
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Ranking"),
+        title: Text(question),
+        backgroundColor: Colors.indigo[900],
       ),
-      body: getClients(context, listFirstAnswer()),
-    );
-  }
-
-  Widget getClients(
-      BuildContext context, Future<List<Firstanswer>> futureClient) {
-    return FutureBuilder(
-      future: futureClient,
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        switch (snapshot.connectionState) {
-          //En este case estamos a la espera de la respuesta, mientras tanto mostraremos el cargando...
-          case ConnectionState.waiting:
-            return const Center(child: CircularProgressIndicator());
-
-          case ConnectionState.done:
-            if (snapshot.hasError) {
-              return Container(
-                alignment: Alignment.center,
-                child: Center(
-                  child: Text('Error: ${snapshot.error}'),
-                ),
-              );
-            }
-            // print(snapshot.data);
-            return snapshot.data != null
-                ? clientList(snapshot.data)
-                : Container(
-                    alignment: Alignment.center,
-                    child: const Center(
-                      child: Text('Sin Datos'),
-                    ),
-                  );
-          default:
-            return const Text('Recarga la pantalla....!');
-        }
-      },
-    );
-  }
-
-  Widget clientList(List<Firstanswer> lista) {
-    for (var i = 0; i < lista.length; i++) {
-      valores.add(false);
-    }
-    return ListView.builder(
-      itemCount: lista.length,
-      itemBuilder: (context, index) {
-        return SwitchListTile.adaptive(
-            activeColor: Colors.indigo,
-            title: Text(lista[index].respuesta),
-            value: valores[index],
-            onChanged: (value) => setState(() {
-                  valores[index] = value;
-                }));
-      },
+      body: ListView.builder(
+        itemCount: listAnswer == null ? 0 : listAnswer.length,
+        itemBuilder: (BuildContext context, int index) {
+          return SwitchListTile.adaptive(
+              activeColor: Colors.indigo,
+              title: Text(
+                  "${listAnswer[index]["respuesta"]} ${listAnswer[index]["solucion"]}"),
+              value: valorSwitch[index],
+              onChanged: (value) => setState(() {
+                    valorSwitch[index] = value;
+                  }));
+        },
+      ),
     );
   }
 }

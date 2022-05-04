@@ -16,22 +16,22 @@ class _HomePageState extends State<Prueba> {
   @override
   void initState() {
     super.initState();
-    getUsers();
+    getResponseMongo();
   }
 
-  late Map data;
-  List usersData = [];
+  List listaDatos = [];
 
-  Future getUsers() async {
+  Future getResponseMongo() async {
+    Map data;
     http.Response response =
         await http.get(Uri.parse(conexion1 + "/api/firstanswer"));
     // debugPrint(response.body);
     data = json.decode(response.body);
     setState(() {
-      usersData = data['firstanswer'];
+      listaDatos = data['firstanswer'];
     });
     // debugPrint(usersData.toString());
-    debugPrint(usersData.length.toString());
+    debugPrint(listaDatos.length.toString());
   }
 
   @override
@@ -42,7 +42,7 @@ class _HomePageState extends State<Prueba> {
         backgroundColor: Colors.indigo[900],
       ),
       body: ListView.builder(
-        itemCount: usersData == null ? 0 : usersData.length,
+        itemCount: listaDatos == null ? 0 : listaDatos.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
             child: Padding(
@@ -61,7 +61,7 @@ class _HomePageState extends State<Prueba> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      "${usersData[index]["respuesta"]} ${usersData[index]["solucion"]}",
+                      "${listaDatos[index]["respuesta"]} ${listaDatos[index]["solucion"]}",
                       style: const TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.w700),
                     ),

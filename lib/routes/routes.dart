@@ -6,6 +6,6 @@ import 'package:app_antibioticos/screens/pruebahome.dart';
 final Map<String, Widget Function(BuildContext)> appRoutes = {
   'ranking': (_) => const Ranking(),
   'home': (_) => const HomeScreen(),
-  'fquestion': (_) => const FirstQuestion(),
+  'firstquestion': (_) => const FirstQuestion(),
   'prueba': (_) => const Prueba()
 };
