@@ -15,9 +15,6 @@ class BackpackDecisionScreen extends StatefulWidget {
   State<BackpackDecisionScreen> createState() => _BackpackDecisionScreenState();
 }
 
-int _itemCount = 0;
-bool _isDisable = false;
-
 class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
   @override
   void initState() {
@@ -25,9 +22,10 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
     getBackpack();
   }
 
-  List mochilaCompleta = [
-    {"nombre": "", "numero": ""}
-  ];
+  List contadorItems = [];
+  bool _isDisable = false;
+
+  List mochilaCompleta = [];
   List mochilaSeleccionada = [];
 
   Future getBackpack() async {
@@ -44,6 +42,13 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    for (var i = 0; i < mochilaCompleta.length; i++) {
+      mochilaSeleccionada
+          .add({"nombre": mochilaCompleta[i]["nombre"], "numero": "0"});
+      contadorItems.add(0);
+    }
+
+    log(mochilaSeleccionada[0]["numero"]);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Seleccion de medicamentos'),
@@ -68,28 +73,28 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
                   width: 150,
                   child: Row(
                     children: <Widget>[
-                      _itemCount != 0
+                      contadorItems[index] != 0
                           ? IconButton(
                               icon: const Icon(Icons.remove),
                               //onPressed: () => setState(() => _itemCount--),
                               onPressed: () {
                                 if (!_isDisable) {
                                   setState(() {
-                                    _itemCount--;
+                                    contadorItems[index]--;
                                   });
                                 }
                               },
                             )
                           : Container(),
-                      Text(_itemCount.toString()),
+                      Text(contadorItems[index].toString()),
                       IconButton(
                           icon: const Icon(Icons.add),
                           onPressed: () => setState(() {
                                 if (!_isDisable &&
-                                    _itemCount !=
+                                    contadorItems[index] !=
                                         int.parse(
                                             mochilaCompleta[index]["numero"])) {
-                                  _itemCount++;
+                                  contadorItems[index]++;
                                 }
                               })),
                       IconButton(
@@ -112,7 +117,12 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              print(mochilaSeleccionada);
+              log("hola" + mochilaSeleccionada.length.toString());
+              for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                mochilaSeleccionada[i]["numero"] = contadorItems[i].toString();
+                log(mochilaSeleccionada[i]["nombre"]);
+                log(mochilaSeleccionada[i]["numero"]);
+              }
             },
             child: const Text(
               'Confirmar',
