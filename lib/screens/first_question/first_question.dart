@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-//import 'package:app_antibioticos/models/models.dart';
 import 'package:app_antibioticos/screens/screens.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 
@@ -143,7 +142,7 @@ class HomeFirstQuestion extends State<FirstQuestion> {
             if (comprobar == true) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Ranking()),
+                MaterialPageRoute(builder: (context) => FirstFeedbackScreen()),
               );
             }
           },

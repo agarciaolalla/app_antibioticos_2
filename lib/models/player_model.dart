@@ -10,7 +10,6 @@ class Player {
     required this.surname,
     required this.points,
   });
-
   String name;
   String surname;
   String points;

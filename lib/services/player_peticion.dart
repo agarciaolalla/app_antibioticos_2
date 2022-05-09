@@ -17,3 +17,31 @@ List<Player> goToListPlayer(String responseBody) {
 
   return pasar['player'].map<Player>((json) => Player.fromJson(json)).toList();
 }
+
+mapPlayer(Player player, bool mapId) {
+  Map data;
+
+  data = {
+    'nombre': '${player.name}',
+    'apellido': '${player.surname}',
+    'puntuacion': '${player.points}'
+  };
+
+  return data;
+}
+
+Future<Player> addPlayer(Player client) async {
+  var url = Uri.parse(conexion1 + "/api/player/registro");
+
+  var body = json.encode(mapPlayer(client, false));
+
+  var response = await http.post(url,
+      headers: {'Content-Type': 'application/json; charset=UTF-8'}, body: body);
+  print("${response}");
+
+  if (response.statusCode == 200) {
+    return Player.fromJson(jsonDecode(response.body)['player']);
+  } else {
+    throw Exception('Failed to load player');
+  }
+}
