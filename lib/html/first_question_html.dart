@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 
-class InfoHtmlModel extends StatelessWidget {
-  const InfoHtmlModel({Key? key}) : super(key: key);
+class FirstQuestionHtml extends StatelessWidget {
+  const FirstQuestionHtml({Key? key, required this.pregunta}) : super(key: key);
 
-  final String descripcion = "prueba??";
+  final String pregunta;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,9 @@ class InfoHtmlModel extends StatelessWidget {
         <meta name="viewport" content="width=device-width, initial-scale=2">
       </head>
       <body>
-        <h1>Informacion de la segunda pregunta</h1>
+        <h1>Pruebas diagnosticas</h1>
         <p>''' +
-        descripcion +
+        pregunta +
         '''</p>
       </body>
   </html>''';

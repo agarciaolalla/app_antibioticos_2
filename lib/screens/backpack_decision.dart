@@ -62,10 +62,6 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
             shrinkWrap: true,
             itemCount: mochilaCompleta.length,
             itemBuilder: (context, index) {
-              //return ListTileItem(
-              //  title: mochilaCompleta[index]["nombre"],
-              //  cantidadMaxima: mochilaCompleta[index]["numero"],
-              //);
               return ListTile(
                 title: Text(mochilaSeleccionada[index]["nombre"]),
                 trailing: SizedBox(
@@ -109,7 +105,6 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
               for (var i = 0; i < mochilaSeleccionada.length; i++) {
                 mochilaSeleccionada[i]["numero"] = contadorItems[i].toString();
               }
-              print(mochilaSeleccionada);
             },
             child: const Text(
               'Confirmar',

@@ -6,5 +6,6 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   'ranking': (_) => const Ranking(),
   'home': (_) => const HomeScreen(),
   'backpack': (_) => const BackpackDecisionScreen(),
-  'firstquestion': (_) => const FirstQuestion()
+  'firstquestion': (_) => const FirstQuestion(),
+  'secondquestion': (_) => SecondQuestionScreen(),
 };

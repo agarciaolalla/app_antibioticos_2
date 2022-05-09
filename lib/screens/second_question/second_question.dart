@@ -1,9 +1,47 @@
 import 'package:flutter/material.dart';
 
-import 'package:app_antibioticos/widgets/widgets.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
-class SecondQuestionScreen extends StatelessWidget {
-  SecondQuestionScreen({Key? key}) : super(key: key);
+import 'package:app_antibioticos/widgets/widgets.dart';
+import 'package:app_antibioticos/html/html.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
+
+class SecondQuestionScreen extends StatefulWidget {
+  const SecondQuestionScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SecondQuestionScreen> createState() => _SecondQuestionScreenState();
+}
+
+class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  String idCaso = "1";
+  String question = "";
+
+  Future getSecondQuestion() async {
+    List returnList = [];
+    Map data;
+    http.Response response =
+        await http.get(Uri.parse(conexion1 + "/api/secondquestion"));
+    // debugPrint(response.body);
+    data = json.decode(response.body);
+
+    setState(() {
+      returnList = data['secondquestion'];
+
+      for (int i = 0; i < returnList.length; i++) {
+        if (returnList[i]["idcaso"] == idCaso) {
+          question = returnList[i]["pregunta"];
+        }
+      }
+    });
+  }
 
   //ToDo Lista de medicinas que hay en la mochila
   final medicines = [
@@ -13,6 +51,7 @@ class SecondQuestionScreen extends StatelessWidget {
     'Aspirina',
     'Omeoprazol'
   ];
+
   //ToDo Tipo de dosis que tienes de cada medicina (hacerlo en base a la medicina seleccionada anteriormente)
   final doses = [
     'Seleccione una cantidad',
@@ -69,8 +108,7 @@ class SecondQuestionScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            //ToDo: Implementacion de html via rest (widget para cada info)
-            const InfoHtmlModel(),
+            const SecondQuestionHtml(),
             //Widget que muestra la 'mochila' y la tabla dinamica
             MedicinesForm(medicines: medicines, numberMedicines: doses),
             //Boton de confirmar
