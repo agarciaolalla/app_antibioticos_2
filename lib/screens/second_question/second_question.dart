@@ -102,17 +102,6 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
             ),
             //Widget que muestra la 'mochila' y la tabla dinamica
             MedicinesForm(medicines: medicines),
-            //Boton de confirmar
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Confirmar',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-            )
           ],
         ),
       ),

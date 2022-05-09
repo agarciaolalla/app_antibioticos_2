@@ -16,6 +16,8 @@ class _MedicinesFormState extends State<MedicinesForm> {
   final _formKey = GlobalKey<FormState>();
   TableValues values = TableValues();
   List<TableValues> selectedValues = [];
+
+  //Listado con los nombres de los antibioticos (ButtonDropDown)
   List<String> medicineNames = [];
 
   //Controladores de los TextField
@@ -23,11 +25,14 @@ class _MedicinesFormState extends State<MedicinesForm> {
   TextEditingController intervaleHoursController = TextEditingController();
   TextEditingController daysController = TextEditingController();
 
+  //Variable que almacenaran lo introducido en el formulario (dropdown button no tiene controller)
+  String _valueMedicines = 'Seleccione un medicamento';
+
+  //Variable donde almacenaremos los cambios realizados finalmente
+  List medicinesUsed = [];
+
   @override
   Widget build(BuildContext context) {
-    //Variables que cambiaran los valores los desplegables
-    String _valueMedicines = 'Seleccione un medicamento';
-
     //Rellenamos el array para mostrar los nombres de los medicamentos
     if (medicineNames.isEmpty) {
       fillMedicineNames();
@@ -106,7 +111,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
                 .toList(),
           ),
         );
-
     return Form(
       key: _formKey,
       child: Padding(
@@ -154,9 +158,14 @@ class _MedicinesFormState extends State<MedicinesForm> {
               onSaved: (String? value) {
                 values.intervaleDoses = value!;
               },
+              //Comprobamos que el numero de medicinas sea valido
               validator: (value) {
+                int disponible = getNumberMedicines(_valueMedicines);
                 if (value == null || value.isEmpty) {
                   return "Introduca una cantidad";
+                } else if (int.parse(intervaleDosesController.text) >
+                    disponible) {
+                  return "No hay suficientes medicamentos en la mochila";
                 }
                 return null;
               },
@@ -194,9 +203,18 @@ class _MedicinesFormState extends State<MedicinesForm> {
               onSaved: (String? value) {
                 values.days = value!;
               },
+              //Comprobamos si se ha introducido unos valores correctos
               validator: (value) {
+                int disponible = getNumberMedicines(_valueMedicines);
+                int usado = (24 /
+                        int.parse(intervaleHoursController.text) *
+                        (int.parse(intervaleDosesController.text) *
+                            int.parse(daysController.text)))
+                    .toInt();
                 if (value == null || value.isEmpty) {
                   return "Introduca la cantidad de dias";
+                } else if (usado > disponible) {
+                  return "No hay suficientes medicamentos en la mochila";
                 }
                 return null;
               },
@@ -210,7 +228,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
                     _formKey.currentState!.save();
                     addValues(
                       values.medicine,
-                      values.doses,
                       values.intervaleDoses,
                       values.intervaleHours,
                       values.days,
@@ -227,6 +244,19 @@ class _MedicinesFormState extends State<MedicinesForm> {
             const SizedBox(height: 25),
             //Generamos el widget que generara la tabla de manera dinamica con los datos del formulario
             bodyData(),
+            //Boton de confirmar
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ElevatedButton(
+                onPressed: () {
+                  setBackpack(medicinesUsed);
+                },
+                child: const Text(
+                  'Confirmar',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -234,10 +264,18 @@ class _MedicinesFormState extends State<MedicinesForm> {
   }
 
   //Metodo para añadir los valores al list y pintarlos posteriormente en la tabla.
-  void addValues(medicine, doses, intervaleDoses, intervaleHours, days) {
+  void addValues(medicine, intervaleDoses, intervaleHours, days) {
+    int usedNumber = (24 /
+            int.parse(intervaleHours) *
+            (int.parse(intervaleDoses) * int.parse(days)))
+        .toInt();
+
+    //Añadimos los datos del antibiotico al array de usados
+    medicinesUsed.add({"nombre": medicine, "numero": usedNumber.toString()});
+
     setState(() {
-      selectedValues.add(
-          TableValues.c(medicine, doses, intervaleDoses, intervaleHours, days));
+      selectedValues
+          .add(TableValues.c(medicine, intervaleDoses, intervaleHours, days));
     });
   }
 
@@ -257,12 +295,26 @@ class _MedicinesFormState extends State<MedicinesForm> {
     return valid;
   }
 
+  //Metodo para eliminar un dato de la datatable
   void removeData(TableValues value) {
+    int usedNumber = (24 /
+            int.parse(value.intervaleHours) *
+            (int.parse(value.intervaleDoses) * int.parse(value.days)))
+        .toInt();
+
+    for (int i = 0; i < medicinesUsed.length; i++) {
+      if (medicinesUsed[i]["nombre"] == value.medicine &&
+          medicinesUsed[i]["numero"] == usedNumber.toString()) {
+        medicinesUsed.remove(i);
+      }
+    }
+
     setState(() {
       selectedValues.remove(value);
     });
   }
 
+  //Metodo para rellenar el array con los nombres (dropdown button)
   void fillMedicineNames() {
     medicineNames.add('Seleccione un medicamento');
     for (int i = 0; i < widget.medicines.length; i++) {
@@ -271,5 +323,30 @@ class _MedicinesFormState extends State<MedicinesForm> {
         medicineNames.add(widget.medicines[i]["nombre"]);
       }
     }
+  }
+
+  //Metodo para obtener el numero de medicinas disponible
+  int getNumberMedicines(String medicineName) {
+    int number = 0;
+    for (int i = 0; i < widget.medicines.length; i++) {
+      if (widget.medicines[i]['nombre'] == medicineName) {
+        number = int.parse(widget.medicines[i]['numero']);
+      }
+    }
+    return number;
+  }
+
+  //Metodo para quitar cantidad de antibioticos de la mochila al usarlos
+  void setBackpack(List medicinesUsed) {
+    for (int i = 0; i < widget.medicines.length; i++) {
+      for (int j = 0; i < medicinesUsed.length; j++) {
+        if (widget.medicines[i]["nombre"] == medicinesUsed[j]["nombre"]) {
+          int used = int.parse(medicinesUsed[j]["numero"]);
+          int total = int.parse(widget.medicines[i]["numero"]);
+          widget.medicines[i]["numero"] = (total - used).toString();
+        }
+      }
+    }
+    print(widget.medicines);
   }
 }

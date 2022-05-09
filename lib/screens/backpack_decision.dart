@@ -1,5 +1,3 @@
-import 'package:app_antibioticos/html/html.dart';
-import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -7,7 +5,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:app_antibioticos/utilidades/constantes.dart';
-import 'package:app_antibioticos/widgets/widgets.dart';
+import 'package:app_antibioticos/html/html.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 
 class BackpackDecisionScreen extends StatefulWidget {
   const BackpackDecisionScreen({Key? key}) : super(key: key);
