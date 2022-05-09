@@ -7,6 +7,7 @@ import 'dart:convert';
 import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/html/html.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 
 class SecondQuestionScreen extends StatefulWidget {
   const SecondQuestionScreen({Key? key}) : super(key: key);
@@ -19,10 +20,12 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
   @override
   void initState() {
     super.initState();
+    getSecondQuestion();
   }
 
   String idCaso = "1";
   String question = "";
+  String description = "";
 
   Future getSecondQuestion() async {
     List returnList = [];
@@ -38,28 +41,13 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
       for (int i = 0; i < returnList.length; i++) {
         if (returnList[i]["idcaso"] == idCaso) {
           question = returnList[i]["pregunta"];
+          description = returnList[i]["descripcion"];
         }
       }
     });
   }
 
-  //ToDo Lista de medicinas que hay en la mochila
-  final medicines = [
-    'Seleccione un medicamento',
-    'Ibuprofeno',
-    'Paracetamol',
-    'Aspirina',
-    'Omeoprazol'
-  ];
-
-  //ToDo Tipo de dosis que tienes de cada medicina (hacerlo en base a la medicina seleccionada anteriormente)
-  final doses = [
-    'Seleccione una cantidad',
-    '400',
-    '600',
-    '800',
-    '1000',
-  ];
+  final medicines = BackpackDecisionScreen.mochilaSeleccionada;
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +96,12 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const SecondQuestionHtml(),
+            SecondQuestionHtml(
+              pregunta: question,
+              descripcion: description,
+            ),
             //Widget que muestra la 'mochila' y la tabla dinamica
-            MedicinesForm(medicines: medicines, numberMedicines: doses),
+            MedicinesForm(medicines: medicines),
             //Boton de confirmar
             Padding(
               padding: const EdgeInsets.only(top: 10),

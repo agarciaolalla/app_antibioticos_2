@@ -4,12 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:app_antibioticos/models/models.dart';
 
 class MedicinesForm extends StatefulWidget {
-  const MedicinesForm(
-      {Key? key, required this.medicines, required this.numberMedicines})
-      : super(key: key);
+  const MedicinesForm({Key? key, required this.medicines}) : super(key: key);
 
-  final List<String> medicines;
-  final List<String> numberMedicines;
+  final List medicines;
 
   @override
   State<MedicinesForm> createState() => _MedicinesFormState();
@@ -19,6 +16,7 @@ class _MedicinesFormState extends State<MedicinesForm> {
   final _formKey = GlobalKey<FormState>();
   TableValues values = TableValues();
   List<TableValues> selectedValues = [];
+  List<String> medicineNames = [];
 
   //Controladores de los TextField
   TextEditingController intervaleDosesController = TextEditingController();
@@ -29,7 +27,13 @@ class _MedicinesFormState extends State<MedicinesForm> {
   Widget build(BuildContext context) {
     //Variables que cambiaran los valores los desplegables
     String _valueMedicines = 'Seleccione un medicamento';
-    String _valueDose = 'Seleccione una cantidad';
+
+    //Rellenamos el array para mostrar los nombres de los medicamentos
+    if (medicineNames.isEmpty) {
+      fillMedicineNames();
+      print(widget.medicines);
+      print(medicineNames);
+    }
 
     //Generamos la tabla donde mostraremos los valores seleccionados
     Widget bodyData() => FittedBox(
@@ -41,14 +45,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
                 label: Center(
                   child: Text(
                     'Antibiótico',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-              ),
-              DataColumn(
-                label: Center(
-                  child: Text(
-                    'Cantidad (mg)',
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -85,14 +81,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
                         DataCell(
                           Center(
                             child: Text(
-                              medicine.doses,
-                              style: const TextStyle(fontSize: 20),
-                            ),
-                          ),
-                        ),
-                        DataCell(
-                          Center(
-                            child: Text(
                               medicine.intervaleDoses +
                                   '/' +
                                   medicine.intervaleHours,
@@ -119,7 +107,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
           ),
         );
 
-// Antibiotico, Cantidad Mg, Intervalo (c/hora), Dias
     return Form(
       key: _formKey,
       child: Padding(
@@ -132,8 +119,8 @@ class _MedicinesFormState extends State<MedicinesForm> {
                   const InputDecoration(labelText: 'Medicamentos disponibles'),
               value: _valueMedicines,
               icon: const Icon(Icons.arrow_drop_down),
-              items: widget.medicines
-                  .map<DropdownMenuItem<String>>((String value) {
+              items:
+                  medicineNames.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(
@@ -150,35 +137,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
               validator: (value) {
                 if (value == 'Seleccione un medicamento') {
                   return 'Por favor, seleccione un medicamento';
-                }
-                return null;
-              },
-            ),
-            //Espacio entre los campos
-            const SizedBox(height: 20),
-            //Desplegable de los mg disponibles del antibiotico.
-            DropdownButtonFormField(
-              decoration: const InputDecoration(labelText: 'Cantidad (mg)'),
-              value: _valueDose,
-              icon: const Icon(Icons.arrow_drop_down),
-              items: widget.numberMedicines
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                  ),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  _valueDose = newValue!;
-                  values.doses = newValue;
-                });
-              },
-              validator: (value) {
-                if (value == 'Seleccione una cantidad') {
-                  return 'Por favor, seleccione una cantidad';
                 }
                 return null;
               },
@@ -303,5 +261,15 @@ class _MedicinesFormState extends State<MedicinesForm> {
     setState(() {
       selectedValues.remove(value);
     });
+  }
+
+  void fillMedicineNames() {
+    medicineNames.add('Seleccione un medicamento');
+    for (int i = 0; i < widget.medicines.length; i++) {
+      int number = int.parse(widget.medicines[i]["numero"]);
+      if (number > 0) {
+        medicineNames.add(widget.medicines[i]["nombre"]);
+      }
+    }
   }
 }

@@ -97,7 +97,7 @@ class ThirdQuestion extends StatelessWidget {
               ),
             ),
             //Widget que muestra la 'mochila' y la tabla dinamica
-            MedicinesForm(medicines: medicines, numberMedicines: doses),
+            MedicinesForm(medicines: medicines),
             //Boton de confirmar
             Padding(
               padding: const EdgeInsets.only(top: 10),

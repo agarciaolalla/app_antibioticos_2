@@ -1,6 +1,5 @@
-import 'dart:developer';
-
-import 'package:app_antibioticos/widgets/widgets.dart';
+import 'package:app_antibioticos/html/html.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -8,9 +7,12 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:app_antibioticos/utilidades/constantes.dart';
+import 'package:app_antibioticos/widgets/widgets.dart';
 
 class BackpackDecisionScreen extends StatefulWidget {
   const BackpackDecisionScreen({Key? key}) : super(key: key);
+
+  static List mochilaSeleccionada = [];
   @override
   State<BackpackDecisionScreen> createState() => _BackpackDecisionScreenState();
 }
@@ -37,82 +39,90 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
   bool copiar = false;
   List contadorItems = [];
   List mochilaCompleta = [];
-  final List mochilaSeleccionada = [];
+  //static List mochilaSeleccionada = [];
 
   @override
   Widget build(BuildContext context) {
-    if (copiar == false) {
-      for (var i = 0; i < mochilaCompleta.length; i++) {
-        mochilaSeleccionada
-            .add({"nombre": mochilaCompleta[i]["nombre"], "numero": "0"});
-        contadorItems.add(0);
-      }
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Seleccion de medicamentos'),
       ),
-      body: Column(
-        children: [
-          //ToDo: Implementacion de html via rest (widget para cada info)
-          const InfoHtmlModel(),
-          ListView.builder(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: mochilaCompleta.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(mochilaSeleccionada[index]["nombre"]),
-                trailing: SizedBox(
-                  height: 150,
-                  width: 150,
-                  child: Row(
-                    children: <Widget>[
-                      IconButton(
-                        icon: const Icon(Icons.remove),
+      body: backpackSelection(),
+    );
+  }
+
+  Widget backpackSelection() {
+    if (copiar == false) {
+      for (var i = 0; i < mochilaCompleta.length; i++) {
+        BackpackDecisionScreen.mochilaSeleccionada
+            .add({"nombre": mochilaCompleta[i]["nombre"], "numero": "0"});
+        contadorItems.add(0);
+      }
+    }
+    return Column(
+      children: [
+        const BackpackDecisionHtml(),
+        ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: mochilaCompleta.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(
+                  BackpackDecisionScreen.mochilaSeleccionada[index]["nombre"]),
+              trailing: SizedBox(
+                height: 150,
+                width: 150,
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: const Icon(Icons.remove),
+                      onPressed: () => setState(() {
+                        copiar = true;
+                        if (contadorItems[index] > 0) {
+                          contadorItems[index]--;
+                        }
+                      }),
+                    ),
+                    Text(contadorItems[index].toString()),
+                    IconButton(
+                        icon: const Icon(Icons.add),
                         onPressed: () => setState(() {
-                          copiar = true;
-                          if (contadorItems[index] > 0) {
-                            contadorItems[index]--;
-                          }
-                        }),
-                      ),
-                      Text(contadorItems[index].toString()),
-                      IconButton(
-                          icon: const Icon(Icons.add),
-                          onPressed: () => setState(() {
-                                copiar = true;
-                                if (contadorItems[index] !=
-                                    int.parse(
-                                        mochilaCompleta[index]["numero"])) {
-                                  contadorItems[index]++;
-                                }
-                              })),
-                    ],
-                  ),
+                              copiar = true;
+                              if (contadorItems[index] !=
+                                  int.parse(mochilaCompleta[index]["numero"])) {
+                                contadorItems[index]++;
+                              }
+                            })),
+                  ],
                 ),
-              );
-            },
+              ),
+            );
+          },
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            copiar = true;
+            for (var i = 0;
+                i < BackpackDecisionScreen.mochilaSeleccionada.length;
+                i++) {
+              BackpackDecisionScreen.mochilaSeleccionada[i]["numero"] =
+                  contadorItems[i].toString();
+            }
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SecondQuestionScreen()));
+          },
+          child: const Text(
+            'Confirmar',
+            style: TextStyle(fontSize: 20),
           ),
-          const SizedBox(
-            height: 40,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              copiar = true;
-              log("hola" + mochilaSeleccionada.length.toString());
-              for (var i = 0; i < mochilaSeleccionada.length; i++) {
-                mochilaSeleccionada[i]["numero"] = contadorItems[i].toString();
-              }
-            },
-            child: const Text(
-              'Confirmar',
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
