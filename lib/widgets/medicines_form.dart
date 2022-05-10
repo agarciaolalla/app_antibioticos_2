@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -249,7 +250,9 @@ class _MedicinesFormState extends State<MedicinesForm> {
               padding: const EdgeInsets.only(top: 10),
               child: ElevatedButton(
                 onPressed: () {
+                  print(medicinesUsed);
                   setBackpack(medicinesUsed);
+                  print(BackpackDecisionScreen.mochilaSeleccionada);
                 },
                 child: const Text(
                   'Confirmar',
@@ -338,12 +341,17 @@ class _MedicinesFormState extends State<MedicinesForm> {
 
   //Metodo para quitar cantidad de antibioticos de la mochila al usarlos
   void setBackpack(List medicinesUsed) {
-    for (int i = 0; i < widget.medicines.length; i++) {
+    for (int i = 0;
+        i < BackpackDecisionScreen.mochilaSeleccionada.length;
+        i++) {
       for (int j = 0; i < medicinesUsed.length; j++) {
-        if (widget.medicines[i]["nombre"] == medicinesUsed[j]["nombre"]) {
+        if (BackpackDecisionScreen.mochilaSeleccionada[i]["nombre"] ==
+            medicinesUsed[j]["nombre"]) {
           int used = int.parse(medicinesUsed[j]["numero"]);
-          int total = int.parse(widget.medicines[i]["numero"]);
-          widget.medicines[i]["numero"] = (total - used).toString();
+          int total = int.parse(
+              BackpackDecisionScreen.mochilaSeleccionada[i]["numero"]);
+          BackpackDecisionScreen.mochilaSeleccionada[i]["numero"] =
+              (total - used).toString();
         }
       }
     }
