@@ -13,15 +13,7 @@ class FirstQuestion extends StatefulWidget {
   State<StatefulWidget> createState() => HomeFirstQuestion();
 }
 
-class HomeFirstQuestion extends State<FirstQuestion>
-    with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-
-  String get countText {
-    Duration count = controller.duration! * controller.value;
-    return '${count.inHours}:${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
-  }
-
+class HomeFirstQuestion extends State<FirstQuestion> {
   String idcaso = "1";
   List listAnswer = [];
   String question = "";
@@ -38,16 +30,6 @@ class HomeFirstQuestion extends State<FirstQuestion>
     super.initState();
     getFirstAnswer();
     getFirstQuestion();
-    TimerState();
-    controller =
-        AnimationController(duration: const Duration(seconds: 5), vsync: this);
-    controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 
   Future getFirstAnswer() async {
@@ -109,12 +91,8 @@ class HomeFirstQuestion extends State<FirstQuestion>
         backgroundColor: Colors.indigo[900],
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        const Timer(),
         Text(question),
-        Center(
-            child: AnimatedBuilder(
-          animation: controller,
-          builder: (context, child) => Text(countText),
-        )),
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,

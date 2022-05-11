@@ -18,8 +18,8 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    controller =
-        AnimationController(duration: const Duration(seconds: 5), vsync: this);
+    controller = AnimationController(
+        duration: const Duration(seconds: 900), vsync: this);
     controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
   }
 
