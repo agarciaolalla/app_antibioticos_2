@@ -93,6 +93,8 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            const Life(),
+            const Timer(),
             SecondQuestionHtml(
               pregunta: question,
               descripcion: description,

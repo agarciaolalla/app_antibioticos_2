@@ -91,6 +91,7 @@ class HomeFirstQuestion extends State<FirstQuestion> {
         backgroundColor: Colors.indigo[900],
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        const Life(),
         const Timer(),
         Text(question),
         ListView.builder(
