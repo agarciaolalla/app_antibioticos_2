@@ -1,26 +1,52 @@
-// ignore_for_file: deprecated_member_use
-import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-class ThirdQuestion extends StatelessWidget {
-  ThirdQuestion({Key? key}) : super(key: key);
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
-  //ToDo Lista de medicinas que hay en la mochila
-  final medicines = [
-    'Seleccione un medicamento',
-    'Ibuprofeno',
-    'Paracetamol',
-    'Aspirina',
-    'Omeoprazol'
-  ];
-  //ToDo Tipo de dosis que tienes de cada medicina (hacerlo en base a la medicina seleccionada anteriormente)
-  final doses = [
-    'Seleccione una cantidad',
-    '400',
-    '600',
-    '800',
-    '1000',
-  ];
+import 'package:app_antibioticos/widgets/widgets.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
+import 'package:app_antibioticos/html/html.dart';
+
+class ThirdQuestionScreen extends StatefulWidget {
+  const ThirdQuestionScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ThirdQuestionScreen> createState() => _ThirdQuestionScreenState();
+}
+
+class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
+  @override
+  void initState() {
+    super.initState();
+    getSecondQuestion();
+  }
+
+  String idCaso = "1";
+  String info72h = "";
+  String controlAnalysis = "";
+  String aditionalInfo = "";
+
+  Future getSecondQuestion() async {
+    List returnList = [];
+    Map data;
+    http.Response response =
+        await http.get(Uri.parse(conexion1 + "/api/thirdquestion"));
+    // debugPrint(response.body);
+    data = json.decode(response.body);
+
+    setState(() {
+      returnList = data['thirdquestion'];
+
+      for (int i = 0; i < returnList.length; i++) {
+        if (returnList[i]["idcaso"] == idCaso) {
+          info72h = returnList[i]["informacion72h"];
+          controlAnalysis = returnList[i]["analisisDeControl"];
+          aditionalInfo = returnList[i]["informacionAdicional"];
+        }
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,27 +114,13 @@ class ThirdQuestion extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            //Informacion de la pregunta
-            const Padding(
-              padding: EdgeInsets.all(30),
-              child: Text(
-                'Minim officia sint deserunt culpa velit elit voluptate Lorem. Labore amet cillum magna cillum enim adipisicing do veniam ea Lorem voluptate sunt cillum. Cupidatat ipsum culpa aliquip ipsum laboris labore eiusmod esse magna deserunt tempor Lorem cillum qui. Minim occaecat id laboris non reprehenderit velit deserunt eiusmod. Laborum nulla dolor et consectetur id aute magna commodo aliqua eiusmod nostrud pariatur. Qui officia ipsum ex pariatur. Consequat enim consectetur cillum culpa Lorem cillum adipisicing eu Lorem fugiat aliqua adipisicing consequat quis. Irure ea excepteur ea est labore laborum occaecat irure incididunt aliqua laboris consectetur excepteur excepteur. Irure dolor est anim sunt consectetur consectetur. Cupidatat cillum eu velit enim officia et mollit ex elit.',
-                style: TextStyle(fontSize: 20),
-              ),
+            ThirdQuestionHtml(
+              informacion72h: info72h,
+              analisisDeControl: controlAnalysis,
+              informacionAdicional: aditionalInfo,
             ),
             //Widget que muestra la 'mochila' y la tabla dinamica
-            MedicinesForm(medicines: medicines),
-            //Boton de confirmar
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Confirmar',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-            )
+            const MedicinesForm()
           ],
         ),
       ),

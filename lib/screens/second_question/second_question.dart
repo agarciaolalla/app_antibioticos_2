@@ -7,7 +7,6 @@ import 'dart:convert';
 import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/html/html.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
-import 'package:app_antibioticos/screens/screens.dart';
 
 class SecondQuestionScreen extends StatefulWidget {
   const SecondQuestionScreen({Key? key}) : super(key: key);
@@ -46,8 +45,6 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
       }
     });
   }
-
-  final medicines = BackpackDecisionScreen.mochilaSeleccionada;
 
   @override
   Widget build(BuildContext context) {
@@ -101,18 +98,7 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
               descripcion: description,
             ),
             //Widget que muestra la 'mochila' y la tabla dinamica
-            MedicinesForm(medicines: medicines),
-            //Boton de confirmar
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Confirmar',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-            )
+            const MedicinesForm()
           ],
         ),
       ),
