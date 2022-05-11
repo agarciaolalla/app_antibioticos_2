@@ -5,6 +5,7 @@ import 'dart:convert';
 
 import 'package:app_antibioticos/screens/screens.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
+import 'package:app_antibioticos/widgets/widgets.dart';
 
 class FirstQuestion extends StatefulWidget {
   const FirstQuestion({Key? key}) : super(key: key);
@@ -12,12 +13,13 @@ class FirstQuestion extends StatefulWidget {
   State<StatefulWidget> createState() => HomeFirstQuestion();
 }
 
-class HomeFirstQuestion extends State<FirstQuestion> {
-  @override
-  void initState() {
-    super.initState();
-    getFirstAnswer();
-    getFirstQuestion();
+class HomeFirstQuestion extends State<FirstQuestion>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  String get countText {
+    Duration count = controller.duration! * controller.value;
+    return '${count.inHours}:${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
   String idcaso = "1";
@@ -30,6 +32,23 @@ class HomeFirstQuestion extends State<FirstQuestion> {
   List comprobarRespuesta = [];
   int x = 0;
   bool notifyswitch = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getFirstAnswer();
+    getFirstQuestion();
+    TimerState();
+    controller =
+        AnimationController(duration: const Duration(seconds: 5), vsync: this);
+    controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   Future getFirstAnswer() async {
     List returnlista = [];
@@ -91,6 +110,11 @@ class HomeFirstQuestion extends State<FirstQuestion> {
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         Text(question),
+        Center(
+            child: AnimatedBuilder(
+          animation: controller,
+          builder: (context, child) => Text(countText),
+        )),
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
