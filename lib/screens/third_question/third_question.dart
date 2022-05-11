@@ -122,7 +122,7 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
               informacionAdicional: aditionalInfo,
             ),
             //Widget que muestra la 'mochila' y la tabla dinamica
-            const MedicinesForm()
+            const MedicinesForm(idPregunta: 3)
           ],
         ),
       ),
