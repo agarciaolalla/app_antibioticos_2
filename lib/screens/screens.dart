@@ -10,3 +10,4 @@ export 'package:app_antibioticos/screens/second_question/second_question.dart';
 export 'package:app_antibioticos/screens/third_question/third_question_feedback.dart';
 export 'package:app_antibioticos/screens/third_question/third_question.dart';
 export 'package:app_antibioticos/screens/final_screen.dart';
+export 'package:app_antibioticos/screens/initial_info.dart';

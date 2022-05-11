@@ -81,7 +81,7 @@ class _RegisterContact extends State<Login> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FirstQuestion()),
+                                builder: (context) => const HomeScreen()),
                           );
                         });
                       } else {
@@ -126,7 +126,7 @@ class _RegisterContact extends State<Login> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const FirstQuestion()),
+                              builder: (context) => const HomeScreen()),
                         );
                       }
                     }

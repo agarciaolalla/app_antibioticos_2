@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const SecondQuestionScreen()),
+                                      const BackpackDecisionScreen()),
                             );
                           },
                         ),
@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Ranking()),
+                                  builder: (context) => const Ranking()),
                             );
                           },
                         ),

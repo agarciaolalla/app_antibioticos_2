@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
@@ -7,13 +8,13 @@ import 'package:app_antibioticos/screens/screens.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/widgets/widgets.dart';
 
-class FirstQuestion extends StatefulWidget {
-  const FirstQuestion({Key? key}) : super(key: key);
+class FirstQuestionScreen extends StatefulWidget {
+  const FirstQuestionScreen({Key? key}) : super(key: key);
   @override
   State<StatefulWidget> createState() => HomeFirstQuestion();
 }
 
-class HomeFirstQuestion extends State<FirstQuestion> {
+class HomeFirstQuestion extends State<FirstQuestionScreen> {
   String idcaso = "1";
   List listAnswer = [];
   String question = "";

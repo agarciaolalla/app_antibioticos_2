@@ -1,4 +1,3 @@
-import 'package:app_antibioticos/models/thirdquestion_model.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -28,7 +27,6 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
     Map data;
     http.Response response =
         await http.get(Uri.parse(conexion1 + "/api/backpack"));
-    // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
@@ -39,7 +37,6 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
   bool copiar = false;
   List contadorItems = [];
   List mochilaCompleta = [];
-  //static List mochilaSeleccionada = [];
 
   @override
   Widget build(BuildContext context) {
@@ -114,10 +111,8 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
                 BackpackDecisionScreen.mochilaSeleccionada[i]["numero"] =
                     contadorItems[i].toString();
               }
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ThirdQuestionScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => InitialInfoScreen()));
             },
             child: const Text(
               'Confirmar',
