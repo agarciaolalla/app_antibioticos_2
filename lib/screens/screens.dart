@@ -1,5 +1,3 @@
-export 'package:app_antibioticos/screens/feedbacks_and_info/first_question_info.dart';
-export 'package:app_antibioticos/screens/feedbacks_and_info/initial_info.dart';
 export 'package:app_antibioticos/screens/final_screen.dart';
 export 'package:app_antibioticos/screens/first_question/first_question_feedback.dart';
 export 'package:app_antibioticos/screens/first_question/first_question.dart';

@@ -1,9 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class Timer extends StatefulWidget {
-  const Timer({Key? key, required this.medicines}) : super(key: key);
-
-  final List medicines;
+  const Timer({Key? key}) : super(key: key);
 
   @override
   State<Timer> createState() => TimerState();
@@ -31,19 +29,13 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-  Widget bodyData() {
-    Center(
-        child: AnimatedBuilder(
-      animation: controller,
-      builder: (context, child) => Text(countText),
-    ));
-
-    throw UnimplementedError();
-  }
-
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Center(
+      child: AnimatedBuilder(
+        animation: controller,
+        builder: (context, child) => Text(countText),
+      ),
+    );
   }
 }

@@ -114,6 +114,7 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            const Timer(),
             ThirdQuestionHtml(
               informacion72h: info72h,
               analisisDeControl: controlAnalysis,
