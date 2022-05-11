@@ -59,70 +59,73 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
         contadorItems.add(0);
       }
     }
-    return Column(
-      children: [
-        const BackpackDecisionHtml(),
-        ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: mochilaCompleta.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(
-                  BackpackDecisionScreen.mochilaSeleccionada[index]["nombre"]),
-              trailing: SizedBox(
-                height: 150,
-                width: 150,
-                child: Row(
-                  children: <Widget>[
-                    IconButton(
-                      icon: const Icon(Icons.remove),
-                      onPressed: () => setState(() {
-                        copiar = true;
-                        if (contadorItems[index] > 0) {
-                          contadorItems[index]--;
-                        }
-                      }),
-                    ),
-                    Text(contadorItems[index].toString()),
-                    IconButton(
-                        icon: const Icon(Icons.add),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const BackpackDecisionHtml(),
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: mochilaCompleta.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(BackpackDecisionScreen.mochilaSeleccionada[index]
+                    ["nombre"]),
+                trailing: SizedBox(
+                  height: 150,
+                  width: 150,
+                  child: Row(
+                    children: <Widget>[
+                      IconButton(
+                        icon: const Icon(Icons.remove),
                         onPressed: () => setState(() {
-                              copiar = true;
-                              if (contadorItems[index] !=
-                                  int.parse(mochilaCompleta[index]["numero"])) {
-                                contadorItems[index]++;
-                              }
-                            })),
-                  ],
+                          copiar = true;
+                          if (contadorItems[index] > 0) {
+                            contadorItems[index]--;
+                          }
+                        }),
+                      ),
+                      Text(contadorItems[index].toString()),
+                      IconButton(
+                          icon: const Icon(Icons.add),
+                          onPressed: () => setState(() {
+                                copiar = true;
+                                if (contadorItems[index] !=
+                                    int.parse(
+                                        mochilaCompleta[index]["numero"])) {
+                                  contadorItems[index]++;
+                                }
+                              })),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
-        ),
-        const SizedBox(
-          height: 40,
-        ),
-        ElevatedButton(
-          onPressed: () {
-            copiar = true;
-            for (var i = 0;
-                i < BackpackDecisionScreen.mochilaSeleccionada.length;
-                i++) {
-              BackpackDecisionScreen.mochilaSeleccionada[i]["numero"] =
-                  contadorItems[i].toString();
-            }
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ThirdQuestionScreen()));
-          },
-          child: const Text(
-            'Confirmar',
-            style: TextStyle(fontSize: 20),
+              );
+            },
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 40,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              copiar = true;
+              for (var i = 0;
+                  i < BackpackDecisionScreen.mochilaSeleccionada.length;
+                  i++) {
+                BackpackDecisionScreen.mochilaSeleccionada[i]["numero"] =
+                    contadorItems[i].toString();
+              }
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ThirdQuestionScreen()));
+            },
+            child: const Text(
+              'Confirmar',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

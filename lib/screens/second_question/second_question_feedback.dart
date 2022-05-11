@@ -1,16 +1,38 @@
-// ignore_for_file: deprecated_member_use
-import 'package:app_antibioticos/main.dart';
-import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
-class SecondQuestionFeedbackScreen extends StatelessWidget {
-  const SecondQuestionFeedbackScreen({Key? key}) : super(key: key);
+import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+
+import 'package:app_antibioticos/html/html.dart';
+import 'package:app_antibioticos/screens/screens.dart';
+
+class SecondFeedbackScreen extends StatelessWidget {
+  SecondFeedbackScreen({Key? key}) : super(key: key);
+
+  final String secondFeedbackHtml = Case1Html().secondFeedback;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Second question guide"),
+        title: const Text('Feedback segunda pregunta'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: HtmlWidget(secondFeedbackHtml),
+            ),
+            FloatingActionButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ThirdQuestionScreen(),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

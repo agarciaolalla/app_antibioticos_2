@@ -9,6 +9,8 @@ import 'package:app_antibioticos/screens/screens.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 
 class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _RegisterContact();
 }
@@ -124,7 +126,7 @@ class _RegisterContact extends State<Login> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => FirstQuestion()),
+                              builder: (context) => const FirstQuestion()),
                         );
                       }
                     }

@@ -97,8 +97,8 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
               pregunta: question,
               descripcion: description,
             ),
-            //Widget que muestra la 'mochila' y la tabla dinamica
-            const MedicinesForm()
+            //Widget que muestra la 'mochila' y la tabla dinamica (le pasamos que pregunta es para el navigator)
+            const MedicinesForm(idPregunta: 2)
           ],
         ),
       ),

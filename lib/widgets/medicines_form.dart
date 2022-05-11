@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:app_antibioticos/models/models.dart';
 
 class MedicinesForm extends StatefulWidget {
-  const MedicinesForm({Key? key}) : super(key: key);
+  const MedicinesForm({Key? key, required this.idPregunta}) : super(key: key);
 
-  //final medicines = BackpackDecisionScreen.mochilaSeleccionada;
+  final int idPregunta;
 
   @override
   State<MedicinesForm> createState() => _MedicinesFormState();
@@ -37,8 +37,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
     //Rellenamos el array para mostrar los nombres de los medicamentos
     if (medicineNames.isEmpty) {
       fillMedicineNames();
-      print(BackpackDecisionScreen.mochilaSeleccionada);
-      print(medicineNames);
     }
 
     //Generamos la tabla donde mostraremos los valores seleccionados
@@ -250,8 +248,22 @@ class _MedicinesFormState extends State<MedicinesForm> {
               padding: const EdgeInsets.only(top: 10),
               child: ElevatedButton(
                 onPressed: () {
-                  print(medicinesUsed);
                   setBackpack(medicinesUsed);
+                  if (widget.idPregunta == 2) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SecondFeedbackScreen(),
+                      ),
+                    );
+                  } else if (widget.idPregunta == 3) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ThirdFeedbackScreen(),
+                      ),
+                    );
+                  }
                 },
                 child: const Text(
                   'Confirmar',

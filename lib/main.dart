@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       title: 'App Antibióticos',
       routes: appRoutes,
-      initialRoute: 'firstquestion',
+      initialRoute: 'login',
     );
   }
 }
