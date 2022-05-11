@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:app_antibioticos/models/models.dart';
 
 class MedicinesForm extends StatefulWidget {
-  const MedicinesForm({Key? key, required this.medicines}) : super(key: key);
+  const MedicinesForm({Key? key}) : super(key: key);
 
-  final List medicines;
+  //final medicines = BackpackDecisionScreen.mochilaSeleccionada;
 
   @override
   State<MedicinesForm> createState() => _MedicinesFormState();
@@ -37,7 +37,7 @@ class _MedicinesFormState extends State<MedicinesForm> {
     //Rellenamos el array para mostrar los nombres de los medicamentos
     if (medicineNames.isEmpty) {
       fillMedicineNames();
-      print(widget.medicines);
+      print(BackpackDecisionScreen.mochilaSeleccionada);
       print(medicineNames);
     }
 
@@ -252,7 +252,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
                 onPressed: () {
                   print(medicinesUsed);
                   setBackpack(medicinesUsed);
-                  print(BackpackDecisionScreen.mochilaSeleccionada);
                 },
                 child: const Text(
                   'Confirmar',
@@ -320,10 +319,14 @@ class _MedicinesFormState extends State<MedicinesForm> {
   //Metodo para rellenar el array con los nombres (dropdown button)
   void fillMedicineNames() {
     medicineNames.add('Seleccione un medicamento');
-    for (int i = 0; i < widget.medicines.length; i++) {
-      int number = int.parse(widget.medicines[i]["numero"]);
+    for (int i = 0;
+        i < BackpackDecisionScreen.mochilaSeleccionada.length;
+        i++) {
+      int number =
+          int.parse(BackpackDecisionScreen.mochilaSeleccionada[i]["numero"]);
       if (number > 0) {
-        medicineNames.add(widget.medicines[i]["nombre"]);
+        medicineNames
+            .add(BackpackDecisionScreen.mochilaSeleccionada[i]["nombre"]);
       }
     }
   }
@@ -331,9 +334,13 @@ class _MedicinesFormState extends State<MedicinesForm> {
   //Metodo para obtener el numero de medicinas disponible
   int getNumberMedicines(String medicineName) {
     int number = 0;
-    for (int i = 0; i < widget.medicines.length; i++) {
-      if (widget.medicines[i]['nombre'] == medicineName) {
-        number = int.parse(widget.medicines[i]['numero']);
+    for (int i = 0;
+        i < BackpackDecisionScreen.mochilaSeleccionada.length;
+        i++) {
+      if (BackpackDecisionScreen.mochilaSeleccionada[i]['nombre'] ==
+          medicineName) {
+        number =
+            int.parse(BackpackDecisionScreen.mochilaSeleccionada[i]['numero']);
       }
     }
     return number;
@@ -344,7 +351,7 @@ class _MedicinesFormState extends State<MedicinesForm> {
     for (int i = 0;
         i < BackpackDecisionScreen.mochilaSeleccionada.length;
         i++) {
-      for (int j = 0; i < medicinesUsed.length; j++) {
+      for (int j = 0; j < medicinesUsed.length; j++) {
         if (BackpackDecisionScreen.mochilaSeleccionada[i]["nombre"] ==
             medicinesUsed[j]["nombre"]) {
           int used = int.parse(medicinesUsed[j]["numero"]);
@@ -355,6 +362,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
         }
       }
     }
-    print(widget.medicines);
+    print(BackpackDecisionScreen.mochilaSeleccionada);
   }
 }

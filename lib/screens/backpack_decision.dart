@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/models/thirdquestion_model.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -114,7 +115,7 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const SecondQuestionScreen()));
+                    builder: (context) => const ThirdQuestionScreen()));
           },
           child: const Text(
             'Confirmar',
