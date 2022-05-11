@@ -16,7 +16,7 @@ class LifeState extends State<Life> {
       margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: LinearProgressIndicator(
         backgroundColor: Colors.red,
-        minHeight: 20,
+        minHeight: 15,
         valueColor: const AlwaysStoppedAnimation(Colors.green),
         value: vida,
       ),

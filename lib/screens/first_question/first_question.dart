@@ -15,7 +15,6 @@ class FirstQuestionScreen extends StatefulWidget {
 }
 
 class HomeFirstQuestion extends State<FirstQuestionScreen> {
-  String idcaso = "1";
   List listAnswer = [];
   String question = "";
   bool comprobar = false;
@@ -45,7 +44,7 @@ class HomeFirstQuestion extends State<FirstQuestionScreen> {
       returnlista = data['firstanswer'];
 
       for (var i = 0; i < returnlista.length; i++) {
-        if (returnlista[i]["idcaso"] == idcaso) {
+        if (returnlista[i]["idcaso"] == idcaso.toString()) {
           listAnswer.add(returnlista[i]);
         }
       }
@@ -87,10 +86,7 @@ class HomeFirstQuestion extends State<FirstQuestionScreen> {
       rojo = Colors.white;
     }
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Primera Pregunta"),
-        backgroundColor: Colors.indigo[900],
-      ),
+      appBar: AppBar(title: const Text("Primera Pregunta")),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         const Life(),
         const Timer(),

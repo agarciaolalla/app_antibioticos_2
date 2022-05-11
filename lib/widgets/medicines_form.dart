@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:app_antibioticos/models/models.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
 
 class MedicinesForm extends StatefulWidget {
   const MedicinesForm({Key? key, required this.idPregunta}) : super(key: key);
@@ -331,14 +332,10 @@ class _MedicinesFormState extends State<MedicinesForm> {
   //Metodo para rellenar el array con los nombres (dropdown button)
   void fillMedicineNames() {
     medicineNames.add('Seleccione un medicamento');
-    for (int i = 0;
-        i < BackpackDecisionScreen.mochilaSeleccionada.length;
-        i++) {
-      int number =
-          int.parse(BackpackDecisionScreen.mochilaSeleccionada[i]["numero"]);
+    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+      int number = int.parse(mochilaSeleccionada[i]["numero"]);
       if (number > 0) {
-        medicineNames
-            .add(BackpackDecisionScreen.mochilaSeleccionada[i]["nombre"]);
+        medicineNames.add(mochilaSeleccionada[i]["nombre"]);
       }
     }
   }
@@ -346,13 +343,9 @@ class _MedicinesFormState extends State<MedicinesForm> {
   //Metodo para obtener el numero de medicinas disponible
   int getNumberMedicines(String medicineName) {
     int number = 0;
-    for (int i = 0;
-        i < BackpackDecisionScreen.mochilaSeleccionada.length;
-        i++) {
-      if (BackpackDecisionScreen.mochilaSeleccionada[i]['nombre'] ==
-          medicineName) {
-        number =
-            int.parse(BackpackDecisionScreen.mochilaSeleccionada[i]['numero']);
+    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+      if (mochilaSeleccionada[i]['nombre'] == medicineName) {
+        number = int.parse(mochilaSeleccionada[i]['numero']);
       }
     }
     return number;
@@ -360,20 +353,15 @@ class _MedicinesFormState extends State<MedicinesForm> {
 
   //Metodo para quitar cantidad de antibioticos de la mochila al usarlos
   void setBackpack(List medicinesUsed) {
-    for (int i = 0;
-        i < BackpackDecisionScreen.mochilaSeleccionada.length;
-        i++) {
+    for (int i = 0; i < mochilaSeleccionada.length; i++) {
       for (int j = 0; j < medicinesUsed.length; j++) {
-        if (BackpackDecisionScreen.mochilaSeleccionada[i]["nombre"] ==
-            medicinesUsed[j]["nombre"]) {
+        if (mochilaSeleccionada[i]["nombre"] == medicinesUsed[j]["nombre"]) {
           int used = int.parse(medicinesUsed[j]["numero"]);
-          int total = int.parse(
-              BackpackDecisionScreen.mochilaSeleccionada[i]["numero"]);
-          BackpackDecisionScreen.mochilaSeleccionada[i]["numero"] =
-              (total - used).toString();
+          int total = int.parse(mochilaSeleccionada[i]["numero"]);
+          mochilaSeleccionada[i]["numero"] = (total - used).toString();
         }
       }
     }
-    print(BackpackDecisionScreen.mochilaSeleccionada);
+    print(mochilaSeleccionada);
   }
 }

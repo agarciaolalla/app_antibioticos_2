@@ -11,7 +11,6 @@ import 'package:app_antibioticos/screens/screens.dart';
 class BackpackDecisionScreen extends StatefulWidget {
   const BackpackDecisionScreen({Key? key}) : super(key: key);
 
-  static List mochilaSeleccionada = [];
   @override
   State<BackpackDecisionScreen> createState() => _BackpackDecisionScreenState();
 }
@@ -51,7 +50,7 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
   Widget backpackSelection() {
     if (copiar == false) {
       for (var i = 0; i < mochilaCompleta.length; i++) {
-        BackpackDecisionScreen.mochilaSeleccionada
+        mochilaSeleccionada
             .add({"nombre": mochilaCompleta[i]["nombre"], "numero": "0"});
         contadorItems.add(0);
       }
@@ -66,8 +65,7 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
             itemCount: mochilaCompleta.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text(BackpackDecisionScreen.mochilaSeleccionada[index]
-                    ["nombre"]),
+                title: Text(mochilaSeleccionada[index]["nombre"]),
                 trailing: SizedBox(
                   height: 150,
                   width: 150,
@@ -105,11 +103,8 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
           ElevatedButton(
             onPressed: () {
               copiar = true;
-              for (var i = 0;
-                  i < BackpackDecisionScreen.mochilaSeleccionada.length;
-                  i++) {
-                BackpackDecisionScreen.mochilaSeleccionada[i]["numero"] =
-                    contadorItems[i].toString();
+              for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                mochilaSeleccionada[i]["numero"] = contadorItems[i].toString();
               }
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => InitialInfoScreen()));
