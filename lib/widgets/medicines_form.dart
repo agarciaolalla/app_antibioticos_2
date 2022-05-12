@@ -205,16 +205,23 @@ class _MedicinesFormState extends State<MedicinesForm> {
               },
               //Comprobamos si se ha introducido unos valores correctos
               validator: (value) {
-                int disponible = getNumberMedicines(_valueMedicines);
-                int usado = (24 /
-                        int.parse(intervaleHoursController.text) *
-                        (int.parse(intervaleDosesController.text) *
-                            int.parse(daysController.text)))
-                    .toInt();
                 if (value == null || value.isEmpty) {
                   return "Introduca la cantidad de dias";
-                } else if (usado > disponible) {
-                  return "No hay suficientes medicamentos en la mochila";
+                } else {
+                  if (intervaleHoursController.text == '' ||
+                      intervaleDosesController.text == '') {
+                    return 'Introduzca los datos restantes';
+                  } else {
+                    int disponible = getNumberMedicines(_valueMedicines);
+                    int usado = (24 /
+                            int.parse(intervaleHoursController.text) *
+                            (int.parse(intervaleDosesController.text) *
+                                int.parse(daysController.text)))
+                        .toInt();
+                    if (usado > disponible) {
+                      return "No hay suficientes medicamentos en la mochila";
+                    }
+                  }
                 }
                 return null;
               },
