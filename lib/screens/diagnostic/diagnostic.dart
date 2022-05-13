@@ -23,6 +23,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
   Color rojo = Colors.white;
   List valorSwitch = [];
   List comprobarRespuesta = [];
+  List colorSolucion = [];
   int x = 0;
   bool notifyswitch = false;
 
@@ -76,16 +77,24 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     if (x == 0) {
       for (var i = 0; i < listAnswer.length; i++) {
         valorSwitch.add(false);
-        comprobarRespuesta.add(true);
+        comprobarRespuesta.add(0);
+        colorSolucion.add(Colors.white);
       }
     }
     if (comprobar == true) {
-      verde = Colors.green;
-      rojo = Colors.red;
-    } else {
-      verde = Colors.white;
-      rojo = Colors.white;
+      for (var i; i < comprobarRespuesta.length; i++) {
+        if (comprobarRespuesta[i] == 0) {
+          colorSolucion.add(Colors.white);
+        }
+        if (comprobarRespuesta[i] == 1) {
+          colorSolucion.add(Colors.green);
+        }
+        if (comprobarRespuesta[i] == 2) {
+          colorSolucion.add(Colors.red);
+        }
+      }
     }
+
     return Scaffold(
       appBar: AppBar(title: const Text("Primera Pregunta")),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -99,10 +108,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           itemBuilder: (BuildContext context, int index) {
             return SwitchListTile.adaptive(
                 activeColor: Colors.indigo,
-                tileColor: comprobarRespuesta[index] != null &&
-                        comprobarRespuesta[index] == false
-                    ? verde
-                    : rojo,
+                tileColor: colorSolucion[index],
                 title: Text(
                     "${listAnswer[index]["respuesta"]} ${listAnswer[index]["solucion"]}"),
                 value: valorSwitch[index],
@@ -119,18 +125,25 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
               for (var i = 0; i < listAnswer.length; i++) {
                 if (valorSwitch[i] == true) {
                   if (listAnswer[i]["solucion"] == "1") {
-                    comprobarRespuesta[i] = true;
+                    comprobarRespuesta[i] = 1;
                   } else {
-                    comprobarRespuesta[i] = false;
+                    comprobarRespuesta[i] = 2;
                   }
                 } else {
-                  if (listAnswer[i]["solucion"] != "1") {
-                    comprobarRespuesta[i] = true;
+                  if (listAnswer[i]["solucion"] == "0") {
+                    comprobarRespuesta[i] = 2;
                   } else {
-                    comprobarRespuesta[i] = false;
+                    comprobarRespuesta[i] = 0;
+                  }
+                  if (comprobarRespuesta[i] == 1) {
+                    points + 2;
+                  }
+                  if (comprobarRespuesta[i] == 2) {
+                    points - 1;
                   }
                 }
               }
+
               comprobar = true;
               x = 1;
               notifyswitch = true;
