@@ -19,6 +19,10 @@ app.use(require('./routes/diagnosticanswer.route'))
 app.use(require('./routes/treatmentquestion.route'))
 app.use(require('./routes/treatmentanswer.route'))
 
+app.use(require('./routes/firsttreatmentfeedback.route'))
+app.use(require('./routes/lasttreatmentfeedback.route'))
+app.use(require('./routes/diagnosticfeedback.route'))
+
 app.use(require('./routes/backpack.route'))
 
 module.exports = app;
