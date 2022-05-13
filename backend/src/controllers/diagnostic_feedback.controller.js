@@ -3,25 +3,25 @@ const caseService = require('../services/diagnostic_feedback.service');
 const guardar = async (req, res) => {
     console.log(req.body);
     res.json({
-        firstanswer: await caseService.guardar(req.body)
+        diagnostic_feedback: await caseService.guardar(req.body)
     })
 }
 
 const consultar = async(req, res) => {
     res.json({
-        firstanswer: await caseService.consultar()
+        diagnostic_feedback: await caseService.consultar()
     })
 }
 
 const modificar = async(req, res) => {
     res.json({
-        firstanswer: await caseService.modificar(req.body)
+        diagnostic_feedback: await caseService.modificar(req.body)
     })
 }
 
 const eliminar = async(req, res) => {
     res.json({
-        firstanswer: await caseService.eliminar(req.params.id)
+        diagnostic_feedback: await caseService.eliminar(req.params.id)
     })
 }
 
