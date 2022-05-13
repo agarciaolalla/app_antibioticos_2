@@ -5,4 +5,4 @@ const caseSchema = new Schema({
  feedback: String
 })
 
-module.exports = model('diagnosticfeedback', caseSchema);
+module.exports = model('diagnostic_feedback', caseSchema);

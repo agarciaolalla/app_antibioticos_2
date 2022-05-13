@@ -6,4 +6,4 @@ const caseSchema = new Schema({
  pregunta: String
 })
 
-module.exports = model('treatmentquestion', caseSchema);
+module.exports = model('treatment_question', caseSchema);

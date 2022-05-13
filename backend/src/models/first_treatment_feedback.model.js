@@ -11,4 +11,4 @@ const caseSchema = new Schema({
  consecuencia: String
 })
 
-module.exports = model('firsttreatmentfeedback', caseSchema);
+module.exports = model('first_treatment_feedback', caseSchema);

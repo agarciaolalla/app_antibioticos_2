@@ -1,12 +1,12 @@
 const { Router } = require('express');
-const { consultar, guardar, modificar, eliminar} = require('../controllers/lasttreatmentfeedback.controller')
+const { consultar, guardar, modificar, eliminar} = require('../controllers/last_treatment_feedback.controller')
 const router = Router();
 
 
-router.get('/api/lasttreatmentfeedback', consultar);
-router.post('/api/lasttreatmentfeedback/registro', guardar);
-router.put('/api/lasttreatmentfeedback/modificar', modificar);
-router.delete('/api/lasttreatmentfeedback/eliminar/:id', eliminar);
+router.get('/api/last_treatment_feedback', consultar);
+router.post('/api/last_treatment_feedback/registro', guardar);
+router.put('/api/last_treatment_feedback/modificar', modificar);
+router.delete('/api/last_treatment_feedback/eliminar/:id', eliminar);
 
 
 

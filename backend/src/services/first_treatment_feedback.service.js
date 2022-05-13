@@ -1,4 +1,4 @@
-const caseModel = require('../models/firstreatmentfeedback.model');
+const caseModel = require('../models/first_treatment_feedback.model');
 
 
 
