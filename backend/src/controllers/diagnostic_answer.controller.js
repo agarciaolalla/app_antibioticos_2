@@ -1,4 +1,4 @@
-const caseService = require('../services/diagnosticanswer.service');
+const caseService = require('../services/diagnostic_answer.service');
 
 const guardar = async (req, res) => {
     console.log(req.body);

@@ -38,12 +38,12 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     List returnlista = [];
     Map data;
     http.Response response =
-        await http.get(Uri.parse(conexion1 + "/api/diagnosticanswer"));
+        await http.get(Uri.parse(conexion1 + "/api/diagnostic_answer"));
     // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
-      returnlista = data['diagnosticanswer'];
+      returnlista = data['diagnostic_answer'];
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso.toString()) {
@@ -57,12 +57,12 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     List returnlista = [];
     Map data;
     http.Response response =
-        await http.get(Uri.parse(conexion1 + "/api/diagnosticanswer"));
+        await http.get(Uri.parse(conexion1 + "/api/diagnostic_question"));
     // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
-      returnlista = data['diagnosticanswer'];
+      returnlista = data['diagnostic_question'];
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso) {

@@ -1,4 +1,4 @@
-const caseModel = require('../models/diagnosticquestion.model');
+const caseModel = require('../models/diagnostic_question.model');
 
 
 
