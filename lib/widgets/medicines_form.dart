@@ -257,21 +257,13 @@ class _MedicinesFormState extends State<MedicinesForm> {
               child: ElevatedButton(
                 onPressed: () {
                   setBackpack(medicinesUsed);
-                  if (widget.idPregunta == 2) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TreatmentScreen(),
-                      ),
-                    );
-                  } else if (widget.idPregunta == 3) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TreatmentScreen(),
-                      ),
-                    );
-                  }
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SecondFeedbackScreen(),
+                    ),
+                  );
                 },
                 child: const Text(
                   'Confirmar',
