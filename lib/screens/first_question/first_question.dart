@@ -65,7 +65,7 @@ class HomeFirstQuestion extends State<FirstQuestionScreen> {
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso) {
-          question = returnlista[i]["pregunta"];
+          question = returnlista[i]["pregunta"].toString();
         }
       }
     });
