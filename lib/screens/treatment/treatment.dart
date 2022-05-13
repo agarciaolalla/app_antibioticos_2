@@ -5,40 +5,39 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:app_antibioticos/widgets/widgets.dart';
-import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/html/html.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
 
-class ThirdQuestionScreen extends StatefulWidget {
-  const ThirdQuestionScreen({Key? key}) : super(key: key);
+class TreatmentScreen extends StatefulWidget {
+  const TreatmentScreen({Key? key}) : super(key: key);
 
   @override
-  State<ThirdQuestionScreen> createState() => _ThirdQuestionScreenState();
+  State<TreatmentScreen> createState() => TreatmentState();
 }
 
-class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
+class TreatmentState extends State<TreatmentScreen> {
   @override
   void initState() {
     super.initState();
-    getSecondQuestion();
+    getTreatmentQuestion();
   }
 
-  String idCaso = "1";
-  String pregunta = "";
+  String question = "";
 
-  Future getSecondQuestion() async {
+  Future getTreatmentQuestion() async {
     List returnList = [];
     Map data;
     http.Response response =
-        await http.get(Uri.parse(conexion1 + "/api/thirdquestion"));
+        await http.get(Uri.parse(conexion1 + "/api/treatmentscreen"));
     // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
-      returnList = data['thirdquestion'];
+      returnList = data['treatmentscreen'];
 
       for (int i = 0; i < returnList.length; i++) {
-        if (returnList[i]["idcaso"] == idCaso) {
-          pregunta = returnList[i]["pregunta"];
+        if (returnList[i]["idcaso"] == idcaso.toString()) {
+          question = returnList[i]["pregunta"];
         }
       }
     });
@@ -48,7 +47,7 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tercera pregunta"),
+        title: const Text("Segunda pregunta"),
         actions: [
           //Boton que muestra la informacion inicial del caso
           IconButton(
@@ -67,7 +66,7 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
           ),
           //Espacio entre los botones
           const SizedBox(width: 20),
-          //Boton que muestra lo seleccionado en la pregunta 1 + feedbacks
+          //Boton que muestra lo seleccionado en la pregunta anterior + feedbacks
           IconButton(
             onPressed: () {
               showDialog(
@@ -82,25 +81,6 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
             },
             icon: const Icon(Icons.feedback_outlined),
           ),
-          //Espacio entre los botones
-          const SizedBox(width: 20),
-          //Boton que muestra lo seleccionado en la pregunta 2 + feedbacks
-          IconButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return const ModalInfo(
-                      title: 'Feedback segunda pregunta',
-                      info:
-                          'Ex qui ullamco ut labore cupidatat sit aliquip eiusmod quis nostrud esse ea esse. Elit commodo ipsum et dolor magna amet dolor cupidatat esse sint Lorem aute incididunt cupidatat. Sunt consequat exercitation ad exercitation incididunt ex laboris officia dolore.');
-                },
-              );
-            },
-            icon: const Icon(Icons.feedback_sharp),
-          ),
-          //Espacio entre los botones
-          const SizedBox(width: 20),
           const Padding(
             padding: EdgeInsets.only(right: 30),
           ),
@@ -112,9 +92,9 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
           children: [
             const Life(),
             const Timer(),
-            ThirdQuestionHtml(pregunta: pregunta),
-            //Widget que muestra la 'mochila' y la tabla dinamica
-            const MedicinesForm(idPregunta: 3)
+            SecondQuestionHtml(pregunta: question),
+            //Widget que muestra la 'mochila' y la tabla dinamica (le pasamos que pregunta es para el navigator)
+            const MedicinesForm(idPregunta: 2)
           ],
         ),
       ),

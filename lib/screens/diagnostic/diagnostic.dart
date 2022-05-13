@@ -1,21 +1,21 @@
 import 'package:app_antibioticos/html/first_question_html.dart';
+import 'package:app_antibioticos/screens/diagnostic/diagnostic_feedback.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:app_antibioticos/screens/screens.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/widgets/widgets.dart';
 
-class FirstQuestionScreen extends StatefulWidget {
-  const FirstQuestionScreen({Key? key}) : super(key: key);
+class DiagnosticScreen extends StatefulWidget {
+  const DiagnosticScreen({Key? key}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => HomeFirstQuestion();
+  State<StatefulWidget> createState() => HomeDiagnostic();
 }
 
-class HomeFirstQuestion extends State<FirstQuestionScreen> {
+class HomeDiagnostic extends State<DiagnosticScreen> {
   List listAnswer = [];
   String question = "";
   bool comprobar = false;
@@ -29,20 +29,20 @@ class HomeFirstQuestion extends State<FirstQuestionScreen> {
   @override
   void initState() {
     super.initState();
-    getFirstAnswer();
-    getFirstQuestion();
+    getDiagnosticAnswer();
+    getDiagnosticQuestion();
   }
 
-  Future getFirstAnswer() async {
+  Future getDiagnosticAnswer() async {
     List returnlista = [];
     Map data;
     http.Response response =
-        await http.get(Uri.parse(conexion1 + "/api/firstanswer"));
+        await http.get(Uri.parse(conexion1 + "/api/diagnosticanswer"));
     // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
-      returnlista = data['firstanswer'];
+      returnlista = data['diagnosticanswer'];
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso.toString()) {
@@ -52,16 +52,16 @@ class HomeFirstQuestion extends State<FirstQuestionScreen> {
     });
   }
 
-  Future getFirstQuestion() async {
+  Future getDiagnosticQuestion() async {
     List returnlista = [];
     Map data;
     http.Response response =
-        await http.get(Uri.parse(conexion1 + "/api/firstquestion"));
+        await http.get(Uri.parse(conexion1 + "/api/diagnosticanswer"));
     // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
-      returnlista = data['firstquestion'];
+      returnlista = data['diagnosticanswer'];
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso) {
@@ -143,7 +143,7 @@ class HomeFirstQuestion extends State<FirstQuestionScreen> {
             if (comprobar == true) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => FirstFeedbackScreen()),
+                MaterialPageRoute(builder: (context) => DiagnosticFeedback()),
               );
             }
           },

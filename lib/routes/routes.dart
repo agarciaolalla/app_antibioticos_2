@@ -7,8 +7,7 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   'login': (_) => const Login(),
   'home': (_) => const HomeScreen(),
   'backpack': (_) => const BackpackDecisionScreen(),
-  'firstquestion': (_) => const FirstQuestionScreen(),
-  'secondquestion': (_) => const SecondQuestionScreen(),
-  'thirdquestion': (_) => const ThirdQuestionScreen(),
+  'diagnostic': (_) => const DiagnosticScreen(),
+  'treatment': (_) => const TreatmentScreen(),
   'final': (_) => const FinalScreen(),
 };

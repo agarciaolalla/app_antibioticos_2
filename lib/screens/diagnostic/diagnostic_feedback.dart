@@ -5,29 +5,29 @@ import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart
 import 'package:app_antibioticos/html/html.dart';
 import 'package:app_antibioticos/screens/screens.dart';
 
-class ThirdFeedbackScreen extends StatelessWidget {
-  ThirdFeedbackScreen({Key? key}) : super(key: key);
+class DiagnosticFeedback extends StatelessWidget {
+  DiagnosticFeedback({Key? key}) : super(key: key);
 
-  final String thirdFeedbackHtml = Case1Html().thirdFeedback;
+  final String firstFeedbackHtml = Case1Html().firstFeedback;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Feedback tercera pregunta'),
+        title: const Text('Feedback primera pregunta'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(20),
-              child: HtmlWidget(thirdFeedbackHtml),
+              child: HtmlWidget(firstFeedbackHtml),
             ),
             FloatingActionButton(
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const FinalScreen(),
+                  builder: (context) => const TreatmentScreen(),
                 ),
               ),
             ),
