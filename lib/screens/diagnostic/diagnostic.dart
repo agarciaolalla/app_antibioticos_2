@@ -48,6 +48,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso.toString()) {
           listAnswer.add(returnlista[i]);
+          print(returnlista[i]["respuesta"].toString());
         }
       }
     });
@@ -67,6 +68,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso) {
           question = returnlista[i]["pregunta"].toString();
+          print(returnlista[i]["pregunta"].toString());
         }
       }
     });
@@ -81,26 +83,27 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         colorSolucion.add(Colors.white);
       }
     }
-    if (comprobar == true) {
-      for (var i; i < comprobarRespuesta.length; i++) {
-        if (comprobarRespuesta[i] == 0) {
-          colorSolucion.add(Colors.white);
-        }
-        if (comprobarRespuesta[i] == 1) {
-          colorSolucion.add(Colors.green);
-        }
-        if (comprobarRespuesta[i] == 2) {
-          colorSolucion.add(Colors.red);
-        }
-      }
-    }
+
+    //if (comprobar == true) {
+    //  for (var i; i < comprobarRespuesta.length; i++) {
+    //    if (comprobarRespuesta[i] == 0) {
+    //      colorSolucion.add(Colors.white);
+    //    }
+    //    if (comprobarRespuesta[i] == 1) {
+    //      colorSolucion.add(Colors.green);
+    //    }
+    //    if (comprobarRespuesta[i] == 2) {
+    //      colorSolucion.add(Colors.red);
+    //    }
+    //  }
+    //}
 
     return Scaffold(
       appBar: AppBar(title: const Text("Primera Pregunta")),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-        const Life(),
-        const Timer(),
-        FirstQuestionHtml(pregunta: question),
+        //const Life(),
+        //const Timer(),
+        //FirstQuestionHtml(pregunta: question),
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
@@ -108,7 +111,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           itemBuilder: (BuildContext context, int index) {
             return SwitchListTile.adaptive(
                 activeColor: Colors.indigo,
-                tileColor: colorSolucion[index],
+                tileColor: Colors.white, //colorSolucion[index],
                 title: Text(
                     "${listAnswer[index]["respuesta"]} ${listAnswer[index]["solucion"]}"),
                 value: valorSwitch[index],
@@ -122,27 +125,27 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         ElevatedButton(
           onPressed: () {
             setState(() {
-              for (var i = 0; i < listAnswer.length; i++) {
-                if (valorSwitch[i] == true) {
-                  if (listAnswer[i]["solucion"] == "1") {
-                    comprobarRespuesta[i] = 1;
-                  } else {
-                    comprobarRespuesta[i] = 2;
-                  }
-                } else {
-                  if (listAnswer[i]["solucion"] == "0") {
-                    comprobarRespuesta[i] = 2;
-                  } else {
-                    comprobarRespuesta[i] = 0;
-                  }
-                  if (comprobarRespuesta[i] == 1) {
-                    points + 2;
-                  }
-                  if (comprobarRespuesta[i] == 2) {
-                    points - 1;
-                  }
-                }
-              }
+              //for (var i = 0; i < listAnswer.length; i++) {
+              //  if (valorSwitch[i] == true) {
+              //    if (listAnswer[i]["solucion"] == "1") {
+              //      comprobarRespuesta[i] = 1;
+              //    } else {
+              //      comprobarRespuesta[i] = 2;
+              //    }
+              //  } else {
+              //    if (listAnswer[i]["solucion"] == "0") {
+              //      comprobarRespuesta[i] = 2;
+              //    } else {
+              //      comprobarRespuesta[i] = 0;
+              //    }
+              //    if (comprobarRespuesta[i] == 1) {
+              //      points + 2;
+              //    }
+              //    if (comprobarRespuesta[i] == 2) {
+              //      points - 1;
+              //    }
+              //  }
+              //}
 
               comprobar = true;
               x = 1;
