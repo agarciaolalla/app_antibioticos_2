@@ -13,14 +13,11 @@ app.use(cors());
 
 app.use(require('./routes/player.route'))
 
-app.use(require('./routes/firstquestion.route'))
-app.use(require('./routes/firstanswer.route'))
+app.use(require('./routes/diagnosticquestion.route'))
+app.use(require('./routes/diagnosticanswer.route'))
 
-app.use(require('./routes/secondquestion.route'))
-app.use(require('./routes/secondanswer.route'))
-
-app.use(require('./routes/thirdquestion.route'))
-app.use(require('./routes/thirdanswer.route'))
+app.use(require('./routes/treatmentquestion.route'))
+app.use(require('./routes/treatmentanswer.route'))
 
 app.use(require('./routes/backpack.route'))
 

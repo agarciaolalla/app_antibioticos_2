@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const caseSchema = new Schema({                    
  idcaso: String,
- pregunta: String
+ solucion: String
 })
 
-module.exports = model('secondquestion', caseSchema);
+module.exports = model('treatmentanswer', caseSchema);

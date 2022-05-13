@@ -1,27 +1,27 @@
-const caseService = require('../services/firstanswer.service');
+const caseService = require('../services/diagnosticquestion.service');
 
 const guardar = async (req, res) => {
     console.log(req.body);
     res.json({
-        firstanswer: await caseService.guardar(req.body)
+       firstquestion: await caseService.guardar(req.body)
     })
 }
 
 const consultar = async(req, res) => {
     res.json({
-        firstanswer: await caseService.consultar()
+        firstquestion: await caseService.consultar()
     })
 }
 
 const modificar = async(req, res) => {
     res.json({
-        firstanswer: await caseService.modificar(req.body)
+        firstquestion: await caseService.modificar(req.body)
     })
 }
 
 const eliminar = async(req, res) => {
     res.json({
-        firstanswer: await caseService.eliminar(req.params.id)
+        firstquestion: await caseService.eliminar(req.params.id)
     })
 }
 
