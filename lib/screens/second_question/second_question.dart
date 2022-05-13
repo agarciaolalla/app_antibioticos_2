@@ -7,7 +7,6 @@ import 'dart:convert';
 import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/html/html.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
-import 'package:app_antibioticos/screens/screens.dart';
 
 class SecondQuestionScreen extends StatefulWidget {
   const SecondQuestionScreen({Key? key}) : super(key: key);
@@ -24,7 +23,6 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
   }
 
   String question = "";
-  String description = "";
 
   Future getSecondQuestion() async {
     List returnList = [];
@@ -40,7 +38,6 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
       for (int i = 0; i < returnList.length; i++) {
         if (returnList[i]["idcaso"] == idcaso.toString()) {
           question = returnList[i]["pregunta"];
-          description = returnList[i]["descripcion"];
         }
       }
     });
@@ -95,10 +92,7 @@ class _SecondQuestionScreenState extends State<SecondQuestionScreen> {
           children: [
             const Life(),
             const Timer(),
-            SecondQuestionHtml(
-              pregunta: question,
-              descripcion: description,
-            ),
+            SecondQuestionHtml(pregunta: question),
             //Widget que muestra la 'mochila' y la tabla dinamica (le pasamos que pregunta es para el navigator)
             const MedicinesForm(idPregunta: 2)
           ],

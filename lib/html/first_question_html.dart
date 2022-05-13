@@ -15,9 +15,9 @@ class FirstQuestionHtml extends StatelessWidget {
       </head>
       <body>
         <h1>Pruebas diagnosticas</h1>
-        <p>''' +
+        ''' +
         pregunta +
-        '''</p>
+        '''
       </body>
   </html>''';
     return Padding(

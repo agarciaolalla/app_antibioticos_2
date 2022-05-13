@@ -23,9 +23,7 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
   }
 
   String idCaso = "1";
-  String info72h = "";
-  String controlAnalysis = "";
-  String aditionalInfo = "";
+  String pregunta = "";
 
   Future getSecondQuestion() async {
     List returnList = [];
@@ -40,9 +38,7 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
 
       for (int i = 0; i < returnList.length; i++) {
         if (returnList[i]["idcaso"] == idCaso) {
-          info72h = returnList[i]["informacion72h"];
-          controlAnalysis = returnList[i]["analisisDeControl"];
-          aditionalInfo = returnList[i]["informacionAdicional"];
+          pregunta = returnList[i]["pregunta"];
         }
       }
     });
@@ -116,11 +112,7 @@ class _ThirdQuestionScreenState extends State<ThirdQuestionScreen> {
           children: [
             const Life(),
             const Timer(),
-            ThirdQuestionHtml(
-              informacion72h: info72h,
-              analisisDeControl: controlAnalysis,
-              informacionAdicional: aditionalInfo,
-            ),
+            ThirdQuestionHtml(pregunta: pregunta),
             //Widget que muestra la 'mochila' y la tabla dinamica
             const MedicinesForm(idPregunta: 3)
           ],
