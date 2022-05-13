@@ -6,3 +6,4 @@ const conexion1 = "http://172.18.22.79:50052"; //Servidor de Olalla
 
 int idcaso = 1;
 List mochilaSeleccionada = [];
+int points = 0;

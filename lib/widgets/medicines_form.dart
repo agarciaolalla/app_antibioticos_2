@@ -261,14 +261,14 @@ class _MedicinesFormState extends State<MedicinesForm> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SecondFeedbackScreen(),
+                        builder: (context) => TreatmentScreen(),
                       ),
                     );
                   } else if (widget.idPregunta == 3) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ThirdFeedbackScreen(),
+                        builder: (context) => TreatmentScreen(),
                       ),
                     );
                   }
