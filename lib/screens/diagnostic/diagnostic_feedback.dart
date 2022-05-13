@@ -14,7 +14,7 @@ class DiagnosticFeedback extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Feedback primera pregunta'),
+        title: const Text('Solución'),
       ),
       body: SingleChildScrollView(
         child: Column(

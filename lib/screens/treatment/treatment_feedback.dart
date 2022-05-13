@@ -14,7 +14,7 @@ class TreatmentFeedback extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Feedback segunda pregunta'),
+        title: const Text('Solución'),
       ),
       body: SingleChildScrollView(
         child: Column(
