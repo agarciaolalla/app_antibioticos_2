@@ -23,6 +23,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
   Color rojo = Colors.white;
   List valorSwitch = [];
   List comprobarRespuesta = [];
+  List colorSolucion = [];
   int x = 0;
   bool notifyswitch = false;
 
@@ -37,16 +38,17 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     List returnlista = [];
     Map data;
     http.Response response =
-        await http.get(Uri.parse(conexion1 + "/api/diagnosticanswer"));
+        await http.get(Uri.parse(conexion1 + "/api/diagnostic_answer"));
     // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
-      returnlista = data['diagnosticanswer'];
+      returnlista = data['diagnostic_answer'];
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso.toString()) {
           listAnswer.add(returnlista[i]);
+          print(returnlista[i]["respuesta"].toString());
         }
       }
     });
@@ -56,16 +58,17 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     List returnlista = [];
     Map data;
     http.Response response =
-        await http.get(Uri.parse(conexion1 + "/api/diagnosticanswer"));
+        await http.get(Uri.parse(conexion1 + "/api/diagnostic_question"));
     // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
-      returnlista = data['diagnosticanswer'];
+      returnlista = data['diagnostic_question'];
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso) {
           question = returnlista[i]["pregunta"].toString();
+          print(returnlista[i]["pregunta"].toString());
         }
       }
     });
@@ -76,22 +79,31 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     if (x == 0) {
       for (var i = 0; i < listAnswer.length; i++) {
         valorSwitch.add(false);
-        comprobarRespuesta.add(true);
+        comprobarRespuesta.add(0);
+        colorSolucion.add(Colors.white);
       }
     }
-    if (comprobar == true) {
-      verde = Colors.green;
-      rojo = Colors.red;
-    } else {
-      verde = Colors.white;
-      rojo = Colors.white;
-    }
+
+    //if (comprobar == true) {
+    //  for (var i; i < comprobarRespuesta.length; i++) {
+    //    if (comprobarRespuesta[i] == 0) {
+    //      colorSolucion.add(Colors.white);
+    //    }
+    //    if (comprobarRespuesta[i] == 1) {
+    //      colorSolucion.add(Colors.green);
+    //    }
+    //    if (comprobarRespuesta[i] == 2) {
+    //      colorSolucion.add(Colors.red);
+    //    }
+    //  }
+    //}
+
     return Scaffold(
       appBar: AppBar(title: const Text("Primera Pregunta")),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-        const Life(),
-        const Timer(),
-        FirstQuestionHtml(pregunta: question),
+        //const Life(),
+        //const Timer(),
+        //FirstQuestionHtml(pregunta: question),
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
@@ -99,10 +111,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           itemBuilder: (BuildContext context, int index) {
             return SwitchListTile.adaptive(
                 activeColor: Colors.indigo,
-                tileColor: comprobarRespuesta[index] != null &&
-                        comprobarRespuesta[index] == false
-                    ? verde
-                    : rojo,
+                tileColor: Colors.white, //colorSolucion[index],
                 title: Text(
                     "${listAnswer[index]["respuesta"]} ${listAnswer[index]["solucion"]}"),
                 value: valorSwitch[index],
@@ -116,21 +125,28 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         ElevatedButton(
           onPressed: () {
             setState(() {
-              for (var i = 0; i < listAnswer.length; i++) {
-                if (valorSwitch[i] == true) {
-                  if (listAnswer[i]["solucion"] == "1") {
-                    comprobarRespuesta[i] = true;
-                  } else {
-                    comprobarRespuesta[i] = false;
-                  }
-                } else {
-                  if (listAnswer[i]["solucion"] != "1") {
-                    comprobarRespuesta[i] = true;
-                  } else {
-                    comprobarRespuesta[i] = false;
-                  }
-                }
-              }
+              //for (var i = 0; i < listAnswer.length; i++) {
+              //  if (valorSwitch[i] == true) {
+              //    if (listAnswer[i]["solucion"] == "1") {
+              //      comprobarRespuesta[i] = 1;
+              //    } else {
+              //      comprobarRespuesta[i] = 2;
+              //    }
+              //  } else {
+              //    if (listAnswer[i]["solucion"] == "0") {
+              //      comprobarRespuesta[i] = 2;
+              //    } else {
+              //      comprobarRespuesta[i] = 0;
+              //    }
+              //    if (comprobarRespuesta[i] == 1) {
+              //      points + 2;
+              //    }
+              //    if (comprobarRespuesta[i] == 2) {
+              //      points - 1;
+              //    }
+              //  }
+              //}
+
               comprobar = true;
               x = 1;
               notifyswitch = true;

@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:app_antibioticos/models/models.dart';
-import 'package:app_antibioticos/services/services.dart';
+import 'package:app_antibioticos/services/player_peticion.dart';
 import 'package:app_antibioticos/screens/screens.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:app_antibioticos/models/models.dart';
-import 'package:app_antibioticos/services/services.dart';
+import 'package:app_antibioticos/services/player_peticion.dart';
 
 class Ranking extends StatefulWidget {
   const Ranking({Key? key}) : super(key: key);

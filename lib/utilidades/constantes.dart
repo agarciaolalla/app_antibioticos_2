@@ -7,3 +7,4 @@ const conexion1 = "http://172.18.23.127:50052"; //Servidor de Soler
 int idcaso = 1;
 int idPregunta = 1;
 List mochilaSeleccionada = [];
+int points = 0;
