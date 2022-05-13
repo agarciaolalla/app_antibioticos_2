@@ -261,7 +261,7 @@ class _MedicinesFormState extends State<MedicinesForm> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SecondFeedbackScreen(),
+                      builder: (context) => TreatmentFeedback(),
                     ),
                   );
                 },
