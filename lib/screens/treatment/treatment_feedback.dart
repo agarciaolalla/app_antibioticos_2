@@ -1,39 +1,113 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
-import 'package:app_antibioticos/html/html.dart';
-import 'package:app_antibioticos/screens/screens.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
+import 'package:app_antibioticos/widgets/widgets.dart';
 
-class TreatmentFeedback extends StatelessWidget {
-  TreatmentFeedback({Key? key}) : super(key: key);
+class TreatmentFeedback extends StatefulWidget {
+  const TreatmentFeedback({Key? key}) : super(key: key);
 
-  final String secondFeedbackHtml = Case1Html().secondFeedback;
+  @override
+  State<TreatmentFeedback> createState() => _TreatmentFeedbackState();
+}
+
+class _TreatmentFeedbackState extends State<TreatmentFeedback> {
+  List firstTreatmentFeedback = [];
+
+  String lastTreatmentFeedback = '';
+
+  @override
+  void initState() {
+    super.initState();
+    getFirstTreatmentFeedback();
+    getLastTreatmentFeedback();
+  }
+
+  Future getFirstTreatmentFeedback() async {
+    List returnlista = [];
+    Map data;
+    http.Response response =
+        await http.get(Uri.parse(conexion1 + "/api/first_treatment_feedback"));
+    // debugPrint(response.body);
+    data = json.decode(response.body);
+
+    setState(() {
+      returnlista = data['first_treatment_feedback'];
+
+      for (var i = 0; i < returnlista.length; i++) {
+        if (returnlista[i]["idcaso"] == idcaso.toString()) {
+          firstTreatmentFeedback.add({
+            "antibiotico": returnlista[i]["antibiotico"],
+            "dosis": returnlista[i]["dosis"],
+            "via": returnlista[i]["via"],
+            "intervalo": returnlista[i]["intervalo"],
+            "activo": returnlista[i]["activo"],
+            "comentario": returnlista[i]["comentario"],
+            "consecuencia": returnlista[i]["consecuencia"],
+          });
+        }
+      }
+    });
+  }
+
+  Future getLastTreatmentFeedback() async {
+    List returnlista = [];
+    Map data;
+    http.Response response =
+        await http.get(Uri.parse(conexion1 + "/api/last_treatment_feedback"));
+    // debugPrint(response.body);
+    data = json.decode(response.body);
+
+    setState(() {
+      returnlista = data['last_treatment_feedback'];
+
+      for (var i = 0; i < returnlista.length; i++) {
+        if (returnlista[i]["idcaso"] == idcaso.toString()) {
+          lastTreatmentFeedback = returnlista[i]["feedback"];
+        }
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Solución'),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: HtmlWidget(secondFeedbackHtml),
-            ),
-            FloatingActionButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const TreatmentScreen(),
-                ),
-              ),
-            ),
-          ],
+    if (idTreatmentQuestion == 1) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Solución'),
         ),
-      ),
-    );
+        body: ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: firstTreatmentFeedback.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Card(
+              child: Column(
+                children: [
+                  Text(firstTreatmentFeedback[index]["antibiotico"]),
+                  Text(firstTreatmentFeedback[index]["dosis"]),
+                  Text(firstTreatmentFeedback[index]["via"]),
+                  Text(firstTreatmentFeedback[index]["intervalo"]),
+                  Text(firstTreatmentFeedback[index]["activo"]),
+                  Text(firstTreatmentFeedback[index]["comentario"]),
+                  Text(firstTreatmentFeedback[index]["consecuencia"]),
+                ],
+              ),
+            );
+          },
+        ),
+      );
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Solución'),
+        ),
+        body: LastTreatmentFeedbackWidget(
+            lastTreatmentFeedback: lastTreatmentFeedback),
+      );
+    }
   }
 }

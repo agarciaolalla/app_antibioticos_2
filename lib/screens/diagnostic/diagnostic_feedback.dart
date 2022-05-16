@@ -21,10 +21,10 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
   @override
   void initState() {
     super.initState();
-    getDiagnostiFeedback();
+    getDiagnosticFeedback();
   }
 
-  Future getDiagnostiFeedback() async {
+  Future getDiagnosticFeedback() async {
     List returnlista = [];
     Map data;
     http.Response response =
@@ -36,8 +36,8 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
       returnlista = data['diagnostic_feedback'];
 
       for (var i = 0; i < returnlista.length; i++) {
-        if (returnlista[i]["idcaso"] == idcaso) {
-          feedback = returnlista[i]["feedback"].toString();
+        if (returnlista[i]["idcaso"] == idcaso.toString()) {
+          feedback = returnlista[i]["feedback"];
         }
       }
     });
