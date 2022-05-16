@@ -99,8 +99,6 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
 
           colorSolucion[i] = Colors.red;
         }
-
-        print(points);
       }
     }
 
