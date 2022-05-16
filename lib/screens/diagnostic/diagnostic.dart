@@ -46,7 +46,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
       returnlista = data['diagnostic_answer'];
 
       for (var i = 0; i < returnlista.length; i++) {
-        if (returnlista[i]["idcaso"] == "1") {
+        if (returnlista[i]["idcaso"] == idcaso.toString()) {
           listAnswer.add(returnlista[i]);
         }
       }
@@ -64,7 +64,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
       returnlista = data['diagnostic_question'];
 
       for (var i = 0; i < returnlista.length; i++) {
-        if (returnlista[i]["idcaso"] == "1") {
+        if (returnlista[i]["idcaso"] == idcaso.toString()) {
           question = returnlista[i]["pregunta"].toString();
         }
       }
@@ -88,7 +88,9 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         }
         if (comprobarRespuesta[i] == 1) {
           colorSolucion[i] = Colors.green;
-          points = points + 2;
+          if (points <= 8) {
+            points = points + 2;
+          }
         }
         if (comprobarRespuesta[i] == 2) {
           if (points > 0) {
@@ -107,8 +109,8 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         const Life(),
         const Timer(),
-        Text(question),
-        //FirstQuestionHtml(pregunta: question),
+        //Text(question),
+        FirstQuestionHtml(pregunta: question),
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
