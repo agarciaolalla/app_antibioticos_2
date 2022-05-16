@@ -39,15 +39,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso.toString()) {
-          firstTreatmentFeedback.add({
-            "antibiotico": returnlista[i]["antibiotico"],
-            "dosis": returnlista[i]["dosis"],
-            "via": returnlista[i]["via"],
-            "intervalo": returnlista[i]["intervalo"],
-            "activo": returnlista[i]["activo"],
-            "comentario": returnlista[i]["comentario"],
-            "consecuencia": returnlista[i]["consecuencia"],
-          });
+          firstTreatmentFeedback.add(returnlista[i]);
         }
       }
     });
