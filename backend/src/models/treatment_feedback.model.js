@@ -8,7 +8,10 @@ const caseSchema = new Schema({
  intervalo: String,
  activo: String,
  comentario: String,
- consecuencia: String
+ vida: String,
+ consumo: String,
+ dias: String,
+ lastfeedback: String
 })
 
-module.exports = model('first_treatment_feedback', caseSchema);
+module.exports = model('treatment_feedback', caseSchema);
