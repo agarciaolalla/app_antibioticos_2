@@ -6,9 +6,9 @@ import 'package:app_antibioticos/html/html.dart';
 import 'package:app_antibioticos/screens/screens.dart';
 
 class InitialInfoScreen extends StatelessWidget {
-  InitialInfoScreen({Key? key}) : super(key: key);
+  const InitialInfoScreen({Key? key}) : super(key: key);
 
-  final String initialInfoHtml = Case1Html().initialInfo;
+  final String initialInfoHtml = " AQUÍ TIENE QUE IR EL HTML DE INFO INICIAL";
 
   @override
   Widget build(BuildContext context) {

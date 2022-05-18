@@ -23,8 +23,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
   List<String> medicineNames = [];
 
   //Controladores de los TextField
-  TextEditingController intervaleDosesController = TextEditingController();
-  TextEditingController intervaleHoursController = TextEditingController();
   TextEditingController daysController = TextEditingController();
 
   //Variable que almacenaran lo introducido en el formulario (dropdown button no tiene controller)
@@ -57,14 +55,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
               DataColumn(
                 label: Center(
                   child: Text(
-                    'Intervalo',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-              ),
-              DataColumn(
-                label: Center(
-                  child: Text(
                     'Días',
                     style: TextStyle(fontSize: 20),
                   ),
@@ -79,16 +69,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
                           Center(
                             child: Text(
                               medicine.medicine,
-                              style: const TextStyle(fontSize: 20),
-                            ),
-                          ),
-                        ),
-                        DataCell(
-                          Center(
-                            child: Text(
-                              medicine.intervaleDoses +
-                                  '/' +
-                                  medicine.intervaleHours,
                               style: const TextStyle(fontSize: 20),
                             ),
                           ),
@@ -146,52 +126,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
               },
             ),
             //Espacio entre los campos
-            const SizedBox(height: 20),
-            //Campo de texto donde introduciremos la cantidad a consumir
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Intervalo (cantidad)',
-                hintText: 'Intervalo (cantidad)',
-              ),
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              controller: intervaleDosesController,
-              onSaved: (String? value) {
-                values.intervaleDoses = value!;
-              },
-              //Comprobamos que el numero de medicinas sea valido
-              validator: (value) {
-                int disponible = getNumberMedicines(_valueMedicines);
-                if (value == null || value.isEmpty) {
-                  return "Introduca una cantidad";
-                } else if (int.parse(intervaleDosesController.text) >
-                    disponible) {
-                  return "No hay suficientes medicamentos en la mochila";
-                }
-                return null;
-              },
-            ),
-            //Espacio entre los campos
-            const SizedBox(height: 20),
-            //Campo de texto donde introduciremos cada cuantas horas se consume el antibiotico
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Intervalo (horas)',
-                hintText: 'Intervalo (horas)',
-              ),
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              controller: intervaleHoursController,
-              onSaved: (String? value) {
-                values.intervaleHours = value!;
-              },
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "Introduca la hora de intervalo";
-                }
-                return null;
-              },
-            ),
-            //Espacio entre campos
-            const SizedBox(height: 20),
             //Campo de texto donde introduciremos los dias que se tendra que tomar el antibiotico
             TextFormField(
               decoration: const InputDecoration(
@@ -208,19 +142,10 @@ class _MedicinesFormState extends State<MedicinesForm> {
                 if (value == null || value.isEmpty) {
                   return "Introduca la cantidad de dias";
                 } else {
-                  if (intervaleHoursController.text == '' ||
-                      intervaleDosesController.text == '') {
-                    return 'Introduzca los datos restantes';
-                  } else {
-                    int disponible = getNumberMedicines(_valueMedicines);
-                    int usado = (24 /
-                            int.parse(intervaleHoursController.text) *
-                            (int.parse(intervaleDosesController.text) *
-                                int.parse(daysController.text)))
-                        .toInt();
-                    if (usado > disponible) {
-                      return "No hay suficientes medicamentos en la mochila";
-                    }
+                  int disponible = getNumberMedicines(_valueMedicines);
+                  int usado = int.parse(daysController.text).toInt();
+                  if (usado > disponible) {
+                    return "No hay suficientes medicamentos en la mochila";
                   }
                 }
                 return null;
@@ -295,8 +220,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
 
   //Metodo para limpiar el formulario una vez enviada la informacion (no aplica a los desplegables).
   clearForm() {
-    intervaleDosesController.clear();
-    intervaleHoursController.clear();
     daysController.clear();
   }
 
@@ -344,7 +267,7 @@ class _MedicinesFormState extends State<MedicinesForm> {
     int number = 0;
     for (int i = 0; i < mochilaSeleccionada.length; i++) {
       if (mochilaSeleccionada[i]['nombre'] == medicineName) {
-        number = int.parse(mochilaSeleccionada[i]['numero']);
+        number = int.parse(mochilaSeleccionada[i]['numpastillas']);
       }
     }
     return number;
