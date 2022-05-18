@@ -28,12 +28,12 @@ class TreatmentState extends State<TreatmentScreen> {
     List returnList = [];
     Map data;
     http.Response response =
-        await http.get(Uri.parse(conexion1 + "/api/treatmentscreen"));
+        await http.get(Uri.parse(conexion1 + "/api/treatment_question"));
     // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
-      returnList = data['treatmentscreen'];
+      returnList = data['treatment_question'];
 
       for (int i = 0; i < returnList.length; i++) {
         if (returnList[i]["idcaso"] == idcaso.toString()) {

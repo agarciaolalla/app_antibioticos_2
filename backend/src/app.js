@@ -19,8 +19,7 @@ app.use(require('./routes/diagnostic_answer.route'))
 
 app.use(require('./routes/treatment_question.route'))
 
-app.use(require('./routes/first_treatment_feedback.route'))
-app.use(require('./routes/last_treatment_feedback.route'))
+app.use(require('./routes/treatment_feedback.route'))
 app.use(require('./routes/diagnostic_feedback.route'))
 
 app.use(require('./routes/backpack.route'))
