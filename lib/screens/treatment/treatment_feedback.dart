@@ -1,3 +1,5 @@
+import 'package:app_antibioticos/screens/diagnostic/diagnostic.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -48,17 +50,61 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     if (idTreatmentQuestion == 1) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Solución'),
+          title: const Text('Feedback Tratamiento Empirico'),
         ),
-        body: EmpiricalTreatmentFeedback(treatmentFeedback: treatmentFeedback),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.only(bottom: 30),
+          child: Column(
+            children: [
+              EmpiricalTreatmentFeedback(treatmentFeedback: treatmentFeedback),
+              ElevatedButton(
+                onPressed: () {
+                  idTreatmentQuestion++;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TreatmentScreen(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Continuar',
+                  style: TextStyle(fontSize: 30),
+                ),
+              ),
+            ],
+          ),
+        ),
       );
       //En caso de que sea el tratamiento dirigido (2ª vez)
     } else {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Solución'),
+          title: const Text('Feedback Tratamiento Dirigido'),
         ),
-        body: Container(),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.only(bottom: 30),
+          child: Column(
+            children: [
+              EmpiricalTreatmentFeedback(treatmentFeedback: treatmentFeedback),
+              ElevatedButton(
+                onPressed: () {
+                  idTreatmentQuestion--;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TreatmentScreen(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Continuar',
+                  style: TextStyle(fontSize: 30),
+                ),
+              ),
+            ],
+          ),
+        ),
       );
     }
   }

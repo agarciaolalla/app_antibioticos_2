@@ -1,3 +1,5 @@
+import 'package:app_antibioticos/theme/app_theme.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:flutter/material.dart';
 
 class EmpiricalTreatmentFeedback extends StatelessWidget {
@@ -17,27 +19,57 @@ class EmpiricalTreatmentFeedback extends StatelessWidget {
       itemCount: treatmentFeedback.length,
       itemBuilder: (BuildContext context, int index) {
         return Card(
+          clipBehavior: Clip.antiAlias,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+          shadowColor: AppTheme.primary.withOpacity(0.5),
+          elevation: 30,
+          margin: const EdgeInsets.all(20),
           child: Column(
             children: [
-              Image(
-                image: AssetImage(
-                    '${treatmentFeedback[index]["antibiotico"]}.jpg'),
+              Image.asset(
+                getAssetName(treatmentFeedback[index]["via"]),
                 width: double.infinity,
                 height: 150,
                 fit: BoxFit.cover,
               ),
               ListTile(
-                title: Text('${treatmentFeedback[index]["antibiotico"]}'),
-                subtitle: Text('Dosis: ${treatmentFeedback[index]["dosis"]}'
-                    '\n Vía: ${treatmentFeedback[index]["dosis"]}'
-                    '\n Intervalo: ${treatmentFeedback[index]["intervalo"]}'
-                    '\n ¿Activo?: ${treatmentFeedback[index]["activo"]}'
-                    '\n Comentario: ${treatmentFeedback[index]["comentario"]}'),
+                title: Text(
+                  '${treatmentFeedback[index]["antibiotico"]}',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(
+                  '\nDosis: ${treatmentFeedback[index]["dosis"]}'
+                  '\nVía: ${treatmentFeedback[index]["via"]}'
+                  '\nIntervalo: ${treatmentFeedback[index]["intervalo"]}'
+                  '\n¿Activo?: ${treatmentFeedback[index]["activo"]}'
+                  '\n\n${getCardComment(index)}',
+                  style: const TextStyle(color: Colors.black),
+                ),
               ),
             ],
           ),
         );
       },
     );
+  }
+
+  String getAssetName(String via) {
+    if (via == 'Vía Oral') {
+      return 'assets/Via_oral.jpg';
+    } else {
+      return 'assets/Via_intravenosa.jpg';
+    }
+  }
+
+  //Metodo para que elija un comentario u otro segun la pregunta de tratamiento (1 = empirica, 2 = dirigida)
+  String getCardComment(int index) {
+    if (idTreatmentQuestion == 1) {
+      return treatmentFeedback[index]["comentario"];
+    } else if (idTreatmentQuestion == 2) {
+      return treatmentFeedback[index]["lastfeedback"];
+    } else {
+      return 'error getting the comment';
+    }
   }
 }
