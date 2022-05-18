@@ -20,8 +20,10 @@ class TreatmentState extends State<TreatmentScreen> {
   void initState() {
     super.initState();
     getTreatmentQuestion();
+    getTreatmentAnswer();
   }
 
+  List listAnswer = [];
   String question = "";
 
   Future getTreatmentQuestion() async {
@@ -38,6 +40,25 @@ class TreatmentState extends State<TreatmentScreen> {
       for (int i = 0; i < returnList.length; i++) {
         if (returnList[i]["idcaso"] == idcaso.toString()) {
           question = returnList[i]["pregunta"];
+        }
+      }
+    });
+  }
+
+  Future getTreatmentAnswer() async {
+    List returnlista = [];
+    Map data;
+    http.Response response =
+        await http.get(Uri.parse(conexion1 + "/api/treatment_answer"));
+    // debugPrint(response.body);
+    data = json.decode(response.body);
+
+    setState(() {
+      returnlista = data['treatment_answer'];
+
+      for (var i = 0; i < returnlista.length; i++) {
+        if (returnlista[i]["idcaso"] == idcaso.toString()) {
+          listAnswer.add(returnlista[i]);
         }
       }
     });
@@ -90,11 +111,11 @@ class TreatmentState extends State<TreatmentScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Life(),
-            const Timer(),
-            SecondQuestionHtml(pregunta: question),
+            Life(),
+            Timer(),
+            Text("PREGUNTA"),
             //Widget que muestra la 'mochila' y la tabla dinamica (le pasamos que pregunta es para el navigator)
-            const MedicinesForm(idPregunta: 2)
+            MedicinesForm(idPregunta: 2)
           ],
         ),
       ),

@@ -97,8 +97,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         appBar: AppBar(
           title: const Text('Solución'),
         ),
-        body: LastTreatmentFeedbackWidget(
-            lastTreatmentFeedback: lastTreatmentFeedback),
+        body: const Text("solucion"),
       );
     }
   }

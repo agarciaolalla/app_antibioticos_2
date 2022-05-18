@@ -58,7 +58,6 @@ class _BackpackDecisionScreenState extends State<BackpackDecisionScreen> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const BackpackDecisionHtml(),
           ListView.builder(
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
