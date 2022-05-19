@@ -34,6 +34,8 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     getDiagnosticQuestion();
   }
 
+  List<String> medicineNames = [];
+
   Future getDiagnosticAnswer() async {
     List returnlista = [];
     Map data;
@@ -84,7 +86,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     if (comprobar == true) {
       for (var i = 0; i < comprobarRespuesta.length; i++) {
         if (comprobarRespuesta[i] == 0) {
-          colorSolucion[i] = Colors.white;
+          colorSolucion[i] = Colors.green;
         }
         if (comprobarRespuesta[i] == 1) {
           colorSolucion[i] = Colors.green;

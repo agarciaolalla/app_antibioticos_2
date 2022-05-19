@@ -160,8 +160,6 @@ class _MedicinesFormState extends State<MedicinesForm> {
                     _formKey.currentState!.save();
                     addValues(
                       values.medicine,
-                      values.intervaleDoses,
-                      values.intervaleHours,
                       values.days,
                     );
                     clearForm();
@@ -203,18 +201,12 @@ class _MedicinesFormState extends State<MedicinesForm> {
   }
 
   //Metodo para añadir los valores al list y pintarlos posteriormente en la tabla.
-  void addValues(medicine, intervaleDoses, intervaleHours, days) {
-    int usedNumber = (24 /
-            int.parse(intervaleHours) *
-            (int.parse(intervaleDoses) * int.parse(days)))
-        .toInt();
-
+  void addValues(medicine, days) {
     //Añadimos los datos del antibiotico al array de usados
-    medicinesUsed.add({"nombre": medicine, "numero": usedNumber.toString()});
+    medicinesUsed.add({"antibiotico": medicine, "dias": days});
 
     setState(() {
-      selectedValues
-          .add(TableValues.c(medicine, intervaleDoses, intervaleHours, days));
+      selectedValues.add(TableValues.c(medicine, days));
     });
   }
 
@@ -234,14 +226,9 @@ class _MedicinesFormState extends State<MedicinesForm> {
 
   //Metodo para eliminar un dato de la datatable
   void removeData(TableValues value) {
-    int usedNumber = (24 /
-            int.parse(value.intervaleHours) *
-            (int.parse(value.intervaleDoses) * int.parse(value.days)))
-        .toInt();
-
     for (int i = 0; i < medicinesUsed.length; i++) {
-      if (medicinesUsed[i]["nombre"] == value.medicine &&
-          medicinesUsed[i]["numero"] == usedNumber.toString()) {
+      if (medicinesUsed[i]["antibiotico"] == value.medicine &&
+          medicinesUsed[i]["dias"] == value.days) {
         medicinesUsed.remove(i);
       }
     }
@@ -255,10 +242,8 @@ class _MedicinesFormState extends State<MedicinesForm> {
   void fillMedicineNames() {
     medicineNames.add('Seleccione un medicamento');
     for (int i = 0; i < mochilaSeleccionada.length; i++) {
-      int number = int.parse(mochilaSeleccionada[i]["numero"]);
-      if (number > 0) {
-        medicineNames.add(mochilaSeleccionada[i]["nombre"]);
-      }
+      medicineNames.add(
+          'nombre: ${mochilaSeleccionada[i]["antibiotico"] + " - " + mochilaSeleccionada[i]["dosis"] + " - " + mochilaSeleccionada[i]["intervalo"]}');
     }
   }
 
@@ -266,7 +251,7 @@ class _MedicinesFormState extends State<MedicinesForm> {
   int getNumberMedicines(String medicineName) {
     int number = 0;
     for (int i = 0; i < mochilaSeleccionada.length; i++) {
-      if (mochilaSeleccionada[i]['nombre'] == medicineName) {
+      if (mochilaSeleccionada[i]['antibiotico'] == medicineName) {
         number = int.parse(mochilaSeleccionada[i]['numpastillas']);
       }
     }
@@ -277,13 +262,13 @@ class _MedicinesFormState extends State<MedicinesForm> {
   void setBackpack(List medicinesUsed) {
     for (int i = 0; i < mochilaSeleccionada.length; i++) {
       for (int j = 0; j < medicinesUsed.length; j++) {
-        if (mochilaSeleccionada[i]["nombre"] == medicinesUsed[j]["nombre"]) {
-          int used = int.parse(medicinesUsed[j]["numero"]);
-          int total = int.parse(mochilaSeleccionada[i]["numero"]);
-          mochilaSeleccionada[i]["numero"] = (total - used).toString();
+        if (mochilaSeleccionada[i]["antibiotico"] ==
+            medicinesUsed[j]["antibiotico"]) {
+          int used = int.parse(medicinesUsed[j]["numpastillas"]);
+          int total = int.parse(mochilaSeleccionada[i]["numpastillas"]);
+          mochilaSeleccionada[i]["numpastillas"] = (total - used).toString();
         }
       }
     }
-    print(mochilaSeleccionada);
   }
 }
