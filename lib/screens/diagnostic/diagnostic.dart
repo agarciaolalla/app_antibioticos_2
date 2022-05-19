@@ -109,7 +109,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         const Life(),
         const Timer(),
-        Text("PREGUNTA"),
+        Text(question),
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,

@@ -27,7 +27,7 @@ class InitialInfoScreen extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const TreatmentScreen(),
+                  builder: (context) => const FirstTreatmentScreen(),
                 ),
               ),
             ),

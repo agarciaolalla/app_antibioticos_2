@@ -63,7 +63,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TreatmentScreen(),
+                      builder: (context) => const FirstTreatmentScreen(),
                     ),
                   );
                 },
@@ -93,7 +93,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TreatmentScreen(),
+                      builder: (context) => const SecondTreatmentScreen(),
                     ),
                   );
                 },

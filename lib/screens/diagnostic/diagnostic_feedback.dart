@@ -60,7 +60,7 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const TreatmentScreen(),
+                  builder: (context) => const FirstTreatmentScreen(),
                 ),
               ),
             ),

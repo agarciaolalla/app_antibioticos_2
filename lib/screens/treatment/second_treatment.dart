@@ -1,4 +1,5 @@
 import 'package:app_antibioticos/screens/final_screen.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -8,83 +9,63 @@ import 'dart:convert';
 import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 
-class TreatmentScreen extends StatefulWidget {
-  const TreatmentScreen({Key? key}) : super(key: key);
+class SecondTreatmentScreen extends StatefulWidget {
+  const SecondTreatmentScreen({Key? key}) : super(key: key);
 
   @override
-  State<TreatmentScreen> createState() => TreatmentState();
+  State<SecondTreatmentScreen> createState() => SecondTreatmentState();
 }
 
-class TreatmentState extends State<TreatmentScreen> {
+class SecondTreatmentState extends State<SecondTreatmentScreen> {
   @override
   void initState() {
     super.initState();
     getTreatmentQuestion();
-    // getTreatmentAnswer();
   }
 
-  List listAnswer = [];
+  List listaFinal = [];
   String question = "";
   List contadorItems = [];
   bool copiar = false;
 
+  //Método para obtener la pregunta del segundo Tratamiento
   Future getTreatmentQuestion() async {
     List returnList = [];
     Map data;
     http.Response response =
         await http.get(Uri.parse(conexion1 + "/api/treatment_question"));
-    // debugPrint(response.body);
     data = json.decode(response.body);
     setState(() {
       returnList = data['treatment_question'];
       for (int i = 0; i < returnList.length; i++) {
-        if (returnList[i]["idcaso"] == idcaso.toString()) {
+        if (returnList[i]["idcaso"] == idcaso.toString() &&
+            returnList[i]["idpregunta"] == "2") {
           question = returnList[i]["pregunta"];
         }
-        print(question);
       }
     });
   }
-
-  //Future getTreatmentAnswer() async {
-  //  List returnlista = [];
-//
-  //  Map data;
-  //  http.Response response =
-  //      await http.get(Uri.parse(conexion1 + "/api/treatment_feedback"));
-  //  // debugPrint(response.body);
-  //  data = json.decode(response.body);
-//
-  //  setState(() {
-  //    returnlista = data['treatment_feedback'];
-//
-  //    for (var i = 0; i < returnlista.length; i++) {
-  //      if (returnlista[i]["idcaso"] == idcaso.toString()) {
-  //        listAnswer.add(returnlista[i]);
-  //      }
-  //    }
-  //  });
-  //}
 
   @override
   Widget build(BuildContext context) {
     if (copiar == false) {
       for (var i = 0; i < mochilaSeleccionada.length; i++) {
+        listaFinal = List.from(mochilaSeleccionada);
         contadorItems.add(0);
       }
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Segunda pregunta"),
+        title: const Text("Segundo Tratamiento"),
       ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Life(),
-            Timer(),
-            //Text(question),
+            const Life(),
+            const Timer(),
+            Text(question),
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -139,11 +120,12 @@ class TreatmentState extends State<TreatmentScreen> {
                                 numero;
                         mochilaSeleccionada[i]["numpastillas"] =
                             resta.toString();
+                        listaFinal[i]["numpastillas"] = contadorItems[i];
                       }
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => FinalScreen()));
+                              builder: (context) => TreatmentFeedback()));
                     },
                     child: const Text(
                       'Confirmar',
