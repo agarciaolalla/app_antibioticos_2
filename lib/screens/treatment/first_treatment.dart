@@ -23,10 +23,13 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
     getTreatmentQuestion();
   }
 
+  int x = 0;
   List listaFinal = [];
   String question = "";
   List contadorItems = [];
   bool copiar = false;
+  List valorSwitch = [];
+  bool notifyswitch = false;
 
   //Método para obtener la pregunta del segundo Tratamiento
   Future getTreatmentQuestion() async {
@@ -48,96 +51,50 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (copiar == false) {
+    if (x == 0) {
       for (var i = 0; i < mochilaSeleccionada.length; i++) {
+        valorSwitch.add(false);
         listaFinal = List.from(mochilaSeleccionada);
-        contadorItems.add(0);
       }
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Primer Tratamiento"),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const Life(),
-            const Timer(),
-            Text(question),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemCount: mochilaSeleccionada.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(mochilaSeleccionada[index]["antibiotico"]),
-                        trailing: SizedBox(
-                          height: 150,
-                          width: 150,
-                          child: Row(
-                            children: <Widget>[
-                              IconButton(
-                                icon: const Icon(Icons.remove),
-                                onPressed: () => setState(() {
-                                  copiar = true;
-                                  if (contadorItems[index] > 0) {
-                                    contadorItems[index]--;
-                                  }
-                                }),
-                              ),
-                              Text(contadorItems[index].toString()),
-                              IconButton(
-                                  icon: const Icon(Icons.add),
-                                  onPressed: () => setState(() {
-                                        copiar = true;
-                                        if (contadorItems[index] !=
-                                            int.parse(mochilaSeleccionada[index]
-                                                ["numpastillas"])) {
-                                          contadorItems[index]++;
-                                        }
-                                      })),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      copiar = true;
-                      for (var i = 0; i < mochilaSeleccionada.length; i++) {
-                        int numero = contadorItems[i];
-                        int resta =
-                            int.parse(mochilaSeleccionada[i]["numpastillas"]) -
-                                numero;
-                        mochilaSeleccionada[i]["numpastillas"] =
-                            resta.toString();
-                        listaFinal[i]["numpastillas"] = contadorItems[i];
-                      }
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TreatmentFeedback()));
-                    },
-                    child: const Text(
-                      'Confirmar',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
+      appBar: AppBar(title: const Text("Primera Pregunta")),
+      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        const Life(),
+        const Timer(),
+        Text(question),
+        ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: mochilaSeleccionada.length,
+          itemBuilder: (BuildContext context, int index) {
+            return CheckboxListTile(
+                title: Text(mochilaSeleccionada[index]["antibiotico"]),
+                value: valorSwitch[index],
+                onChanged: notifyswitch
+                    ? null
+                    : (value) => setState(() {
+                          valorSwitch[index] = value;
+                        }));
+          },
         ),
-      ),
+        ElevatedButton(
+          onPressed: () {
+            for (var i = 0; i < mochilaSeleccionada.length; i++) {
+              if (valorSwitch[i] == true) {
+                listaFinal[i] = mochilaSeleccionada[i];
+              }
+            }
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => DiagnosticFeedback()),
+            );
+          },
+          child: const Text('Siguiente'),
+        ),
+      ]),
     );
   }
 }

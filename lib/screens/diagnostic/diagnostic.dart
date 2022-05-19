@@ -115,7 +115,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           shrinkWrap: true,
           itemCount: listAnswer == null ? 0 : listAnswer.length,
           itemBuilder: (BuildContext context, int index) {
-            return SwitchListTile.adaptive(
+            return CheckboxListTile(
                 activeColor: Colors.indigo,
                 tileColor: colorSolucion[index],
                 title: Text("${listAnswer[index]["respuesta"]}"),
