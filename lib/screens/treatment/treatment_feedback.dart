@@ -10,7 +10,10 @@ import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/widgets/widgets.dart';
 
 class TreatmentFeedback extends StatefulWidget {
-  const TreatmentFeedback({Key? key}) : super(key: key);
+  const TreatmentFeedback({Key? key, required this.selectedMedicines})
+      : super(key: key);
+
+  final List selectedMedicines;
 
   @override
   State<TreatmentFeedback> createState() => _TreatmentFeedbackState();
@@ -18,6 +21,7 @@ class TreatmentFeedback extends StatefulWidget {
 
 class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   List treatmentFeedback = [];
+  List feedbackToUser = [];
 
   @override
   void initState() {
@@ -46,6 +50,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
 
   @override
   Widget build(BuildContext context) {
+    fillFeedbackToUser();
     //En caso de que sea el tratamiento empirico (1ª vez)
     if (idTreatmentQuestion == 1) {
       return Scaffold(
@@ -56,7 +61,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           padding: const EdgeInsets.only(bottom: 30),
           child: Column(
             children: [
-              EmpiricalTreatmentFeedback(treatmentFeedback: treatmentFeedback),
+              EmpiricalTreatmentFeedback(treatmentFeedback: feedbackToUser),
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion++;
@@ -86,7 +91,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           padding: const EdgeInsets.only(bottom: 30),
           child: Column(
             children: [
-              EmpiricalTreatmentFeedback(treatmentFeedback: treatmentFeedback),
+              EmpiricalTreatmentFeedback(treatmentFeedback: feedbackToUser),
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion--;
@@ -107,5 +112,22 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         ),
       );
     }
+  }
+
+  void fillFeedbackToUser() {
+    for (int i = 0; i < treatmentFeedback.length; i++) {
+      for (int j = 0; j < widget.selectedMedicines.length; j++) {
+        if (treatmentFeedback[i]["antibiotico"] ==
+            widget.selectedMedicines[j]["antibiotico"]) {
+          feedbackToUser.add(treatmentFeedback[i]);
+        }
+      }
+    }
+    print('Treatment feedback:');
+    print(treatmentFeedback);
+    print('Selected medicines:');
+    print(widget.selectedMedicines);
+    print('Feedback to user:');
+    print(feedbackToUser);
   }
 }

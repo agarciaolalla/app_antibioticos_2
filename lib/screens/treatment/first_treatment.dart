@@ -89,7 +89,10 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
 
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => DiagnosticFeedback()),
+              MaterialPageRoute(
+                builder: (context) =>
+                    TreatmentFeedback(selectedMedicines: listaFinal),
+              ),
             );
           },
           child: const Text('Siguiente'),
