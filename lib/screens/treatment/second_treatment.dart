@@ -27,6 +27,8 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
   String question = "";
   List contadorItems = [];
   bool copiar = false;
+  List mochilaDias = [];
+  List<int> pastillasDias = [];
 
   //Método para obtener la pregunta del segundo Tratamiento
   Future getTreatmentQuestion() async {
@@ -49,8 +51,15 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
   @override
   Widget build(BuildContext context) {
     if (copiar == false) {
+      listaFinal = List.from(mochilaSeleccionada);
       for (var i = 0; i < mochilaSeleccionada.length; i++) {
-        listaFinal = List.from(mochilaSeleccionada);
+        int pastillaspordia =
+            (24 / int.parse(mochilaSeleccionada[i]["intervalo"])) as int;
+        int numpastillas = int.parse(mochilaSeleccionada[i]["numpastillas"]);
+        int dias = (numpastillas / pastillaspordia) as int;
+        print(dias);
+        mochilaDias.add(dias);
+        pastillasDias.add(pastillaspordia);
         contadorItems.add(0);
       }
     }
@@ -75,7 +84,14 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     itemCount: mochilaSeleccionada.length,
                     itemBuilder: (context, index) {
                       return ListTile(
-                        title: Text(mochilaSeleccionada[index]["antibiotico"]),
+                        title: Text(mochilaSeleccionada[index]["antibiotico"] +
+                            " - " +
+                            mochilaSeleccionada[index]["via"] +
+                            " - " +
+                            mochilaSeleccionada[index]["dosis"] +
+                            " cada " +
+                            mochilaSeleccionada[index]["intervalo"] +
+                            " horas"),
                         trailing: SizedBox(
                           height: 150,
                           width: 150,
@@ -96,8 +112,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                                   onPressed: () => setState(() {
                                         copiar = true;
                                         if (contadorItems[index] !=
-                                            int.parse(mochilaSeleccionada[index]
-                                                ["numpastillas"])) {
+                                            mochilaDias[index]) {
                                           contadorItems[index]++;
                                         }
                                       })),
@@ -114,13 +129,14 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     onPressed: () {
                       copiar = true;
                       for (var i = 0; i < mochilaSeleccionada.length; i++) {
-                        int numero = contadorItems[i];
+                        int pastillasGastadas =
+                            contadorItems[i] * pastillasDias[i];
                         int resta =
                             int.parse(mochilaSeleccionada[i]["numpastillas"]) -
-                                numero;
+                                pastillasGastadas;
                         mochilaSeleccionada[i]["numpastillas"] =
                             resta.toString();
-                        listaFinal[i]["numpastillas"] = contadorItems[i];
+                        listaFinal[i]["dias"] = contadorItems[i];
                       }
                       Navigator.push(
                           context,

@@ -20,7 +20,7 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     controller = AnimationController(
-        duration: const Duration(seconds: 900), vsync: this);
+        duration: const Duration(seconds: 300), vsync: this);
     controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
     controller.addListener(() {
       if (controller.value == 0) {
