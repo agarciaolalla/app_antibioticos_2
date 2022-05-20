@@ -23,7 +23,6 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
     getTreatmentQuestion();
   }
 
-  int x = 0;
   List listaFinal = [];
   String question = "";
   List contadorItems = [];
@@ -51,11 +50,8 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (x == 0) {
-      for (var i = 0; i < mochilaSeleccionada.length; i++) {
-        valorSwitch.add(false);
-        listaFinal = List.from(mochilaSeleccionada);
-      }
+    for (var i = 0; i < mochilaSeleccionada.length; i++) {
+      valorSwitch.add(false);
     }
 
     return Scaffold(
@@ -83,7 +79,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
           onPressed: () {
             for (var i = 0; i < mochilaSeleccionada.length; i++) {
               if (valorSwitch[i] == true) {
-                listaFinal[i] = mochilaSeleccionada[i];
+                listaFinal.add(mochilaSeleccionada[i]);
               }
             }
 
