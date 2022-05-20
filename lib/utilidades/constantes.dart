@@ -12,3 +12,5 @@ int idTreatmentQuestion = 1;
 List mochilaSeleccionada = [];
 // Puntos del jugador
 int points = 0;
+// Vida del jugador
+double vidaJugador = 1.0;

@@ -7,7 +7,6 @@ import 'package:app_antibioticos/models/models.dart';
 import 'package:app_antibioticos/services/player_peticion.dart';
 import 'package:app_antibioticos/screens/screens.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
-import 'package:diacritic/diacritic.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -40,10 +39,8 @@ class _RegisterContact extends State<Login> {
     setState(() {
       returnlista = data['player'];
       for (var i = 0; i < returnlista.length; i++) {
-        if (removeDiacritics(returnlista[i]["nombre"].toLowerCase()) ==
-                name.toLowerCase() &&
-            removeDiacritics(returnlista[i]["apellido"].toLowerCase()) ==
-                surname.toLowerCase()) {
+        if (returnlista[i]["nombre"].toLowerCase() == name.toLowerCase() &&
+            returnlista[i]["apellido"].toLowerCase() == surname.toLowerCase()) {
           existeJugador = 1;
         }
       }
