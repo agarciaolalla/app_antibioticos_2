@@ -48,6 +48,7 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Solución'),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(

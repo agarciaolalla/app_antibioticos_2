@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
@@ -15,7 +16,9 @@ class InitialInfoHtml extends StatelessWidget {
         <meta name="viewport" content="width=device-width, initial-scale=2">
       </head>
       <body>
-        <h1>Feedback pruebas diagnosticas</h1>
+        <h1>Caso numero ''' +
+        idcaso.toString() +
+        '''</h1>
         ''' +
         initialinfo +
         '''

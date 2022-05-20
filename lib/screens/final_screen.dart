@@ -8,6 +8,7 @@ class FinalScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("FinalScreen"),
+        automaticallyImplyLeading: false,
       ),
       body: const Text('Introducir pantalla de puntos :)'),
     );

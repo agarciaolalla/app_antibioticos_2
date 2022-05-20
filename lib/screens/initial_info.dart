@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 
-import 'package:app_antibioticos/html/html.dart';
 import 'package:app_antibioticos/screens/screens.dart';
 
 class InitialInfoScreen extends StatelessWidget {
@@ -15,6 +14,7 @@ class InitialInfoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Informacion inicial'),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -27,7 +27,7 @@ class InitialInfoScreen extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const FirstTreatmentScreen(),
+                  builder: (context) => const DiagnosticScreen(),
                 ),
               ),
             ),

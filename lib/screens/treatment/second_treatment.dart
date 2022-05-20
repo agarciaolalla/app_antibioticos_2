@@ -66,6 +66,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Segundo Tratamiento"),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("APP Antibióticos"),
+          automaticallyImplyLeading: false,
         ),
         body: Center(
           child: FittedBox(
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const DiagnosticScreen()),
+                                      const InitialInfoScreen()),
                             );
                           },
                         ),

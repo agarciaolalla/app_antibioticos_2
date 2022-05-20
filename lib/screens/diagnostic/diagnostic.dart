@@ -105,7 +105,10 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Primera Pregunta")),
+      appBar: AppBar(
+        title: const Text("Primera Pregunta"),
+        automaticallyImplyLeading: false,
+      ),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         const Life(),
         const Timer(),
@@ -158,7 +161,8 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
             if (comprobar == true) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DiagnosticFeedback()),
+                MaterialPageRoute(
+                    builder: (context) => const DiagnosticFeedback()),
               );
             }
           },
