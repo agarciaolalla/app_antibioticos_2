@@ -28,6 +28,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
   bool copiar = false;
   List valorSwitch = [];
   bool notifyswitch = false;
+  int contadorSwitch = 0;
 
   //Método para obtener la pregunta del segundo Tratamiento
   Future getTreatmentQuestion() async {
@@ -78,17 +79,32 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
           onPressed: () {
             for (var i = 0; i < mochilaSeleccionada.length; i++) {
               if (valorSwitch[i] == true) {
+                contadorSwitch = 1;
                 listaFinal.add(mochilaSeleccionada[i]);
               }
+              if (contadorSwitch == 0) {
+                showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          content: const Text(
+                              'Debes seleccionar al menos un medicamento.'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'OK'),
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        ));
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        TreatmentFeedback(selectedMedicines: listaFinal),
+                  ),
+                );
+              }
             }
-
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    TreatmentFeedback(selectedMedicines: listaFinal),
-              ),
-            );
           },
           child: const Text('Siguiente'),
         ),

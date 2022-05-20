@@ -22,6 +22,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     getTreatmentQuestion();
   }
 
+  int contadorDias = 0;
   List listaFinal = [];
   String question = "";
   List contadorItems = [];
@@ -126,29 +127,53 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                   ElevatedButton(
                     onPressed: () {
                       copiar = true;
-                      for (var i = 0; i < mochilaSeleccionada.length; i++) {
-                        int pastillasGastadas =
-                            contadorItems[i] * pastillasDias[i];
-                        int resta =
-                            int.parse(mochilaSeleccionada[i]["numpastillas"]) -
-                                pastillasGastadas;
-                        mochilaSeleccionada[i]["numpastillas"] =
-                            resta.toString();
-                        listaFinal[i]["dias"] = contadorItems[i];
-                      }
 
-                      for (int i = 0; i < listaFinal.length; i++) {
-                        if (listaFinal[i]["dias"] == 0) {
-                          listaFinal.remove(listaFinal[i]);
+                      for (int i = 0; i < contadorItems.length; i++) {
+                        if (contadorItems[i] != 0) {
+                          contadorDias = 1;
                         }
                       }
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              TreatmentFeedback(selectedMedicines: listaFinal),
-                        ),
-                      );
+
+                      if (contadorDias == 1) {
+                        for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                          int pastillasGastadas =
+                              contadorItems[i] * pastillasDias[i];
+                          int resta = int.parse(
+                                  mochilaSeleccionada[i]["numpastillas"]) -
+                              pastillasGastadas;
+                          mochilaSeleccionada[i]["numpastillas"] =
+                              resta.toString();
+                          listaFinal[i]["dias"] = contadorItems[i];
+                        }
+
+                        for (int i = 0; i < listaFinal.length; i++) {
+                          if (listaFinal[i]["dias"] == 0) {
+                            listaFinal.remove(listaFinal[i]);
+                          }
+                        }
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TreatmentFeedback(
+                                selectedMedicines: listaFinal),
+                          ),
+                        );
+                      } else {
+                        showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  content: const Text(
+                                      'Debes seleccionar al menos un medicamento.'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(context, 'OK'),
+                                      child: const Text('OK'),
+                                    ),
+                                  ],
+                                ));
+                      }
                     },
                     child: const Text(
                       'Confirmar',
