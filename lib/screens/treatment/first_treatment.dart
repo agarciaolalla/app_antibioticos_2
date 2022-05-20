@@ -80,30 +80,34 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
             for (var i = 0; i < mochilaSeleccionada.length; i++) {
               if (valorSwitch[i] == true) {
                 contadorSwitch = 1;
-                listaFinal.add(mochilaSeleccionada[i]);
               }
-              if (contadorSwitch == 0) {
-                showDialog<String>(
-                    context: context,
-                    builder: (BuildContext context) => AlertDialog(
-                          content: const Text(
-                              'Debes seleccionar al menos un medicamento.'),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () => Navigator.pop(context, 'OK'),
-                              child: const Text('OK'),
-                            ),
-                          ],
-                        ));
-              } else {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        TreatmentFeedback(selectedMedicines: listaFinal),
-                  ),
-                );
+            }
+            if (contadorSwitch == 0) {
+              showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                        content: const Text(
+                            'Debes seleccionar al menos un medicamento.'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'OK'),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ));
+            } else {
+              for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                if (valorSwitch[i] == true) {
+                  listaFinal.add(mochilaSeleccionada[i]);
+                }
               }
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      TreatmentFeedback(selectedMedicines: listaFinal),
+                ),
+              );
             }
           },
           child: const Text('Siguiente'),
