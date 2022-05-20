@@ -2,8 +2,8 @@ import 'package:app_antibioticos/theme/app_theme.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:flutter/material.dart';
 
-class EmpiricalTreatmentFeedback extends StatelessWidget {
-  const EmpiricalTreatmentFeedback({
+class CardViewTreatmentFeedback extends StatelessWidget {
+  const CardViewTreatmentFeedback({
     Key? key,
     required this.treatmentFeedback,
   }) : super(key: key);

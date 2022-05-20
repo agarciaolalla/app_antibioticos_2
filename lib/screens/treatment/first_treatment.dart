@@ -1,5 +1,3 @@
-import 'package:app_antibioticos/screens/final_screen.dart';
-import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -8,6 +6,7 @@ import 'dart:convert';
 
 import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 
 class FirstTreatmentScreen extends StatefulWidget {
   const FirstTreatmentScreen({Key? key}) : super(key: key);

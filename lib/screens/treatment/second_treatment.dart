@@ -1,5 +1,3 @@
-import 'package:app_antibioticos/screens/final_screen.dart';
-import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -8,6 +6,7 @@ import 'dart:convert';
 
 import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 
 class SecondTreatmentScreen extends StatefulWidget {
   const SecondTreatmentScreen({Key? key}) : super(key: key);
@@ -57,7 +56,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
             (24 / int.parse(mochilaSeleccionada[i]["intervalo"])) as int;
         int numpastillas = int.parse(mochilaSeleccionada[i]["numpastillas"]);
         int dias = (numpastillas / pastillaspordia) as int;
-        print(dias);
         mochilaDias.add(dias);
         pastillasDias.add(pastillaspordia);
         contadorItems.add(0);
@@ -137,6 +135,12 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                         mochilaSeleccionada[i]["numpastillas"] =
                             resta.toString();
                         listaFinal[i]["dias"] = contadorItems[i];
+                      }
+
+                      for (int i = 0; i < listaFinal.length; i++) {
+                        if (listaFinal[i]["dias"] == 0) {
+                          listaFinal.remove(listaFinal[i]);
+                        }
                       }
                       Navigator.push(
                         context,

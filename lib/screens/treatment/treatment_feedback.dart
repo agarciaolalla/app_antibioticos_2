@@ -1,5 +1,3 @@
-import 'package:app_antibioticos/screens/diagnostic/diagnostic.dart';
-import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -8,6 +6,7 @@ import 'dart:convert';
 
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/widgets/widgets.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 
 class TreatmentFeedback extends StatefulWidget {
   const TreatmentFeedback({Key? key, required this.selectedMedicines})
@@ -61,7 +60,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           padding: const EdgeInsets.only(bottom: 30),
           child: Column(
             children: [
-              EmpiricalTreatmentFeedback(treatmentFeedback: feedbackToUser),
+              CardViewTreatmentFeedback(treatmentFeedback: feedbackToUser),
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion++;
@@ -91,7 +90,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           padding: const EdgeInsets.only(bottom: 30),
           child: Column(
             children: [
-              EmpiricalTreatmentFeedback(treatmentFeedback: feedbackToUser),
+              CardViewTreatmentFeedback(treatmentFeedback: feedbackToUser),
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion--;
@@ -123,11 +122,5 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         }
       }
     }
-    print('Treatment feedback:');
-    print(treatmentFeedback);
-    print('Selected medicines:');
-    print(widget.selectedMedicines);
-    print('Feedback to user:');
-    print(feedbackToUser);
   }
 }
