@@ -139,9 +139,12 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                         listaFinal[i]["dias"] = contadorItems[i];
                       }
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TreatmentFeedback()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              TreatmentFeedback(selectedMedicines: listaFinal),
+                        ),
+                      );
                     },
                     child: const Text(
                       'Confirmar',

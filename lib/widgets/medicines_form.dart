@@ -181,12 +181,12 @@ class _MedicinesFormState extends State<MedicinesForm> {
                 onPressed: () {
                   setBackpack(medicinesUsed);
 
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => TreatmentFeedback(),
-                    ),
-                  );
+                  //Navigator.push(
+                  //  context,
+                  //  MaterialPageRoute(
+                  //    builder: (context) => TreatmentFeedback(),
+                  //  ),
+                  //);
                 },
                 child: const Text(
                   'Confirmar',
