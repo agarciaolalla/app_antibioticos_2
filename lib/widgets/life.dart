@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utilidades/constantes.dart';
+
 class Life extends StatefulWidget {
   const Life({Key? key}) : super(key: key);
 
@@ -8,7 +10,6 @@ class Life extends StatefulWidget {
 }
 
 class LifeState extends State<Life> {
-  static double vida = 0.4;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +20,7 @@ class LifeState extends State<Life> {
             backgroundColor: Colors.red,
             minHeight: 15,
             valueColor: const AlwaysStoppedAnimation(Colors.green),
-            value: vida,
+            value: vidaJugador,
           ),
         ),
       ],

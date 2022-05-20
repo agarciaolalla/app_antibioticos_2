@@ -52,8 +52,10 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     fillFeedbackToUser();
     //En caso de que sea el tratamiento empirico (1ª vez)
     if (idTreatmentQuestion == 1) {
+      setNewLifeFirstTreatment();
       return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text('Feedback Tratamiento Empirico'),
         ),
         body: SingleChildScrollView(
@@ -121,6 +123,21 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           feedbackToUser.add(treatmentFeedback[i]);
         }
       }
+    }
+  }
+
+  void setNewLifeFirstTreatment() {
+    int vidaFirst = 0;
+    for (int i = 0; i < feedbackToUser.length; i++) {
+      int restar = int.parse(feedbackToUser[i]["vida"]);
+      vidaFirst = vidaFirst + restar;
+    }
+    if (vidaFirst > 20) {
+      vidaJugador = vidaJugador - 0.2;
+    } else {
+      double vidaFinal = 0;
+      vidaFinal = vidaFirst / 100;
+      vidaJugador = vidaJugador - vidaFinal;
     }
   }
 }
