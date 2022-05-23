@@ -36,6 +36,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
 
   List<String> medicineNames = [];
 
+  //Te recoge la respuesta de la base de datos.
   Future getDiagnosticAnswer() async {
     List returnlista = [];
     Map data;
@@ -55,6 +56,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     });
   }
 
+  //Te recoge la pregunta de la base de datos
   Future getDiagnosticQuestion() async {
     List returnlista = [];
     Map data;
@@ -75,35 +77,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (x == 0) {
-      for (var i = 0; i < listAnswer.length; i++) {
-        valorSwitch.add(false);
-        comprobarRespuesta.add(0);
-        colorSolucion.add(Colors.white);
-      }
-    }
-
-    if (comprobar == true) {
-      for (var i = 0; i < comprobarRespuesta.length; i++) {
-        if (comprobarRespuesta[i] == 0) {
-          colorSolucion[i] = Colors.green;
-        }
-        if (comprobarRespuesta[i] == 1) {
-          colorSolucion[i] = Colors.green;
-          if (points <= 8) {
-            points = points + 2;
-          }
-        }
-        if (comprobarRespuesta[i] == 2) {
-          if (points > 0) {
-            points = points - 1;
-          }
-
-          colorSolucion[i] = Colors.red;
-        }
-      }
-    }
-
+    fillInitialLists();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Primera Pregunta"),
@@ -133,25 +107,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         ElevatedButton(
           onPressed: () {
             setState(() {
-              for (var i = 0; i < listAnswer.length; i++) {
-                if (valorSwitch[i] == true) {
-                  if (listAnswer[i]["solucion"] == "1") {
-                    comprobarRespuesta[i] = 1;
-                  } else {
-                    comprobarRespuesta[i] = 2;
-                  }
-                } else {
-                  if (listAnswer[i]["solucion"] == "0") {
-                    comprobarRespuesta[i] = 0;
-                  } else {
-                    comprobarRespuesta[i] = 2;
-                  }
-                }
-              }
-
-              comprobar = true;
-              x = 1;
-              notifyswitch = true;
+              checkAnswers();
             });
           },
           child: const Text('Comprobar'),
@@ -170,5 +126,58 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         ),
       ]),
     );
+  }
+
+  //Método que te inicializa las listas al iniciar la página
+  fillInitialLists() {
+    if (x == 0) {
+      for (var i = 0; i < listAnswer.length; i++) {
+        valorSwitch.add(false);
+        comprobarRespuesta.add(0);
+        colorSolucion.add(Colors.white);
+      }
+    }
+  }
+
+  //Método que te comprueba las respuestas cuando le das al botón comprobar, te cambia el color de las casillas y te añade los puntos del jugador
+  checkAnswers() {
+    for (var i = 0; i < listAnswer.length; i++) {
+      if (valorSwitch[i] == true) {
+        if (listAnswer[i]["solucion"] == "1") {
+          comprobarRespuesta[i] = 1;
+        } else {
+          comprobarRespuesta[i] = 2;
+        }
+      } else {
+        if (listAnswer[i]["solucion"] == "0") {
+          comprobarRespuesta[i] = 0;
+        } else {
+          comprobarRespuesta[i] = 2;
+        }
+      }
+    }
+    comprobar = true;
+    x = 1;
+    notifyswitch = true;
+    if (comprobar == true) {
+      for (var i = 0; i < comprobarRespuesta.length; i++) {
+        if (comprobarRespuesta[i] == 0) {
+          colorSolucion[i] = Colors.green;
+        }
+        if (comprobarRespuesta[i] == 1) {
+          colorSolucion[i] = Colors.green;
+          if (points <= 8) {
+            points = points + 2;
+          }
+        }
+        if (comprobarRespuesta[i] == 2) {
+          if (points > 0) {
+            points = points - 1;
+          }
+
+          colorSolucion[i] = Colors.red;
+        }
+      }
+    }
   }
 }

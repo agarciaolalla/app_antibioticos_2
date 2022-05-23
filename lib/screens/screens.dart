@@ -1,4 +1,3 @@
-export 'package:app_antibioticos/screens/backpack_decision.dart';
 export 'package:app_antibioticos/screens/final_screen.dart';
 export 'package:app_antibioticos/screens/diagnostic/diagnostic_feedback.dart';
 export 'package:app_antibioticos/screens/diagnostic/diagnostic.dart';
@@ -10,3 +9,4 @@ export 'package:app_antibioticos/screens/treatment/treatment_feedback.dart';
 export 'package:app_antibioticos/screens/treatment/first_treatment.dart';
 export 'package:app_antibioticos/screens/final_screen.dart';
 export 'package:app_antibioticos/screens/initial_info.dart';
+export 'package:app_antibioticos/screens/loose_screen.dart';

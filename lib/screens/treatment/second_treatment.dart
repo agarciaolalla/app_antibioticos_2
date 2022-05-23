@@ -29,6 +29,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
   bool copiar = false;
   List mochilaDias = [];
   List<int> pastillasDias = [];
+  int checkpills = 0;
 
   //Método para obtener la pregunta del segundo Tratamiento
   Future getTreatmentQuestion() async {
@@ -50,18 +51,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (copiar == false) {
-      listaFinal = List.from(mochilaSeleccionada);
-      for (var i = 0; i < mochilaSeleccionada.length; i++) {
-        int pastillaspordia =
-            (24 / int.parse(mochilaSeleccionada[i]["intervalo"])) as int;
-        int numpastillas = int.parse(mochilaSeleccionada[i]["numpastillas"]);
-        int dias = (numpastillas / pastillaspordia) as int;
-        mochilaDias.add(dias);
-        pastillasDias.add(pastillaspordia);
-        contadorItems.add(0);
-      }
-    }
+    fillAllLists();
 
     return Scaffold(
       appBar: AppBar(
@@ -129,51 +119,69 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     onPressed: () {
                       copiar = true;
 
-                      for (int i = 0; i < contadorItems.length; i++) {
-                        if (contadorItems[i] != 0) {
-                          contadorDias = 1;
-                        }
-                      }
-
-                      if (contadorDias == 1) {
-                        for (var i = 0; i < mochilaSeleccionada.length; i++) {
-                          int pastillasGastadas =
-                              contadorItems[i] * pastillasDias[i];
-                          int resta = int.parse(
-                                  mochilaSeleccionada[i]["numpastillas"]) -
-                              pastillasGastadas;
-                          mochilaSeleccionada[i]["numpastillas"] =
-                              resta.toString();
-                          listaFinal[i]["dias"] = contadorItems[i];
-                        }
-
-                        for (int i = 0; i < listaFinal.length; i++) {
-                          if (listaFinal[i]["dias"] == 0) {
-                            listaFinal.remove(listaFinal[i]);
-                          }
-                        }
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TreatmentFeedback(
-                                selectedMedicines: listaFinal),
-                          ),
-                        );
-                      } else {
+                      checkDaysCount();
+                      checkPills();
+                      //Sí has seleccionado algún día en los medicamentos entra aquí  en caso contrario te indica mediante una alerta que tienes que seleccionar al menos un medicamento.
+                      if (checkpills == 0) {
                         showDialog<String>(
                             context: context,
+                            barrierDismissible: false,
                             builder: (BuildContext context) => AlertDialog(
                                   content: const Text(
-                                      'Debes seleccionar al menos un medicamento.'),
+                                      'Se han agotado todos los medicamentos, has perdido.'),
                                   actions: <Widget>[
                                     TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(context, 'OK'),
+                                      onPressed: () => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                LooseScreen()),
+                                      ),
                                       child: const Text('OK'),
                                     ),
                                   ],
                                 ));
+                      } else {
+                        if (contadorDias == 1) {
+                          for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                            int pastillasGastadas =
+                                contadorItems[i] * pastillasDias[i];
+                            int resta = int.parse(
+                                    mochilaSeleccionada[i]["numpastillas"]) -
+                                pastillasGastadas;
+                            mochilaSeleccionada[i]["numpastillas"] =
+                                resta.toString();
+                            listaFinal[i]["dias"] = contadorItems[i];
+                          }
+
+                          for (int i = 0; i < listaFinal.length; i++) {
+                            if (listaFinal[i]["dias"] == 0) {
+                              listaFinal.remove(listaFinal[i]);
+                            }
+                          }
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TreatmentFeedback(
+                                  selectedMedicines: listaFinal),
+                            ),
+                          );
+                        } else {
+                          showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                    content: const Text(
+                                        'Debes seleccionar al menos un medicamento.'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(context, 'OK'),
+                                        child: const Text('OK'),
+                                      ),
+                                    ],
+                                  ));
+                        }
                       }
                     },
                     child: const Text(
@@ -188,5 +196,38 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
         ),
       ),
     );
+  }
+
+  void fillAllLists() {
+    if (copiar == false) {
+      listaFinal = List.from(mochilaSeleccionada);
+      for (var i = 0; i < mochilaSeleccionada.length; i++) {
+        int pastillaspordia =
+            24 ~/ int.parse(mochilaSeleccionada[i]["intervalo"]);
+        int numpastillas = int.parse(mochilaSeleccionada[i]["numpastillas"]);
+        int dias = numpastillas ~/ pastillaspordia;
+        mochilaDias.add(dias);
+        pastillasDias.add(pastillaspordia);
+        contadorItems.add(0);
+      }
+    }
+  }
+
+  //Comprueba si has seleccionado días en algún medicamento.
+  void checkDaysCount() {
+    for (int i = 0; i < contadorItems.length; i++) {
+      if (contadorItems[i] != 0) {
+        contadorDias = 1;
+      }
+    }
+  }
+
+  //compruba si quedan medicamentos para seguir jugando
+  void checkPills() {
+    for (int i = 0; i < mochilaDias.length; i++) {
+      if (mochilaDias[i] != 0) {
+        checkpills++;
+      }
+    }
   }
 }

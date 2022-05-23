@@ -8,6 +8,8 @@ import 'package:app_antibioticos/html/html.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/screens/screens.dart';
 
+import '../../widgets/widgets.dart';
+
 class DiagnosticFeedback extends StatefulWidget {
   const DiagnosticFeedback({Key? key}) : super(key: key);
 
@@ -53,10 +55,12 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const Life(),
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: DiagnosticFeedbackHtml(feedback: feedback),
             ),
+            const ShowPoints(),
             FloatingActionButton(
               onPressed: () => Navigator.push(
                 context,

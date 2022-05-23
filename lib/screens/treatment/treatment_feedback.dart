@@ -64,7 +64,14 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
             children: [
               const Life(),
               CardViewTreatmentFeedback(treatmentFeedback: feedbackToUser),
-              Text(mostrarVidaPerdida),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: Text(
+                  mostrarVidaPerdida,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 25),
+                ),
+              ),
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion++;
@@ -97,7 +104,14 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
             children: [
               const Life(),
               CardViewTreatmentFeedback(treatmentFeedback: feedbackToUser),
-              Text(mostrarVidaPerdida),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: Text(
+                  mostrarVidaPerdida,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 25),
+                ),
+              ),
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion--;
