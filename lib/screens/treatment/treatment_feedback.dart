@@ -21,7 +21,8 @@ class TreatmentFeedback extends StatefulWidget {
 class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   List treatmentFeedback = [];
   List feedbackToUser = [];
-
+  int vidaPerdida = 0;
+  String mostrarVidaPerdida = "";
   @override
   void initState() {
     super.initState();
@@ -33,7 +34,6 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     Map data;
     http.Response response =
         await http.get(Uri.parse(conexion1 + "/api/treatment_feedback"));
-    // debugPrint(response.body);
     data = json.decode(response.body);
 
     setState(() {
@@ -62,7 +62,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           padding: const EdgeInsets.only(bottom: 30),
           child: Column(
             children: [
+              const Life(),
               CardViewTreatmentFeedback(treatmentFeedback: feedbackToUser),
+              Text(mostrarVidaPerdida),
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion++;
@@ -84,6 +86,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
       );
       //En caso de que sea el tratamiento dirigido (2ª vez)
     } else {
+      setNewLifeSecondTreatment();
       return Scaffold(
         appBar: AppBar(
           title: const Text('Feedback Tratamiento Dirigido'),
@@ -92,7 +95,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           padding: const EdgeInsets.only(bottom: 30),
           child: Column(
             children: [
+              const Life(),
               CardViewTreatmentFeedback(treatmentFeedback: feedbackToUser),
+              Text(mostrarVidaPerdida),
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion--;
@@ -124,6 +129,14 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         }
       }
     }
+    for (int i = 0; i < feedbackToUser.length; i++) {
+      for (int j = 0; j < widget.selectedMedicines.length; j++) {
+        if (feedbackToUser[i]["antibiotico"] ==
+            widget.selectedMedicines[j]["antibiotico"]) {
+          feedbackToUser[i]["dias"] = widget.selectedMedicines[j]["dias"];
+        }
+      }
+    }
   }
 
   void setNewLifeFirstTreatment() {
@@ -134,10 +147,56 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     }
     if (vidaFirst > 20) {
       vidaJugador = vidaJugador - 0.2;
+      vidaPerdida = 20;
     } else {
       double vidaFinal = 0;
       vidaFinal = vidaFirst / 100;
       vidaJugador = vidaJugador - vidaFinal;
+      vidaPerdida = vidaFirst;
+      ajustarVidaPerdida();
+    }
+  }
+
+  void setNewLifeSecondTreatment() {
+    double vidaSecond = 0.0;
+    for (int i = 0; i < feedbackToUser.length; i++) {
+      if (feedbackToUser[i]["activo"] == 'No') {
+        vidaSecond = vidaSecond + 0.2;
+      } else {
+        if (feedbackToUser[i]["via"] == 'Vía Oral') {
+          int dias = feedbackToUser[i]["dias"];
+          int lastdias = int.parse(treatmentFeedback[0]["lastdias"]);
+
+          if (dias < lastdias) {
+            vidaSecond = vidaSecond + 0.1;
+          } else {
+            //No le penaliza la vida en este caso.
+          }
+        } else {
+          int dias = feedbackToUser[i]["dias"];
+          int lastdias = int.parse(treatmentFeedback[0]["lastdias"]);
+          if (dias < lastdias) {
+            vidaSecond = vidaSecond + 0.2;
+          } else {
+            vidaSecond = vidaSecond + 0.1;
+          }
+        }
+      }
+    }
+    if (vidaSecond > 0.2) {
+      vidaSecond = 0.2;
+    }
+    vidaJugador = vidaJugador - vidaSecond;
+    vidaPerdida = (vidaSecond * 100).toInt();
+    ajustarVidaPerdida();
+  }
+
+  void ajustarVidaPerdida() {
+    if (vidaPerdida == 0) {
+      mostrarVidaPerdida = "¡Genial! El paciente no ha perdido vida.";
+    } else {
+      mostrarVidaPerdida =
+          "El paciente ha perdido un " + vidaPerdida.toString() + "% de vida";
     }
   }
 }
