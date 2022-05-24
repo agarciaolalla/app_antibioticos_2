@@ -16,7 +16,7 @@ class HomeRanking extends State<Ranking> {
       appBar: AppBar(
         title: const Text("Ranking"),
       ),
-      body: getClients(context, listClient()),
+      body: getClients(context, listPlayer()),
     );
   }
 

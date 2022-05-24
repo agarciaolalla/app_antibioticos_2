@@ -1,5 +1,3 @@
-import 'package:app_antibioticos/html/html.dart';
-import 'package:app_antibioticos/screens/diagnostic/diagnostic_feedback.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -8,6 +6,8 @@ import 'dart:convert';
 
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/widgets/widgets.dart';
+import 'package:app_antibioticos/screens/diagnostic/diagnostic_feedback.dart';
+import 'package:app_antibioticos/services/player_peticion.dart';
 
 class DiagnosticScreen extends StatefulWidget {
   const DiagnosticScreen({Key? key}) : super(key: key);
@@ -115,6 +115,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         ElevatedButton(
           onPressed: () {
             if (comprobar == true) {
+              updatePlayerPoints();
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -166,18 +167,20 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         }
         if (comprobarRespuesta[i] == 1) {
           colorSolucion[i] = Colors.green;
-          if (points <= 8) {
-            points = points + 2;
-          }
+          points = points + 2;
         }
         if (comprobarRespuesta[i] == 2) {
           if (points > 0) {
             points = points - 1;
           }
-
           colorSolucion[i] = Colors.red;
         }
       }
     }
+  }
+
+  updatePlayerPoints() {
+    player.points = points.toString();
+    modifyPlayer(player);
   }
 }

@@ -30,16 +30,6 @@ class PlayerService {
         }
     }
 
-    async consultarplayer() {
-        try {
-
-            return await playermodel.find();
-        } catch (error) {
-            return error;
-
-        }
-    }
-
     async eliminarplayer(idc) {
         console.log(idc);
         var playerEliminado;
@@ -63,7 +53,8 @@ class PlayerService {
         var playerModificado;
         try {
             await playermodel.findOneAndUpdate({
-                _id: playermod._id
+                name: playermod.name,
+                surname: playermod.surname
             }, playermod).then( (value) => {
 
                 playerModificado = playermod;

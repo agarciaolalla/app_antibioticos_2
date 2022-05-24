@@ -18,7 +18,8 @@ class Login extends StatefulWidget {
 class _RegisterContact extends State<Login> {
   late TextEditingController controllerName;
   late TextEditingController controllerSurname;
-  int existeJugador = 0;
+
+  bool existeJugador = false;
 
   @override
   void initState() {
@@ -30,7 +31,6 @@ class _RegisterContact extends State<Login> {
   Future comprobarPlayer(name, surname) async {
     List returnlista = [];
     Map data;
-    existeJugador = 0;
     http.Response response =
         await http.get(Uri.parse(conexion1 + "/api/player"));
     // debugPrint(response.body);
@@ -41,7 +41,9 @@ class _RegisterContact extends State<Login> {
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["nombre"].toLowerCase() == name.toLowerCase() &&
             returnlista[i]["apellido"].toLowerCase() == surname.toLowerCase()) {
-          existeJugador = 1;
+          existeJugador = true;
+          player.name = returnlista[i]["nombre"];
+          player.surname = returnlista[i]["apellido"];
         }
       }
     });
@@ -68,39 +70,41 @@ class _RegisterContact extends State<Login> {
               ),
               const SizedBox(height: 10),
               ElevatedButton(
-                  onPressed: () async {
-                    String name = controllerName.text;
-                    String surname = controllerSurname.text;
-                    if (name.isNotEmpty && surname.isNotEmpty) {
-                      await comprobarPlayer(name, surname);
-                      if (existeJugador != 1) {
-                        Player c =
-                            Player(name: name, surname: surname, points: "0");
+                onPressed: () async {
+                  String name = controllerName.text;
+                  String surname = controllerSurname.text;
+                  if (name.isNotEmpty && surname.isNotEmpty) {
+                    await comprobarPlayer(name, surname);
+                    if (!existeJugador) {
+                      Player p =
+                          Player(name: name, surname: surname, points: "0");
 
-                        addPlayer(c).then((client) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomeScreen()),
-                          );
-                        });
-                      } else {
-                        showDialog<String>(
-                            context: context,
-                            builder: (BuildContext context) => AlertDialog(
-                                  content: const Text('Jugador ya registrado'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(context, 'OK'),
-                                      child: const Text('OK'),
-                                    ),
-                                  ],
-                                ));
-                      }
+                      addPlayer(p).then((player) {
+                        player = p;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()),
+                        );
+                      });
+                    } else {
+                      showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          content: const Text('Jugador ya registrado'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'OK'),
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        ),
+                      );
                     }
-                  },
-                  child: const Text("Registrar Jugador")),
+                  }
+                },
+                child: const Text("Registrar Jugador"),
+              ),
               const SizedBox(height: 10),
               ElevatedButton(
                   onPressed: () async {
@@ -108,20 +112,20 @@ class _RegisterContact extends State<Login> {
                     String surname = controllerSurname.text;
                     if (name.isNotEmpty && surname.isNotEmpty) {
                       await comprobarPlayer(name, surname);
-                      if (existeJugador != 1) {
+                      if (!existeJugador) {
                         showDialog<String>(
-                            context: context,
-                            builder: (BuildContext context) => AlertDialog(
-                                  content: const Text(
-                                      'No existe ningún jugador con ese nombre'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(context, 'OK'),
-                                      child: const Text('OK'),
-                                    ),
-                                  ],
-                                ));
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                            content: const Text(
+                                'No existe ningún jugador con ese nombre'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, 'OK'),
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          ),
+                        );
                       } else {
                         Navigator.push(
                           context,
