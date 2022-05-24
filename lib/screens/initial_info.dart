@@ -13,8 +13,17 @@ class InitialInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Informacion inicial'),
         automaticallyImplyLeading: false,
+        flexibleSpace: SafeArea(
+          child: Column(
+            children: const [
+              Text(
+                "Información Inicial",
+                style: TextStyle(fontSize: 25),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

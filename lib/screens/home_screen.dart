@@ -35,8 +35,17 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("APP Antibióticos"),
           automaticallyImplyLeading: false,
+          flexibleSpace: SafeArea(
+            child: Column(
+              children: const [
+                Text(
+                  "App Antibióticos",
+                  style: TextStyle(fontSize: 25),
+                ),
+              ],
+            ),
+          ),
         ),
         body: Center(
           child: FittedBox(

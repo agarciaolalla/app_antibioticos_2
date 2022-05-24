@@ -56,8 +56,17 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Primera Pregunta"),
         automaticallyImplyLeading: false,
+        flexibleSpace: SafeArea(
+          child: Column(
+            children: const [
+              Text(
+                "Primer Tratamiento",
+                style: TextStyle(fontSize: 25),
+              ),
+            ],
+          ),
+        ),
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         const Life(),

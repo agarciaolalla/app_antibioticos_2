@@ -80,8 +80,17 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     fillInitialLists();
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Primera Pregunta"),
         automaticallyImplyLeading: false,
+        flexibleSpace: SafeArea(
+          child: Column(
+            children: const [
+              Text(
+                "Pregunta Diagnóstica",
+                style: TextStyle(fontSize: 25),
+              ),
+            ],
+          ),
+        ),
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         const Life(),
