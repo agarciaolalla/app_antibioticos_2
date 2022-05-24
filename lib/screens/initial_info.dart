@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
@@ -15,6 +16,19 @@ class InitialInfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Informacion inicial'),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return const BackpackDialog();
+                },
+              );
+            },
+            icon: const Icon(Icons.backpack),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(

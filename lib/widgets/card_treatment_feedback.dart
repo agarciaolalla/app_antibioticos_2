@@ -8,7 +8,6 @@ class CardViewTreatmentFeedback extends StatelessWidget {
     required this.treatmentFeedback,
   }) : super(key: key);
 
-  //ToDo: Falta añadir la variable para filtrar por medicamentos seleccionados :)
   final List treatmentFeedback;
 
   @override
