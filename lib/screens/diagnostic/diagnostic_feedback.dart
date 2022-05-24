@@ -49,8 +49,17 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Solución'),
         automaticallyImplyLeading: false,
+        flexibleSpace: SafeArea(
+          child: Column(
+            children: const [
+              Text(
+                "Feedback del Diagnóstico",
+                style: TextStyle(fontSize: 25),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

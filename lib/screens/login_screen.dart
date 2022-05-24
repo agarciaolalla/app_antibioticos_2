@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -53,7 +54,17 @@ class _RegisterContact extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Registrar Jugador"),
+          automaticallyImplyLeading: false,
+          flexibleSpace: SafeArea(
+            child: Column(
+              children: const [
+                Text(
+                  "Registrar Jugador",
+                  style: TextStyle(fontSize: 25),
+                ),
+              ],
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(10.0),

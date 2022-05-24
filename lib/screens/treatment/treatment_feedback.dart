@@ -56,7 +56,16 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
       return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text('Feedback Tratamiento Empirico'),
+          flexibleSpace: SafeArea(
+            child: Column(
+              children: const [
+                Text(
+                  "Feedback Tratamiento Empírico",
+                  style: TextStyle(fontSize: 25),
+                ),
+              ],
+            ),
+          ),
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.only(bottom: 30),
