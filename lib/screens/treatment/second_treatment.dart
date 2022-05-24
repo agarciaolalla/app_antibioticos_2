@@ -147,9 +147,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                             int pastillasGastadas =
                                 contadorItems[i] * pastillasDias[i];
                             int resta = int.parse(
-                                    mochilaSeleccionada[i]["numpastillas"]) -
+                                    mochilaSeleccionada[i]["numerodosis"]) -
                                 pastillasGastadas;
-                            mochilaSeleccionada[i]["numpastillas"] =
+                            mochilaSeleccionada[i]["numerodosis"] =
                                 resta.toString();
                             listaFinal[i]["dias"] = contadorItems[i];
                           }
@@ -204,7 +204,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
       for (var i = 0; i < mochilaSeleccionada.length; i++) {
         int pastillaspordia =
             24 ~/ int.parse(mochilaSeleccionada[i]["intervalo"]);
-        int numpastillas = int.parse(mochilaSeleccionada[i]["numpastillas"]);
+        int numpastillas = int.parse(mochilaSeleccionada[i]["numerodosis"]);
         int dias = numpastillas ~/ pastillaspordia;
         mochilaDias.add(dias);
         pastillasDias.add(pastillaspordia);

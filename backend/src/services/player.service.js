@@ -30,15 +30,6 @@ class PlayerService {
         }
     }
 
-    async consultarplayer() {
-        try {
-
-            return await playermodel.find();
-        } catch (error) {
-            return error;
-
-        }
-    }
 
     async eliminarplayer(idc) {
         console.log(idc);
