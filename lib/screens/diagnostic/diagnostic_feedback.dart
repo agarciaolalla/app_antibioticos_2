@@ -70,12 +70,16 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
               child: DiagnosticFeedbackHtml(feedback: feedback),
             ),
             const ShowPoints(),
-            FloatingActionButton(
+            ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const FirstTreatmentScreen(),
                 ),
+              ),
+              child: const Text(
+                "Continuar",
+                style: TextStyle(fontSize: 25),
               ),
             ),
           ],

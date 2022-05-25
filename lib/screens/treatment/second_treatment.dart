@@ -144,7 +144,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                LooseScreen()),
+                                                const LooseScreen()),
                                       ),
                                       child: const Text('OK'),
                                     ),
