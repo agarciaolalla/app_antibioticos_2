@@ -37,7 +37,7 @@ Future<Player> addPlayer(Player player) async {
 
   var response = await http.post(url,
       headers: {'Content-Type': 'application/json; charset=UTF-8'}, body: body);
-  print("${response}");
+  // print("${response}");
 
   if (response.statusCode == 200) {
     return Player.fromJson(jsonDecode(response.body)['player']);
@@ -50,7 +50,7 @@ Future<Player> modifyPlayer(Player player) async {
   var url = Uri.parse(conexion1 + "/api/player/modificar");
 
   var body = json.encode(mapPlayer(player, true));
-  print(body);
+  //print(body);
 
   var response = await http.put(url,
       headers: {"Content-Type": "application/json"}, body: body);

@@ -23,6 +23,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   List feedbackToUser = [];
   int vidaPerdida = 0;
   String mostrarVidaPerdida = "";
+  List<int> checkDays = [];
   @override
   void initState() {
     super.initState();
@@ -52,6 +53,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     fillFeedbackToUser();
     //En caso de que sea el tratamiento empirico (1ª vez)
     if (idTreatmentQuestion == 1) {
+      firstTreatmentFeedback = List.from(feedbackToUser);
       setNewLifeFirstTreatment();
       return Scaffold(
         appBar: AppBar(
@@ -103,6 +105,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
       //En caso de que sea el tratamiento dirigido (2ª vez)
     } else {
       setNewLifeSecondTreatment();
+      secondTreatmentFeedback = List.from(feedbackToUser);
       return Scaffold(
         appBar: AppBar(
           title: const Text('Feedback Tratamiento Dirigido'),
@@ -149,6 +152,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         if (treatmentFeedback[i]["antibiotico"] ==
             widget.selectedMedicines[j]["antibiotico"]) {
           feedbackToUser.add(treatmentFeedback[i]);
+          checkDays.add(0);
         }
       }
     }
@@ -157,6 +161,8 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         if (feedbackToUser[i]["antibiotico"] ==
             widget.selectedMedicines[j]["antibiotico"]) {
           feedbackToUser[i]["dias"] = widget.selectedMedicines[j]["dias"];
+          //checkDays[i] = int.parse(widget.selectedMedicines[j]["dias"]);
+
         }
       }
     }
@@ -187,18 +193,13 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         vidaSecond = vidaSecond + 0.2;
       } else {
         if (feedbackToUser[i]["via"] == 'Vía Oral') {
-          int dias = feedbackToUser[i]["dias"];
-          int lastdias = int.parse(treatmentFeedback[0]["lastdias"]);
-
-          if (dias < lastdias) {
+          if (feedbackToUser[i]["dias"] < checkDays[i]) {
             vidaSecond = vidaSecond + 0.1;
           } else {
             //No le penaliza la vida en este caso.
           }
         } else {
-          int dias = feedbackToUser[i]["dias"];
-          int lastdias = int.parse(treatmentFeedback[0]["lastdias"]);
-          if (dias < lastdias) {
+          if (feedbackToUser[i]["dias"] < checkDays[i]) {
             vidaSecond = vidaSecond + 0.2;
           } else {
             vidaSecond = vidaSecond + 0.1;

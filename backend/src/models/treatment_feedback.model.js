@@ -11,8 +11,7 @@ const caseSchema = new Schema({
  vida: String,
  consumo: String,
  dias: String,
- lastfeedback: String,
- lastdias: String
+ lastfeedback: String
 })
 
 module.exports = model('treatment_feedback', caseSchema);

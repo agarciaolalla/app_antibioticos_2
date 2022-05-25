@@ -55,14 +55,45 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        toolbarHeight: 80, //set your height
         flexibleSpace: SafeArea(
           child: Column(
-            children: const [
-              Text(
+            children: [
+              const Text(
                 "Segundo Tratamiento",
                 style: TextStyle(fontSize: 25),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                      icon: const Icon(Icons.backpack_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const BackpackDialog();
+                          },
+                        );
+                      }),
+                  IconButton(
+                      icon: const Icon(Icons.two_k_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const TreatmentFeedbackPop();
+                          },
+                        );
+                      }),
+                  IconButton(
+                      icon: const Icon(Icons.whatsapp), onPressed: () {}),
+                  IconButton(
+                      icon: const Icon(Icons.facebook_outlined),
+                      onPressed: () {}),
+                ],
+              ),
+              // set your search bar setting
             ],
           ),
         ),
@@ -168,7 +199,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                               listaFinal.remove(listaFinal[i]);
                             }
                           }
-
+                          print(listaFinal);
                           Navigator.push(
                             context,
                             MaterialPageRoute(

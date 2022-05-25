@@ -15,7 +15,6 @@ class InitialInfoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-<<<<<<< HEAD
         actions: [
           IconButton(
             onPressed: () {
@@ -29,7 +28,6 @@ class InitialInfoScreen extends StatelessWidget {
             icon: const Icon(Icons.backpack),
           ),
         ],
-=======
         flexibleSpace: SafeArea(
           child: Column(
             children: const [
@@ -40,7 +38,6 @@ class InitialInfoScreen extends StatelessWidget {
             ],
           ),
         ),
->>>>>>> 2641229f89fe30aacbe4a007d8d7f82ab2d53838
       ),
       body: SingleChildScrollView(
         child: Column(
