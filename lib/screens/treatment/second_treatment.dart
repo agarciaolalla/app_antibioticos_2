@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/html/html.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -73,7 +74,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
           children: [
             const Life(),
             const Timer(),
-            Text(question),
+            SecondTreatmentQuestionHtml(questionHtml: question),
             SingleChildScrollView(
               child: Column(
                 children: [

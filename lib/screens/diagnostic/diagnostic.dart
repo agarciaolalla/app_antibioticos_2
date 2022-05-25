@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/html/html.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -95,7 +96,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         const Life(),
         const Timer(),
-        Text(question),
+        DiagnosticQuestionHtml(questionHtml: question),
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
