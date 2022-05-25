@@ -14,7 +14,6 @@ class HomeRanking extends State<Ranking> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         flexibleSpace: SafeArea(
           child: Column(
             children: const [

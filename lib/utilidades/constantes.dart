@@ -6,7 +6,6 @@ import 'package:app_antibioticos/models/player_model.dart';
 //const conexion1 = "http://192.168.1.11:50052"; //Servidor de Olalla (casa)
 //const conexion1 = "http://172.18.22.79:50052";
 
-//const conexion1 = "http://localhost:50052";
 const conexion1 = "http://1.44.4.78:50052";
 
 // Id del caso clinico que se va a realizar

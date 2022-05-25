@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 
-class TreatmentFeedbackHtml extends StatelessWidget {
-  const TreatmentFeedbackHtml({Key? key, required this.feedback})
+class DiagnosticQuestionHtml extends StatelessWidget {
+  const DiagnosticQuestionHtml({Key? key, required this.questionHtml})
       : super(key: key);
 
-  final String feedback;
+  final String questionHtml;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +15,9 @@ class TreatmentFeedbackHtml extends StatelessWidget {
         <meta name="viewport" content="width=device-width, initial-scale=2">
       </head>
       <body>
-        <h1>Feedback tratamiento final</h1>
+        <h1>Pruebas de diagnostico</h1>
         ''' +
-        feedback +
+        questionHtml +
         '''
       </body>
   </html>''';
