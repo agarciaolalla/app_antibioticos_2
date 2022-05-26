@@ -47,55 +47,57 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: Center(
-          child: FittedBox(
-            fit: BoxFit.contain,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100),
-                  child: Image(
-                    image: AssetImage('assets/home.png'),
+        body: SingleChildScrollView(
+          child: Center(
+            child: FittedBox(
+              fit: BoxFit.contain,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 100),
+                    child: Image(
+                      image: AssetImage('assets/home.png'),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          child: const Text(
-                            'Jugar',
-                            style: TextStyle(fontSize: 40),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            child: const Text(
+                              'Jugar',
+                              style: TextStyle(fontSize: 40),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const InitialInfoScreen()),
+                              );
+                            },
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const InitialInfoScreen()),
-                            );
-                          },
-                        ),
-                        const SizedBox(width: 10),
-                        ElevatedButton(
-                          child: const Text(
-                            'Ranking',
-                            style: TextStyle(fontSize: 40),
+                          const SizedBox(width: 10),
+                          ElevatedButton(
+                            child: const Text(
+                              'Ranking',
+                              style: TextStyle(fontSize: 40),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Ranking()),
+                              );
+                            },
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Ranking()),
-                            );
-                          },
-                        ),
-                      ]),
-                ),
-              ],
+                        ]),
+                  ),
+                ],
+              ),
             ),
           ),
         ));

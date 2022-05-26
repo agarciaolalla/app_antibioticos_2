@@ -80,6 +80,10 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
             itemCount: mochilaSeleccionada.length,
             itemBuilder: (BuildContext context, int index) {
               return CheckboxListTile(
+<<<<<<< HEAD
+=======
+                  controlAffinity: ListTileControlAffinity.leading,
+>>>>>>> a9190a6b7803ce385d740e562427ecaa939bf170
                   title: Text(mochilaSeleccionada[index]["antibiotico"]),
                   value: valorSwitch[index],
                   onChanged: notifyswitch
