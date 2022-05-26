@@ -99,19 +99,14 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           const Timer(),
           DiagnosticQuestionHtml(questionHtml: question),
           ListView.builder(
-<<<<<<< HEAD
             scrollDirection: Axis.vertical,
-=======
             //physics: const NeverScrollableScrollPhysics(),
->>>>>>> a9190a6b7803ce385d740e562427ecaa939bf170
+
             shrinkWrap: true,
             itemCount: listAnswer == null ? 0 : listAnswer.length,
             itemBuilder: (BuildContext context, int index) {
               return CheckboxListTile(
-<<<<<<< HEAD
-=======
                   controlAffinity: ListTileControlAffinity.leading,
->>>>>>> a9190a6b7803ce385d740e562427ecaa939bf170
                   activeColor: Colors.indigo,
                   tileColor: colorSolucion[index],
                   title: Text("${listAnswer[index]["respuesta"]}"),
@@ -134,7 +129,6 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           ElevatedButton(
             onPressed: () {
               if (comprobar == true) {
-                updatePlayerPoints();
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -197,10 +191,5 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         }
       }
     }
-  }
-
-  updatePlayerPoints() {
-    player.points = points.toString();
-    modifyPlayer(player);
   }
 }

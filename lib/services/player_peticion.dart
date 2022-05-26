@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:app_antibioticos/models/models.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
 
 Future<List<Player>> listPlayer() async {
   final response = await http.get(Uri.parse(conexion1 + "/api/player"));
@@ -24,7 +24,10 @@ mapPlayer(Player player, bool mapId) {
   data = {
     'nombre': player.name,
     'apellido': player.surname,
-    'puntuacion': player.points
+    'puntuacion': player.points,
+    'retoscompletados': player.challenges,
+    'antibioticostotales': player.medicines,
+    'vida': player.life,
   };
 
   return data;
