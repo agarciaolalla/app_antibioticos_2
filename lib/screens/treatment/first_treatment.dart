@@ -54,18 +54,33 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
     for (var i = 0; i < mochilaSeleccionada.length; i++) {
       valorSwitch.add(false);
     }
-    print(mochilaSeleccionada);
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
-            children: const [
-              Text(
-                "Primer Tratamiento",
+            children: [
+              const Text(
+                "Segundo Tratamiento",
                 style: TextStyle(fontSize: 25),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                      icon: const Icon(Icons.backpack_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const BackpackDialog();
+                          },
+                        );
+                      }),
+                ],
+              ),
+              // set your search bar setting
             ],
           ),
         ),

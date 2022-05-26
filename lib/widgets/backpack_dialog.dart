@@ -14,8 +14,8 @@ class BackpackDialog extends StatelessWidget {
       title: const Text("Mochila"),
       content: SingleChildScrollView(
         child: SizedBox(
-          width: 300,
-          height: 300,
+          width: 400,
+          height: 900,
           child: ListView.builder(
             scrollDirection: Axis.vertical,
             itemCount: mochilaSeleccionada.length,
@@ -29,17 +29,18 @@ class BackpackDialog extends StatelessWidget {
                 child: ListTile(
                   leading: const Icon(Icons.medication_rounded),
                   title: Text(mochilaSeleccionada[index]["antibiotico"]),
-                  subtitle: Text("\nDosis: " +
-                      mochilaSeleccionada[index]["dosis"] +
-                      "\nVia: " +
-                      mochilaSeleccionada[index]["via"] +
-                      "\nIntervalo: " +
-                      mochilaSeleccionada[index]["intervalo"] +
-                      "h/" +
-                      mochilaSeleccionada[index]["dias"] +
-                      "\nCantidad restante: " +
-                      mochilaSeleccionada[index]["numerodosis"] +
-                      " usos disponibles"),
+                  subtitle: Text(
+                      "\nDosis: " +
+                          mochilaSeleccionada[index]["dosis"] +
+                          "\nVía: " +
+                          mochilaSeleccionada[index]["via"] +
+                          "\nIntervalo: " +
+                          mochilaSeleccionada[index]["intervalo"] +
+                          "h/" +
+                          "\nCantidad restante: " +
+                          mochilaSeleccionada[index]["dias"] +
+                          " días disponibles",
+                      style: const TextStyle(fontSize: 18)),
                 ),
               );
             },

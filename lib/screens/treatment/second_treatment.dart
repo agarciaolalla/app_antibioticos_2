@@ -151,7 +151,8 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                                   icon: const Icon(Icons.add),
                                   onPressed: () => setState(() {
                                         if (contadorItems[index] !=
-                                            mochilaDias[index]) {
+                                            int.parse(mochilaSeleccionada[index]
+                                                ["dias"])) {
                                           contadorItems[index]++;
                                         }
                                       })),
@@ -170,19 +171,28 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       //Sí has seleccionado algún día en los medicamentos entra aquí  en caso contrario te indica mediante una alerta que tienes que seleccionar al menos un medicamento.
                       if (contadorDias == true) {
                         print(contadorItems.length);
+                        print(mochilaSeleccionada.length);
+                        print(mochilaDias.length);
                         for (var i = 0; i < mochilaSeleccionada.length; i++) {
                           if (contadorItems[i] != 0) {
-                            int pastillasGastadas =
-                                contadorItems[i] * pastillasDias[i];
-                            int resta = int.parse(
-                                    mochilaSeleccionada[i]["numerodosis"]) -
-                                pastillasGastadas;
-                            mochilaSeleccionada[i]["numerodosis"] =
-                                resta.toString();
-
+                            if (contadorItems[i] ==
+                                int.parse(mochilaSeleccionada[i]["dias"])) {
+                              mochilaSeleccionada
+                                  .remove(mochilaSeleccionada[i]);
+                              contadorItems.remove(contadorItems[i]);
+                              mochilaDias.remove(mochilaDias[i]);
+                            } else {
+                              int pastillasGastadas =
+                                  contadorItems[i] * pastillasDias[i];
+                              int resta = int.parse(
+                                      mochilaSeleccionada[i]["numerodosis"]) -
+                                  pastillasGastadas;
+                              mochilaSeleccionada[i]["numerodosis"] =
+                                  resta.toString();
+                              listaFinal.add(mochilaSeleccionada[i]);
+                              listaFinal[i]["dias"] = contadorItems[i];
+                            }
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
-                            listaFinal.add(mochilaSeleccionada[i]);
-                            listaFinal[i]["dias"] = contadorItems[i];
                           }
                         }
 
