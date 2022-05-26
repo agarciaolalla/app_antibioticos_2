@@ -88,9 +88,14 @@ class _RegisterContact extends State<Login> {
                     if (name.isNotEmpty && surname.isNotEmpty) {
                       await comprobarPlayer(name, surname);
                       if (!existeJugador) {
-                        Player p =
-                            Player(name: name, surname: surname, points: "0");
-
+                        Player p = Player(
+                          name: name,
+                          surname: surname,
+                          points: "0",
+                          challenges: "0",
+                          medicines: "0",
+                          life: "0.0",
+                        );
                         addPlayer(p).then((player) {
                           player = p;
                           Navigator.push(

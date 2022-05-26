@@ -24,4 +24,11 @@ List firstTreatmentFeedback = [];
 List secondTreatmentFeedback = [];
 
 //Player actual
-Player player = Player(name: "", surname: "", points: "0");
+Player player = Player(
+  name: "",
+  surname: "",
+  points: "0",
+  challenges: "0",
+  medicines: "0",
+  life: "0.0",
+);

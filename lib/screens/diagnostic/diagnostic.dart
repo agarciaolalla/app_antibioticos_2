@@ -101,6 +101,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           ListView.builder(
             scrollDirection: Axis.vertical,
             //physics: const NeverScrollableScrollPhysics(),
+
             shrinkWrap: true,
             itemCount: listAnswer == null ? 0 : listAnswer.length,
             itemBuilder: (BuildContext context, int index) {
@@ -128,7 +129,6 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           ElevatedButton(
             onPressed: () {
               if (comprobar == true) {
-                updatePlayerPoints();
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -191,10 +191,5 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         }
       }
     }
-  }
-
-  updatePlayerPoints() {
-    player.points = points.toString();
-    modifyPlayer(player);
   }
 }

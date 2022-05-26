@@ -9,6 +9,8 @@ class Ranking extends StatefulWidget {
   State<StatefulWidget> createState() => HomeRanking();
 }
 
+List<Player> playersRank = [];
+
 class HomeRanking extends State<Ranking> {
   @override
   Widget build(BuildContext context) {
@@ -64,21 +66,62 @@ class HomeRanking extends State<Ranking> {
   }
 
   Widget clientList(List<Player> jugadores) {
+    orderPlayers(jugadores);
     return ListView.builder(
-      itemCount: jugadores.length,
+      itemCount: playersRank.length,
       itemBuilder: (context, index) {
-        jugadores.sort((a, b) {
-          return int.parse(b.points).compareTo(int.parse(a.points));
-          //softing on numerical order (Descending order by Roll No integer)
-        });
         return ListTile(
-          title: Text(jugadores[index].name + " " + jugadores[index].surname),
-          subtitle: Text(jugadores[index].points),
+          title:
+              Text(playersRank[index].name + " " + playersRank[index].surname),
+          subtitle: Text("Vida: " +
+              playersRank[index].life +
+              "%" +
+              "\nAntibioticos Restantes: " +
+              playersRank[index].medicines +
+              "\nPuntuacion Diagnostica: " +
+              playersRank[index].points +
+              " puntos"),
           leading: CircleAvatar(
             child: Text((index + 1).toString()),
           ),
         );
       },
     );
+  }
+
+  //Metodo para ordenar a los jugadores en el ranking
+  void orderPlayers(List<Player> jugadores) {
+    //Añadimos solamente los jugadores que hayan completado los 5 casos
+    for (int i = 0; i < jugadores.length; i++) {
+      if (jugadores[i].challenges == "5") {
+        playersRank.add(jugadores[i]);
+      }
+    }
+    //Ordenamos los jugadores que hayan completado los 5 casos
+    for (int i = 1; i < playersRank.length; i++) {
+      double vida0 = double.parse(playersRank[i - 1].life);
+      double vida1 = double.parse(playersRank[i].life);
+      if (vida1 > vida0) {
+        Player copia = playersRank[i - 1];
+        playersRank[i - 1] = playersRank[i];
+        playersRank[i] = copia;
+      } else if (vida1 == vida0) {
+        int antibioticos0 = int.parse(playersRank[i - 1].medicines);
+        int antibioticos1 = int.parse(playersRank[i].medicines);
+        if (antibioticos1 > antibioticos0) {
+          Player copia = playersRank[i - 1];
+          playersRank[i - 1] = playersRank[i];
+          playersRank[i] = copia;
+        } else if (antibioticos0 == antibioticos1) {
+          int puntos0 = int.parse(playersRank[i - 1].points);
+          int puntos1 = int.parse(playersRank[i].points);
+          if (puntos1 > puntos0) {
+            Player copia = playersRank[i - 1];
+            playersRank[i - 1] = playersRank[i];
+            playersRank[i] = copia;
+          }
+        }
+      }
+    }
   }
 }
