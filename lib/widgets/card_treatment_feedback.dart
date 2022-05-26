@@ -42,6 +42,7 @@ class CardViewTreatmentFeedback extends StatelessWidget {
                   '\nVía: ${treatmentFeedback[index]["via"]}'
                   '\nIntervalo: ${treatmentFeedback[index]["intervalo"]}'
                   '\n¿Activo?: ${treatmentFeedback[index]["activo"]}'
+                  '\nDosis utilizadas: ${treatmentFeedback[index]["consumo"]}'
                   '\n\n${getCardComment(index)}',
                   style: const TextStyle(color: Colors.black),
                 ),

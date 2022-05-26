@@ -69,63 +69,65 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
           ),
         ),
       ),
-      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-        const Life(),
-        const Timer(),
-        DiagnosticQuestionHtml(questionHtml: question),
-        ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: mochilaSeleccionada.length,
-          itemBuilder: (BuildContext context, int index) {
-            return CheckboxListTile(
-                title: Text(mochilaSeleccionada[index]["antibiotico"]),
-                value: valorSwitch[index],
-                onChanged: notifyswitch
-                    ? null
-                    : (value) => setState(() {
-                          valorSwitch[index] = value;
-                        }));
-          },
-        ),
-        ElevatedButton(
-          onPressed: () {
-            for (var i = 0; i < mochilaSeleccionada.length; i++) {
-              if (valorSwitch[i] == true) {
-                contadorSwitch = 1;
-              }
-            }
-            if (contadorSwitch == 0) {
-              showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                        content: const Text(
-                            'Debes seleccionar al menos un medicamento.'),
-                        actions: <Widget>[
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, 'OK'),
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      ));
-            } else {
+      body: SingleChildScrollView(
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+          const Life(),
+          const Timer(),
+          DiagnosticQuestionHtml(questionHtml: question),
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: mochilaSeleccionada.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CheckboxListTile(
+                  title: Text(mochilaSeleccionada[index]["antibiotico"]),
+                  value: valorSwitch[index],
+                  onChanged: notifyswitch
+                      ? null
+                      : (value) => setState(() {
+                            valorSwitch[index] = value;
+                          }));
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
               for (var i = 0; i < mochilaSeleccionada.length; i++) {
                 if (valorSwitch[i] == true) {
-                  listaFinal.add(mochilaSeleccionada[i]);
+                  contadorSwitch = 1;
                 }
               }
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      TreatmentFeedback(selectedMedicines: listaFinal),
-                ),
-              );
-            }
-          },
-          child: const Text('Siguiente'),
-        ),
-      ]),
+              if (contadorSwitch == 0) {
+                showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          content: const Text(
+                              'Debes seleccionar al menos un medicamento.'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'OK'),
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        ));
+              } else {
+                for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                  if (valorSwitch[i] == true) {
+                    listaFinal.add(mochilaSeleccionada[i]);
+                  }
+                }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        TreatmentFeedback(selectedMedicines: listaFinal),
+                  ),
+                );
+              }
+            },
+            child: const Text('Siguiente'),
+          ),
+        ]),
+      ),
     );
   }
 }

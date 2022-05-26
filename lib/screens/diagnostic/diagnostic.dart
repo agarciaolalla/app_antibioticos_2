@@ -93,49 +93,51 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           ),
         ),
       ),
-      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-        const Life(),
-        const Timer(),
-        DiagnosticQuestionHtml(questionHtml: question),
-        ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: listAnswer == null ? 0 : listAnswer.length,
-          itemBuilder: (BuildContext context, int index) {
-            return CheckboxListTile(
-                activeColor: Colors.indigo,
-                tileColor: colorSolucion[index],
-                title: Text("${listAnswer[index]["respuesta"]}"),
-                value: valorSwitch[index],
-                onChanged: notifyswitch
-                    ? null
-                    : (value) => setState(() {
-                          valorSwitch[index] = value;
-                        }));
-          },
-        ),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              checkAnswers();
-            });
-          },
-          child: const Text('Comprobar'),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            if (comprobar == true) {
-              updatePlayerPoints();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const DiagnosticFeedback()),
-              );
-            }
-          },
-          child: const Text('Siguiente'),
-        ),
-      ]),
+      body: SingleChildScrollView(
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+          const Life(),
+          const Timer(),
+          DiagnosticQuestionHtml(questionHtml: question),
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: listAnswer == null ? 0 : listAnswer.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CheckboxListTile(
+                  activeColor: Colors.indigo,
+                  tileColor: colorSolucion[index],
+                  title: Text("${listAnswer[index]["respuesta"]}"),
+                  value: valorSwitch[index],
+                  onChanged: notifyswitch
+                      ? null
+                      : (value) => setState(() {
+                            valorSwitch[index] = value;
+                          }));
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                checkAnswers();
+              });
+            },
+            child: const Text('Comprobar'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (comprobar == true) {
+                updatePlayerPoints();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DiagnosticFeedback()),
+                );
+              }
+            },
+            child: const Text('Siguiente'),
+          ),
+        ]),
+      ),
     );
   }
 
