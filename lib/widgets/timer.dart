@@ -1,4 +1,5 @@
 import 'package:app_antibioticos/screens/final_screen.dart';
+import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 class Timer extends StatefulWidget {
@@ -40,7 +41,7 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
                 TextButton(
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FinalScreen()),
+                    MaterialPageRoute(builder: (context) => LooseScreen()),
                   ),
                   child: const Text('OK'),
                 ),

@@ -86,7 +86,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  setBackpackDosisFirstTreatment();
+                  //setBackpackDosisFirstTreatment();
                   idTreatmentQuestion++;
                   Navigator.push(
                     context,
@@ -171,22 +171,22 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   }
 
   //Metodo para restar el consumo de los medicamentos utilizados en la mochila.
-  void setBackpackDosisFirstTreatment() {
-    print("Mochila antes del metodo");
-    print(mochilaSeleccionada);
-    for (int i = 0; i < feedbackToUser.length; i++) {
-      for (int j = 0; j < mochilaSeleccionada.length; j++) {
-        if (mochilaSeleccionada[j]["antibiotico"] ==
-            feedbackToUser[i]["antibiotico"]) {
-          int setDosis = int.parse(mochilaSeleccionada[j]["numerodosis"]) -
-              int.parse(feedbackToUser[i]["consumo"]);
-          mochilaSeleccionada[j]["numerodosis"] = setDosis.toString();
-        }
-      }
-    }
-    print("Mochila DESPUES del metodo");
-    print(mochilaSeleccionada);
-  }
+  //void setBackpackDosisFirstTreatment() {
+  //  //print("Mochila antes del metodo");
+  //  //print(mochilaSeleccionada);
+  //  for (int i = 0; i < feedbackToUser.length; i++) {
+  //    for (int j = 0; j < mochilaSeleccionada.length; j++) {
+  //      if (mochilaSeleccionada[j]["antibiotico"] ==
+  //          feedbackToUser[i]["antibiotico"]) {
+  //        int setDosis = int.parse(mochilaSeleccionada[j]["numerodosis"]) -
+  //            int.parse(feedbackToUser[i]["consumo"]);
+  //        mochilaSeleccionada[j]["numerodosis"] = setDosis.toString();
+  //      }
+  //    }
+  //  }
+  //  //print("Mochila DESPUES del metodo");
+  //  //print(mochilaSeleccionada);
+  //}
 
   void setNewLifeFirstTreatment() {
     int vidaFirst = 0;

@@ -23,14 +23,24 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     getTreatmentQuestion();
   }
 
-  int contadorDias = 0;
+  //List mostrarMochila =[]; //Mochila que muestra los antibioticos que SI tienen dosis restantes
+  bool medicamentosRestantes =
+      false; //Contador para saber si quedan medicamentos en la mochila
+  bool contadorDias =
+      false; //Indicador de si has seleccionado o no medicamento para en caso de que no lo hayas seleccionado te diga que tienes que seleccionar al menos uno
   List listaFinal = [];
-  String question = "";
-  List contadorItems = [];
-  bool copiar = false;
-  List mochilaDias = [];
-  List<int> pastillasDias = [];
-  int checkpills = 0;
+  String question =
+      ""; //Nombre de la pregunta que se rellena desde la base de datos.
+  List contadorItems =
+      []; //Lista con el contador de pastillas de cada medicamento
+  bool copiar =
+      false; //Boleano que copia el array al iniciar la screen, si se recarga no.
+  List mochilaDias =
+      []; //Lista que te dice los días seleccionables que hay de cada medicamento
+  List<int> pastillasDias =
+      []; //Lista que te dice las pastillas por cada día de cada medicamento
+  int checkpills =
+      0; //Indicador que te dice si quedan medicamentos en la mochila para seguir jugando
 
   //Método para obtener la pregunta del segundo Tratamiento
   Future getTreatmentQuestion() async {
@@ -53,10 +63,10 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
   @override
   Widget build(BuildContext context) {
     fillAllLists();
-
+    checkPills();
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 80, //set your height
+        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
             children: [
@@ -131,7 +141,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                               IconButton(
                                 icon: const Icon(Icons.remove),
                                 onPressed: () => setState(() {
-                                  copiar = true;
                                   if (contadorItems[index] > 0) {
                                     contadorItems[index]--;
                                   }
@@ -141,7 +150,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                               IconButton(
                                   icon: const Icon(Icons.add),
                                   onPressed: () => setState(() {
-                                        copiar = true;
                                         if (contadorItems[index] !=
                                             mochilaDias[index]) {
                                           contadorItems[index]++;
@@ -158,33 +166,12 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      copiar = true;
-
                       checkDaysCount();
-                      checkPills();
                       //Sí has seleccionado algún día en los medicamentos entra aquí  en caso contrario te indica mediante una alerta que tienes que seleccionar al menos un medicamento.
-                      if (checkpills == 0) {
-                        showDialog<String>(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) => AlertDialog(
-                                  content: const Text(
-                                      'Se han agotado todos los medicamentos, has perdido.'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      onPressed: () => Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const LooseScreen()),
-                                      ),
-                                      child: const Text('OK'),
-                                    ),
-                                  ],
-                                ));
-                      } else {
-                        if (contadorDias == 1) {
-                          for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                      if (contadorDias == true) {
+                        print(contadorItems.length);
+                        for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                          if (contadorItems[i] != 0) {
                             int pastillasGastadas =
                                 contadorItems[i] * pastillasDias[i];
                             int resta = int.parse(
@@ -192,37 +179,34 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                                 pastillasGastadas;
                             mochilaSeleccionada[i]["numerodosis"] =
                                 resta.toString();
+
+                            //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
+                            listaFinal.add(mochilaSeleccionada[i]);
                             listaFinal[i]["dias"] = contadorItems[i];
                           }
-
-                          for (int i = 0; i < listaFinal.length; i++) {
-                            if (listaFinal[i]["dias"] == 0) {
-                              listaFinal.remove(listaFinal[i]);
-                            }
-                          }
-                          print(listaFinal);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => TreatmentFeedback(
-                                  selectedMedicines: listaFinal),
-                            ),
-                          );
-                        } else {
-                          showDialog<String>(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                    content: const Text(
-                                        'Debes seleccionar al menos un medicamento.'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(context, 'OK'),
-                                        child: const Text('OK'),
-                                      ),
-                                    ],
-                                  ));
                         }
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TreatmentFeedback(
+                                selectedMedicines: listaFinal),
+                          ),
+                        );
+                      } else {
+                        showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  content: const Text(
+                                      'Debes seleccionar al menos un medicamento.'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(context, 'OK'),
+                                      child: const Text('OK'),
+                                    ),
+                                  ],
+                                ));
                       }
                     },
                     child: const Text(
@@ -239,26 +223,32 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     );
   }
 
+  //Te rellena el array a mostrar dependiendo de si existen medicamentos en la mochila y en caso de no existir elimina dicho medicamento.
   void fillAllLists() {
     if (copiar == false) {
-      listaFinal = List.from(mochilaSeleccionada);
       for (var i = 0; i < mochilaSeleccionada.length; i++) {
-        int pastillaspordia =
-            24 ~/ int.parse(mochilaSeleccionada[i]["intervalo"]);
-        int numpastillas = int.parse(mochilaSeleccionada[i]["numerodosis"]);
-        int dias = numpastillas ~/ pastillaspordia;
-        mochilaDias.add(dias);
-        pastillasDias.add(pastillaspordia);
-        contadorItems.add(0);
+        if (mochilaSeleccionada[i]["numerodosis"] != "0") {
+          int pastillaspordia =
+              24 ~/ int.parse(mochilaSeleccionada[i]["intervalo"]);
+          int numpastillas = int.parse(mochilaSeleccionada[i]["numerodosis"]);
+          int dias = numpastillas ~/ pastillaspordia;
+          medicamentosRestantes = true;
+          contadorItems.add(0);
+          mochilaDias.add(dias);
+          pastillasDias.add(pastillaspordia);
+        } else {
+          mochilaSeleccionada.remove(mochilaSeleccionada[i]);
+        }
       }
     }
+    copiar = true;
   }
 
   //Comprueba si has seleccionado días en algún medicamento.
   void checkDaysCount() {
     for (int i = 0; i < contadorItems.length; i++) {
       if (contadorItems[i] != 0) {
-        contadorDias = 1;
+        contadorDias = true;
       }
     }
   }
@@ -269,6 +259,25 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
       if (mochilaDias[i] != 0) {
         checkpills++;
       }
+    }
+    if (checkpills == 0) {
+      showDialog<String>(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) => AlertDialog(
+                content: const Text(
+                    'Se han agotado todos los medicamentos, has perdido.'),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LooseScreen()),
+                    ),
+                    child: const Text('OK'),
+                  ),
+                ],
+              ));
     }
   }
 }
