@@ -23,18 +23,20 @@ class LooseScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  "Has perdido",
-                  style: TextStyle(fontSize: 25, color: Colors.red),
-                )
-              ],
+        body: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Text(
+                    "Has perdido",
+                    style: TextStyle(fontSize: 25, color: Colors.red),
+                  )
+                ],
+              ),
             ),
           ),
         ));
