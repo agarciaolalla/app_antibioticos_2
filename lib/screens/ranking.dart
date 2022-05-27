@@ -73,7 +73,9 @@ class HomeRanking extends State<Ranking> {
         return ListTile(
           title:
               Text(playersRank[index].name + " " + playersRank[index].surname),
-          subtitle: Text("Vida: " +
+          subtitle: Text("Retos completados: " +
+              playersRank[index].challenges +
+              "\nVida: " +
               playersRank[index].life +
               "%" +
               "\nAntibioticos Restantes: " +
@@ -97,31 +99,46 @@ class HomeRanking extends State<Ranking> {
         playersRank.add(jugadores[i]);
       }
     }
-    //Ordenamos los jugadores que hayan completado los 5 casos
-    for (int i = 1; i < playersRank.length; i++) {
-      double vida0 = double.parse(playersRank[i - 1].life);
-      double vida1 = double.parse(playersRank[i].life);
-      if (vida1 > vida0) {
-        Player copia = playersRank[i - 1];
-        playersRank[i - 1] = playersRank[i];
-        playersRank[i] = copia;
-      } else if (vida1 == vida0) {
-        int antibioticos0 = int.parse(playersRank[i - 1].medicines);
-        int antibioticos1 = int.parse(playersRank[i].medicines);
-        if (antibioticos1 > antibioticos0) {
-          Player copia = playersRank[i - 1];
-          playersRank[i - 1] = playersRank[i];
-          playersRank[i] = copia;
-        } else if (antibioticos0 == antibioticos1) {
-          int puntos0 = int.parse(playersRank[i - 1].points);
-          int puntos1 = int.parse(playersRank[i].points);
-          if (puntos1 > puntos0) {
-            Player copia = playersRank[i - 1];
-            playersRank[i - 1] = playersRank[i];
-            playersRank[i] = copia;
-          }
+
+    //Ordenamos los jugadores con 5 casos completados con los parametros solicitados.
+    playersRank.sort((a, b) {
+      int vida = double.parse(b.life).compareTo(double.parse(a.life));
+      if (vida == 0) {
+        int antibioticos =
+            int.parse(b.medicines).compareTo(int.parse(a.medicines));
+        if (antibioticos == 0) {
+          return int.parse(b.points).compareTo(int.parse(a.medicines));
         }
+        return antibioticos;
       }
+      return vida;
+    });
+
+    //Creamos otro array donde meteremos los que tienen < 5 casos completados
+    List<Player> playersFail = [];
+
+    for (int i = 0; i < jugadores.length; i++) {
+      if (int.parse(jugadores[i].challenges) < 5) {
+        playersFail.add(jugadores[i]);
+      }
+    }
+
+    //Ordenamos los jugadores con menos de 5 casos completados con los parametros solicitados
+    playersFail.sort((a, b) {
+      int retos = int.parse(b.challenges).compareTo(int.parse(a.challenges));
+      if (retos == 0) {
+        int puntos = int.parse(b.points).compareTo(int.parse(a.points));
+        if (puntos == 0) {
+          return int.parse(b.medicines).compareTo(int.parse(a.medicines));
+        }
+        return puntos;
+      }
+      return retos;
+    });
+
+    //Finalmente, añadimos los elementos ordenados al array que vamos a mostrar
+    for (int i = 0; i < playersFail.length; i++) {
+      playersRank.add(playersFail[i]);
     }
   }
 }

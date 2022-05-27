@@ -26,6 +26,15 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     mochila = List.from(mochilaSeleccionada);
   }
 
+  String asset = "Antibiograma" + idcaso.toString() + ".png";
+
+  //List mostrarMochila =[]; //Mochila que muestra los antibioticos que SI tienen dosis restantes
+  bool medicamentosRestantes =
+      false; //Contador para saber si quedan medicamentos en la mochila
+  bool contadorDias =
+      false; //Indicador de si has seleccionado o no medicamento para en caso de que no lo hayas seleccionado te diga que tienes que seleccionar al menos uno
+  List listaFinal = [];
+
   String question =
       ""; //Nombre de la pregunta que se rellena desde la base de datos.
   List contadorItems =
@@ -103,7 +112,10 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
           children: [
             const Life(),
             const Timer(),
-            SecondTreatmentQuestionHtml(questionHtml: question),
+            Column(children: [
+              SecondTreatmentQuestionHtml(questionHtml: question),
+              ShowAntibiogram(asset: asset)
+            ]),
             SingleChildScrollView(
               child: Column(
                 children: [
