@@ -21,27 +21,17 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
   void initState() {
     super.initState();
     getTreatmentQuestion();
+    fillLists();
+    checkPills();
+    mochila = List.from(mochilaSeleccionada);
   }
 
-  //List mostrarMochila =[]; //Mochila que muestra los antibioticos que SI tienen dosis restantes
-  bool medicamentosRestantes =
-      false; //Contador para saber si quedan medicamentos en la mochila
-  bool contadorDias =
-      false; //Indicador de si has seleccionado o no medicamento para en caso de que no lo hayas seleccionado te diga que tienes que seleccionar al menos uno
-  List listaFinal = [];
   String question =
       ""; //Nombre de la pregunta que se rellena desde la base de datos.
   List contadorItems =
       []; //Lista con el contador de pastillas de cada medicamento
-  bool copiar =
-      false; //Boleano que copia el array al iniciar la screen, si se recarga no.
-  List mochilaDias =
-      []; //Lista que te dice los días seleccionables que hay de cada medicamento
-  List<int> pastillasDias =
-      []; //Lista que te dice las pastillas por cada día de cada medicamento
-  int checkpills =
-      0; //Indicador que te dice si quedan medicamentos en la mochila para seguir jugando
-
+  List mochila = []; //Mochila que se pasa al feedback
+  bool recargarBody = false; //Booleano que te inidca si el body se ha recargado
   //Método para obtener la pregunta del segundo Tratamiento
   Future getTreatmentQuestion() async {
     List returnList = [];
@@ -62,8 +52,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    fillAllLists();
-    checkPills();
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
@@ -150,7 +138,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                               IconButton(
                                   icon: const Icon(Icons.add),
                                   onPressed: () => setState(() {
-                                        if (contadorItems[index] !=
+                                        if (contadorItems[index] <
                                             int.parse(mochilaSeleccionada[index]
                                                 ["dias"])) {
                                           contadorItems[index]++;
@@ -167,41 +155,34 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      checkDaysCount();
                       //Sí has seleccionado algún día en los medicamentos entra aquí  en caso contrario te indica mediante una alerta que tienes que seleccionar al menos un medicamento.
-                      if (contadorDias == true) {
-                        print(contadorItems.length);
-                        print(mochilaSeleccionada.length);
-                        print(mochilaDias.length);
-                        for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                      if (checkDaysCount() == true) {
+                        for (var i = 0; i < mochila.length; i++) {
                           if (contadorItems[i] != 0) {
+                            mochila[i]["dias"] = contadorItems[i].toString();
                             if (contadorItems[i] ==
-                                int.parse(mochilaSeleccionada[i]["dias"])) {
-                              mochilaSeleccionada
-                                  .remove(mochilaSeleccionada[i]);
-                              contadorItems.remove(contadorItems[i]);
-                              mochilaDias.remove(mochilaDias[i]);
+                                int.parse(mochila[i]["dias"])) {
+                              mochila[i]["via"] = "borrar";
                             } else {
-                              int pastillasGastadas =
-                                  contadorItems[i] * pastillasDias[i];
-                              int resta = int.parse(
-                                      mochilaSeleccionada[i]["numerodosis"]) -
-                                  pastillasGastadas;
-                              mochilaSeleccionada[i]["numerodosis"] =
-                                  resta.toString();
-                              listaFinal.add(mochilaSeleccionada[i]);
-                              listaFinal[i]["dias"] = contadorItems[i];
+                              mochila[i]["via"] =
+                                  (int.parse(mochila[i]["dias"]) -
+                                          contadorItems[i])
+                                      .toString();
                             }
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
+                          } else {
+                            mochila[i]["via"] = "notocar";
+                            mochila[i]["antibiotico"] = "";
                           }
                         }
-
+                        backpackReload();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => TreatmentFeedback(
-                                selectedMedicines: listaFinal),
-                          ),
+                              builder: (context) =>
+                                  //const Ranking()
+                                  TreatmentFeedback(
+                                      selectedMedicines: mochila)),
                         );
                       } else {
                         showDialog<String>(
@@ -233,44 +214,49 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     );
   }
 
-  //Te rellena el array a mostrar dependiendo de si existen medicamentos en la mochila y en caso de no existir elimina dicho medicamento.
-  void fillAllLists() {
-    if (copiar == false) {
-      for (var i = 0; i < mochilaSeleccionada.length; i++) {
-        if (mochilaSeleccionada[i]["numerodosis"] != "0") {
-          int pastillaspordia =
-              24 ~/ int.parse(mochilaSeleccionada[i]["intervalo"]);
-          int numpastillas = int.parse(mochilaSeleccionada[i]["numerodosis"]);
-          int dias = numpastillas ~/ pastillaspordia;
-          medicamentosRestantes = true;
-          contadorItems.add(0);
-          mochilaDias.add(dias);
-          pastillasDias.add(pastillaspordia);
-        } else {
-          mochilaSeleccionada.remove(mochilaSeleccionada[i]);
-        }
+  fillLists() {
+    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+      contadorItems.add(0);
+    }
+  }
+
+  backpackReload() {
+    for (int i = 0; i < mochila.length; i++) {
+      if (mochila[i]["via"] == "borrar") {
+        mochilaSeleccionada[i]["antibiotico"] = "";
+      } else if (mochila[i]["via"] == "notocar") {
+        //No hace nada
+      } else {
+        mochilaSeleccionada[i]["dias"] == mochila[i]["via"];
       }
     }
-    copiar = true;
+    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+      if (mochilaSeleccionada[i]["via"] == "borrar") {
+        mochilaSeleccionada.remove(mochilaSeleccionada[i]);
+      }
+    }
   }
 
   //Comprueba si has seleccionado días en algún medicamento.
-  void checkDaysCount() {
+  bool checkDaysCount() {
+    bool comprobarDias = false;
     for (int i = 0; i < contadorItems.length; i++) {
-      if (contadorItems[i] != 0) {
-        contadorDias = true;
+      if (contadorItems[i] > 0) {
+        comprobarDias = true;
       }
     }
+    return comprobarDias;
   }
 
   //compruba si quedan medicamentos para seguir jugando
-  void checkPills() {
-    for (int i = 0; i < mochilaDias.length; i++) {
-      if (mochilaDias[i] != 0) {
-        checkpills++;
+  checkPills() {
+    bool comprobar = false;
+    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+      if (int.parse(mochilaSeleccionada[i]["dias"]) > 0) {
+        comprobar = true;
       }
     }
-    if (checkpills == 0) {
+    if (comprobar == false) {
       showDialog<String>(
           context: context,
           barrierDismissible: false,

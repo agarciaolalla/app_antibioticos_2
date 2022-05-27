@@ -24,7 +24,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   int vidaPerdida = 0;
   String mostrarVidaPerdida = "";
   List<int> checkDays = [];
-
+  int copiar = 1;
   @override
   void initState() {
     super.initState();
@@ -51,11 +51,24 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
 
   @override
   Widget build(BuildContext context) {
-    fillFeedbackToUser();
+    print(widget.selectedMedicines);
+    for (int i = 0; i < treatmentFeedback.length; i++) {
+      for (int j = 0; j < widget.selectedMedicines.length; j++) {
+        if (treatmentFeedback[i]["antibiotico"] ==
+            widget.selectedMedicines[j]["antibiotico"]) {
+          feedbackToUser.add(treatmentFeedback[i]);
+
+          checkDays.add(int.parse(widget.selectedMedicines[j]["dias"]));
+        }
+      }
+    }
+    copiar = 2;
+    print("HASTA LA POLLA");
+
     //En caso de que sea el tratamiento empirico (1ª vez)
     if (idTreatmentQuestion == 1) {
       firstTreatmentFeedback = List.from(feedbackToUser);
-      setNewLifeFirstTreatment();
+      //setNewLifeFirstTreatment();
       return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -106,7 +119,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
       );
       //En caso de que sea el tratamiento dirigido (2ª vez)
     } else {
-      setNewLifeSecondTreatment();
+      //setNewLifeSecondTreatment();
       secondTreatmentFeedback = List.from(feedbackToUser);
       return Scaffold(
         appBar: AppBar(
@@ -148,28 +161,6 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     }
   }
 
-  void fillFeedbackToUser() {
-    for (int i = 0; i < treatmentFeedback.length; i++) {
-      for (int j = 0; j < widget.selectedMedicines.length; j++) {
-        if (treatmentFeedback[i]["antibiotico"] ==
-            widget.selectedMedicines[j]["antibiotico"]) {
-          feedbackToUser.add(treatmentFeedback[i]);
-          checkDays.add(0);
-        }
-      }
-    }
-    for (int i = 0; i < feedbackToUser.length; i++) {
-      for (int j = 0; j < widget.selectedMedicines.length; j++) {
-        if (feedbackToUser[i]["antibiotico"] ==
-            widget.selectedMedicines[j]["antibiotico"]) {
-          feedbackToUser[i]["dias"] = widget.selectedMedicines[j]["dias"];
-          //checkDays[i] = int.parse(widget.selectedMedicines[j]["dias"]);
-
-        }
-      }
-    }
-  }
-
   //Metodo para restar el consumo de los medicamentos utilizados en la mochila.
   //void setBackpackDosisFirstTreatment() {
   //  //print("Mochila antes del metodo");
@@ -188,59 +179,59 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   //  //print(mochilaSeleccionada);
   //}
 
-  void setNewLifeFirstTreatment() {
-    int vidaFirst = 0;
-    for (int i = 0; i < feedbackToUser.length; i++) {
-      int restar = int.parse(feedbackToUser[i]["vida"]);
-      vidaFirst = vidaFirst + restar;
-    }
-    if (vidaFirst > 20) {
-      vidaJugador = vidaJugador - 0.2;
-      vidaPerdida = 20;
-    } else {
-      double vidaFinal = 0;
-      vidaFinal = vidaFirst / 100;
-      vidaJugador = vidaJugador - vidaFinal;
-      vidaPerdida = vidaFirst;
-      ajustarVidaPerdida();
-    }
-  }
-
-  void setNewLifeSecondTreatment() {
-    double vidaSecond = 0.0;
-    for (int i = 0; i < feedbackToUser.length; i++) {
-      if (feedbackToUser[i]["activo"] == 'No') {
-        vidaSecond = vidaSecond + 0.2;
-      } else {
-        if (feedbackToUser[i]["via"] == 'Vía Oral') {
-          if (feedbackToUser[i]["dias"] < checkDays[i]) {
-            vidaSecond = vidaSecond + 0.1;
-          } else {
-            //No le penaliza la vida en este caso.
-          }
-        } else {
-          if (feedbackToUser[i]["dias"] < checkDays[i]) {
-            vidaSecond = vidaSecond + 0.2;
-          } else {
-            vidaSecond = vidaSecond + 0.1;
-          }
-        }
-      }
-    }
-    if (vidaSecond > 0.2) {
-      vidaSecond = 0.2;
-    }
-    vidaJugador = vidaJugador - vidaSecond;
-    vidaPerdida = (vidaSecond * 100).toInt();
-    ajustarVidaPerdida();
-  }
-
-  void ajustarVidaPerdida() {
-    if (vidaPerdida == 0) {
-      mostrarVidaPerdida = "¡Genial! El paciente no ha perdido vida.";
-    } else {
-      mostrarVidaPerdida =
-          "El paciente ha perdido un " + vidaPerdida.toString() + "% de vida";
-    }
-  }
+//  void setNewLifeFirstTreatment() {
+//    int vidaFirst = 0;
+//    for (int i = 0; i < feedbackToUser.length; i++) {
+//      int restar = int.parse(feedbackToUser[i]["vida"]);
+//      vidaFirst = vidaFirst + restar;
+//    }
+//    if (vidaFirst > 20) {
+//      vidaJugador = vidaJugador - 0.2;
+//      vidaPerdida = 20;
+//    } else {
+//      double vidaFinal = 0;
+//      vidaFinal = vidaFirst / 100;
+//      vidaJugador = vidaJugador - vidaFinal;
+//      vidaPerdida = vidaFirst;
+//      ajustarVidaPerdida();
+//    }
+//}
+////
+  // void setNewLifeSecondTreatment() {
+  //   double vidaSecond = 0.0;
+  //   for (int i = 0; i < feedbackToUser.length; i++) {
+  //     if (feedbackToUser[i]["activo"] == 'No') {
+  //       vidaSecond = vidaSecond + 0.2;
+  //     } else {
+  //       if (feedbackToUser[i]["via"] == 'Vía Oral') {
+  //         if (feedbackToUser[i]["dias"] < checkDays[i]) {
+  //           //No le penaliza la vida en este caso.
+  //         } else {
+  //           vidaSecond = vidaSecond + 0.1;
+  //         }
+  //       } else {
+  //         if (feedbackToUser[i]["dias"] < checkDays[i]) {
+  //           vidaSecond = vidaSecond + 0.1;
+  //         } else {
+  //           vidaSecond = vidaSecond + 0.2;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   if (vidaSecond > 0.2) {
+  //     vidaSecond = 0.2;
+  //   }
+  //   vidaJugador = vidaJugador - vidaSecond;
+  //   vidaPerdida = (vidaSecond * 100).toInt();
+  //   ajustarVidaPerdida();
+  // }
+//
+  // void ajustarVidaPerdida() {
+  //   if (vidaPerdida == 0) {
+  //     mostrarVidaPerdida = "¡Genial! El paciente no ha perdido vida.";
+  //   } else {
+  //     mostrarVidaPerdida =
+  //         "El paciente ha perdido un " + vidaPerdida.toString() + "% de vida";
+  //   }
+  // }
 }
