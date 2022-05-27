@@ -23,7 +23,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     getTreatmentQuestion();
     fillLists();
     checkPills();
-    mochila = List.from(mochilaSeleccionada);
   }
 
   String asset = "Antibiograma" + idcaso.toString() + ".png";
@@ -170,24 +169,28 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       //Sí has seleccionado algún día en los medicamentos entra aquí  en caso contrario te indica mediante una alerta que tienes que seleccionar al menos un medicamento.
                       if (checkDaysCount() == true) {
                         for (var i = 0; i < mochila.length; i++) {
-                          if (contadorItems[i] != 0) {
-                            mochila[i]["dias"] = contadorItems[i].toString();
+                          print("¿FUNCIONA?");
+                          print(contadorItems[i]);
+
+                          if (contadorItems[i] > 0) {
                             if (contadorItems[i] ==
                                 int.parse(mochila[i]["dias"])) {
                               mochila[i]["via"] = "borrar";
-                            } else {
+                            } else if (contadorItems[i] <
+                                int.parse(mochila[i]["dias"])) {
                               mochila[i]["via"] =
                                   (int.parse(mochila[i]["dias"]) -
                                           contadorItems[i])
                                       .toString();
                             }
+
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
-                          } else {
+                          } else if (contadorItems[i] == 0) {
                             mochila[i]["via"] = "notocar";
                             mochila[i]["antibiotico"] = "";
                           }
                         }
-                        backpackReload();
+                        //backpackReload();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -229,24 +232,24 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
   fillLists() {
     for (int i = 0; i < mochilaSeleccionada.length; i++) {
       contadorItems.add(0);
+      mochila.add(mochilaSeleccionada[i]);
     }
   }
 
   backpackReload() {
     for (int i = 0; i < mochila.length; i++) {
       if (mochila[i]["via"] == "borrar") {
-        mochilaSeleccionada[i]["antibiotico"] = "";
-      } else if (mochila[i]["via"] == "notocar") {
-        //No hace nada
-      } else {
+        mochilaSeleccionada.remove(i);
+      } else if (mochila[i]["via"] != "notocar") {
         mochilaSeleccionada[i]["dias"] == mochila[i]["via"];
       }
     }
-    for (int i = 0; i < mochilaSeleccionada.length; i++) {
-      if (mochilaSeleccionada[i]["via"] == "borrar") {
-        mochilaSeleccionada.remove(mochilaSeleccionada[i]);
-      }
-    }
+    //for (int i = 0; i < mochilaSeleccionada.length; i++) {
+//
+    //  if (mochilaSeleccionada[i]["via"] == "borrar") {
+    //    mochilaSeleccionada.remove(mochilaSeleccionada[i]);
+    //  }
+    //}
   }
 
   //Comprueba si has seleccionado días en algún medicamento.
