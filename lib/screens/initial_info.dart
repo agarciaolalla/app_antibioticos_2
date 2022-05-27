@@ -24,6 +24,7 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
   }
 
   String html = "";
+  String asset = "";
 
   Future getInitialInfo() async {
     List returnlista = [];
@@ -39,6 +40,7 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso.toString()) {
           html = returnlista[i]["info"];
+          asset = returnlista[i]["imagen"];
         }
       }
     });
@@ -77,9 +79,15 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(20),
-              child: InitialInfoHtml(initialinfo: html),
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+              child: Column(
+                children: [
+                  InitialInfoHtml(initialinfo: html),
+                  showAssets(),
+                ],
+              ),
             ),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
@@ -96,5 +104,43 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
         ),
       ),
     );
+  }
+
+  //Metodo para buscar si el caso tiene alguna imagen, en caso de que si mostrarla en un dialog.
+  Widget showAssets() {
+    if (asset != "") {
+      return ElevatedButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text('Imagen Adjunta'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: const Icon(Icons.close),
+                      ),
+                    )
+                  ],
+                ),
+                content: SingleChildScrollView(
+                  child: Image(image: AssetImage(asset)),
+                ),
+              );
+            },
+          );
+        },
+        child: const Text("Imagen Adjunta"),
+      );
+    }
+    return const SizedBox();
   }
 }

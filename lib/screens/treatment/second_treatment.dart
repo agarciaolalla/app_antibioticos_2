@@ -23,6 +23,8 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     getTreatmentQuestion();
   }
 
+  String asset = "Antibiograma" + idcaso.toString() + ".png";
+
   //List mostrarMochila =[]; //Mochila que muestra los antibioticos que SI tienen dosis restantes
   bool medicamentosRestantes =
       false; //Contador para saber si quedan medicamentos en la mochila
@@ -115,7 +117,10 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
           children: [
             const Life(),
             const Timer(),
-            SecondTreatmentQuestionHtml(questionHtml: question),
+            Column(children: [
+              SecondTreatmentQuestionHtml(questionHtml: question),
+              ShowAntibiogram(asset: asset)
+            ]),
             SingleChildScrollView(
               child: Column(
                 children: [
