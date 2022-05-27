@@ -62,7 +62,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
           child: Column(
             children: [
               const Text(
-                "Segundo Tratamiento",
+                "Tratamiento Empirico",
                 style: TextStyle(fontSize: 25),
               ),
               Row(
@@ -89,7 +89,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           const Life(),
           const Timer(),
-          DiagnosticQuestionHtml(questionHtml: question),
+          FirstTreatmentQuestionHtml(questionHtml: question),
           ListView.builder(
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
