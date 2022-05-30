@@ -256,13 +256,15 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
   bool suficientesMedicamentos() {
     bool suficientes = true;
 
-    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+    for (int i = 0; i < backpack.length; i++) {
       for (int j = 0; j < treatmentFeedback.length; j++) {
-        if (mochilaSeleccionada[i]["antibiotico"] ==
-                treatmentFeedback[j]["antibiotico"] &&
-            int.parse(mochilaSeleccionada[i]["dias"]) <
-                int.parse(treatmentFeedback[j]["dias"])) {
-          suficientes = false;
+        if (valorSwitch[i] == true) {
+          if (backpack[i]["antibiotico"] ==
+                  treatmentFeedback[j]["antibiotico"] &&
+              int.parse(backpack[i]["dias"]) <
+                  int.parse(treatmentFeedback[j]["dias"])) {
+            suficientes = false;
+          }
         }
       }
     }

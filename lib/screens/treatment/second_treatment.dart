@@ -169,10 +169,11 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       if (checkDaysCount() == true) {
                         for (var i = 0; i < mochilaSeleccionada.length; i++) {
                           if (contadorItems[i] > 0) {
+                            String dias = mochilaSeleccionada[i]["dias"];
                             mochilaSeleccionada[i]["dias"] =
                                 contadorItems[i].toString();
                             listaFinal.add(mochilaSeleccionada[i]);
-
+                            mochilaSeleccionada[i]["dias"] = dias;
                             if (mochilaSeleccionada[i]["dias"] ==
                                 (contadorItems[i]).toString()) {
                               mochilaSeleccionada[i]["dias"] = "0";
@@ -185,8 +186,8 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
 
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
                           }
+                          print(mochilaSeleccionada[i]["dias"]);
                         }
-                        //backpackReload();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
