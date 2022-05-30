@@ -38,7 +38,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
       ""; //Nombre de la pregunta que se rellena desde la base de datos.
   List contadorItems =
       []; //Lista con el contador de pastillas de cada medicamento
-  List mochila = []; //Mochila que se pasa al feedback
   bool recargarBody = false; //Booleano que te inidca si el body se ha recargado
   //Método para obtener la pregunta del segundo Tratamiento
   Future getTreatmentQuestion() async {
@@ -170,7 +169,8 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       if (checkDaysCount() == true) {
                         for (var i = 0; i < mochilaSeleccionada.length; i++) {
                           if (contadorItems[i] > 0) {
-                            mochila.add(mochilaSeleccionada[i]);
+                            listaFinal.add(mochilaSeleccionada[i]);
+
                             if (mochilaSeleccionada[i]["dias"] ==
                                 (contadorItems[i]).toString()) {
                               mochilaSeleccionada[i]["antibiotico"] = "x";
@@ -191,7 +191,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                               builder: (context) =>
                                   //const Ranking()
                                   TreatmentFeedback(
-                                      selectedMedicines: mochila)),
+                                      selectedMedicines: listaFinal)),
                           //const FinalScreen()),
                         );
                       } else {

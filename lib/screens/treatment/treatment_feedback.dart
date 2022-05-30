@@ -175,9 +175,11 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
 
 //Metodo para restar el consumo de los medicamentos utilizados en la mochila.
   void setBackpackDosisSecondTreatment() {
-    for (int i = 0; i < mochilaSeleccionada.length; i++) {
-      if (mochilaSeleccionada[i]["antibiotico"] == "x") {
-        mochilaSeleccionada.remove(mochilaSeleccionada[i]);
+    for (int x = 0; x < mochilaSeleccionada.length; x++) {
+      for (int i = 0; i < mochilaSeleccionada.length; i++) {
+        if (mochilaSeleccionada[i]["antibiotico"] == "x") {
+          mochilaSeleccionada.remove(mochilaSeleccionada[i]);
+        }
       }
     }
   }
