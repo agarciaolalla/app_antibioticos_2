@@ -138,7 +138,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  setBackpackDosisSecondTreatment();
+                  //setBackpackDosisSecondTreatment();
                   idTreatmentQuestion--;
                   Navigator.push(
                     context,
@@ -173,16 +173,15 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     }
   }
 
-//Metodo para restar el consumo de los medicamentos utilizados en la mochila.
-  void setBackpackDosisSecondTreatment() {
-    for (int x = 0; x < mochilaSeleccionada.length; x++) {
-      for (int i = 0; i < mochilaSeleccionada.length; i++) {
-        if (mochilaSeleccionada[i]["antibiotico"] == "x") {
-          mochilaSeleccionada.remove(mochilaSeleccionada[i]);
-        }
-      }
-    }
-  }
+////Metodo para restar el consumo de los medicamentos utilizados en la mochila.
+//  void setBackpackDosisSecondTreatment() {
+//    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+//      if (mochilaSeleccionada[i]["antibiotico"] == "x") {
+//        mochilaSeleccionada.remove(mochilaSeleccionada[i]);
+//        i--;
+//      }
+//    }
+//  }
 //  void setNewLifeFirstTreatment() {
 //    int vidaFirst = 0;
 //    for (int i = 0; i < feedbackToUser.length; i++) {

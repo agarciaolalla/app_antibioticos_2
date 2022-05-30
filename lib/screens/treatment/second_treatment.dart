@@ -169,11 +169,13 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       if (checkDaysCount() == true) {
                         for (var i = 0; i < mochilaSeleccionada.length; i++) {
                           if (contadorItems[i] > 0) {
+                            mochilaSeleccionada[i]["dias"] =
+                                contadorItems[i].toString();
                             listaFinal.add(mochilaSeleccionada[i]);
 
                             if (mochilaSeleccionada[i]["dias"] ==
                                 (contadorItems[i]).toString()) {
-                              mochilaSeleccionada[i]["antibiotico"] = "x";
+                              mochilaSeleccionada[i]["dias"] = "0";
                             } else {
                               mochilaSeleccionada[i]["dias"] =
                                   (int.parse(mochilaSeleccionada[i]["dias"]) -

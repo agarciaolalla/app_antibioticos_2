@@ -22,6 +22,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
     super.initState();
     getTreatmentQuestion();
     getTreatmentFeedback();
+    fillBackpack();
   }
 
   String question = "";
@@ -31,6 +32,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
   List valorSwitch = [];
   List medicamentosSuficientes = [];
   List treatmentFeedback = [];
+  List backpack = [];
 
   bool copiar = false;
   bool notifyswitch = false;
@@ -75,9 +77,6 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    for (var i = 0; i < mochilaSeleccionada.length; i++) {
-      valorSwitch.add(false);
-    }
     if (mochilaVacia()) {
       return Scaffold(
           appBar: AppBar(
@@ -163,11 +162,11 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
             ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: mochilaSeleccionada.length,
+              itemCount: backpack.length,
               itemBuilder: (BuildContext context, int index) {
                 return CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
-                  title: Text(mochilaSeleccionada[index]["antibiotico"]),
+                  title: Text(backpack[index]["antibiotico"]),
                   value: valorSwitch[index],
                   onChanged: notifyswitch
                       ? null
@@ -183,7 +182,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                for (var i = 0; i < backpack.length; i++) {
                   if (valorSwitch[i] == true) {
                     contadorSwitch = 1;
                   }
@@ -215,9 +214,9 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                             ],
                           ));
                 } else {
-                  for (var i = 0; i < mochilaSeleccionada.length; i++) {
+                  for (var i = 0; i < backpack.length; i++) {
                     if (valorSwitch[i] == true) {
-                      listaFinal.add(mochilaSeleccionada[i]);
+                      listaFinal.add(backpack[i]);
                     }
                   }
                   Navigator.push(
@@ -234,6 +233,19 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
           ]),
         ),
       );
+    }
+  }
+
+  //rellenar array de mochila
+  void fillBackpack() {
+    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+      if (mochilaSeleccionada[i]["dias"] != "0") {
+        print(mochilaSeleccionada[i]["dias"]);
+        backpack.add(mochilaSeleccionada[i]);
+      }
+    }
+    for (var i = 0; i < backpack.length; i++) {
+      valorSwitch.add(false);
     }
   }
 
