@@ -97,7 +97,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  //setBackpackDosisFirstTreatment();
+                  setBackpackDosesFirstTreatment();
                   idTreatmentQuestion++;
                   Navigator.push(
                     context,
@@ -160,9 +160,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   }
 
   //Metodo para restar el consumo de los medicamentos utilizados en la mochila.
-  void setBackpackDosisFirstTreatment() {
-    //print("Mochila antes del metodo");
-    //print(mochilaSeleccionada);
+  void setBackpackDosesFirstTreatment() {
+    print("Mochila antes del metodo");
+    print(mochilaSeleccionada);
     for (int i = 0; i < feedbackToUser.length; i++) {
       for (int j = 0; j < mochilaSeleccionada.length; j++) {
         if (mochilaSeleccionada[j]["antibiotico"] ==
@@ -173,8 +173,8 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         }
       }
     }
-    //print("Mochila DESPUES del metodo");
-    //print(mochilaSeleccionada);
+    print("Mochila DESPUES del metodo");
+    print(mochilaSeleccionada);
   }
 
 //Metodo para restar el consumo de los medicamentos utilizados en la mochila.
