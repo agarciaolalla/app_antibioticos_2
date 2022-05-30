@@ -63,7 +63,6 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
       }
     }
     copiar = 2;
-    print("HASTA LA POLLA");
 
     //En caso de que sea el tratamiento empirico (1ª vez)
     if (idTreatmentQuestion == 1) {
@@ -99,7 +98,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  //setBackpackDosisFirstTreatment();
+                  setBackpackDosesFirstTreatment();
                   idTreatmentQuestion++;
                   Navigator.push(
                     context,
@@ -162,22 +161,22 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   }
 
   //Metodo para restar el consumo de los medicamentos utilizados en la mochila.
-  //void setBackpackDosisFirstTreatment() {
-  //  //print("Mochila antes del metodo");
-  //  //print(mochilaSeleccionada);
-  //  for (int i = 0; i < feedbackToUser.length; i++) {
-  //    for (int j = 0; j < mochilaSeleccionada.length; j++) {
-  //      if (mochilaSeleccionada[j]["antibiotico"] ==
-  //          feedbackToUser[i]["antibiotico"]) {
-  //        int setDosis = int.parse(mochilaSeleccionada[j]["numerodosis"]) -
-  //            int.parse(feedbackToUser[i]["consumo"]);
-  //        mochilaSeleccionada[j]["numerodosis"] = setDosis.toString();
-  //      }
-  //    }
-  //  }
-  //  //print("Mochila DESPUES del metodo");
-  //  //print(mochilaSeleccionada);
-  //}
+  void setBackpackDosesFirstTreatment() {
+    print("Mochila antes del metodo");
+    print(mochilaSeleccionada);
+    for (int i = 0; i < feedbackToUser.length; i++) {
+      for (int j = 0; j < mochilaSeleccionada.length; j++) {
+        if (mochilaSeleccionada[j]["antibiotico"] ==
+            feedbackToUser[i]["antibiotico"]) {
+          int setDosis = int.parse(mochilaSeleccionada[j]["dias"]) -
+              int.parse(feedbackToUser[i]["dias"]);
+          mochilaSeleccionada[j]["dias"] = setDosis.toString();
+        }
+      }
+    }
+    print("Mochila DESPUES del metodo");
+    print(mochilaSeleccionada);
+  }
 
 //  void setNewLifeFirstTreatment() {
 //    int vidaFirst = 0;
