@@ -9,7 +9,14 @@ class LooseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     updatePlayerStatus();
-    print(player);
+    print("puntos");
+    print(player.points);
+    print("vida");
+    print(player.life);
+    print("retos");
+    print(player.challenges);
+    print("medicamentos");
+    print(player.medicines);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -44,17 +51,25 @@ class LooseScreen extends StatelessWidget {
     );
   }
 
-  updatePlayerStatus() {
-    player.points = points.toString();
-    player.challenges = idcaso.toString();
-
-    for (int i = 0; i < mochilaSeleccionada.length; i++) {
-      if (mochilaSeleccionada[i]["numerodosis"] > 0) {
-        int medicamentosRestantes = int.parse(player.medicines) +
-            int.parse(mochilaSeleccionada[i]["numerodosis"]);
-        player.medicines = medicamentosRestantes.toString();
+  int searchPlayerMedicines() {
+    int medicamentos = 0;
+    if (mochilaSeleccionada != []) {
+      for (int i = 0; i < mochilaSeleccionada.length; i++) {
+        if (int.parse(mochilaSeleccionada[i]["dias"]) > 0) {
+          medicamentos =
+              medicamentos + int.parse(mochilaSeleccionada[i]["dias"]);
+        }
       }
     }
+    return medicamentos;
+  }
+
+  updatePlayerStatus() {
+    int medicines = searchPlayerMedicines();
+    player.points = points.toString();
+    player.challenges = idcaso.toString();
+    player.life = vidaJugador.toString();
+    player.medicines = medicines.toString();
 
     modifyPlayer(player);
   }
