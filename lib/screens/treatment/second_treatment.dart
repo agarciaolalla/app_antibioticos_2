@@ -186,7 +186,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
 
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
                           }
-                          print(mochilaSeleccionada[i]["dias"]);
                         }
                         Navigator.push(
                           context,

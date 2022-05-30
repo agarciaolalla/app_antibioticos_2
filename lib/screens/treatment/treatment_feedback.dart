@@ -197,13 +197,13 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         vidaSecond = vidaSecond + 0.2;
       } else {
         if (feedbackToUser[i]["via"] == 'Vía Oral') {
-          if (feedbackToUser[i]["dias"] < checkDays[i]) {
+          if (int.parse(feedbackToUser[i]["dias"]) < checkDays[i]) {
             //No le penaliza la vida en este caso.
           } else {
             vidaSecond = vidaSecond + 0.1;
           }
         } else {
-          if (feedbackToUser[i]["dias"] < checkDays[i]) {
+          if (int.parse(feedbackToUser[i]["dias"]) < checkDays[i]) {
             vidaSecond = vidaSecond + 0.1;
           } else {
             vidaSecond = vidaSecond + 0.2;
