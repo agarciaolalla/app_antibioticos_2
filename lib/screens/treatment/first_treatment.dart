@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -240,7 +242,6 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
   void fillBackpack() {
     for (int i = 0; i < mochilaSeleccionada.length; i++) {
       if (mochilaSeleccionada[i]["dias"] != "0") {
-        print(mochilaSeleccionada[i]["dias"]);
         backpack.add(mochilaSeleccionada[i]);
       }
     }
