@@ -169,25 +169,12 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       //Sí has seleccionado algún día en los medicamentos entra aquí  en caso contrario te indica mediante una alerta que tienes que seleccionar al menos un medicamento.
                       if (checkDaysCount() == true) {
                         for (var i = 0; i < mochila.length; i++) {
-                          print("¿FUNCIONA?");
-                          print(contadorItems[i]);
-
                           if (contadorItems[i] > 0) {
-                            if (contadorItems[i] ==
-                                int.parse(mochila[i]["dias"])) {
-                              mochila[i]["via"] = "borrar";
-                            } else if (contadorItems[i] <
-                                int.parse(mochila[i]["dias"])) {
-                              mochila[i]["via"] =
-                                  (int.parse(mochila[i]["dias"]) -
-                                          contadorItems[i])
-                                      .toString();
-                            }
+                            mochila[i]["dias"] = (contadorItems[i]).toString();
 
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
                           } else if (contadorItems[i] == 0) {
-                            mochila[i]["via"] = "notocar";
-                            mochila[i]["antibiotico"] = "";
+                            mochila[i]["dias"] = "0";
                           }
                         }
                         //backpackReload();
@@ -236,21 +223,21 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     }
   }
 
-  backpackReload() {
-    for (int i = 0; i < mochila.length; i++) {
-      if (mochila[i]["via"] == "borrar") {
-        mochilaSeleccionada.remove(i);
-      } else if (mochila[i]["via"] != "notocar") {
-        mochilaSeleccionada[i]["dias"] == mochila[i]["via"];
-      }
-    }
-    //for (int i = 0; i < mochilaSeleccionada.length; i++) {
+  //backpackReload() {
+  //  for (int i = 0; i < mochila.length; i++) {
+  //    if (mochila[i]["via"] == "borrar") {
+  //      mochilaSeleccionada.remove(i);
+  //    } else if (mochila[i]["via"] != "notocar") {
+  //      mochilaSeleccionada[i]["dias"] == mochila[i]["via"];
+  //    }
+  //  }
+  //for (int i = 0; i < mochilaSeleccionada.length; i++) {
 //
-    //  if (mochilaSeleccionada[i]["via"] == "borrar") {
-    //    mochilaSeleccionada.remove(mochilaSeleccionada[i]);
-    //  }
-    //}
-  }
+  //  if (mochilaSeleccionada[i]["via"] == "borrar") {
+  //    mochilaSeleccionada.remove(mochilaSeleccionada[i]);
+  //  }
+  //}
+  // }
 
   //Comprueba si has seleccionado días en algún medicamento.
   bool checkDaysCount() {
