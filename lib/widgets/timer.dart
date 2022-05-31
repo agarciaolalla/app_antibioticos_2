@@ -60,7 +60,10 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
     return Column(children: [
       AnimatedBuilder(
         animation: controller,
-        builder: (context, child) => Text(countText),
+        builder: (context, child) => Text(
+          "Tiempo restante: " + countText,
+          style: const TextStyle(fontSize: 17),
+        ),
       ),
     ]);
   }

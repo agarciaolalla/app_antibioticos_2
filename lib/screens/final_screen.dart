@@ -29,21 +29,7 @@ class FinalScreen extends StatelessWidget {
             const Life(),
             const ShowPoints(),
             const ShowLife(),
-            ElevatedButton(
-              onPressed: () {
-                idcaso = idcaso + 1;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Ranking(),
-                  ),
-                );
-              },
-              child: const Text(
-                'Ranking',
-                style: TextStyle(fontSize: 30),
-              ),
-            ),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 idcaso = idcaso + 1;
@@ -56,7 +42,7 @@ class FinalScreen extends StatelessWidget {
               },
               child: const Text(
                 'Siguiente caso',
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 17),
               ),
             ),
           ],

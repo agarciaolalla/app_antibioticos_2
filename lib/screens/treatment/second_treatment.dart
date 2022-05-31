@@ -217,6 +217,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
+                  const SizedBox(height: 20),
                 ],
               ),
             )

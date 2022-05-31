@@ -69,7 +69,7 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
             children: const [
               Text(
                 "Información Inicial",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 20),
               ),
             ],
           ),
@@ -138,7 +138,10 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
             },
           );
         },
-        child: const Text("Imagen Adjunta"),
+        child: const Text(
+          "Imagen Adjunta",
+          style: TextStyle(fontSize: 20),
+        ),
       );
     }
     return const SizedBox();

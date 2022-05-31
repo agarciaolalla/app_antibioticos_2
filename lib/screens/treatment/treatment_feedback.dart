@@ -148,7 +148,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 },
                 child: const Text(
                   'Continuar',
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 20),
                 ),
               ),
             ],

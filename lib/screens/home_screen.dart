@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ElevatedButton(
                             child: const Text(
                               'Jugar',
-                              style: TextStyle(fontSize: 40),
+                              style: TextStyle(fontSize: 20),
                             ),
                             onPressed: () {
                               Navigator.push(
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ElevatedButton(
                             child: const Text(
                               'Ranking',
-                              style: TextStyle(fontSize: 40),
+                              style: TextStyle(fontSize: 20),
                             ),
                             onPressed: () {
                               Navigator.push(

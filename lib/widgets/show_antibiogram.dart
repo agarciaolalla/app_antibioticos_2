@@ -43,7 +43,10 @@ class ShowAntibiogram extends StatelessWidget {
           },
         );
       },
-      child: const Text('Antibiograma Adjunto'),
+      child: const Text(
+        'Antibiograma Adjunto',
+        style: TextStyle(fontSize: 20),
+      ),
     );
   }
 }

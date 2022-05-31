@@ -79,7 +79,7 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
               ),
               child: const Text(
                 "Continuar",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 20),
               ),
             ),
           ],

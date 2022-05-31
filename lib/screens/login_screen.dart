@@ -81,78 +81,92 @@ class _RegisterContact extends State<Login> {
                   decoration: const InputDecoration(labelText: 'Apellido'),
                 ),
                 const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () async {
-                    String name = controllerName.text;
-                    String surname = controllerSurname.text;
-                    if (name.isNotEmpty && surname.isNotEmpty) {
-                      await comprobarPlayer(name, surname);
-                      if (!existeJugador) {
-                        Player p = Player(
-                          name: name,
-                          surname: surname,
-                          points: "0",
-                          challenges: "0",
-                          medicines: "0",
-                          life: "0.0",
-                        );
-                        addPlayer(p).then((player) {
-                          player = p;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomeScreen()),
-                          );
-                        });
-                      } else {
-                        showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => AlertDialog(
-                            content: const Text('Jugador ya registrado'),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () => Navigator.pop(context, 'OK'),
-                                child: const Text('OK'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () async {
+                        String name = controllerName.text;
+                        String surname = controllerSurname.text;
+                        if (name.isNotEmpty && surname.isNotEmpty) {
+                          await comprobarPlayer(name, surname);
+                          if (!existeJugador) {
+                            Player p = Player(
+                              name: name,
+                              surname: surname,
+                              points: "0",
+                              challenges: "0",
+                              medicines: "0",
+                              life: "0.0",
+                            );
+                            addPlayer(p).then((player) {
+                              player = p;
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen()),
+                              );
+                            });
+                          } else {
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                content: const Text('Jugador ya registrado'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, 'OK'),
+                                    child: const Text('OK'),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        );
-                      }
-                    }
-                  },
-                  child: const Text("Registrar Jugador"),
-                ),
-                const SizedBox(height: 10),
-                ElevatedButton(
-                    onPressed: () async {
-                      String name = controllerName.text;
-                      String surname = controllerSurname.text;
-                      if (name.isNotEmpty && surname.isNotEmpty) {
-                        await comprobarPlayer(name, surname);
-                        if (!existeJugador) {
-                          showDialog<String>(
-                            context: context,
-                            builder: (BuildContext context) => AlertDialog(
-                              content: const Text(
-                                  'No existe ningún jugador con ese nombre'),
-                              actions: <Widget>[
-                                TextButton(
-                                  onPressed: () => Navigator.pop(context, 'OK'),
-                                  child: const Text('OK'),
-                                ),
-                              ],
-                            ),
-                          );
-                        } else {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomeScreen()),
-                          );
+                            );
+                          }
                         }
-                      }
-                    },
-                    child: const Text("Iniciar Sesion")),
+                      },
+                      child: const Text(
+                        "Registrar Jugador",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () async {
+                        String name = controllerName.text;
+                        String surname = controllerSurname.text;
+                        if (name.isNotEmpty && surname.isNotEmpty) {
+                          await comprobarPlayer(name, surname);
+                          if (!existeJugador) {
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                content: const Text(
+                                    'No existe ningún jugador con ese nombre'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, 'OK'),
+                                    child: const Text('OK'),
+                                  ),
+                                ],
+                              ),
+                            );
+                          } else {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomeScreen()),
+                            );
+                          }
+                        }
+                      },
+                      child: const Text(
+                        "Iniciar Sesion",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

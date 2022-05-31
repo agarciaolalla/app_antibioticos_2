@@ -118,25 +118,37 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                           }));
             },
           ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                checkAnswers();
-              });
-            },
-            child: const Text('Comprobar'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              if (comprobar == true) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const DiagnosticFeedback()),
-                );
-              }
-            },
-            child: const Text('Siguiente'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    checkAnswers();
+                  });
+                },
+                child: const Text(
+                  'Comprobar',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              const SizedBox(width: 10),
+              ElevatedButton(
+                onPressed: () {
+                  if (comprobar == true) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DiagnosticFeedback()),
+                    );
+                  }
+                },
+                child: const Text(
+                  'Siguiente',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
           ),
         ]),
       ),

@@ -230,7 +230,10 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                   );
                 }
               },
-              child: const Text('Siguiente'),
+              child: const Text(
+                'Siguiente',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
           ]),
         ),
