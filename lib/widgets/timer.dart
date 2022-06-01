@@ -1,6 +1,6 @@
-import 'package:app_antibioticos/screens/final_screen.dart';
-import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
+
+import 'package:app_antibioticos/screens/screens.dart';
 
 class Timer extends StatefulWidget {
   const Timer({Key? key}) : super(key: key);
