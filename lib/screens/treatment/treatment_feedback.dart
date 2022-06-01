@@ -96,12 +96,10 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 onPressed: () {
                   setBackpackDosesFirstTreatment();
                   idTreatmentQuestion++;
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SecondTreatmentScreen(),
-                    ),
-                  );
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                    return SecondTreatmentScreen();
+                  }), (Route<dynamic> route) => false);
                 },
                 child: const Text(
                   'Continuar',
@@ -139,12 +137,10 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 onPressed: () {
                   //setBackpackDosisSecondTreatment();
                   idTreatmentQuestion--;
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const FinalScreen(),
-                    ),
-                  );
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                    return FinalScreen();
+                  }), (Route<dynamic> route) => false);
                 },
                 child: const Text(
                   'Continuar',

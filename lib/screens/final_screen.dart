@@ -33,12 +33,10 @@ class FinalScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 idcaso = idcaso + 1;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const InitialInfoScreen(),
-                  ),
-                );
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute<Null>(builder: (BuildContext context) {
+                  return InitialInfoScreen();
+                }), (Route<dynamic> route) => false);
               },
               child: const Text(
                 'Siguiente caso',

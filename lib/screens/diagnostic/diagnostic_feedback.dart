@@ -71,12 +71,10 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
             ),
             const ShowPoints(),
             ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const FirstTreatmentScreen(),
-                ),
-              ),
+              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute<Null>(builder: (BuildContext context) {
+                return const FirstTreatmentScreen();
+              }), (Route<dynamic> route) => false),
               child: const Text(
                 "Continuar",
                 style: TextStyle(fontSize: 20),

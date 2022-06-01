@@ -39,10 +39,10 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
                   'El tiempo de este caso clínico se ha acabado, pasarás al siguiente caso.'),
               actions: <Widget>[
                 TextButton(
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LooseScreen()),
-                  ),
+                  onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                    return LooseScreen();
+                  }), (Route<dynamic> route) => false),
                   child: const Text('OK'),
                 ),
               ],

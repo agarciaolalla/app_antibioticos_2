@@ -89,12 +89,10 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const DiagnosticScreen(),
-                ),
-              ),
+              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute<Null>(builder: (BuildContext context) {
+                return const DiagnosticScreen();
+              }), (Route<dynamic> route) => false),
               child: const Text(
                 "Continuar",
                 style: TextStyle(fontSize: 25),

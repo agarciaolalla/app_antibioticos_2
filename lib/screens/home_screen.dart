@@ -72,12 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: TextStyle(fontSize: 20),
                             ),
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const InitialInfoScreen()),
-                              );
+                              Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute<Null>(
+                                      builder: (BuildContext context) {
+                                return const InitialInfoScreen();
+                              }), (Route<dynamic> route) => false);
                             },
                           ),
                           const SizedBox(width: 10),
@@ -87,11 +86,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: TextStyle(fontSize: 20),
                             ),
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Ranking()),
-                              );
+                              Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute<Null>(
+                                      builder: (BuildContext context) {
+                                return const Ranking();
+                              }), (Route<dynamic> route) => false);
                             },
                           ),
                         ]),

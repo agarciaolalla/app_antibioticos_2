@@ -152,11 +152,11 @@ class _RegisterContact extends State<Login> {
                               ),
                             );
                           } else {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeScreen()),
-                            );
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute<Null>(
+                                    builder: (BuildContext context) {
+                              return const HomeScreen();
+                            }), (Route<dynamic> route) => false);
                           }
                         }
                       },

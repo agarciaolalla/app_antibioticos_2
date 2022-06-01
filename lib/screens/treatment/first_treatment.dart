@@ -115,12 +115,10 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
             actions: <Widget>[
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LooseScreen(),
-                    ),
-                  );
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                    return LooseScreen();
+                  }), (Route<dynamic> route) => false);
                 },
                 child: const Text('OK'),
               ),
@@ -221,13 +219,10 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                       listaFinal.add(backpack[i]);
                     }
                   }
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          TreatmentFeedback(selectedMedicines: listaFinal),
-                    ),
-                  );
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                    return TreatmentFeedback(selectedMedicines: listaFinal);
+                  }), (Route<dynamic> route) => false);
                 }
               },
               child: const Text(

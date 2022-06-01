@@ -187,15 +187,12 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
                           }
                         }
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  //const Ranking()
-                                  TreatmentFeedback(
-                                      selectedMedicines: listaFinal)),
-                          //const FinalScreen()),
-                        );
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute<Null>(
+                                builder: (BuildContext context) {
+                          return TreatmentFeedback(
+                              selectedMedicines: listaFinal);
+                        }), (Route<dynamic> route) => false);
                       } else {
                         showDialog<String>(
                             context: context,
@@ -261,11 +258,11 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     'Se han agotado todos los medicamentos, has perdido.'),
                 actions: <Widget>[
                   TextButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LooseScreen()),
-                    ),
+                    onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<Null>(
+                            builder: (BuildContext context) {
+                      return LooseScreen();
+                    }), (Route<dynamic> route) => false),
                     child: const Text('OK'),
                   ),
                 ],

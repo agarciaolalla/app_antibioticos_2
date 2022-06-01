@@ -136,11 +136,11 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (comprobar == true) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const DiagnosticFeedback()),
-                    );
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<Null>(
+                            builder: (BuildContext context) {
+                      return const DiagnosticFeedback();
+                    }), (Route<dynamic> route) => false);
                   }
                 },
                 child: const Text(
