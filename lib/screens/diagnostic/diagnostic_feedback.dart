@@ -7,8 +7,7 @@ import 'dart:convert';
 import 'package:app_antibioticos/html/html.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/screens/screens.dart';
-
-import '../../widgets/widgets.dart';
+import 'package:app_antibioticos/widgets/widgets.dart';
 
 class DiagnosticFeedback extends StatefulWidget {
   const DiagnosticFeedback({Key? key}) : super(key: key);
@@ -18,8 +17,6 @@ class DiagnosticFeedback extends StatefulWidget {
 }
 
 class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
-  String feedback = '';
-
   @override
   void initState() {
     super.initState();
@@ -39,7 +36,7 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso.toString()) {
-          feedback = returnlista[i]["feedback"];
+          diagnosticFeedback = returnlista[i]["feedback"];
         }
       }
     });
@@ -49,13 +46,40 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
-            children: const [
-              Text(
-                "Feedback del Diagnóstico",
+            children: [
+              const Text(
+                "Feedback del diagnóstico",
                 style: TextStyle(fontSize: 25),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.backpack_outlined),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const BackpackDialog();
+                        },
+                      );
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.info_outline),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const InitialInfoDialog();
+                        },
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -67,12 +91,12 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
             const Life(),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: DiagnosticFeedbackHtml(feedback: feedback),
+              child: DiagnosticFeedbackHtml(feedback: diagnosticFeedback),
             ),
             const ShowPoints(),
             ElevatedButton(
               onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute<Null>(builder: (BuildContext context) {
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
                 return const FirstTreatmentScreen();
               }), (Route<dynamic> route) => false),
               child: const Text(

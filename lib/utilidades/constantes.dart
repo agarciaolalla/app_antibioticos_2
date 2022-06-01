@@ -14,13 +14,19 @@ int idcaso = 1;
 int idTreatmentQuestion = 1;
 // Mochila con los medicamentos seleccionados al inicio del juego
 List mochilaSeleccionada = [];
+
 // Puntos del jugador
 int points = 0;
 // Vida del jugador
 double vidaJugador = 1.0;
-//Feedback first treatment
+
+//Informacion inicial para mostrar en las demas screens
+String initialInfo = "";
+//Feedback Diagnostic question para mostrar en las demas screens
+String diagnosticFeedback = "";
+//Feedback first treatment para mostrar en las demas screens
 List firstTreatmentFeedback = [];
-//Feedback second treatment
+//Feedback second treatment para mostrar en las demas screens
 List secondTreatmentFeedback = [];
 
 //Player actual

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../utilidades/constantes.dart';
-import '../widgets/widgets.dart';
 import 'screens.dart';
+import 'package:app_antibioticos/widgets/widgets.dart';
+import 'package:app_antibioticos/utilidades/constantes.dart';
 
 class FinalScreen extends StatelessWidget {
   const FinalScreen({Key? key}) : super(key: key);
@@ -34,8 +34,8 @@ class FinalScreen extends StatelessWidget {
               onPressed: () {
                 idcaso = idcaso + 1;
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return InitialInfoScreen();
+                    MaterialPageRoute<void>(builder: (BuildContext context) {
+                  return const InitialInfoScreen();
                 }), (Route<dynamic> route) => false);
               },
               child: const Text(

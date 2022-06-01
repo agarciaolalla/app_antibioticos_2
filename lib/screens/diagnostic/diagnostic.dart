@@ -80,13 +80,40 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     fillInitialLists();
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
-            children: const [
-              Text(
+            children: [
+              const Text(
                 "Pregunta Diagnóstica",
                 style: TextStyle(fontSize: 25),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.backpack_outlined),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const BackpackDialog();
+                        },
+                      );
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.info_outline),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const InitialInfoDialog();
+                        },
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -137,7 +164,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                 onPressed: () {
                   if (comprobar == true) {
                     Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute<Null>(
+                        MaterialPageRoute<void>(
                             builder: (BuildContext context) {
                       return const DiagnosticFeedback();
                     }), (Route<dynamic> route) => false);

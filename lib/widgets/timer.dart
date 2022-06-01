@@ -40,8 +40,8 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return LooseScreen();
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const LooseScreen();
                   }), (Route<dynamic> route) => false),
                   child: const Text('OK'),
                 ),

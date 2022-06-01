@@ -131,7 +131,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                             " cada " +
                             mochilaSeleccionada[index]["intervalo"] +
                             " horas"),
-                        trailing: SizedBox(
+                        leading: SizedBox(
                           height: 150,
                           width: 150,
                           child: Row(
@@ -188,7 +188,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                           }
                         }
                         Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute<Null>(
+                            MaterialPageRoute<void>(
                                 builder: (BuildContext context) {
                           return TreatmentFeedback(
                               selectedMedicines: listaFinal);
@@ -259,9 +259,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute<Null>(
+                        MaterialPageRoute<void>(
                             builder: (BuildContext context) {
-                      return LooseScreen();
+                      return const LooseScreen();
                     }), (Route<dynamic> route) => false),
                     child: const Text('OK'),
                   ),

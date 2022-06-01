@@ -153,7 +153,7 @@ class _RegisterContact extends State<Login> {
                             );
                           } else {
                             Navigator.of(context).pushAndRemoveUntil(
-                                MaterialPageRoute<Null>(
+                                MaterialPageRoute<void>(
                                     builder: (BuildContext context) {
                               return const HomeScreen();
                             }), (Route<dynamic> route) => false);

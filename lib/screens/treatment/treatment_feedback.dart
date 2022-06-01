@@ -66,13 +66,40 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
       setNewLifeFirstTreatment();
       return Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
+          toolbarHeight: 80,
           flexibleSpace: SafeArea(
             child: Column(
-              children: const [
-                Text(
-                  "Feedback Tratamiento Empírico",
+              children: [
+                const Text(
+                  "Feedback Tratamiento Empirico",
                   style: TextStyle(fontSize: 25),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.backpack_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const BackpackDialog();
+                          },
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.info_outline),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const InitialInfoDialog();
+                          },
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -97,8 +124,8 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                   setBackpackDosesFirstTreatment();
                   idTreatmentQuestion++;
                   Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return SecondTreatmentScreen();
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const SecondTreatmentScreen();
                   }), (Route<dynamic> route) => false);
                 },
                 child: const Text(
@@ -138,8 +165,8 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                   //setBackpackDosisSecondTreatment();
                   idTreatmentQuestion--;
                   Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return FinalScreen();
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const FinalScreen();
                   }), (Route<dynamic> route) => false);
                 },
                 child: const Text(

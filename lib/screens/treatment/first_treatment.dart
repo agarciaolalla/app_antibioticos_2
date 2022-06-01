@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/widgets/diagnostic_feedback_dialog.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -92,15 +93,38 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                          icon: const Icon(Icons.backpack_outlined),
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return const BackpackDialog();
-                              },
-                            );
-                          }),
+                        icon: const Icon(Icons.backpack_outlined),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const BackpackDialog();
+                            },
+                          );
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.info_outline),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const InitialInfoDialog();
+                            },
+                          );
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.info_outline),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const DiagnosticFeedbackDialog();
+                            },
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ],
@@ -114,8 +138,8 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return LooseScreen();
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const LooseScreen();
                   }), (Route<dynamic> route) => false);
                 },
                 child: const Text('OK'),
@@ -164,7 +188,12 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
               itemBuilder: (BuildContext context, int index) {
                 return CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
-                  title: Text(backpack[index]["antibiotico"]),
+                  title: Text(backpack[index]["antibiotico"] +
+                      " - " +
+                      backpack[index]["dosis"] +
+                      "/" +
+                      backpack[index]["intervalo"] +
+                      "h"),
                   value: valorSwitch[index],
                   onChanged: notifyswitch
                       ? null
@@ -218,7 +247,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                     }
                   }
                   Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
                     return TreatmentFeedback(selectedMedicines: listaFinal);
                   }), (Route<dynamic> route) => false);
                 }
