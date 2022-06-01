@@ -58,9 +58,12 @@ class _RegisterContact extends State<Login> {
           flexibleSpace: SafeArea(
             child: Column(
               children: const [
-                Text(
-                  "Registrar Jugador",
-                  style: TextStyle(fontSize: 25),
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Text(
+                    "Login",
+                    style: TextStyle(fontSize: 25),
+                  ),
                 ),
               ],
             ),
@@ -71,14 +74,26 @@ class _RegisterContact extends State<Login> {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
+                const Center(
+                  child: Image(
+                    image: AssetImage('assets/login_image.png'),
+                    width: 300,
+                    height: 300,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
                 TextField(
                   controller: controllerName,
                   decoration: const InputDecoration(labelText: 'Nombre'),
+                  style: const TextStyle(fontSize: 17),
                 ),
                 const SizedBox(height: 15),
                 TextField(
                   controller: controllerSurname,
                   decoration: const InputDecoration(labelText: 'Apellido'),
+                  style: const TextStyle(fontSize: 17),
                 ),
                 const SizedBox(height: 10),
                 Row(

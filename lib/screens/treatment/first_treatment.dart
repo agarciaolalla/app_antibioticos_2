@@ -1,4 +1,3 @@
-import 'package:app_antibioticos/widgets/diagnostic_feedback_dialog.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -78,77 +77,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (mochilaVacia()) {
-      return Scaffold(
-          appBar: AppBar(
-            toolbarHeight: 80,
-            flexibleSpace: SafeArea(
-              child: Column(
-                children: [
-                  const Text(
-                    "Tratamiento Empirico",
-                    style: TextStyle(fontSize: 25),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.backpack_outlined),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const BackpackDialog();
-                            },
-                          );
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.info_outline),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const InitialInfoDialog();
-                            },
-                          );
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.info_outline),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const DiagnosticFeedbackDialog();
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          body: AlertDialog(
-            content: const Text(
-                'No tienes suficientes medicamentos en la mochila para afrontar el reto. \nHas perdido la partida.'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return LooseScreen(
-                        informacion:
-                            "No tienes los medicamentos suficientes para continuar.");
-                  }), (Route<dynamic> route) => false);
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          ));
-    } else {
+    if (!mochilaVacia()) {
       return Scaffold(
         appBar: AppBar(
           toolbarHeight: 80,
@@ -163,15 +92,38 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                        icon: const Icon(Icons.backpack_outlined),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const BackpackDialog();
-                            },
-                          );
-                        }),
+                      icon: const Icon(Icons.backpack_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const BackpackDialog();
+                          },
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.info_outline),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const InitialInfoDialog();
+                          },
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.comment_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const DiagnosticFeedbackDialog();
+                          },
+                        );
+                      },
+                    ),
                   ],
                 ),
               ],
@@ -262,6 +214,76 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
           ]),
         ),
       );
+    } else {
+      return Scaffold(
+          appBar: AppBar(
+            toolbarHeight: 80,
+            flexibleSpace: SafeArea(
+              child: Column(
+                children: [
+                  const Text(
+                    "Tratamiento Empirico",
+                    style: TextStyle(fontSize: 25),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.backpack_outlined),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const BackpackDialog();
+                            },
+                          );
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.info_outline),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const InitialInfoDialog();
+                            },
+                          );
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.comment_outlined),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const DiagnosticFeedbackDialog();
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          body: AlertDialog(
+            content: const Text(
+                'No tienes suficientes medicamentos en la mochila para afrontar el reto. \nHas perdido la partida.'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const LooseScreen(
+                        informacion:
+                            "No tienes los medicamentos suficientes para continuar.");
+                  }), (Route<dynamic> route) => false);
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          ));
     }
   }
 

@@ -27,12 +27,8 @@ class DiagnosticFeedbackDialog extends StatelessWidget {
           )
         ],
       ),
-      content: SizedBox(
-        height: 600,
-        width: 600,
-        child: SingleChildScrollView(
-          child: DiagnosticFeedbackHtml(feedback: diagnosticFeedback),
-        ),
+      content: SingleChildScrollView(
+        child: DiagnosticFeedbackHtml(feedback: diagnosticFeedback),
       ),
     );
   }

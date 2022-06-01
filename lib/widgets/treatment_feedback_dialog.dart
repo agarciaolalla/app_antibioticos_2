@@ -28,7 +28,7 @@ class TreatmentFeedbackDialog extends StatelessWidget {
         ],
       ),
       content: SizedBox(
-        height: 600,
+        height: 800,
         width: 600,
         child: SingleChildScrollView(
           child: CardViewTreatmentFeedback(

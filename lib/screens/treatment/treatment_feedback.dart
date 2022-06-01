@@ -72,7 +72,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
             child: Column(
               children: [
                 const Text(
-                  "Feedback Tratamiento Empirico",
+                  "Tratamiento Empirico",
                   style: TextStyle(fontSize: 25),
                 ),
                 Row(
@@ -96,6 +96,17 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                           context: context,
                           builder: (BuildContext context) {
                             return const InitialInfoDialog();
+                          },
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.comment_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const DiagnosticFeedbackDialog();
                           },
                         );
                       },
@@ -154,7 +165,66 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
       secondTreatmentFeedback = List.from(feedbackToUser);
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Feedback Tratamiento Dirigido'),
+          toolbarHeight: 80,
+          flexibleSpace: SafeArea(
+            child: Column(
+              children: [
+                const Text(
+                  "Tratamiento Empirico",
+                  style: TextStyle(fontSize: 25),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.backpack_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const BackpackDialog();
+                          },
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.info_outline),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const InitialInfoDialog();
+                          },
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.comment_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const DiagnosticFeedbackDialog();
+                          },
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.info_outline),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const TreatmentFeedbackDialog();
+                          },
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.only(bottom: 30),

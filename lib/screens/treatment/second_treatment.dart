@@ -66,40 +66,58 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
           child: Column(
             children: [
               const Text(
-                "Segundo Tratamiento",
+                "Tratamiento Empirico",
                 style: TextStyle(fontSize: 25),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                      icon: const Icon(Icons.backpack_outlined),
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const BackpackDialog();
-                          },
-                        );
-                      }),
+                    icon: const Icon(Icons.backpack_outlined),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const BackpackDialog();
+                        },
+                      );
+                    },
+                  ),
                   IconButton(
-                      icon: const Icon(Icons.two_k_outlined),
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const TreatmentFeedbackPop();
-                          },
-                        );
-                      }),
+                    icon: const Icon(Icons.info_outline),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const InitialInfoDialog();
+                        },
+                      );
+                    },
+                  ),
                   IconButton(
-                      icon: const Icon(Icons.whatsapp), onPressed: () {}),
+                    icon: const Icon(Icons.comment_outlined),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const DiagnosticFeedbackDialog();
+                        },
+                      );
+                    },
+                  ),
                   IconButton(
-                      icon: const Icon(Icons.facebook_outlined),
-                      onPressed: () {}),
+                    icon: const Icon(Icons.comment_bank_outlined),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const TreatmentFeedbackDialog();
+                        },
+                      );
+                    },
+                  ),
                 ],
               ),
-              // set your search bar setting
             ],
           ),
         ),
@@ -261,7 +279,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     onPressed: () => Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute<void>(
                             builder: (BuildContext context) {
-                      return LooseScreen(
+                      return const LooseScreen(
                           informacion: "Has agotado todos los medicamentos.");
                     }), (Route<dynamic> route) => false),
                     child: const Text('OK'),
