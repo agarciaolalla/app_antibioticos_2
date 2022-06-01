@@ -60,7 +60,7 @@ Future<Player> modifyPlayer(Player player) async {
   if (response.statusCode == 200) {
     return Player.fromJson(jsonDecode(response.body)['player']);
   } else {
-    print(response.statusCode);
+    //print(response.statusCode);
     throw Exception('Failed to modify player');
   }
 }

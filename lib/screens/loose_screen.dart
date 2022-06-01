@@ -9,14 +9,6 @@ class LooseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     updatePlayerStatus();
-    print("puntos");
-    print(player.points);
-    print("vida");
-    print(player.life);
-    print("retos");
-    print(player.challenges);
-    print("medicamentos");
-    print(player.medicines);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,

@@ -1,4 +1,3 @@
-import 'package:app_antibioticos/html/html.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -8,7 +7,7 @@ import 'dart:convert';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/screens/diagnostic/diagnostic_feedback.dart';
-import 'package:app_antibioticos/services/player_peticion.dart';
+import 'package:app_antibioticos/html/html.dart';
 
 class DiagnosticScreen extends StatefulWidget {
   const DiagnosticScreen({Key? key}) : super(key: key);
@@ -103,6 +102,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
             //physics: const NeverScrollableScrollPhysics(),
 
             shrinkWrap: true,
+            // ignore: unnecessary_null_comparison
             itemCount: listAnswer == null ? 0 : listAnswer.length,
             itemBuilder: (BuildContext context, int index) {
               return CheckboxListTile(
