@@ -19,7 +19,12 @@ List mochilaSeleccionada = [];
 int points = 0;
 // Vida del jugador
 double vidaJugador = 1.0;
-//Feedback first treatment
+
+//Informacion inicial para mostrar en las demas screens
+String initialInfo = "";
+//Feedback Diagnostic question para mostrar en las demas screens
+String diagnosticFeedback = "";
+//Feedback first treatment para mostrar en las demas screens
 List firstTreatmentFeedback = [];
 //Feedback second treatment para mostrar en las demas screens
 List secondTreatmentFeedback = [];
