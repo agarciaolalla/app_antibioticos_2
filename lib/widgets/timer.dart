@@ -36,12 +36,14 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
         barrierDismissible: false,
         builder: (BuildContext context) => AlertDialog(
               content: const Text(
-                  'El tiempo de este caso clínico se ha acabado, pasarás al siguiente caso.'),
+                  'El tiempo de este caso clínico se ha acabado, tu paciente ha muerto.'),
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return LooseScreen();
+                    return LooseScreen(
+                        informacion:
+                            "Se ha agotado el tiempo, tu paciente ha muerto.");
                   }), (Route<dynamic> route) => false),
                   child: const Text('OK'),
                 ),

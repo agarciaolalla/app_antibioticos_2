@@ -1,10 +1,13 @@
+import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_antibioticos/services/player_peticion.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 
 class LooseScreen extends StatelessWidget {
-  const LooseScreen({Key? key}) : super(key: key);
+  const LooseScreen({Key? key, required this.informacion}) : super(key: key);
+
+  final String informacion;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +33,27 @@ class LooseScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  "Has perdido",
+              children: [
+                const Text(
+                  "Fin de la partida.",
                   style: TextStyle(fontSize: 25, color: Colors.red),
+                ),
+                Text(
+                  informacion,
+                  style: const TextStyle(fontSize: 25),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                      return const Ranking();
+                    }), (Route<dynamic> route) => false);
+                  },
+                  child: const Text(
+                    'Ranking',
+                    style: TextStyle(fontSize: 30),
+                  ),
                 )
               ],
             ),

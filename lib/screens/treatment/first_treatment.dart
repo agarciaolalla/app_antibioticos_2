@@ -115,7 +115,9 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return LooseScreen();
+                    return LooseScreen(
+                        informacion:
+                            "No tienes los medicamentos suficientes para continuar.");
                   }), (Route<dynamic> route) => false);
                 },
                 child: const Text('OK'),
