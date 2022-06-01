@@ -97,7 +97,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 onPressed: () {
                   setBackpackDosesFirstTreatment();
                   idTreatmentQuestion++;
-                  if (vidaJugador <= 0) {
+                  if (vidaJugador < 0.05) {
+                    print(vidaJugador);
+
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute<void>(
                             builder: (BuildContext context) {
@@ -146,7 +148,8 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion--;
-                  if (vidaJugador <= 0) {
+                  if (vidaJugador < 0.05) {
+                    print(vidaJugador);
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute<void>(
                             builder: (BuildContext context) {
@@ -187,21 +190,14 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   }
 
   void setNewLifeFirstTreatment() {
-    int vidaFirst = 0;
+    double vidaFirst = 0.0;
     for (int i = 0; i < feedbackToUser.length; i++) {
-      int restar = int.parse(feedbackToUser[i]["vida"]);
-      vidaFirst = vidaFirst + restar;
+      vidaFirst = (int.parse(feedbackToUser[i]["vida"]) / 100);
     }
-    if (vidaFirst > 20) {
-      vidaJugador = vidaJugador - 0.2;
-      vidaPerdida = 20;
-    } else {
-      double vidaFinal = 0;
-      vidaFinal = vidaFirst / 100;
-      vidaJugador = vidaJugador - vidaFinal;
-      vidaPerdida = vidaFirst;
-      ajustarVidaPerdida();
-    }
+
+    vidaJugador = vidaJugador - vidaFirst;
+    vidaPerdida = (vidaFirst * 100).toInt();
+    ajustarVidaPerdida();
   }
 
   void setNewLifeSecondTreatment() {

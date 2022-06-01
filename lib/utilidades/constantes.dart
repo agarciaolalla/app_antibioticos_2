@@ -17,7 +17,7 @@ List mochilaSeleccionada = [];
 // Puntos del jugador
 int points = 0;
 // Vida del jugador
-double vidaJugador = 0.2;
+double vidaJugador = 1.0;
 //Feedback first treatment
 List firstTreatmentFeedback = [];
 //Feedback second treatment
