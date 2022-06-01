@@ -34,9 +34,9 @@ class BackpackDialog extends StatelessWidget {
                           mochilaSeleccionada[index]["dosis"] +
                           "\nVía: " +
                           mochilaSeleccionada[index]["via"] +
-                          "\nIntervalo: " +
+                          "\nIntervalo: c/" +
                           mochilaSeleccionada[index]["intervalo"] +
-                          "h/" +
+                          "h" +
                           "\nCantidad restante: " +
                           mochilaSeleccionada[index]["dias"] +
                           " días disponibles",

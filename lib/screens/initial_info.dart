@@ -23,7 +23,6 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
     getInitialInfo();
   }
 
-  String html = "";
   String asset = "";
 
   Future getInitialInfo() async {
@@ -39,7 +38,7 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
 
       for (var i = 0; i < returnlista.length; i++) {
         if (returnlista[i]["idcaso"] == idcaso.toString()) {
-          html = returnlista[i]["info"];
+          initialInfo = returnlista[i]["info"];
           asset = returnlista[i]["imagen"];
         }
       }
@@ -50,26 +49,28 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return const BackpackDialog();
-                },
-              );
-            },
-            icon: const Icon(Icons.backpack),
-          ),
-        ],
+        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
-            children: const [
-              Text(
-                "Información Inicial",
-                style: TextStyle(fontSize: 20),
+            children: [
+              const Text(
+                "Informacion Inicial",
+                style: TextStyle(fontSize: 25),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                      icon: const Icon(Icons.backpack_outlined),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const BackpackDialog();
+                          },
+                        );
+                      }),
+                ],
               ),
             ],
           ),
@@ -82,7 +83,7 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
               child: Column(
                 children: [
-                  InitialInfoHtml(initialinfo: html),
+                  InitialInfoHtml(initialinfo: initialInfo),
                   showAssets(),
                 ],
               ),
@@ -90,7 +91,7 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute<Null>(builder: (BuildContext context) {
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
                 return const DiagnosticScreen();
               }), (Route<dynamic> route) => false),
               child: const Text(

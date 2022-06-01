@@ -69,11 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ElevatedButton(
                             child: const Text(
                               'Jugar',
-                              style: TextStyle(fontSize: 20),
+                              style: TextStyle(fontSize: 30),
                             ),
                             onPressed: () {
                               Navigator.of(context).pushAndRemoveUntil(
-                                  MaterialPageRoute<Null>(
+                                  MaterialPageRoute<void>(
                                       builder: (BuildContext context) {
                                 return const InitialInfoScreen();
                               }), (Route<dynamic> route) => false);
@@ -83,14 +83,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           ElevatedButton(
                             child: const Text(
                               'Ranking',
-                              style: TextStyle(fontSize: 20),
+                              style: TextStyle(fontSize: 30),
                             ),
                             onPressed: () {
-                              Navigator.of(context).pushAndRemoveUntil(
-                                  MaterialPageRoute<Null>(
-                                      builder: (BuildContext context) {
-                                return const Ranking();
-                              }), (Route<dynamic> route) => false);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Ranking()),
+                              );
                             },
                           ),
                         ]),
