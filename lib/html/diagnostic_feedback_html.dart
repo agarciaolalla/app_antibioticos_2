@@ -23,7 +23,10 @@ class DiagnosticFeedbackHtml extends StatelessWidget {
   </html>''';
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: HtmlWidget(html),
+      child: HtmlWidget(
+        html,
+        textStyle: const TextStyle(fontSize: 17),
+      ),
     );
   }
 }

@@ -86,7 +86,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
             children: [
               const Text(
                 "Pregunta Diagnóstica",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 25, fontFamily: 'FjallaOne'),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

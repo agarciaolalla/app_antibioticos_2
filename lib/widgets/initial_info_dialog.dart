@@ -27,12 +27,8 @@ class InitialInfoDialog extends StatelessWidget {
           )
         ],
       ),
-      content: SizedBox(
-        height: 600,
-        width: 600,
-        child: SingleChildScrollView(
-          child: InitialInfoHtml(initialinfo: initialInfo),
-        ),
+      content: SingleChildScrollView(
+        child: InitialInfoHtml(initialinfo: initialInfo),
       ),
     );
   }

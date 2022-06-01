@@ -15,7 +15,10 @@ class AppTheme {
     ),
 
     // AppBar Theme
-    appBarTheme: const AppBarTheme(color: primary, elevation: 0),
+    appBarTheme: const AppBarTheme(
+      color: primary,
+      elevation: 0,
+    ),
 
     // TextButton Theme
 
