@@ -24,6 +24,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   int vidaPerdida = 0;
   String mostrarVidaPerdida = "";
   List<int> checkDays = [];
+  String muerte = "El paciente ha muerto.";
   @override
   void initState() {
     super.initState();
@@ -123,10 +124,19 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 onPressed: () {
                   setBackpackDosesFirstTreatment();
                   idTreatmentQuestion++;
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const SecondTreatmentScreen();
-                  }), (Route<dynamic> route) => false);
+                  if (vidaJugador <= 0) {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                      return LooseScreen(informacion: muerte);
+                    }), (Route<dynamic> route) => false);
+                  } else {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                      return const SecondTreatmentScreen();
+                    }), (Route<dynamic> route) => false);
+                  }
                 },
                 child: const Text(
                   'Continuar',
@@ -162,12 +172,20 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  //setBackpackDosisSecondTreatment();
                   idTreatmentQuestion--;
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const FinalScreen();
-                  }), (Route<dynamic> route) => false);
+                  if (vidaJugador <= 0) {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                      return LooseScreen(informacion: muerte);
+                    }), (Route<dynamic> route) => false);
+                  } else {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                      return const FinalScreen();
+                    }), (Route<dynamic> route) => false);
+                  }
                 },
                 child: const Text(
                   'Continuar',

@@ -138,8 +138,10 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const LooseScreen();
+                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                    return LooseScreen(
+                        informacion:
+                            "No tienes los medicamentos suficientes para continuar.");
                   }), (Route<dynamic> route) => false);
                 },
                 child: const Text('OK'),

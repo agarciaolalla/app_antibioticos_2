@@ -261,7 +261,8 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     onPressed: () => Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute<void>(
                             builder: (BuildContext context) {
-                      return const LooseScreen();
+                      return LooseScreen(
+                          informacion: "Has agotado todos los medicamentos.");
                     }), (Route<dynamic> route) => false),
                     child: const Text('OK'),
                   ),
