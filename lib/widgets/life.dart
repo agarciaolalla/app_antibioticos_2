@@ -30,7 +30,7 @@ class LifeState extends State<Life> {
             Align(
               child: Text(
                 "Vida: " + (vidaJugador * 100).toString() + "%",
-                style: const TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17, color: Colors.black),
               ),
               alignment: Alignment.topCenter,
             ),

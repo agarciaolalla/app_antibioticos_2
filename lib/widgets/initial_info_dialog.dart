@@ -16,7 +16,10 @@ class InitialInfoDialog extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.only(left: 10),
-            child: Text('Informacion Inicial'),
+            child: Text(
+              'Informacion Inicial',
+              style: TextStyle(fontSize: 17, color: Colors.black),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 10),

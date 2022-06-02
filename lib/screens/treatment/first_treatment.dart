@@ -85,8 +85,11 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
             child: Column(
               children: [
                 const Text(
-                  "Tratamiento Empirico",
-                  style: TextStyle(fontSize: 25),
+                  "Tratamiento Empírico",
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'FjallaOne',
+                      color: Colors.black),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -142,12 +145,15 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
               itemBuilder: (BuildContext context, int index) {
                 return CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
-                  title: Text(backpack[index]["antibiotico"] +
-                      " - " +
-                      backpack[index]["dosis"] +
-                      "/" +
-                      backpack[index]["intervalo"] +
-                      "h"),
+                  title: Text(
+                    backpack[index]["antibiotico"] +
+                        " - " +
+                        backpack[index]["dosis"] +
+                        "/" +
+                        backpack[index]["intervalo"] +
+                        "h",
+                    style: const TextStyle(fontSize: 17, color: Colors.black),
+                  ),
                   value: valorSwitch[index],
                   onChanged: notifyswitch
                       ? null
@@ -173,7 +179,10 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
                             content: const Text(
-                                'Debes seleccionar al menos un medicamento.'),
+                              'Debes seleccionar al menos un medicamento.',
+                              style:
+                                  TextStyle(fontSize: 17, color: Colors.black),
+                            ),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () => Navigator.pop(context, 'OK'),
@@ -186,11 +195,18 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
                             content: const Text(
-                                'No hay cantidad suficiente de uno de los medicamentos seleccionados. Compruebe su seleccion'),
+                              'No hay cantidad suficiente de uno de los medicamentos seleccionados. Compruebe su seleccion',
+                              style:
+                                  TextStyle(fontSize: 17, color: Colors.black),
+                            ),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () => Navigator.pop(context, 'OK'),
-                                child: const Text('OK'),
+                                child: const Text(
+                                  'OK',
+                                  style: TextStyle(
+                                      fontSize: 17, color: Colors.black),
+                                ),
                               ),
                             ],
                           ));
@@ -208,7 +224,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
               },
               child: const Text(
                 'Siguiente',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
           ]),
@@ -222,8 +238,8 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
               child: Column(
                 children: [
                   const Text(
-                    "Tratamiento Empirico",
-                    style: TextStyle(fontSize: 25),
+                    "Tratamiento Dirigido",
+                    style: TextStyle(fontSize: 17, color: Colors.black),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -269,7 +285,9 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
           ),
           body: AlertDialog(
             content: const Text(
-                'No tienes suficientes medicamentos en la mochila para afrontar el reto. \nHas perdido la partida.'),
+              'No tienes suficientes medicamentos en la mochila para afrontar el reto. \nHas perdido la partida.',
+              style: TextStyle(fontSize: 17, color: Colors.black),
+            ),
             actions: <Widget>[
               TextButton(
                 onPressed: () {

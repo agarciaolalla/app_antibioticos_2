@@ -18,7 +18,10 @@ class ShowAntibiogram extends StatelessWidget {
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(left: 10),
-                    child: Text('Antibiograma'),
+                    child: Text(
+                      'Antibiograma',
+                      style: TextStyle(fontSize: 17, color: Colors.black),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 10),
@@ -45,7 +48,7 @@ class ShowAntibiogram extends StatelessWidget {
       },
       child: const Text(
         'Antibiograma Adjunto',
-        style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 20, color: Colors.black),
       ),
     );
   }

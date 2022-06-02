@@ -60,10 +60,11 @@ class _RegisterContact extends State<Login> {
               children: const [
                 Padding(
                   padding: EdgeInsets.only(top: 10),
-                  child: Text(
-                    "Login",
-                    style: TextStyle(fontSize: 25),
-                  ),
+                  child: Text("Login",
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontFamily: 'FjallaOne',
+                          color: Colors.black)),
                 ),
               ],
             ),
@@ -87,16 +88,16 @@ class _RegisterContact extends State<Login> {
                 TextField(
                   controller: controllerName,
                   decoration: const InputDecoration(labelText: 'Nombre'),
-                  style: const TextStyle(fontSize: 17),
+                  style: const TextStyle(fontSize: 17, color: Colors.black),
                 ),
                 const SizedBox(height: 15),
                 TextField(
                   controller: controllerSurname,
                   decoration: const InputDecoration(labelText: 'Apellido'),
-                  style: const TextStyle(fontSize: 17),
+                  style: const TextStyle(fontSize: 17, color: Colors.black),
                 ),
                 const SizedBox(height: 10),
-                Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
@@ -126,7 +127,11 @@ class _RegisterContact extends State<Login> {
                             showDialog<String>(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
-                                content: const Text('Jugador ya registrado'),
+                                content: const Text(
+                                  'Jugador ya registrado',
+                                  style: TextStyle(
+                                      fontSize: 17, color: Colors.black),
+                                ),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () =>
@@ -141,7 +146,7 @@ class _RegisterContact extends State<Login> {
                       },
                       child: const Text(
                         "Registrar Jugador",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -156,7 +161,10 @@ class _RegisterContact extends State<Login> {
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
                                 content: const Text(
-                                    'No existe ningún jugador con ese nombre'),
+                                  'No existe ningún jugador con ese nombre',
+                                  style: TextStyle(
+                                      fontSize: 17, color: Colors.black),
+                                ),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () =>
@@ -177,7 +185,7 @@ class _RegisterContact extends State<Login> {
                       },
                       child: const Text(
                         "Iniciar Sesion",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                     ),
                   ],

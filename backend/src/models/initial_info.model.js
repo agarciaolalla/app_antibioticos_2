@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
 const playerSchema = new Schema({
     idcaso: String,
-    info: String
+    info: String,
+    imagen: String
 })
 
 

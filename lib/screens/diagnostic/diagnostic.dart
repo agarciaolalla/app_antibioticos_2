@@ -86,7 +86,8 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
             children: [
               const Text(
                 "Pregunta Diagnóstica",
-                style: TextStyle(fontSize: 25, fontFamily: 'FjallaOne'),
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -134,9 +135,12 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
             itemBuilder: (BuildContext context, int index) {
               return CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
-                  activeColor: Colors.indigo,
+                  activeColor: Colors.cyan,
                   tileColor: colorSolucion[index],
-                  title: Text("${listAnswer[index]["respuesta"]}"),
+                  title: Text(
+                    "${listAnswer[index]["respuesta"]}",
+                    style: TextStyle(fontSize: 17, color: Colors.black),
+                  ),
                   value: valorSwitch[index],
                   onChanged: notifyswitch
                       ? null
@@ -156,7 +160,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                 },
                 child: const Text(
                   'Comprobar',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
               ),
               const SizedBox(width: 10),
@@ -172,11 +176,12 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                 },
                 child: const Text(
                   'Siguiente',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
               ),
             ],
           ),
+          const SizedBox(height: 30)
         ]),
       ),
     );

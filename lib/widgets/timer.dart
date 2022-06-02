@@ -45,7 +45,10 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
                         informacion:
                             "Se ha agotado el tiempo, tu paciente ha muerto.");
                   }), (Route<dynamic> route) => false),
-                  child: const Text('OK'),
+                  child: const Text(
+                    'OK',
+                    style: TextStyle(fontSize: 17, color: Colors.black),
+                  ),
                 ),
               ],
             ));

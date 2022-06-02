@@ -19,8 +19,10 @@ class _ShowLifeState extends State<ShowLife> {
         children: <TextSpan>[
           TextSpan(
               text: "Vida actual del paciente: " + showLife.toString() + "%",
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.black)),
         ],
       ),
     );

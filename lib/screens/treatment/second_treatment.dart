@@ -66,8 +66,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
           child: Column(
             children: [
               const Text(
-                "Tratamiento Empirico",
-                style: TextStyle(fontSize: 25),
+                "Tratamiento Dirigido",
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -141,14 +142,17 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     itemCount: mochilaSeleccionada.length,
                     itemBuilder: (context, index) {
                       return ListTile(
-                        title: Text(mochilaSeleccionada[index]["antibiotico"] +
-                            " - " +
-                            mochilaSeleccionada[index]["via"] +
-                            " - " +
-                            mochilaSeleccionada[index]["dosis"] +
-                            " cada " +
-                            mochilaSeleccionada[index]["intervalo"] +
-                            " horas"),
+                        title: Text(
+                          mochilaSeleccionada[index]["antibiotico"] +
+                              " - " +
+                              mochilaSeleccionada[index]["via"] +
+                              " - " +
+                              mochilaSeleccionada[index]["dosis"] +
+                              " cada " +
+                              mochilaSeleccionada[index]["intervalo"] +
+                              " horas",
+                          style: TextStyle(fontSize: 17, color: Colors.black),
+                        ),
                         leading: SizedBox(
                           height: 150,
                           width: 150,
@@ -162,7 +166,11 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                                   }
                                 }),
                               ),
-                              Text(contadorItems[index].toString()),
+                              Text(
+                                contadorItems[index].toString(),
+                                style: TextStyle(
+                                    fontSize: 17, color: Colors.black),
+                              ),
                               IconButton(
                                   icon: const Icon(Icons.add),
                                   onPressed: () => setState(() {
@@ -179,7 +187,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     },
                   ),
                   const SizedBox(
-                    height: 40,
+                    height: 10,
                   ),
                   ElevatedButton(
                     onPressed: () {
@@ -216,12 +224,19 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                             context: context,
                             builder: (BuildContext context) => AlertDialog(
                                   content: const Text(
-                                      'Debes seleccionar al menos un medicamento.'),
+                                    'Debes seleccionar al menos un medicamento.',
+                                    style: TextStyle(
+                                        fontSize: 17, color: Colors.black),
+                                  ),
                                   actions: <Widget>[
                                     TextButton(
                                       onPressed: () =>
                                           Navigator.pop(context, 'OK'),
-                                      child: const Text('OK'),
+                                      child: const Text(
+                                        'OK',
+                                        style: TextStyle(
+                                            fontSize: 17, color: Colors.black),
+                                      ),
                                     ),
                                   ],
                                 ));
@@ -229,10 +244,10 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     },
                     child: const Text(
                       'Confirmar',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 20, color: Colors.black),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                 ],
               ),
             )
@@ -273,7 +288,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
           barrierDismissible: false,
           builder: (BuildContext context) => AlertDialog(
                 content: const Text(
-                    'Se han agotado todos los medicamentos, has perdido.'),
+                  'Se han agotado todos los medicamentos, has perdido.',
+                  style: TextStyle(fontSize: 17, color: Colors.black),
+                ),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => Navigator.of(context).pushAndRemoveUntil(
@@ -282,7 +299,10 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       return const LooseScreen(
                           informacion: "Has agotado todos los medicamentos.");
                     }), (Route<dynamic> route) => false),
-                    child: const Text('OK'),
+                    child: const Text(
+                      'OK',
+                      style: TextStyle(fontSize: 17, color: Colors.black),
+                    ),
                   ),
                 ],
               ));

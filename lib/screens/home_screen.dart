@@ -41,64 +41,67 @@ class _HomeScreenState extends State<HomeScreen> {
               children: const [
                 Text(
                   "App Antibióticos",
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'FjallaOne',
+                      color: Colors.black),
                 ),
               ],
             ),
           ),
         ),
         body: SingleChildScrollView(
-          child: Center(
-            child: FittedBox(
+          child: Column(children: [
+            FittedBox(
               fit: BoxFit.contain,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 100),
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
                     child: Image(
                       image: AssetImage('assets/home.png'),
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                            child: const Text(
-                              'Jugar',
-                              style: TextStyle(fontSize: 30),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pushAndRemoveUntil(
-                                  MaterialPageRoute<void>(
-                                      builder: (BuildContext context) {
-                                return const InitialInfoScreen();
-                              }), (Route<dynamic> route) => false);
-                            },
-                          ),
-                          const SizedBox(width: 10),
-                          ElevatedButton(
-                            child: const Text(
-                              'Ranking',
-                              style: TextStyle(fontSize: 30),
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Ranking()),
-                              );
-                            },
-                          ),
-                        ]),
-                  ),
+                  SizedBox(height: 10),
                 ],
               ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      child: const Text(
+                        'Jugar',
+                        style: TextStyle(fontSize: 30, color: Colors.black),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute<void>(
+                                builder: (BuildContext context) {
+                          return const InitialInfoScreen();
+                        }), (Route<dynamic> route) => false);
+                      },
+                    ),
+                    const SizedBox(width: 10),
+                    ElevatedButton(
+                      child: const Text(
+                        'Ranking',
+                        style: TextStyle(fontSize: 30, color: Colors.black),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Ranking()),
+                        );
+                      },
+                    ),
+                  ]),
+            ),
+          ]),
         ));
   }
 }

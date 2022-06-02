@@ -28,7 +28,10 @@ class BackpackDialog extends StatelessWidget {
                 elevation: 30,
                 child: ListTile(
                   leading: const Icon(Icons.medication_rounded),
-                  title: Text(mochilaSeleccionada[index]["antibiotico"]),
+                  title: Text(
+                    mochilaSeleccionada[index]["antibiotico"],
+                    style: TextStyle(fontSize: 17, color: Colors.black),
+                  ),
                   subtitle: Text(
                       "\nDosis: " +
                           mochilaSeleccionada[index]["dosis"] +
@@ -40,7 +43,8 @@ class BackpackDialog extends StatelessWidget {
                           "\nCantidad restante: " +
                           mochilaSeleccionada[index]["dias"] +
                           " días disponibles",
-                      style: const TextStyle(fontSize: 18)),
+                      style:
+                          const TextStyle(fontSize: 18, color: Colors.black)),
                 ),
               );
             },
@@ -56,7 +60,7 @@ class BackpackDialog extends StatelessWidget {
             padding: EdgeInsets.only(right: 20),
             child: Text(
               'Cerrar',
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, color: Colors.black),
             ),
           ),
         ),

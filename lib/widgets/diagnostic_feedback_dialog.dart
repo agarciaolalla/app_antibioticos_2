@@ -16,7 +16,10 @@ class DiagnosticFeedbackDialog extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.only(left: 10),
-            child: Text('Feedback Diagnóstico'),
+            child: Text(
+              'Feedback Diagnóstico',
+              style: TextStyle(fontSize: 17, color: Colors.black),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 10),

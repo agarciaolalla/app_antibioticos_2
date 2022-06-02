@@ -17,7 +17,8 @@ class FinalScreen extends StatelessWidget {
             children: const [
               Text(
                 "Fin del caso",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),
             ],
           ),
@@ -40,7 +41,7 @@ class FinalScreen extends StatelessWidget {
               },
               child: const Text(
                 'Siguiente caso',
-                style: TextStyle(fontSize: 17),
+                style: TextStyle(fontSize: 17, color: Colors.black),
               ),
             ),
           ],

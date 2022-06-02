@@ -52,7 +52,8 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
             children: [
               const Text(
                 "Feedback del diagnóstico",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -101,9 +102,10 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
               }), (Route<dynamic> route) => false),
               child: const Text(
                 "Continuar",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
+            const SizedBox(height: 30)
           ],
         ),
       ),

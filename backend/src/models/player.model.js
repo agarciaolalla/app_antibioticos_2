@@ -2,7 +2,10 @@ const { Schema, model } = require('mongoose');
 const playerSchema = new Schema({
     nombre: String,
     apellido: String,
-    puntuacion: String
+    puntuacion: String,
+    retoscompletados: String,
+    antibioticostotales: String,
+    vida: String
     
 })
 

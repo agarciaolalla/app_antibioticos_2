@@ -73,7 +73,10 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               children: [
                 const Text(
                   "Tratamiento Empirico",
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'FjallaOne',
+                      color: Colors.black),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -128,7 +131,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 child: Text(
                   mostrarVidaPerdida,
                   style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 25),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: Colors.black),
                 ),
               ),
               ElevatedButton(
@@ -153,7 +158,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 },
                 child: const Text(
                   'Continuar',
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 30, color: Colors.black),
                 ),
               ),
             ],
@@ -173,7 +178,10 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               children: [
                 const Text(
                   "Tratamiento Empirico",
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'FjallaOne',
+                      color: Colors.black),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -239,7 +247,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 child: Text(
                   mostrarVidaPerdida,
                   style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 25),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: Colors.black),
                 ),
               ),
               ElevatedButton(
@@ -262,7 +272,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 },
                 child: const Text(
                   'Continuar',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
               ),
             ],

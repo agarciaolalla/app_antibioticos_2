@@ -54,8 +54,9 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
           child: Column(
             children: [
               const Text(
-                "Informacion Inicial",
-                style: TextStyle(fontSize: 25),
+                "Información Inicial",
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -96,9 +97,10 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
               }), (Route<dynamic> route) => false),
               child: const Text(
                 "Continuar",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 25, color: Colors.black),
               ),
             ),
+            const SizedBox(height: 30)
           ],
         ),
       ),

@@ -20,7 +20,8 @@ class LooseScreen extends StatelessWidget {
             children: const [
               Text(
                 "Pantalla Final",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),
             ],
           ),
@@ -40,7 +41,7 @@ class LooseScreen extends StatelessWidget {
                 ),
                 Text(
                   informacion,
-                  style: const TextStyle(fontSize: 25),
+                  style: const TextStyle(fontSize: 25, color: Colors.black),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -52,7 +53,7 @@ class LooseScreen extends StatelessWidget {
                   },
                   child: const Text(
                     'Ranking',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 30, color: Colors.black),
                   ),
                 )
               ],

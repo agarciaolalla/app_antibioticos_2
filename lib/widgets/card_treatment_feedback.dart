@@ -35,7 +35,8 @@ class CardViewTreatmentFeedback extends StatelessWidget {
               ListTile(
                 title: Text(
                   '${treatmentFeedback[index]["antibiotico"]}',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 subtitle: Text(
                   '\nDosis: ${treatmentFeedback[index]["dosis"]}'

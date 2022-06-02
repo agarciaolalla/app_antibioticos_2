@@ -21,7 +21,8 @@ class HomeRanking extends State<Ranking> {
             children: const [
               Text(
                 "Ranking Jugadores",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),
             ],
           ),

@@ -25,7 +25,7 @@ class SecondTreatmentQuestionHtml extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: HtmlWidget(
         html,
-        textStyle: const TextStyle(fontSize: 17),
+        textStyle: const TextStyle(fontSize: 17, color: Colors.black),
       ),
     );
   }

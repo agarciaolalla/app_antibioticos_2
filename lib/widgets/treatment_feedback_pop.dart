@@ -33,7 +33,7 @@ class TreatmentFeedbackPop extends StatelessWidget {
             padding: EdgeInsets.only(right: 20),
             child: Text(
               'Cerrar',
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, color: Colors.black),
             ),
           ),
         ),

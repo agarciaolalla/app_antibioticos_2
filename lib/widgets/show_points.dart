@@ -20,8 +20,10 @@ class ShowPointsState extends State<ShowPoints> {
           children: <TextSpan>[
             TextSpan(
                 text: 'Puntuación actual: ' + points.toString() + " punto/s",
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.black)),
           ],
         ),
       ),

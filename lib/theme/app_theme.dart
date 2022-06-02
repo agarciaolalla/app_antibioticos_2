@@ -9,9 +9,8 @@ class AppTheme {
     primaryColor: Colors.cyan,
 
     textTheme: const TextTheme(
-      headline1: TextStyle(
-        fontSize: 17.0,
-      ),
+      headline1: TextStyle(fontSize: 17.0, color: Colors.black),
+      bodyText1: TextStyle(fontSize: 17.0, color: Colors.black),
     ),
 
     // AppBar Theme
