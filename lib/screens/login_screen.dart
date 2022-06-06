@@ -149,7 +149,7 @@ class _RegisterContact extends State<Login> {
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () async {
                         String name = controllerName.text;

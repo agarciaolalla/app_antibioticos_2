@@ -129,10 +129,15 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
           children: [
             const Life(),
             const Timer(),
-            Column(children: [
-              SecondTreatmentQuestionHtml(questionHtml: question),
-              ShowAntibiogram(asset: asset)
-            ]),
+            Column(
+              children: [
+                SecondTreatmentQuestionHtml(questionHtml: question),
+                Image(
+                  image: AssetImage("assets/" + asset),
+                ),
+                //ShowAntibiogram(asset: asset)
+              ],
+            ),
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -151,7 +156,8 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                               " cada " +
                               mochilaSeleccionada[index]["intervalo"] +
                               " horas",
-                          style: TextStyle(fontSize: 17, color: Colors.black),
+                          style: const TextStyle(
+                              fontSize: 17, color: Colors.black),
                         ),
                         leading: SizedBox(
                           height: 150,
@@ -168,7 +174,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                               ),
                               Text(
                                 contadorItems[index].toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 17, color: Colors.black),
                               ),
                               IconButton(

@@ -67,7 +67,7 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
         animation: controller,
         builder: (context, child) => Text(
           "Tiempo restante: " + countText,
-          style: const TextStyle(fontSize: 17),
+          style: const TextStyle(fontSize: 17, color: Colors.black),
         ),
       ),
     ]);

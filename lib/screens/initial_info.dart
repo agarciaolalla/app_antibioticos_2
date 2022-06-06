@@ -133,7 +133,9 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
                   ],
                 ),
                 content: SingleChildScrollView(
-                  child: Image(image: AssetImage(asset)),
+                  child: Image(
+                    image: AssetImage("assets/" + asset),
+                  ),
                 ),
               );
             },

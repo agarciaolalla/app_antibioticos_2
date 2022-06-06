@@ -72,18 +72,23 @@ class HomeRanking extends State<Ranking> {
       itemCount: playersRank.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title:
-              Text(playersRank[index].name + " " + playersRank[index].surname),
-          subtitle: Text("Retos completados: " +
-              playersRank[index].challenges +
-              "\nVida: " +
-              playersRank[index].life +
-              "%" +
-              "\nAntibioticos Restantes: " +
-              playersRank[index].medicines +
-              "\nPuntuacion Diagnostica: " +
-              playersRank[index].points +
-              " puntos"),
+          title: Text(
+            playersRank[index].name + " " + playersRank[index].surname,
+            style: const TextStyle(color: Colors.black, fontSize: 17),
+          ),
+          subtitle: Text(
+            "Retos completados: " +
+                playersRank[index].challenges +
+                "\nVida: " +
+                playersRank[index].life +
+                "%" +
+                "\nAntibioticos Restantes: " +
+                playersRank[index].medicines +
+                "\nPuntuacion Diagnostica: " +
+                playersRank[index].points +
+                " puntos",
+            style: const TextStyle(color: Colors.black, fontSize: 17),
+          ),
           leading: CircleAvatar(
             child: Text((index + 1).toString()),
           ),

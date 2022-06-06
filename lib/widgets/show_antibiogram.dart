@@ -33,13 +33,8 @@ class ShowAntibiogram extends StatelessWidget {
                 ],
               ),
               content: SingleChildScrollView(
-                child: SizedBox(
-                  width: 700,
-                  height: 500,
-                  child: Image(
-                    image: AssetImage(asset),
-                    fit: BoxFit.fill,
-                  ),
+                child: Image(
+                  image: AssetImage("assets/" + asset),
                 ),
               ),
             );

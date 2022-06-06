@@ -34,48 +34,39 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          flexibleSpace: SafeArea(
-            child: Column(
-              children: const [
-                Text(
-                  "App Antibióticos",
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontFamily: 'FjallaOne',
-                      color: Colors.black),
-                ),
-              ],
-            ),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        flexibleSpace: SafeArea(
+          child: Column(
+            children: const [
+              Text(
+                "App Antibióticos",
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
+              ),
+            ],
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(children: [
-            FittedBox(
-              fit: BoxFit.contain,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Image(
-                      image: AssetImage('assets/home.png'),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                ],
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Image(
+                image: AssetImage('assets/home.png'),
+                fit: BoxFit.contain,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Column(
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
                       child: const Text(
                         'Jugar',
-                        style: TextStyle(fontSize: 30, color: Colors.black),
+                        style: TextStyle(fontSize: 30),
                       ),
                       onPressed: () {
                         Navigator.of(context).pushAndRemoveUntil(
@@ -89,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ElevatedButton(
                       child: const Text(
                         'Ranking',
-                        style: TextStyle(fontSize: 30, color: Colors.black),
+                        style: TextStyle(fontSize: 30),
                       ),
                       onPressed: () {
                         Navigator.push(
@@ -99,9 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                     ),
-                  ]),
-            ),
-          ]),
-        ));
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
