@@ -121,7 +121,10 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
                   children: [
                     const Padding(
                       padding: EdgeInsets.only(left: 10),
-                      child: Text('Imagen Adjunta'),
+                      child: Text(
+                        'Imagen Adjunta',
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 10),
@@ -143,7 +146,7 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
         },
         child: const Text(
           "Imagen Adjunta",
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20, color: Colors.black),
         ),
       );
     }

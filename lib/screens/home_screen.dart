@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ElevatedButton(
                       child: const Text(
                         'Jugar',
-                        style: TextStyle(fontSize: 30),
+                        style: TextStyle(fontSize: 30, color: Colors.black),
                       ),
                       onPressed: () {
                         Navigator.of(context).pushAndRemoveUntil(
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ElevatedButton(
                       child: const Text(
                         'Ranking',
-                        style: TextStyle(fontSize: 30),
+                        style: TextStyle(fontSize: 30, color: Colors.black),
                       ),
                       onPressed: () {
                         Navigator.push(
