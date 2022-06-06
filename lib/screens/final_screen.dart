@@ -33,11 +33,20 @@ class FinalScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                idcaso = idcaso + 1;
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute<void>(builder: (BuildContext context) {
-                  return const InitialInfoScreen();
-                }), (Route<dynamic> route) => false);
+                if (idcaso < 5) {
+                  idcaso = idcaso + 1;
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const InitialInfoScreen();
+                  }), (Route<dynamic> route) => false);
+                } else {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const LooseScreen(
+                      informacion: "¡Has finalizado la partida exitosamente!",
+                    );
+                  }), (Route<dynamic> route) => false);
+                }
               },
               child: const Text(
                 'Siguiente caso',
