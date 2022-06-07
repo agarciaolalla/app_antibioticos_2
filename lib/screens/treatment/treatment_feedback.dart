@@ -255,8 +255,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
               ElevatedButton(
                 onPressed: () {
                   idTreatmentQuestion--;
-                  if (vidaJugador < 0.05) {
-                    print(vidaJugador);
+                  if (vidaJugador <= 0.0) {
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute<void>(
                             builder: (BuildContext context) {
@@ -301,9 +300,16 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     for (int i = 0; i < feedbackToUser.length; i++) {
       vidaFirst = (int.parse(feedbackToUser[i]["vida"]) / 100);
     }
+    if (vidaFirst > 0.2) {
+      vidaFirst = 0.2;
+    }
 
-    vidaJugador = vidaJugador - vidaFirst;
-    vidaPerdida = (vidaFirst * 100).toInt();
+    int precision = 10;
+    int diff =
+        (vidaJugador * precision).round() - (vidaFirst * precision).round();
+    vidaJugador = diff / precision;
+    //print(vidaJugador);
+    vidaPerdida = (vidaFirst * 100.0).toInt();
     ajustarVidaPerdida();
   }
 
@@ -331,7 +337,10 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     if (vidaSecond > 0.2) {
       vidaSecond = 0.2;
     }
-    vidaJugador = vidaJugador - vidaSecond;
+    int precision = 10;
+    int diff =
+        (vidaJugador * precision).round() - (vidaSecond * precision).round();
+    vidaJugador = diff / precision;
     vidaPerdida = (vidaSecond * 100).toInt();
     ajustarVidaPerdida();
   }

@@ -80,8 +80,13 @@ class LooseScreen extends StatelessWidget {
     int medicines = searchPlayerMedicines();
     player.points = points.toString();
     player.challenges = idcaso.toString();
-    player.life = vidaJugador.toString();
     player.medicines = medicines.toString();
+
+    if (vidaJugador <= 0.0) {
+      player.life = "0";
+    } else {
+      player.life = vidaJugador.toString();
+    }
 
     modifyPlayer(player);
   }
