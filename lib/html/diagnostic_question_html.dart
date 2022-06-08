@@ -15,7 +15,7 @@ class DiagnosticQuestionHtml extends StatelessWidget {
         <meta name="viewport" content="width=device-width, initial-scale=2">
       </head>
       <body>
-        <h1>Pruebas de diagnostico</h1>
+        <h1>Solicitud de pruebas de diagnóstico</h1>
         ''' +
         questionHtml +
         '''

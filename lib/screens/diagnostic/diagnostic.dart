@@ -1,3 +1,4 @@
+import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -6,7 +7,6 @@ import 'dart:convert';
 
 import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:app_antibioticos/widgets/widgets.dart';
-import 'package:app_antibioticos/screens/diagnostic/diagnostic_feedback.dart';
 import 'package:app_antibioticos/html/html.dart';
 
 class DiagnosticScreen extends StatefulWidget {
@@ -18,6 +18,7 @@ class DiagnosticScreen extends StatefulWidget {
 class HomeDiagnostic extends State<DiagnosticScreen> {
   List listAnswer = [];
   String question = "";
+  String buttonText = "Comprobar";
   bool comprobar = false;
   Color verde = Colors.white;
   Color rojo = Colors.white;
@@ -106,7 +107,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.info_outline),
-                    tooltip: "Informacion Inicial",
+                    tooltip: "Información Inicial",
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -123,68 +124,68 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          const Life(),
-          const Timer(),
-          DiagnosticQuestionHtml(questionHtml: question),
-          ListView.builder(
-            scrollDirection: Axis.vertical,
-            //physics: const NeverScrollableScrollPhysics(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Life(),
+            const Timer(),
+            DiagnosticQuestionHtml(questionHtml: question),
+            ListView.builder(
+              scrollDirection: Axis.vertical,
+              //physics: const NeverScrollableScrollPhysics(),
 
-            shrinkWrap: true,
-            // ignore: unnecessary_null_comparison
-            itemCount: listAnswer == null ? 0 : listAnswer.length,
-            itemBuilder: (BuildContext context, int index) {
-              return CheckboxListTile(
-                  controlAffinity: ListTileControlAffinity.leading,
-                  activeColor: Colors.cyan,
-                  tileColor: colorSolucion[index],
-                  title: Text(
-                    "${listAnswer[index]["respuesta"]}",
-                    style: TextStyle(fontSize: 17, color: Colors.black),
+              shrinkWrap: true,
+              // ignore: unnecessary_null_comparison
+              itemCount: listAnswer == null ? 0 : listAnswer.length,
+              itemBuilder: (BuildContext context, int index) {
+                return CheckboxListTile(
+                    controlAffinity: ListTileControlAffinity.leading,
+                    activeColor: Colors.cyan,
+                    tileColor: colorSolucion[index],
+                    title: Text(
+                      "${listAnswer[index]["respuesta"]}",
+                      style: const TextStyle(fontSize: 17, color: Colors.black),
+                    ),
+                    value: valorSwitch[index],
+                    onChanged: notifyswitch
+                        ? null
+                        : (value) => setState(() {
+                              valorSwitch[index] = value;
+                            }));
+              },
+            ),
+            const SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    if (!comprobar) {
+                      setState(
+                        () {
+                          checkAnswers();
+                          buttonText = "Continuar";
+                        },
+                      );
+                    } else {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute<void>(
+                              builder: (BuildContext context) {
+                        return const DiagnosticFeedback();
+                      }), (Route<dynamic> route) => false);
+                    }
+                  },
+                  child: Text(
+                    buttonText,
+                    style: const TextStyle(fontSize: 20, color: Colors.black),
                   ),
-                  value: valorSwitch[index],
-                  onChanged: notifyswitch
-                      ? null
-                      : (value) => setState(() {
-                            valorSwitch[index] = value;
-                          }));
-            },
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    checkAnswers();
-                  });
-                },
-                child: const Text(
-                  'Comprobar',
-                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
-              ),
-              const SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {
-                  if (comprobar == true) {
-                    Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute<void>(
-                            builder: (BuildContext context) {
-                      return const DiagnosticFeedback();
-                    }), (Route<dynamic> route) => false);
-                  }
-                },
-                child: const Text(
-                  'Siguiente',
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 30)
-        ]),
+                const SizedBox(width: 10),
+              ],
+            ),
+            const SizedBox(height: 30)
+          ],
+        ),
       ),
     );
   }

@@ -30,7 +30,7 @@ class BackpackDialog extends StatelessWidget {
                   leading: const Icon(Icons.medication_rounded),
                   title: Text(
                     mochilaSeleccionada[index]["antibiotico"],
-                    style: TextStyle(fontSize: 17, color: Colors.black),
+                    style: const TextStyle(fontSize: 17, color: Colors.black),
                   ),
                   subtitle: Text(
                       "\nDosis: " +

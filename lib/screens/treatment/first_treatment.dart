@@ -108,7 +108,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.info_outline),
-                      tooltip: "Informacion Inicial",
+                      tooltip: "Información Inicial",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -261,7 +261,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                       ),
                       IconButton(
                         icon: const Icon(Icons.info_outline),
-                        tooltip: "Info Inicial",
+                        tooltip: "Información Inicial",
                         onPressed: () {
                           showDialog(
                             context: context,

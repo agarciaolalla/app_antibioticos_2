@@ -100,6 +100,11 @@ class _RegisterContact extends State<Login> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const Text(
+                      "Si es la primera vez que accedes, introduce tu nombre y apellido y...",
+                      style: TextStyle(color: Colors.black, fontSize: 20),
+                    ),
+                    const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () async {
                         String name = controllerName.text;
@@ -145,9 +150,14 @@ class _RegisterContact extends State<Login> {
                         }
                       },
                       child: const Text(
-                        "Registrar Jugador",
-                        style: TextStyle(fontSize: 20, color: Colors.black),
+                        "Regístrate",
+                        style: TextStyle(fontSize: 30, color: Colors.black),
                       ),
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      "Si ya estas registrado",
+                      style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                     const SizedBox(height: 10),
                     ElevatedButton(
@@ -184,8 +194,8 @@ class _RegisterContact extends State<Login> {
                         }
                       },
                       child: const Text(
-                        "Iniciar Sesion",
-                        style: TextStyle(fontSize: 20, color: Colors.black),
+                        "Inicia Sesion",
+                        style: TextStyle(fontSize: 30, color: Colors.black),
                       ),
                     ),
                   ],
