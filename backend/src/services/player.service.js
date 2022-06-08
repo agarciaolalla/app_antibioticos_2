@@ -53,8 +53,8 @@ class PlayerService {
         var playerModificado;
         try {
             await playermodel.findOneAndUpdate({
-                name: playermod.name,
-                surname: playermod.surname
+                nombre: playermod.nombre,
+                apellido: playermod.apellido,
             }, playermod).then( (value) => {
 
                 playerModificado = playermod;
