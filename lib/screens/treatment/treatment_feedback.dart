@@ -303,7 +303,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   void setNewLifeFirstTreatment() {
     double vidaFirst = 0.0;
     for (int i = 0; i < feedbackToUser.length; i++) {
-      vidaFirst = (int.parse(feedbackToUser[i]["vida"]) / 100);
+      vidaFirst = vidaFirst + (int.parse(feedbackToUser[i]["vida"]) / 100);
     }
     if (vidaFirst > 0.2) {
       vidaFirst = 0.2;

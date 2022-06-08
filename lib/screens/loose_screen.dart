@@ -85,7 +85,7 @@ class LooseScreen extends StatelessWidget {
     if (vidaJugador <= 0.0) {
       player.life = "0";
     } else {
-      player.life = vidaJugador.toString();
+      player.life = (vidaJugador * 100).toString();
     }
 
     modifyPlayer(player);
