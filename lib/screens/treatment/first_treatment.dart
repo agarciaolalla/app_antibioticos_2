@@ -96,6 +96,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.backpack_outlined),
+                      tooltip: "Mochila",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -107,6 +108,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.info_outline),
+                      tooltip: "Informacion Inicial",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -118,6 +120,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.comment_outlined),
+                      tooltip: "Feedback Pregunta Diagnóstico",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -246,6 +249,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.backpack_outlined),
+                        tooltip: "Mochila",
                         onPressed: () {
                           showDialog(
                             context: context,
@@ -257,6 +261,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                       ),
                       IconButton(
                         icon: const Icon(Icons.info_outline),
+                        tooltip: "Info Inicial",
                         onPressed: () {
                           showDialog(
                             context: context,
@@ -268,6 +273,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                       ),
                       IconButton(
                         icon: const Icon(Icons.comment_outlined),
+                        tooltip: "Feedback Pregunta Diagnóstico",
                         onPressed: () {
                           showDialog(
                             context: context,

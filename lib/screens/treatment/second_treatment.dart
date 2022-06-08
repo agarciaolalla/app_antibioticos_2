@@ -75,6 +75,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.backpack_outlined),
+                    tooltip: "Mochila",
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -86,6 +87,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.info_outline),
+                    tooltip: "Información Inicial",
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -97,6 +99,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.comment_outlined),
+                    tooltip: "Feedback Pregunta Diagnóstico",
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -108,6 +111,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.comment_bank_outlined),
+                    tooltip: "Feedback Pregunta Tratamiento Empírico",
                     onPressed: () {
                       showDialog(
                         context: context,

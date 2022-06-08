@@ -62,15 +62,17 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                      icon: const Icon(Icons.backpack_outlined),
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const BackpackDialog();
-                          },
-                        );
-                      }),
+                    icon: const Icon(Icons.backpack_outlined),
+                    tooltip: "Mochila",
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const BackpackDialog();
+                        },
+                      );
+                    },
+                  ),
                 ],
               ),
             ],

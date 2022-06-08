@@ -7,7 +7,6 @@ class AppTheme {
     // Color primario
 
     primaryColor: Colors.cyan,
-
     textTheme: const TextTheme(
       headline1: TextStyle(fontSize: 17.0, color: Colors.black),
       bodyText1: TextStyle(fontSize: 17.0, color: Colors.black),
@@ -37,6 +36,15 @@ class AppTheme {
     inputDecorationTheme: const InputDecorationTheme(
       border: OutlineInputBorder(),
       labelStyle: TextStyle(fontSize: 15, color: Colors.black),
+    ),
+
+    //Tooltip Theme
+    tooltipTheme: TooltipThemeData(
+      decoration: BoxDecoration(
+        color: Colors.grey.shade400,
+        borderRadius: const BorderRadius.all(Radius.circular(4)),
+      ),
+      textStyle: const TextStyle(color: Colors.black, fontSize: 17),
     ),
   );
 

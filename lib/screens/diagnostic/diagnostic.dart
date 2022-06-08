@@ -94,6 +94,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.backpack_outlined),
+                    tooltip: "Mochila",
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -105,6 +106,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.info_outline),
+                    tooltip: "Informacion Inicial",
                     onPressed: () {
                       showDialog(
                         context: context,

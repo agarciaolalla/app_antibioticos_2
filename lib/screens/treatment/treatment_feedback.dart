@@ -83,6 +83,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.backpack_outlined),
+                      tooltip: "Mochila",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -94,6 +95,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.info_outline),
+                      tooltip: "Información Inicial",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -105,6 +107,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.comment_outlined),
+                      tooltip: "Feedback Pregunta Diagnóstico",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -141,8 +144,6 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                   setBackpackDosesFirstTreatment();
                   idTreatmentQuestion++;
                   if (vidaJugador < 0.05) {
-                    print(vidaJugador);
-
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute<void>(
                             builder: (BuildContext context) {
@@ -188,6 +189,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.backpack_outlined),
+                      tooltip: "Mochila",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -199,6 +201,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.info_outline),
+                      tooltip: "Información Inicial",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -210,6 +213,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.comment_outlined),
+                      tooltip: "Feedback Pregunta Diagnóstico",
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -220,7 +224,8 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                       },
                     ),
                     IconButton(
-                      icon: const Icon(Icons.info_outline),
+                      icon: const Icon(Icons.comment_bank_outlined),
+                      tooltip: "Feedback Pregunta Tratamiento Empírico",
                       onPressed: () {
                         showDialog(
                           context: context,
