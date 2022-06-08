@@ -72,7 +72,7 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.info_outline),
-                    tooltip: "Informacion Inicial",
+                    tooltip: "Información Inicial",
                     onPressed: () {
                       showDialog(
                         context: context,

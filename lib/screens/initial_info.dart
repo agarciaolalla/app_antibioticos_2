@@ -147,7 +147,7 @@ class _InitialInfoScreenState extends State<InitialInfoScreen> {
           );
         },
         child: const Text(
-          "Imagen Adjunta",
+          "Ver Imagen",
           style: TextStyle(fontSize: 20, color: Colors.black),
         ),
       );

@@ -57,7 +57,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: AssetImage('assets/home.png'),
                 fit: BoxFit.contain,
               ),
-              const SizedBox(height: 30),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                child: Text(
+                  "Bienvenido a 'Un botiquín en mi mochila'."
+                  "\nTienes unos cuantos antibióticos en tu mochila, para ir a visitar a cinco pacientes a los que tendrás que diagnosticar y tratar."
+                  "\n¡Ojo! Los antibióticos de tu mochila son limitados, y tendrás que administrarlos con prudencia y sabiduría. Si utilizas demasiados, te quedarás pronto con la mochila vacía, y el juego terminará. Si utilizas pocos o los que usas no son los más adecuados, no curarás al paciente, y el pobrecito irá perdiendo vida. ¡No dejes que muera!"
+                  "\nEn todo momento podrás verificar el contenido de tu mochila y los datos diagnósticos y analíticos de cada caso. Si aciertas las preguntas que te iremos planteando, irás sumando puntos.\nCuantos más retos superes, cuantos más puntos consigas, cuanta más vida tenga tu paciente, más arriba estarás en el ranking de los TOP PROA."
+                  "\nÁnimo. Su vida está en tus manos.",
+                  style: TextStyle(
+                      color: Colors.black, fontSize: 20, wordSpacing: 5),
+                  //textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
