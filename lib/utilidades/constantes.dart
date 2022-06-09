@@ -18,6 +18,8 @@ List mochilaSeleccionada = [];
 
 // Puntos del jugador
 int points = 0;
+//Puntos obtenidos en un caso
+int pointsPerCase = 0;
 // Vida del jugador
 double vidaJugador = 1.0;
 

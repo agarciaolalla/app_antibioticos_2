@@ -98,10 +98,15 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
             ),
             const ShowPoints(),
             ElevatedButton(
-              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute<void>(builder: (BuildContext context) {
-                return const FirstTreatmentScreen();
-              }), (Route<dynamic> route) => false),
+              onPressed: () {
+                updateTotalPoints();
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return const FirstTreatmentScreen();
+                  },
+                ), (Route<dynamic> route) => false);
+              },
               child: const Text(
                 "Continuar",
                 style: TextStyle(fontSize: 20, color: Colors.black),
@@ -112,5 +117,10 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
         ),
       ),
     );
+  }
+
+  void updateTotalPoints() {
+    points = points + pointsPerCase;
+    pointsPerCase = 0;
   }
 }

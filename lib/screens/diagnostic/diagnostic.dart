@@ -233,11 +233,11 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         }
         if (comprobarRespuesta[i] == 1) {
           colorSolucion[i] = Colors.green;
-          points = points + 2;
+          pointsPerCase = pointsPerCase + 2;
         }
         if (comprobarRespuesta[i] == 2) {
-          if (points > 0) {
-            points = points - 1;
+          if (pointsPerCase > 0) {
+            pointsPerCase = pointsPerCase - 1;
           }
           colorSolucion[i] = Colors.red;
         }
