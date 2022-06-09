@@ -19,7 +19,9 @@ class ShowPointsState extends State<ShowPoints> {
           style: DefaultTextStyle.of(context).style,
           children: <TextSpan>[
             TextSpan(
-                text: 'Puntuación actual: ' + points.toString() + " punto/s",
+                text: 'Puntuación actual: ' +
+                    pointsPerCase.toString() +
+                    " punto/s",
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
