@@ -36,6 +36,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
   }
 
   List<String> medicineNames = [];
+  List<String> feedback = [];
 
   //Te recoge la respuesta de la base de datos.
   Future getDiagnosticAnswer() async {
@@ -152,7 +153,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                             : (value) => setState(() {
                                   valorSwitch[index] = value;
                                 })),
-                    const Text(""),
+                    Text(feedback[index]),
                   ],
                 );
               },
@@ -200,6 +201,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         valorSwitch.add(false);
         comprobarRespuesta.add(0);
         colorSolucion.add(Colors.white);
+        feedback.add("pepe");
       }
     }
   }
@@ -228,6 +230,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     notifyswitch = true;
     if (comprobar == true) {
       for (var i = 0; i < comprobarRespuesta.length; i++) {
+        feedback[i] = listAnswer[i]["feedback"];
         if (comprobarRespuesta[i] == 0) {
           colorSolucion[i] = Colors.green;
         }

@@ -8,9 +8,7 @@ const conexion1 = "http://192.168.1.11:50052"; //Servidor de Olalla (casa)
 //const conexion1 = "http://172.30.67.51:50052"; //instituto ITACA
 
 //const conexion1 = "//1.44.4.78:50052";
-
 //const conexion1 = "";
-
 // Id del caso clinico que se va a realizar
 int idcaso = 1;
 // Mochila con los medicamentos seleccionados al inicio del juego
