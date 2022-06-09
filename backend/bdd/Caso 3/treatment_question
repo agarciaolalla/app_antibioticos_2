@@ -1,0 +1,10 @@
+{
+    "idcaso": "3",
+    "idpregunta": "1",
+    "pregunta": "<p>¿Qué tratamiento antibiótico cree indicado?</p><p>Seleccione los antibioticos que considere entre los disponibles en su mochila</p><p><strong>Perdida maxima de vida del paciente: 20%</strong></p>"
+}
+{
+    "idcaso": "3",
+    "idpregunta": "2",
+    "pregunta": "<p>A las 72h reevalúa a la paciente. Se ha realizado drenaje biliar precoz mediante colangiopancreatografía retrógrada endoscópica con extracción de un cálculo en el colédoco.  Se encuentra afebril. El dolor ha cedido, así como la ictericia. Tiene tolerancia oral.</p><p>Realizas un análisis de control:</p><ul><li><p>Leucocitos 7.800 (N 65%)<p></li><li><p>Plaquetas 150.000.</p></li><li><p>Función renal normal.</p></li><li><p>PCR 60 mg/dL. </p></li></ul><p>Los hemocultivos muestran crecimiento para Klebsiella pneumoniae.</p><p>Con esta informacion, seleccione los antibioticos y el numero de dias que desea recetarlos con lo disponible en su mochila.</p><p><strong>Perdida maxima de vida del paciente: 20%</strong></p>"
+}

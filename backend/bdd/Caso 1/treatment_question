@@ -1,0 +1,10 @@
+{
+    "idcaso": "1",
+    "idpregunta": "1",
+    "pregunta": "<p>¿Qué tratamiento antibiótico cree indicado?</p><p>Seleccione los antibioticos que considere entre los disponibles en su mochila</p><p><strong>Perdida maxima de vida del paciente: 20%</strong></p>"
+}
+{
+    "idcaso": "1",
+    "idpregunta": "2",
+    "pregunta": "<p>A las 48h reevalúa al paciente. Se encuentra afebril y asintomático. Tolera  dieta por vía oral.</p><p>Realizas un análisis de control:</p><ul><li><p>Leucocitos 11.000 (N 75%)<p></li><li><p>Plaquetas 160.000.</p></li><li><p>Función renal normal.</p></li><li><p>PCR 85 mg/dL</p></li></ul><p>Los hemocultivos son negativos.</p><p>El cultivo de esputo muestra crecimiento de S. pneumoniae en cultivo puro. Se adjunta antibiograma.</p><p>La serología de VIH y las PCR de gripe y SARS-CoV-2 son negativas.</p><p>Con esta informacion, seleccione los antibioticos y el numero de dias que desea recetarlos con lo disponible en su mochila.</p><p><strong>Perdida maxima de vida del paciente: 20%</strong></p>"
+}

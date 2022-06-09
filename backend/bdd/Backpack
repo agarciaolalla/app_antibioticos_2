@@ -1,0 +1,82 @@
+{
+    "antibiotico": "Amoxicilina",
+    "dosis": "1g",
+    "via": "Via Oral",
+    "intervalo": "8",
+    "dias": "8",
+    "numerodosis": "32"
+}
+
+{
+    "antibiotico": "Ampicilina",
+    "dosis": "2g",
+    "via": "Via Intravenosa",
+    "intervalo": "6",
+    "dias": "2",
+    "numerodosis": "8"
+}
+
+{
+    "antibiotico": "Cefazolina",
+    "dosis": "2g",
+    "via": "Via Intravenosa",
+    "intervalo": "6",
+    "dias": "14",
+    "numerodosis": "42"
+}
+{
+    "antibiotico": "Ceftriaxona",
+    "dosis": "2g",
+    "via": "Via Intravenosa",
+    "intervalo": "24",
+    "dias": "2",
+    "numerodosis": "2"
+}
+{
+    "antibiotico": "Linezolid (Intravenosa)",
+    "dosis": "600mg",
+    "via": "Via Intravenosa",
+    "intervalo": "12",
+    "dias": "5",
+    "numerodosis": "10"
+}
+{
+    "antibiotico": "Linezolid (Oral)",
+    "dosis": "600mg",
+    "via": "Via Oral",
+    "intervalo": "12",
+    "dias": "5",
+    "numerodosis": "10"
+}
+{
+    "antibiotico": "Meropenem",
+    "dosis": "1g",
+    "via": "Via Intravenosa",
+    "intervalo": "8",
+    "dias": "2",
+    "numerodosis": "6"
+}
+{
+    "antibiotico": "Piperacilina/tazobactam",
+    "dosis": "4/0,5g",
+    "via": "Via Intravenosa",
+    "intervalo": "6",
+    "dias": "3",
+    "numerodosis": "12"
+}
+{
+    "antibiotico": "Vancomicina",
+    "dosis": "1g",
+    "via": "Via Intravenosa",
+    "intervalo": "12",
+    "dias": "4",
+    "numerodosis": "8"
+}
+{
+    "antibiotico": "TMP/SMX",
+    "dosis": "800/160 mg",
+    "via": "Via Oral",
+    "intervalo": "8",
+    "dias": "5",
+    "numerodosis": "15"
+}
