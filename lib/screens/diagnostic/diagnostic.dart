@@ -132,26 +132,29 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
             DiagnosticQuestionHtml(questionHtml: question),
             ListView.builder(
               scrollDirection: Axis.vertical,
-              //physics: const NeverScrollableScrollPhysics(),
-
               shrinkWrap: true,
-              // ignore: unnecessary_null_comparison
-              itemCount: listAnswer == null ? 0 : listAnswer.length,
+              itemCount: listAnswer.length,
               itemBuilder: (BuildContext context, int index) {
-                return CheckboxListTile(
-                    controlAffinity: ListTileControlAffinity.leading,
-                    activeColor: Colors.cyan,
-                    tileColor: colorSolucion[index],
-                    title: Text(
-                      "${listAnswer[index]["respuesta"]}",
-                      style: const TextStyle(fontSize: 17, color: Colors.black),
-                    ),
-                    value: valorSwitch[index],
-                    onChanged: notifyswitch
-                        ? null
-                        : (value) => setState(() {
-                              valorSwitch[index] = value;
-                            }));
+                return Column(
+                  children: [
+                    CheckboxListTile(
+                        controlAffinity: ListTileControlAffinity.leading,
+                        activeColor: Colors.cyan,
+                        tileColor: colorSolucion[index],
+                        title: Text(
+                          "${listAnswer[index]["respuesta"]}",
+                          style: const TextStyle(
+                              fontSize: 17, color: Colors.black),
+                        ),
+                        value: valorSwitch[index],
+                        onChanged: notifyswitch
+                            ? null
+                            : (value) => setState(() {
+                                  valorSwitch[index] = value;
+                                })),
+                    const Text(""),
+                  ],
+                );
               },
             ),
             const SizedBox(height: 15),
@@ -218,6 +221,8 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         }
       }
     }
+
+    //Si el checkbox está seleccionado y en la base de datos tiene que estarlo, se pone verde.
     comprobar = true;
     x = 1;
     notifyswitch = true;

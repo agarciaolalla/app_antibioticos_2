@@ -42,9 +42,8 @@ class CardViewTreatmentFeedback extends StatelessWidget {
                   '\nDosis: ${treatmentFeedback[index]["dosis"]}'
                   '\nVía: ${treatmentFeedback[index]["via"]}'
                   '\nIntervalo: ${treatmentFeedback[index]["intervalo"]}'
-                  '\n¿Activo?: ${treatmentFeedback[index]["activo"]}'
-                  '\nDosis utilizadas: ${treatmentFeedback[index]["consumo"]}'
-                  '\n\n${getCardComment(index)}',
+                  '\n¿Actividad microbiológica?: ${treatmentFeedback[index]["activo"]}'
+                  '\n\n${treatmentFeedback[index]["comentario"]}',
                   style: const TextStyle(color: Colors.black, fontSize: 17),
                 ),
               ),
@@ -60,17 +59,6 @@ class CardViewTreatmentFeedback extends StatelessWidget {
       return 'assets/Via_oral.jpg';
     } else {
       return 'assets/Via_intravenosa.jpg';
-    }
-  }
-
-  //Metodo para que elija un comentario u otro segun la pregunta de tratamiento (1 = empirica, 2 = dirigida)
-  String getCardComment(int index) {
-    if (idTreatmentQuestion == 1) {
-      return treatmentFeedback[index]["comentario"];
-    } else if (idTreatmentQuestion == 2) {
-      return treatmentFeedback[index]["lastfeedback"];
-    } else {
-      return 'error getting the comment';
     }
   }
 }

@@ -25,6 +25,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     checkPills();
   }
 
+  List diasUtilizados = [
+    {"antibiotico", "dias"}
+  ];
   String asset = "Antibiograma" + idcaso.toString() + ".png";
 
   //List mostrarMochila =[]; //Mochila que muestra los antibioticos que SI tienen dosis restantes
@@ -208,8 +211,10 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                             String dias = mochilaSeleccionada[i]["dias"];
                             mochilaSeleccionada[i]["dias"] =
                                 contadorItems[i].toString();
+
                             listaFinal.add(mochilaSeleccionada[i]);
                             mochilaSeleccionada[i]["dias"] = dias;
+
                             if (mochilaSeleccionada[i]["dias"] ==
                                 (contadorItems[i]).toString()) {
                               mochilaSeleccionada[i]["dias"] = "0";
@@ -227,7 +232,8 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                             MaterialPageRoute<void>(
                                 builder: (BuildContext context) {
                           return TreatmentFeedback(
-                              selectedMedicines: listaFinal);
+                              selectedMedicines: listaFinal,
+                              contadorDias: contadorItems);
                         }), (Route<dynamic> route) => false);
                       } else {
                         showDialog<String>(

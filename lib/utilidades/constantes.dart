@@ -3,18 +3,16 @@ import 'package:app_antibioticos/models/player_model.dart';
 //const conexion1 = "http://172.18.23.127:50052"; //Servidor de Soler
 //const conexion1 = "http://192.168.0.165:50052"; //Servidor de Soler (casa)
 //const conexion1 = "http://172.18.22.79:50052"; //Servidor de Olalla
-//const conexion1 = "http://172.18.22.114:50052"; //Servidor de Olalla (casa)
+const conexion1 = "http://192.168.1.11:50052"; //Servidor de Olalla (casa)
 //const conexion1 = "http://172.18.22.79:50052";
 //const conexion1 = "http://172.30.67.51:50052"; //instituto ITACA
 
-const conexion1 = "//1.44.4.78:50052";
+//const conexion1 = "//1.44.4.78:50052";
 
 //const conexion1 = "";
 
 // Id del caso clinico que se va a realizar
 int idcaso = 1;
-// Id de la pregunta de tratamiento (1 = inicial, 2 = final)
-int idTreatmentQuestion = 1;
 // Mochila con los medicamentos seleccionados al inicio del juego
 List mochilaSeleccionada = [];
 
@@ -31,7 +29,8 @@ String diagnosticFeedback = "";
 List firstTreatmentFeedback = [];
 //Feedback second treatment para mostrar en las demas screens
 List secondTreatmentFeedback = [];
-
+//Vida perdida de la segunda y tercera pregunta maximo 20% en cada caso.
+int lifeLost = 0;
 //Player actual
 Player player = Player(
   name: "",

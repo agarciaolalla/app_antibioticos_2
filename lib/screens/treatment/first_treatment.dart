@@ -221,7 +221,8 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                   }
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return TreatmentFeedback(selectedMedicines: listaFinal);
+                    return FirstTreatmentFeedback(
+                        selectedMedicines: listaFinal);
                   }), (Route<dynamic> route) => false);
                 }
               },
