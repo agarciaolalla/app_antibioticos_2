@@ -5,10 +5,8 @@
     "via": "Vía Oral",
     "intervalo": "c/8h",
     "activo": "No",
-    "comentario": "Antibiótico inadecuado (espectro insuficiente). Vía inadecuada.\nLos microorgenismos causales más frecuentes de sepsis con signos de infección de vía periférica son S.epidermidis y S.aureus. También agentes causales enterobacterias y P. aeruginosa. \nMás del 90% de aislados de S. aureus y S.epidermidis son resistentes a penicilina. Por otra parte > 50% de las enterobacterias son R a amoxicilina así como el 100% de P.aeruginosa.\nEn pacientes con sepsis nosocomial es más adecuada la vía intravenosa hasta comprobar estabilidad clínica.",
-    "vida": "20",
-    "consumo": "6g",
-    "dias": "2",
+    "dias": "10",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -19,10 +17,8 @@
     "via": "Vía Intravenosa",
     "intervalo": "c/6h",
     "activo": "No",
-    "comentario": "Tratamiento inadecuado (espectro insuficiente). \nLos microorgenismos causales más frecuentes de sepsis por infección de catéter venoso son S.aureus (el más frecuente en infecciones de catéter periférico) y S. epidermidis (el más frecuente en infecciones de catéter central). También pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp. \nMás del 90% de aislados de S. aureus y S.epidermidis son resistentes a penicilina/ampicilina. Por otra parte > 50% de las enterobacterias son R a ampicilina así como el 100% de Pseudomonas aeruginosa. \nLa decisión de usar este antibiótico de forma empírica es inadecuada. ",
-    "vida": "20",
-    "consumo": "16g",
     "dias": "2",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -33,10 +29,8 @@
     "via": "Vía Intravenosa",
     "intervalo": "c/8h",
     "activo": "Sí",
-    "comentario": "Tratamiento inadecuado (espectro insuficiente)\nLos microorganismos causales más frecuentes de sepsis por infección de catéter venoso son S.aureus (el más frecuente en infecciones de catéter periférico) y S. epidermidis (el más frecuente en infecciones de catéter central). También pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp. \nMás del 25% de aislados de S. aureus y más del 80% de los de  S.epidermidis son resistentes a cefazolina. Por otra parte >40% de las enterobacterias en infecciones nosocomiales son resistentes a cefazolina, así como el 100% de Pseudomonas aeruginosa. \nLa decisión de usar este antibiótico de forma empírica es inadecuada por arriesgada al tener un espectro demasiado reducido para las causas esperables.",
-    "vida": "10",
-    "consumo": "12g",
-    "dias": "2",
+    "dias": "14",
+    "favorable": "si",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -46,11 +40,9 @@
     "dosis": "2g",
     "via": "Vía Intravenosa",
     "intervalo": "c/24h",
-    "activo": "Sí",
-    "comentario": "Tratamiento inadecuado (espectro insuficiente)\nEste paciente tiene una sepsis con signos de infección de vía periférica.\nLos microorgenismos causales más frecuentes de sepsis por infección de catéter venoso son S.aureus (el más frecuente en infecciones de catéter periférico) y S. epidermidis (el más frecuente en infecciones de catéter central). También pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp. \nCeftriaxona no ofrece cobertura enterobacterias BLEE ni para  P.aeruginosa, que hay que considerar cuando existen factores de riesgo (duración de ingreso, uso de antibióticos) y/o gravedad clínica. \nComo el 25-30% de S. aureus y >80% de S: epidermidis son resistentes a meticilina, ceftriaxona no sería activo frente a ellos, siendo necesario añadir un antibiótico con actividad frente a estos.\nLa decisión de usar este antibiótico de forma empírica es inadecuada por arriesgada al tener un espectro demasiado reducido para bacilos Gram negativos. ",
-    "vida": "10",
-    "consumo": "4g",
+    "activo": "No",
     "dias": "2",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -60,11 +52,9 @@
     "dosis": "600mg",
     "via": "Vía Intravenosa",
     "intervalo": "c/12h",
-    "activo": "Si",
-    "comentario": "Tratamiento potencialmente adecuado (subóptimo y parcial). Vía inadecuada.\nAunque ofrece cobertura para la mayoría de S. aureus y S.epidermidis no es el tratamiento de elección si sospechamos una bacteriemia. La decisión de usar este antibiótico de forma empírica es subóptima.\nAunque S. epidermidis y, sobre todo, S. aureus, sean los microorganismos causales más esperables también pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp por lo que además habrá que añadir un antibiótico con actividad frente a Gram positivos.\nEn un paciente séptico la vía de administración ideal es la intravenosa.",
-    "vida": "10",
-    "consumo": "12g",
+    "activo": "No",
     "dias": "10",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -74,11 +64,9 @@
     "dosis": "600mg",
     "via": "Vía Oral",
     "intervalo": "c/12h",
-    "activo": "Si",
-    "comentario": "Tratamiento potencialmente adecuado (subóptimo y parcial). Vía inadecuada.\nAunque ofrece cobertura para la mayoría de S. aureus y S.epidermidis no es el tratamiento de elección si sospechamos una bacteriemia. La decisión de usar este antibiótico de forma empírica es subóptima.\nAunque S. epidermidis y, sobre todo, S. aureus, sean los microorganismos causales más esperables también pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp por lo que además habrá que añadir un antibiótico con actividad frente a Gram positivos.\nEn un paciente séptico la vía de administración ideal es la intravenosa.",
-    "vida": "10",
-    "consumo": "12g",
+    "activo": "No",
     "dias": "10",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -88,11 +76,9 @@
     "dosis": "2g",
     "via": "Vía Intravenosa",
     "intervalo": "c/8h",
-    "activo": "Sí",
-    "comentario": "Tratamiento adecuado (parcial)\nEste paciente tiene una sepsis nosocomial con signos de infección de vía periférica.\nLos microorgenismos causales más frecuentes de sepsis por infección de catéter venoso son S. aureus (el más frecuente en infecciones de catéter periférico) y S. epidermidis (el más frecuente en infecciones de catéter central). También pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp.\nMeropenem ofrece cobertura para la práctica totalidad de enterobacterias en nuestro entorno y una proporción elevada de P. aeruginosa. \nSin embargo la mayoría de infecciones asociadas a catéter periférico son causados por cocos Gram positivos, algunos de los cuáles , 25-30% de S. aureus y > 80% de S. epidermidis en el ámbito hospitalario son meticilin-resistentes. Por eso en este caso es necesario añadir un antibiótico con actividad frente a microorganismos Gram positivos resistentes a meticilina. ",
-    "vida": "0",
-    "consumo": "12g",
+    "activo": "No",
     "dias": "4",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -102,11 +88,9 @@
     "dosis": "4g/0,5g",
     "via": "Vía Intravenosa",
     "intervalo": "c/6h",
-    "activo": "Sí",
-    "comentario": "Tratamiento potencialmente inadecuado (subóptimo, parcial)\nEste paciente tiene una sepsis con signos de infección de vía periférica.\nLos microorganismos causales más frecuentes de sepsis por infección de catéter venoso son S. aureus (el más frecuente en infecciones de catéter periférico) y S. epidermidis (el más frecuente en infecciones de catéter central). También pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp. \nPiperacilina/tazobactam es activo frente a la mayoría de microorganismos Gram negativos que es necesario tratar, con la salvedad de las enterobacterias BLEE para las que parece ser menos eficaz que los carbapenemes.\nNo obstante no es activo para el 25% de S. aureus y >80% de S. epidermidis en el ámbito hospitalario, que son los causantes más probables, por ser resistentes a oxacilina, y por eso habría que añadir un segundo agente con actividad frente a estos.",
-    "vida": "0",
-    "consumo": "32g/4g",
+    "activo": "No",
     "dias": "2",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -116,11 +100,9 @@
     "dosis": "800/160 mg",
     "via": "Vía Oral",
     "intervalo": "c/8h",
-    "activo": "Si",
-    "comentario": "Tratamiento inadecuado (espectro insuficiente). Vía no adecuada\nEste paciente tiene una sepsis con signos de infección de vía periférica.\nLos microorganismos causales más frecuentes de sepsis por infección de catéter venoso son S. aureus (el más frecuente en infecciones de catéter periférico) y S. epidermidis (el más frecuente en infecciones de catéter central). También pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp. \nAunque la mayoría de S .aureus y el 75% de S. epidermidis en nuestro medio hospitalario son sensibles a TMP/SMX su actividad frente a los bacilos Gram negativos que hay que tratar es insuficiente.\nAdemás pacientes con sepsis nosocomial es más adecuada la vía intravenosa hasta comprobar estabilidad clínica",
-    "vida": "20",
-    "consumo": "4800/ 960 mg",
+    "activo": "No",
     "dias": "2",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 
@@ -130,11 +112,9 @@
     "dosis": "1g",
     "via": "Vía Intravenosa",
     "intervalo": "c/12h",
-    "activo": "Si",
-    "comentario": "Tratamiento adecuado (parcial).\nEste paciente tiene una sepsis con signos de infección de vía periférica.\nLos microorganismos causales más frecuentes de sepsis por infección de catéter venoso son S. aureus (el más frecuente en infecciones de catéter periférico) y S. epidermidis (el más frecuente en infecciones de catéter central). También pueden causar este tipo de infecciones las enterobacterias, Pseudomonas aeruginosa y Candida spp.\nEs uno de los tratamientos de elección en la sepsis nosocomial asociada a infección de catéter por ser activo frente a la mayoría de microorganismos Gram positivos que pueden causar infección. No obstante no tiene actividad frente a Gram negativos y habría que añadir un segundo agente.",
-    "vida": "20",
-    "consumo": "4g",
+    "activo": "No",
     "dias": "2",
+    "favorable": "no",
     "lastfeedback": "La causa de la sepsis del paciente es clara. Tiene una infección asociada a catéter con bacteriemia por S. aureus, lo que puede explicar perfectamente la complicación infecciosa en su totalidad.\nEl tratamiento de la bacteriemia por S. aureus sensible a meticilina es un b-lactámico anti-estafilocócico, en este caso cefazolina a dosis altas.\nEn cuanto a la duración, la clave es identificar si se trata de una bacteriemia complicada o no complicada. En este paciente el hecho de que tiene un origen claro (catéter ya retirado), los hemocultivos de control sean precozmente negativos y el ecocardiograma no muestre lesiones de riesgo hace que se pueda considerar como no complicada y 14 días de tratamiento pueden ser suficientes."
 }
 

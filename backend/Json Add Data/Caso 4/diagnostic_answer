@@ -1,0 +1,35 @@
+{
+    "idcaso": "4",
+    "respuesta": "Hemocultivo",
+    "solucion": "1",
+    "feedback": "En incubación, de momento negativo"
+}
+
+{
+    "idcaso": "4",
+    "respuesta": "Cultivo punta de catéter",
+    "solucion": "1",
+    "feedback": "En incubación, de momento negativo"
+}
+
+{
+    "idcaso": "4",
+    "respuesta": "Rx de tórax",
+    "solucion": "1",
+    "feedback": "Signos de broncopatía crónica. No se objetivan infiltrados ni derrame"
+}
+
+{
+    "idcaso": "4",
+    "respuesta": "Urocultivo",
+    "solucion": "0",
+    "feedback": "No solicitado"
+}
+
+{
+    "idcaso": "4",
+    "respuesta": "TC tórax con contraste",
+    "solucion": "0",
+    "feedback": "No solicitado"
+}
+

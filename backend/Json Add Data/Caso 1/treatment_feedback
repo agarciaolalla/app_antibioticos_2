@@ -1,0 +1,120 @@
+{
+    "idcaso": "1",
+    "antibiotico": "Amoxicilina",
+    "dosis": "1g",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Vía inadecuada.\nEn pacientes con neumonía grave es más adecuada la vía intravenosa hasta comprobar estabilidad clínica.",
+    "vida": "10",
+    "dias": "3"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Ampicilina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "Sí",
+    "comentario": "Antibiótico óptimo. \nEl paciente tiene una neumonía neumocócica grave. \nEl perfil se sensibilidad de S. pneumoniae en nuestro entorno permite usar ampicilina, que es un b-lactámico de espectro más reducido que las alternativas. ",
+    "vida": "0",
+    "dias": "2"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Cefazolina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo\nNo suele ser la elección habitual para este síndrome pero el antibiótico tiene buena actividad frente al patógeno.",
+    "vida": "0",
+    "dias": "2"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Ceftriaxona",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/24h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro. \nEl paciente tiene una neumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente eficaces, pero de menor espectro. ",
+    "vida": "0",
+    "dias": "2"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Linezolid (Intravenosa)",
+    "dosis": "600mg",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro.\nNeumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente o más eficaces pero de menor espectro",
+    "vida": "10",
+    "dias": "2"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Linezolid (Oral)",
+    "dosis": "600mg",
+    "via": "Vía Oral",
+    "intervalo": "c/12h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro. \nVía inadecuada.\nNeumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente o más eficaces pero de menor espectro. No obstante, dada situación clínica y potencial gravedad el tratamiento deben iniciarse por vía intravenosa.",
+    "vida": "10",
+    "dias": "2"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Meropenem",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro. \nEl paciente tiene una neumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente eficaces pero de menor espectro.",
+    "vida": "0",
+    "dias": "1"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Piperacilina/tazobactam",
+    "dosis": "4g/0,5g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro.\nEl paciente tiene una neumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente eficaces, pero de menor espectro.",
+    "vida": "0",
+    "dias": "2"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "TMP/SMX",
+    "dosis": "800/160 mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo, pero de eficacia subóptima.\nVía inadecuada.\nEn pacientes con neumonía grave es más adecuada la vía intravenosa hasta comprobar estabilidad clínica. Además el perfil de resistencia en la comunidad permite usar alternativas más eficaces y de menor espectro.",
+    "vida": "20",
+    "dias": "2"
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Vancomicina",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro. \nNeumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente o más eficaces pero de menor espectro.",
+    "vida": "10",
+    "dias": "2"
+}
+

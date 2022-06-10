@@ -7,9 +7,7 @@
     "activo": "No",
     "comentario": "Antibiótico inadecuado (insuficiente espectro) y vía inadecuada.\nLa mayoría de las enterobacterias de nuestro entorno, que son los microorganismos habitualmente responsables de este cuadro clínico, son resistentes a amoxicilina (> 50% de E.coli y 100% de K.pneumoniae). \nPor eso, la decisión de usar este antibiótico de forma empírica es inadecuada, por ser demasiado arriesgada. \nEn pacientes con colangitis aguda, hasta comprobar estabilidad clínica, es más adecuada la vía intravenosa. ",
     "vida": "20",
-    "consumo": "9g",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -21,9 +19,7 @@
     "activo": "No",
     "comentario": "Antibiótico inadecuado (insuficiente espectro) \nLa mayoría de las enterobacterias de nuestro entorno, que son los microorganismos habitualmente responsables de este cuadro clínico, son resistentes a amoxicilina (> 50% de E.coli y 100% de K.pneumoniae). \nPor eso, la decisión de usar este antibiótico de forma empírica es inadecuada, por ser demasiado arriesgada. ",
     "vida": "0",
-    "consumo": "24g",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -35,9 +31,7 @@
     "activo": "Sí",
     "comentario": "Antibiótico potencialmente inadecuado (espectro demasiado reducido para tratamiento empírico)\nLa colangitis aguda está habitualmente causada por enterobacterias. La sensibilidad a de las enterobacterias a cefazolina en nuestro entorno, que tiene más actividad frente a Gram positivos, se acerca al 80%. Se trata de una decisión empírica arriesgada.",
     "vida": "10",
-    "consumo": "18g",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -49,9 +43,7 @@
     "activo": "Sí",
     "comentario": "Antibiótico adecuado\nLa colangitis aguda está habitualmente causada por enterobacterias, y aproximadamente el 90% de estas en nuestro entorno son sensibles a ceftriaxona.\nNo obstante, algunas colangitis, sobre todo las que ocurren en pacientes que han tenido episodios o manipulaciones previas de la vía biliar pueden estar causadas también por enterococos y anaerobios Bacteroides fragilis para los que ceftriaxona no es activa. Por eso, en algunos casos también puede estar indicado el uso de antibióticos activos frente a enterococos y anaerobios.",
     "vida": "0",
-    "consumo": "6g",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -63,9 +55,7 @@
     "activo": "No",
     "comentario": "Antibiótico inadecuado (inactivo). Vía inadecuada\nEste paciente tiene una colangitis aguda. Los principales agentes etiológicos esperables son las enterobacterias y el espectro de acción de linezolid no incluye bacterias Gram negativas.\nAunque ofrecería cobertura para enterococos, que en algunas ocasiones causan colangitis, la decisión de usar este antibiótico en monoterapia en este paciente de  forma empírica es inadecuada.\nEn cualquier caso, en pacientes con colangitis aguda es más adecuada la vía intravenosa hasta comprobar estabilidad clínica.",
     "vida": "20",
-    "consumo": "3600mg",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -77,9 +67,7 @@
     "activo": "No",
     "comentario": "Antibiótico inadecuado (inactivo) \nEste paciente tiene una colangitis aguda. Los principales agentes etiológicos esperables son las enterobacterias y el espectro de acción de linezolid no incluye bacterias Gram negativas.\nAunque ofrecería cobertura para enterococos, que en algunas ocasiones causan colangitis, la decisión de usar este antibiótico en monoterapia en este paciente de  forma empírica es inadecuada.",
     "vida": "20",
-    "consumo": "3600mg",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -91,9 +79,7 @@
     "activo": "Sí",
     "comentario": "Antibiótico apropiado pero de excesivo espectro. \nEste paciente tiene una colangitis aguda. Los principales agentes etiológicos esperables son las enterobacterias. \nMeropenem es un antibiótico que reservamos para pacientes con infecciones graves que puedan estar causadas por enterobacterias resistentes a cefalosporinas de tercera generación (p. ej. enterobacterias productoras de BLEE)\nEl cuadro clínico y la ausencia de factores de riesgo de resistencia en la comunidad añadidos, permite usar alternativas igualmente eficaces pero de menor espectro.",
     "vida": "0",
-    "consumo": "9g",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -105,9 +91,7 @@
     "activo": "Sí",
     "comentario": "Antibiótico adecuado\nEste es uno de los tratamientos de elección para la colangitis aguda.\nEs activo contra >90% de las enterobacterias en la comunidad, enterococos y la mayoría de anaerobios. ",
     "vida": "0",
-    "consumo": "48g/6g",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -119,9 +103,7 @@
     "activo": "Si",
     "comentario": "Antibiótico inadecuado.\nVía inadecuada.\npaciente tiene una colangitis aguda. Los principales agentes etiológicos esperables son las enterobacterias. TMP/SMX es un antibiótico con actividad frente a enterobacterias. No obstante en nuestro entorno son resistentes a este antibiótico más del 20% de E. coli y de K. pneumoniae, por lo que usar este antibiótico empíricamente es una decisión arriesgada. Tampoco tiene actividad frente a enterococos y anaerobios, que a veces hay que tratar.\nEn pacientes con colangitis aguda es más adecuada la vía intravenosa hasta comprobar estabilidad clínica.",
     "vida": "20",
-    "consumo": "7200/ 1440 mg",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 
 {
@@ -133,8 +115,6 @@
     "activo": "No",
     "comentario": "Tratamiento inadecuado (inactivo) \nSe trata de una colangitis aguda confirmada. Los principales agentes etiológicos esperables son las enterobacterias. El espectro de acción de vancomicina no incluye bacterias Gram negativas.\nAunque ofrecería cobertura para enterococos la decisión de usar este antibiótico en monoterapia en este paciente de forma empírica es inadecuada.",
     "vida": "20",
-    "consumo": "6g",
     "dias": "3",
-    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
 }
 

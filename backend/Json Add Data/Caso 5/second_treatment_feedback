@@ -1,0 +1,120 @@
+{
+    "idcaso": "5",
+    "antibiotico": "Amoxicilina",
+    "dosis": "1g",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "Ampicilina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "Cefazolina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "Ceftriaxona",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/24h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "Linezolid (Intravenosa)",
+    "dosis": "600mg",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "Si",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "Linezolid (Oral)",
+    "dosis": "600mg",
+    "via": "Vía Oral",
+    "intervalo": "c/12h",
+    "activo": "Si",
+    "dias": "5",
+    "favorable": "si",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "Meropenem",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "Piperacilina/tazobactam",
+    "dosis": "4g/0,5g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "TMP/SMX",
+    "dosis": "800/160 mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Si",
+    "dias": "5",
+    "favorable": "si",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+
+{
+    "idcaso": "5",
+    "antibiotico": "Vancomicina",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "Si",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+}
+

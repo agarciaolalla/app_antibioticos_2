@@ -1,0 +1,119 @@
+{
+    "idcaso": "3",
+    "antibiotico": "Amoxicilina",
+    "dosis": "1g",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "No",
+    "dias": "5",
+    "favorable": "si",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "Ampicilina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "Cefazolina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "Ceftriaxona",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/24h",
+    "activo": "Sí",
+    "dias": "3",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "Linezolid (Oral)",
+    "dosis": "600mg",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "Linezolid (Intravenosa)",
+    "dosis": "600mg",
+    "via": "Vía Oral",
+    "intervalo": "c/12h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "Meropenem",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "Piperacilina/tazobactam",
+    "dosis": "4g/0,5g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "Sí",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "TMP/SMX",
+    "dosis": "800/160 mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Si",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+
+{
+    "idcaso": "3",
+    "antibiotico": "Vancomicina",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "No",
+    "dias": "3",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una colangitis que se ha drenado y que está evolucionando bien. Como cumple criterios de estabilidad clínica se podría plantear continuar por vía oral.\nRevisando el antibiotrama, amoxicilina/clavulánico es una de las opciones terapéuticas a plantear, durante 5 días más para hacer un total de 7 días de tratamiento."
+}
+

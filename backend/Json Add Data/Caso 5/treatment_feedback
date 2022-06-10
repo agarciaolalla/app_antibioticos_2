@@ -7,9 +7,7 @@
     "activo": "No",
     "comentario": "Antibiótico inadecuado (espectro insuficiente). Vía inadecuada\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis )y S. aureus (celulitis supurativa o abscesos). \nUn 90% de S.aureus son resistentes a penicilina. Dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM. \nLa decisión de usar este antibiótico de forma empírica es arriesgada porque el antibiótico no es activo frente a la mayoría de los S. aureus. \nEs más adecuada la vía intravenosa hasta comprobar estabilidad clínica.",
     "vida": "10",
-    "consumo": "6g",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -21,9 +19,7 @@
     "activo": "No",
     "comentario": "Antibiótico inadecuado (espectro insuficiente).\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nUn 90% de S.aureus son resistentes a penicilina. Dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM. \nLa decisión de usar este antibiótico de forma empírica es arriesgada porque el antibiótico no es activo frente a la mayoría de los S. aureus.",
     "vida": "20",
-    "consumo": "16g",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -35,9 +31,7 @@
     "activo": "No",
     "comentario": "Antibiótico potencialmente inadecuado (Espectro excesivo. Parcial)\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, cefazolina tiene un espectro excesivo\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que cefazolina no sería activa y habría que utilizar un antibiótico adicional / alternativo",
     "vida": "0",
-    "consumo": "12g",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -49,9 +43,7 @@
     "activo": "No",
     "comentario": "Antibiótico potencialmente inadecuado (Espectro excesivo. Parcial)\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, ceftriaxona tiene un espectro excesivo\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que ceftriaxona no sería activa y habría que utilizar un antibiótico adicional / alternativo",
     "vida": "0",
-    "consumo": "4g",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -63,9 +55,7 @@
     "activo": "Si",
     "comentario": "Antibiótico adecuado. \nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nDado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM para el que linezolid sería una buena opción",
     "vida": "0",
-    "consumo": "2400mg",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -77,9 +67,7 @@
     "activo": "Si",
     "comentario": "Antibiótico adecuado. Vía inadecuada\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nDado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM para el que linezolid sería una buena opción.\nPor presentar repercusión sistémica, probablemente el tratamiento deba ser inicialmente por vía intravenosa.",
     "vida": "0",
-    "consumo": "2400mg",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -91,9 +79,7 @@
     "activo": "No",
     "comentario": "Antibiótico potencialmente inadecuado (Espectro excesivo. Parcial)\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, meropenem tiene un espectro muy excesivo.\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que meropenem no sería activo y habría que utilizar un antibiótico adicional / alternativo. ",
     "vida": "0",
-    "consumo": "6g",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -105,9 +91,7 @@
     "activo": "No",
     "comentario": "Antibiótico potencialmente inadecuado (Espectro excesivo. Parcial)\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, piperaciñoina/tacobactam tiene un espectro excesivo.\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que piperacilina/tazobactam no sería activo y habría que utilizar un antibiótico adicional / alternativo.",
     "vida": "0",
-    "consumo": "32g/16g",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -119,9 +103,7 @@
     "activo": "Si",
     "comentario": "Antibiótico inadecuado. Vía inadecuada. \nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nAunque TMP/SMX es buena opción para SARM, no lo es tanto para estreptococos. Además, es más adecuada la vía intravenosa hasta comprobar estabilidad clínica.",
     "vida": "15",
-    "consumo": "4800/ 960 mg",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 
 {
@@ -133,8 +115,6 @@
     "activo": "Si",
     "comentario": "Antibiótico adecuado\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nDado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM para el que linezolid sería una buena opción ",
     "vida": "0",
-    "consumo": "4g",
-    "dias": "2",
-    "lastfeedback": "La presencia de SARM obliga a tratar con un agente con actividad frente a este microorganismo. La evolución favorable permite el paso a vía oral, por lo que las mejores opciones serían linezolid y TMP/SMX. Cinco días de tratamiento antibiótico pueden ser suficientes para muchas celulitis, sobre todo si han evolucionado favorablemente, pero siempre es necesario."
+    "dias": "2"
 }
 

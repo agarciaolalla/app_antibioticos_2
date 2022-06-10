@@ -1,0 +1,28 @@
+{
+    "idcaso": "2",
+    "respuesta": "Hemocultivo",
+    "solucion": "1",
+    "feedback": "En incubación, de momento negativo"
+}
+
+{
+    "idcaso": "2",
+    "respuesta": "Urocultivo",
+    "solucion": "1",
+    "feedback": "En incubación, de momento negativo"
+}
+
+{
+    "idcaso": "2",
+    "respuesta": "Ecografía renal",
+    "solucion": "1",
+    "feedback": "Parénquimas renales sin hallazgos significativos. Ausencia de dilatación de la vía urinaria. No se observa urolitiasis."
+}
+
+{
+    "idcaso": "2",
+    "respuesta": "TC abdominal con contraste",
+    "solucion": "0",
+    "feedback": "No solicitado"
+}
+

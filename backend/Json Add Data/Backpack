@@ -3,10 +3,9 @@
     "dosis": "1g",
     "via": "Via Oral",
     "intervalo": "8",
-    "dias": "8",
-    "numerodosis": "32"
+    "dias": "9",
+    "numerodosis": "18"
 }
-
 {
     "antibiotico": "Ampicilina",
     "dosis": "2g",
@@ -15,7 +14,6 @@
     "dias": "2",
     "numerodosis": "8"
 }
-
 {
     "antibiotico": "Cefazolina",
     "dosis": "2g",

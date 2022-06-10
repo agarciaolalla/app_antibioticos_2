@@ -1,0 +1,28 @@
+{
+    "idcaso": "3",
+    "respuesta": "Hemocultivo",
+    "solucion": "1",
+    "feedback": "En incubación, de momento negativo"
+}
+
+{
+    "idcaso": "3",
+    "respuesta": "Urocultivo",
+    "solucion": "0",
+    "feedback": "No solicitado"
+}
+
+{
+    "idcaso": "3",
+    "respuesta": "Ecografía abdominal",
+    "solucion": "1",
+    "feedback": "Dilatación del colédoco. Se observa coledocoliatiasis"
+}
+
+{
+    "idcaso": "3",
+    "respuesta": "TC abdominal",
+    "solucion": "0",
+    "feedback": "No solicitado"
+}
+
