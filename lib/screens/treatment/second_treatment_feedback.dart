@@ -189,7 +189,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     double vidaSecond = 0.0;
     for (int i = 0; i < feedbackToUser.length; i++) {
       if (feedbackToUser[i]["favorable"] == 'si') {
-        if (int.parse(feedbackToUser[i]["dias"]) >= checkDays[i]) {
+        if (int.parse(feedbackToUser[i]["dias"]) > checkDays[i]) {
           vidaSecond = vidaSecond + 0.1;
         }
       } else if (feedbackToUser[i]["activo"] == 'No') {
@@ -198,6 +198,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         if (feedbackToUser[i]["via"] == 'Vía Oral') {
           if (int.parse(feedbackToUser[i]["dias"]) < checkDays[i]) {
             //No le penaliza la vida en este caso.
+
           } else {
             vidaSecond = vidaSecond + 0.1;
           }
@@ -210,10 +211,18 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         }
       }
     }
+
+    int precision = 10;
+
+    int suma =
+        (vidaSecond * precision).round() + (vidaCaso * precision).round();
+    vidaSecond = suma / precision;
     if (vidaSecond > 0.2) {
       vidaSecond = 0.2;
     }
-    int precision = 10;
+    int resta =
+        (vidaSecond * precision).round() - (vidaCaso * precision).round();
+    vidaSecond = resta / precision;
     int diff =
         (vidaJugador * precision).round() - (vidaSecond * precision).round();
     vidaJugador = diff / precision;
@@ -223,7 +232,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
 
   void ajustarVidaPerdida() {
     if (vidaPerdida == 0) {
-      mostrarVidaPerdida = "¡Genial! El paciente no ha perdido vida.";
+      mostrarVidaPerdida = "El paciente no ha perdido vida.";
     } else {
       mostrarVidaPerdida =
           "El paciente ha perdido un " + vidaPerdida.toString() + "% de vida";

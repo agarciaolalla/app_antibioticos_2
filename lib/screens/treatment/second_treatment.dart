@@ -213,12 +213,14 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                                 contadorItems[i].toString();
 
                             listaFinal.add(mochilaSeleccionada[i]);
+
                             mochilaSeleccionada[i]["dias"] = dias;
 
                             if (mochilaSeleccionada[i]["dias"] ==
                                 (contadorItems[i]).toString()) {
-                              mochilaSeleccionada[i]["dias"] = "0";
+                              ///mochilaSeleccionada[i]["dias"] = "0";
                             } else {
+                              print("pepe");
                               mochilaSeleccionada[i]["dias"] =
                                   (int.parse(mochilaSeleccionada[i]["dias"]) -
                                           contadorItems[i])

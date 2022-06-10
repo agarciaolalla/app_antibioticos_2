@@ -55,8 +55,15 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
               ],
             ));
     int precision = 10;
-    int diff = (vidaJugador * precision).round() - (0.2 * precision).round();
-    vidaJugador = diff / precision;
+    int diff = (0.2 * precision).round() - (vidaCaso * precision).round();
+    double laresta = diff / precision;
+    if (laresta < 0) {
+      laresta = 0;
+    }
+    int resta =
+        (vidaJugador * precision).round() - (laresta * precision).round();
+
+    vidaJugador = resta / precision;
   }
 
   @override

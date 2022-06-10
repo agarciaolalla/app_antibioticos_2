@@ -185,15 +185,18 @@ class _FirstTreatmentFeedbackState extends State<FirstTreatmentFeedback> {
     if (vidaFirst > 0.2) {
       vidaFirst = 0.2;
     }
-
-    vidaCaso = vidaFirst;
+    int precision = 10;
+    vidaCaso = ((vidaFirst * precision).round()) / precision;
+    int diff =
+        (vidaJugador * precision).round() - (vidaFirst * precision).round();
+    vidaJugador = diff / precision;
     vidaPerdida = (vidaFirst * 100.0).toInt();
     ajustarVidaPerdida();
   }
 
   void ajustarVidaPerdida() {
     if (vidaPerdida == 0) {
-      mostrarVidaPerdida = "¡Genial! El paciente no ha perdido vida.";
+      mostrarVidaPerdida = "El paciente no ha perdido vida.";
     } else {
       mostrarVidaPerdida =
           "El paciente ha perdido un " + vidaPerdida.toString() + "% de vida";
