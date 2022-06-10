@@ -188,7 +188,10 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   void setNewLifeSecondTreatment() {
     double vidaSecond = 0.0;
     for (int i = 0; i < feedbackToUser.length; i++) {
-      if (feedbackToUser[i]["activo"] == 'No') {
+      if (feedbackToUser[i]["favorable"] == 'si' &&
+          int.parse(feedbackToUser[i]["dias"]) < checkDays[i]) {
+        vidaSecond = vidaSecond + 0.1;
+      } else if (feedbackToUser[i]["activo"] == 'No') {
         vidaSecond = vidaSecond + 0.2;
       } else {
         if (feedbackToUser[i]["via"] == 'Vía Oral') {

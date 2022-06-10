@@ -300,28 +300,28 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
     }
     if (comprobar == false) {
       showDialog<String>(
-          context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) => AlertDialog(
-                content: const Text(
-                  'Se han agotado todos los medicamentos, has perdido.',
-                  style: TextStyle(fontSize: 17, color: Colors.black),
-                ),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute<void>(
-                            builder: (BuildContext context) {
-                      return const LooseScreen(
-                          informacion: "Has agotado todos los medicamentos.");
-                    }), (Route<dynamic> route) => false),
-                    child: const Text(
-                      'OK',
-                      style: TextStyle(fontSize: 17, color: Colors.black),
-                    ),
-                  ),
-                ],
-              ));
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) => AlertDialog(
+          content: const Text(
+            'Se han agotado todos los medicamentos, has perdido.',
+            style: TextStyle(fontSize: 17, color: Colors.black),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return const LooseScreen(
+                    informacion: "Has agotado todos los medicamentos.");
+              }), (Route<dynamic> route) => false),
+              child: const Text(
+                'OK',
+                style: TextStyle(fontSize: 17, color: Colors.black),
+              ),
+            ),
+          ],
+        ),
+      );
     }
   }
 }
