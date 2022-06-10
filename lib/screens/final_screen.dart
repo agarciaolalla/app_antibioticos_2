@@ -45,6 +45,7 @@ class _FinalScreenState extends State<FinalScreen> {
 
   @override
   Widget build(BuildContext context) {
+    vidaCaso = 0;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
