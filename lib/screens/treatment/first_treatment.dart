@@ -77,239 +77,157 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (!mochilaVacia()) {
-      return Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 80,
-          flexibleSpace: SafeArea(
-            child: Column(
-              children: [
-                const Text(
-                  "Tratamiento Empírico",
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontFamily: 'FjallaOne',
-                      color: Colors.black),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.backpack_outlined),
-                      tooltip: "Mochila",
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const BackpackDialog();
-                          },
-                        );
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.info_outline),
-                      tooltip: "Información Inicial",
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const InitialInfoDialog();
-                          },
-                        );
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.comment_outlined),
-                      tooltip: "Feedback Pregunta Diagnóstico",
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const DiagnosticFeedbackDialog();
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-            const Life(),
-            const Timer(),
-            FirstTreatmentQuestionHtml(questionHtml: question),
-            ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: backpack.length,
-              itemBuilder: (BuildContext context, int index) {
-                return CheckboxListTile(
-                  controlAffinity: ListTileControlAffinity.leading,
-                  title: Text(
-                    backpack[index]["antibiotico"] +
-                        " - " +
-                        backpack[index]["dosis"] +
-                        "/" +
-                        backpack[index]["intervalo"] +
-                        "h",
-                    style: const TextStyle(fontSize: 17, color: Colors.black),
-                  ),
-                  value: valorSwitch[index],
-                  onChanged: notifyswitch
-                      ? null
-                      : (value) {
-                          setState(
-                            () {
-                              valorSwitch[index] = value;
-                            },
-                          );
-                        },
-                );
-              },
-            ),
-            ElevatedButton(
-              onPressed: () {
-                for (var i = 0; i < backpack.length; i++) {
-                  if (valorSwitch[i] == true) {
-                    contadorSwitch = 1;
-                  }
-                }
-                if (contadorSwitch == 0) {
-                  showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                            content: const Text(
-                              'Debes seleccionar al menos un medicamento.',
-                              style:
-                                  TextStyle(fontSize: 17, color: Colors.black),
-                            ),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () => Navigator.pop(context, 'OK'),
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          ));
-                } else if (!suficientesMedicamentos()) {
-                  showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                            content: const Text(
-                              'No hay cantidad suficiente de uno de los medicamentos seleccionados. Compruebe su seleccion',
-                              style:
-                                  TextStyle(fontSize: 17, color: Colors.black),
-                            ),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () => Navigator.pop(context, 'OK'),
-                                child: const Text(
-                                  'OK',
-                                  style: TextStyle(
-                                      fontSize: 17, color: Colors.black),
-                                ),
-                              ),
-                            ],
-                          ));
-                } else {
-                  for (var i = 0; i < backpack.length; i++) {
-                    if (valorSwitch[i] == true) {
-                      listaFinal.add(backpack[i]);
-                    }
-                  }
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return FirstTreatmentFeedback(
-                        selectedMedicines: listaFinal);
-                  }), (Route<dynamic> route) => false);
-                }
-              },
-              child: const Text(
-                'Siguiente',
-                style: TextStyle(fontSize: 20, color: Colors.black),
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 80,
+        flexibleSpace: SafeArea(
+          child: Column(
+            children: [
+              const Text(
+                "Tratamiento Empírico",
+                style: TextStyle(
+                    fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),
-            ),
-          ]),
-        ),
-      );
-    } else {
-      return Scaffold(
-          appBar: AppBar(
-            toolbarHeight: 80,
-            flexibleSpace: SafeArea(
-              child: Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Tratamiento Dirigido",
-                    style: TextStyle(fontSize: 17, color: Colors.black),
+                  IconButton(
+                    icon: const Icon(Icons.backpack_outlined),
+                    tooltip: "Mochila",
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const BackpackDialog();
+                        },
+                      );
+                    },
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.backpack_outlined),
-                        tooltip: "Mochila",
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const BackpackDialog();
-                            },
-                          );
+                  IconButton(
+                    icon: const Icon(Icons.info_outline),
+                    tooltip: "Información Inicial",
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const InitialInfoDialog();
                         },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.info_outline),
-                        tooltip: "Información Inicial",
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const InitialInfoDialog();
-                            },
-                          );
+                      );
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.comment_outlined),
+                    tooltip: "Feedback Pregunta Diagnóstico",
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const DiagnosticFeedbackDialog();
                         },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.comment_outlined),
-                        tooltip: "Feedback Pregunta Diagnóstico",
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const DiagnosticFeedbackDialog();
-                            },
-                          );
-                        },
-                      ),
-                    ],
+                      );
+                    },
                   ),
                 ],
               ),
+            ],
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+          const Life(),
+          const Timer(),
+          FirstTreatmentQuestionHtml(questionHtml: question),
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: backpack.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CheckboxListTile(
+                controlAffinity: ListTileControlAffinity.leading,
+                title: Text(
+                  backpack[index]["antibiotico"] +
+                      " - " +
+                      backpack[index]["dosis"] +
+                      "/" +
+                      backpack[index]["intervalo"] +
+                      "h",
+                  style: const TextStyle(fontSize: 17, color: Colors.black),
+                ),
+                value: valorSwitch[index],
+                onChanged: notifyswitch
+                    ? null
+                    : (value) {
+                        setState(
+                          () {
+                            valorSwitch[index] = value;
+                          },
+                        );
+                      },
+              );
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              for (var i = 0; i < backpack.length; i++) {
+                if (valorSwitch[i] == true) {
+                  contadorSwitch = 1;
+                }
+              }
+              if (contadorSwitch == 0) {
+                showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          content: const Text(
+                            'Debes seleccionar al menos un medicamento.',
+                            style: TextStyle(fontSize: 17, color: Colors.black),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'OK'),
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        ));
+              } else if (!suficientesMedicamentos()) {
+                showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          content: const Text(
+                            'No hay cantidad suficiente de uno de los medicamentos seleccionados. Compruebe su seleccion',
+                            style: TextStyle(fontSize: 17, color: Colors.black),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'OK'),
+                              child: const Text(
+                                'OK',
+                                style: TextStyle(
+                                    fontSize: 17, color: Colors.black),
+                              ),
+                            ),
+                          ],
+                        ));
+              } else {
+                for (var i = 0; i < backpack.length; i++) {
+                  if (valorSwitch[i] == true) {
+                    listaFinal.add(backpack[i]);
+                  }
+                }
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute<void>(builder: (BuildContext context) {
+                  return FirstTreatmentFeedback(selectedMedicines: listaFinal);
+                }), (Route<dynamic> route) => false);
+              }
+            },
+            child: const Text(
+              'Siguiente',
+              style: TextStyle(fontSize: 20, color: Colors.black),
             ),
           ),
-          body: AlertDialog(
-            content: const Text(
-              'No tienes suficientes medicamentos en la mochila para afrontar el reto. \nHas perdido la partida.',
-              style: TextStyle(fontSize: 17, color: Colors.black),
-            ),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const LooseScreen(
-                        informacion:
-                            "No tienes los medicamentos suficientes para continuar.");
-                  }), (Route<dynamic> route) => false);
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          ));
-    }
+        ]),
+      ),
+    );
   }
 
   //rellenar array de mochila
@@ -343,35 +261,5 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
       }
     }
     return suficientes;
-  }
-
-  /*Metodo para comprobar si hay medicamentos suficientes de al menos uno de ellos para poder continuar o game over
-  * True = insuficientes & game over. False = Suficientes & continua el juego
-  */
-  bool mochilaVacia() {
-    bool vacia = true;
-    //false = insuficiente, true = suficiente
-    List<bool> comprobacion = [];
-
-    for (int i = 0; i < mochilaSeleccionada.length; i++) {
-      for (int j = 0; j < treatmentFeedback.length; j++) {
-        if (mochilaSeleccionada[i]["antibiotico"] ==
-            treatmentFeedback[j]["antibiotico"]) {
-          if (int.parse(mochilaSeleccionada[i]["dias"]) <
-              int.parse(treatmentFeedback[j]["dias"])) {
-            comprobacion.add(false);
-          } else {
-            comprobacion.add(true);
-          }
-        }
-      }
-    }
-    //Si hay un caso en el que es true si que hay suficientes por lo que no esta vacia la mochila.
-    for (int i = 0; i < comprobacion.length; i++) {
-      if (comprobacion[i]) {
-        vacia = false;
-      }
-    }
-    return vacia;
   }
 }

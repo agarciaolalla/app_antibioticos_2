@@ -63,7 +63,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           child: Column(
             children: [
               const Text(
-                "Tratamiento Empírico",
+                "Feedback Tratamiento Dirigido",
                 style: TextStyle(
                     fontSize: 25, fontFamily: 'FjallaOne', color: Colors.black),
               ),

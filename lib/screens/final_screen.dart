@@ -1,11 +1,47 @@
 import 'package:flutter/material.dart';
 
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+
 import 'screens.dart';
 import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
 
-class FinalScreen extends StatelessWidget {
+class FinalScreen extends StatefulWidget {
   const FinalScreen({Key? key}) : super(key: key);
+
+  @override
+  State<FinalScreen> createState() => _FinalScreenState();
+}
+
+class _FinalScreenState extends State<FinalScreen> {
+  @override
+  void initState() {
+    super.initState();
+    getTreatmentFeedback();
+  }
+
+  Future getTreatmentFeedback() async {
+    List returnlista = [];
+    Map data;
+    http.Response response =
+        await http.get(Uri.parse(conexion1 + "/api/treatment_feedback"));
+    data = json.decode(response.body);
+
+    setState(() {
+      returnlista = data['treatment_feedback'];
+
+      for (var i = 0; i < returnlista.length; i++) {
+        if (returnlista[i]["idcaso"] == idcaso.toString()) {
+          antibioticosSiguienteCaso.add(returnlista[i]);
+        }
+      }
+    });
+  }
+
+  List antibioticosSiguienteCaso = [];
+  bool suficientesAntibioticos = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +69,16 @@ class FinalScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                if (idcaso < 5) {
+                comprobarMedicamentosSuficientes();
+                if (!suficientesAntibioticos) {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const LooseScreen(
+                      informacion:
+                          "No tienes suficientes medicamentos para afrontar el siguiente caso.",
+                    );
+                  }), (Route<dynamic> route) => false);
+                } else if (idcaso < 5) {
                   idcaso = idcaso + 1;
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute<void>(builder: (BuildContext context) {
@@ -48,14 +93,36 @@ class FinalScreen extends StatelessWidget {
                   }), (Route<dynamic> route) => false);
                 }
               },
-              child: const Text(
-                'Siguiente caso',
-                style: TextStyle(fontSize: 17, color: Colors.black),
+              child: Text(
+                mensajeBoton(),
+                style: const TextStyle(fontSize: 17, color: Colors.black),
               ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  String mensajeBoton() {
+    if (idcaso < 5) {
+      return "Siguiente caso";
+    } else {
+      return "Finalizar Partida";
+    }
+  }
+
+  void comprobarMedicamentosSuficientes() {
+    for (int i = 0; i < mochilaSeleccionada.length; i++) {
+      for (int j = 0; j < antibioticosSiguienteCaso.length; j++) {
+        if (mochilaSeleccionada[i]["antibiotico"] ==
+            antibioticosSiguienteCaso[j]["antibiotico"]) {
+          if (int.parse(mochilaSeleccionada[i]["dias"]) >=
+              int.parse(antibioticosSiguienteCaso[j]["dias"])) {
+            suficientesAntibioticos = true;
+          }
+        }
+      }
+    }
   }
 }
