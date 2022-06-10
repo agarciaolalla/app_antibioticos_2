@@ -233,7 +233,6 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     x = 1;
     notifyswitch = true;
     if (comprobar == true) {
-      print(comprobarRespuesta.length);
       for (var i = 0; i < comprobarRespuesta.length; i++) {
         feedback[i] = listAnswer[i]["feedback"];
         if (comprobarRespuesta[i] == 0) {
