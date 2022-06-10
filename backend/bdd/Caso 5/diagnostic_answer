@@ -1,0 +1,36 @@
+{
+    "idcaso": "5",
+    "respuesta": "Hemocultivo",
+    "solucion": "1"
+}
+
+{
+    "idcaso": "5",
+    "respuesta": "Urocultivo",
+    "solucion": "0"
+}
+
+{
+    "idcaso": "5",
+    "respuesta": "Hisopo del contenido de la ampolla",
+    "solucion": "0"
+}
+
+{
+    "idcaso": "5",
+    "respuesta": "Obtención de pus con jeringa ",
+    "solucion": "1"
+}
+
+{
+    "idcaso": "5",
+    "respuesta": "TC abdominal",
+    "solucion": "0"
+}
+
+{
+    "idcaso": "5",
+    "respuesta": "Frotis de SARM",
+    "solucion": "1"
+}
+

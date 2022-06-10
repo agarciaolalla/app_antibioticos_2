@@ -1,0 +1,53 @@
+{
+    "idcaso": "1",
+    "respuesta": "Hemocultivo",
+    "solucion": "1",
+    "feedback": "En incubación, de momento negativo."
+}
+
+{
+    "idcaso": "1",
+    "respuesta": "Cultivo de esputo",
+    "solucion": "1",
+    "feedback": "En incubación, de momento negativo."
+
+}
+
+{
+    "idcaso": "1",
+    "respuesta": "Antigenos urinarios",
+    "solucion": "1",
+    "feedback": "Antígeno de neumococo positivo. Antígeno de Legionella negativos."
+
+}
+
+{
+    "idcaso": "1",
+    "respuesta": "PCR de SARS-CoV-2 y gripe",
+    "solucion": "1",
+    "feedback": "Negativos."
+
+}
+
+{
+    "idcaso": "1",
+    "respuesta": "Serologia de Coxiella, Chlamydia, Mycoplasma y Legionella",
+    "solucion": "0",
+    "feedback": "No solicitado."
+}
+
+{
+    "idcaso": "1",
+    "respuesta": "Serología de VIH",
+    "solucion": "1",
+    "feedback": "En incubación, de momento negativo."
+}
+
+{
+    "idcaso": "1",
+    "respuesta": "Urocultivo",
+    "solucion": "0",
+    "feedback": "No solicitado."
+
+}
+

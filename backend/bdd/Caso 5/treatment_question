@@ -1,0 +1,10 @@
+{
+    "idcaso": "5",
+    "idpregunta": "1",
+    "pregunta": "<p>¿Qué tratamiento antibiótico cree indicado?</p><p>Seleccione los antibioticos que considere entre los disponibles en su mochila</p><p><strong>Perdida maxima de vida del paciente: 20%</strong></p>"
+}
+{
+    "idcaso": "5",
+    "idpregunta": "2",
+    "pregunta": "<p>Iniciaste tratamiento antibiótico con vancomicina y cefazolina</p><p>A las 72h reevalúa al  paciente. Se encuentra afebril. Ya no tiene sensación distérmica. El dolor ha cedido. La evolución de las lesiones en las EEII es muy lenta, no ha bajado del todo el exantema de la marca inicial hecha con rotulador.  Tiene tolerancia oral.</p><p>Realizas un análisis de control:</p><ul><li><p>Leucocitos 11.800 (N 86%)<p></li><li><p>Plaquetas 150.000.</p></li><li><p>Función renal normal.</p></li><li><p>PCR 120 mg/dL. </p></li></ul><p>Los hemocultivos de momento siguen en curso, negativos de momento.</p><p>En las muestras del contenido de la ampolla se aísla S. aureus  (ver antibiograma)</p><p>Con esta informacion, seleccione los antibioticos y el numero de dias que desea recetarlos con lo disponible en su mochila.</p><p><strong>Perdida maxima de vida del paciente: 20%</strong></p>"
+}

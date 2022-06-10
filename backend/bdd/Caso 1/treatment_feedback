@@ -1,0 +1,140 @@
+{
+    "idcaso": "1",
+    "antibiotico": "Amoxicilina",
+    "dosis": "1g",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Vía inadecuada.\nEn pacientes con neumonía grave es más adecuada la vía intravenosa hasta comprobar estabilidad clínica.",
+    "vida": "10",
+    "diasuno": "2",
+    "diasdos": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Ampicilina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "Sí",
+    "comentario": "Antibiótico óptimo. \nEl paciente tiene una neumonía neumocócica grave. \nEl perfil se sensibilidad de S. pneumoniae en nuestro entorno permite usar ampicilina, que es un b-lactámico de espectro más reducido que las alternativas. ",
+    "vida": "0",
+    "consumo": "12g",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Cefazolina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo\nNo suele ser la elección habitual para este síndrome pero el antibiótico tiene buena actividad frente al patógeno.",
+    "vida": "0",
+    "consumo": "12g",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Ceftriaxona",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/24h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro. \nEl paciente tiene una neumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente eficaces, pero de menor espectro. ",
+    "vida": "0",
+    "consumo": "4g",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Linezolid",
+    "dosis": "600mg",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro.\nNeumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente o más eficaces pero de menor espectro",
+    "vida": "10",
+    "consumo": "2400mg",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Linezolid",
+    "dosis": "600mg",
+    "via": "Vía Oral",
+    "intervalo": "c/12h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro. \nVía inadecuada.\nNeumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente o más eficaces pero de menor espectro. No obstante, dada situación clínica y potencial gravedad el tratamiento deben iniciarse por vía intravenosa.",
+    "vida": "10",
+    "consumo": "2400mg",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Meropenem",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro. \nEl paciente tiene una neumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente eficaces pero de menor espectro.",
+    "vida": "0",
+    "consumo": "3g",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Piperacilina/tazobactam",
+    "dosis": "4g/0,5g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro.\nEl paciente tiene una neumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente eficaces, pero de menor espectro.",
+    "vida": "0",
+    "consumo": "32g/4g",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "TMP/SMX",
+    "dosis": "800/160 mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo, pero de eficacia subóptima.\nVía inadecuada.\nEn pacientes con neumonía grave es más adecuada la vía intravenosa hasta comprobar estabilidad clínica. Además el perfil de resistencia en la comunidad permite usar alternativas más eficaces y de menor espectro.",
+    "vida": "20",
+    "consumo": "4800/960 mg",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+
+{
+    "idcaso": "1",
+    "antibiotico": "Vancomicina",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro. \nNeumonía neumocócica confirmada. El perfil de resistencia en la comunidad permite usar alternativas igualmente o más eficaces pero de menor espectro.",
+    "vida": "10",
+    "consumo": "4g",
+    "dias": "2",
+    "lastfeedback": "Se trata de una neumonía neucocócica que requiere ingreso. Como neumococo en vía respiratoria en nuestro entorno se puede tratar con ampicilina a dosis altas, este podría ser el tratamiento de elección. A las 48 horas está estable clínicamente por lo que se podría continuar con amoxicilina por vía oral. Cinco días es una duración suficiente su la evolución es favorable."
+}
+

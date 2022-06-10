@@ -1,0 +1,10 @@
+{
+    "idcaso": "2",
+    "idpregunta": "1",
+    "pregunta": "<p>¿Qué tratamiento antibiótico cree indicado?</p><p>Seleccione los antibioticos que considere entre los disponibles en su mochila</p><p><strong>Perdida maxima de vida del paciente: 20%</strong></p>"
+}
+{
+    "idcaso": "2",
+    "idpregunta": "2",
+    "pregunta": "<p>A las 78h reevalúa a la paciente. Está afebril. El síndrome miccional se ha resuelto. No tiene dolor en flanco derecho. Tiene tolerancia oral.</p><p>Realizas un análisis de control:</p><ul><li><p>Leucocitos 9.200 (N 70%)<p></li><li><p>Plaquetas</p></li><li><p>Función renal normal.</p></li><li><p>PCR 105 mg/dL</p></li></ul><p>Los hemocultivos y el cultivo de orina muestran crecimiento para E. coli.</p><p>Con esta informacion, seleccione los antibioticos y el numero de dias que desea recetarlos con lo disponible en su mochila.</p><p><strong>Perdida maxima de vida del paciente: 20%</strong></p>"
+}

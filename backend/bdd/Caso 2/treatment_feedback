@@ -1,0 +1,140 @@
+{
+    "idcaso": "2",
+    "antibiotico": "Amoxicilina",
+    "dosis": "1g",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico inadecuado (espectro insuficiente).\nVía y dosis inadecuada.\n> 50% de E. coli (microorganismo esperable) en nuestro entorno puede ser resistente a ampicilina. La decisión de usar este antibiótico de forma empírica es arriesgada porque tiene un espectro demasiado reducido. \nEn pacientes con pielonefritis aguda que precisan ingreso es más adecuada la vía intravenosa y dosis altas hasta comprobar estabilidad clínica.",
+    "vida": "10",
+    "consumo": "6g",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "Ampicilina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "Sí",
+    "comentario": "Antibiótico inadecuado (espectro insuficiente) \n> 50% de E. coli en nuestro entorno puede ser resistente a ampicilina. La decisión de usar este antibiótico de forma empírica es arriesgada ",
+    "vida": "5",
+    "consumo": "16g",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "Cefazolina",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico inadecuado (espectro insuficiente)\nLa resistencia de E. coli en la comunidad no permite usar este antibiótico con suficiente margen de seguridad en infecciones urinarias graves,",
+    "vida": "10",
+    "consumo": "12g",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "Ceftriaxona",
+    "dosis": "2g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/24h",
+    "activo": "Sí",
+    "comentario": "Antibiótico adecuado\nCeftriaxona es un buen antibiótico para una pielonefritis aguda sin riesgo añadido de resistencia y además es activo frente a más del 85% de E. coli, que es la principal etiología esperable",
+    "vida": "0",
+    "consumo": "4g",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "Linezolid (Oral)",
+    "dosis": "600mg",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "No",
+    "comentario": "Antibiótico inactivo\nEl paciente tiene una pielonefritis aguda confirmada.El agente etiológico esperable es una enterobacteria.\nEl espectro de acción de linezolid no incluye bacterias Gram negativas. Sí ofrece cobertura para enterococos, pero no es un microorganismo muy probable en este caso.",
+    "vida": "20",
+    "consumo": "2400mg",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "Linezolid (Intravenosa)",
+    "dosis": "600mg",
+    "via": "Vía Oral",
+    "intervalo": "c/12h",
+    "activo": "No",
+    "comentario": "Antibiótico inactivo. Vía inadecuada \nEl paciente tiene una pielonefritis aguda confirmada. El agente etiológico esperable es una enterobacteria.\nEl espectro de acción de linezolid no incluye bacterias Gram negativas. Sí ofrece cobertura para enterococos, pero no es un microorganismo muy probable en este caso.\nAdemás, hasta estabilidad clínica debería recibir el antibiótico inicialmente por vía intravenosa.",
+    "vida": "20",
+    "consumo": "2400mg",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "Meropenem",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico activo pero de excesivo espectro\nEl perfil de resistencia de E. coli en la comunidad, que es el microorganismo esperable en este caso, permite usar alternativas igualmente eficaces pero de menor espectro que meropenem.",
+    "vida": "0",
+    "consumo": "6g",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "Piperacilina/tazobactam",
+    "dosis": "4g/0,5g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/6h",
+    "activo": "Sí",
+    "comentario": "Antibióitico activo pero de excesivo espectro\nEl perfil de resistencia en la comunidad permite usar alternativas igualmente o más eficaces que piperacilina/tazobactam pero de menor espectro.",
+    "vida": "0",
+    "consumo": "32g/4g",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "TMP/SMX",
+    "dosis": "800/160 mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Si",
+    "comentario": "Antibiótico inadecuado (espectro demasiado reducido).\nVía inadecuada.\nEl perfil de resistencias de E.coli en la comunidad (>20%) no permite el uso empírico de este fármaco para el tratamiento de infecciones urinarias, especialmente si es grave.\nEn pacientes con pielonefritis aguda que precisan ingreso es más adecuada la vía intravenosa hasta comprobar estabilidad clínica.",
+    "vida": "10",
+    "consumo": "4800/960 mg",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
+    "antibiotico": "Vancomicina",
+    "dosis": "1g",
+    "via": "Vía Intravenosa",
+    "intervalo": "c/12h",
+    "activo": "No",
+    "comentario": "Antibiótico inactivo\nPielonefritis aguda confirmada. El agente etiológico esperable es una enterobacteria. El espectro de acción de Vancomicina no incluye bacterias Gram negativas.\nAunque ofrecería cobertura para enterococos la decisión de usar este antibiótico en monoterapia en este paciente de  forma empírica es inadecuada.",
+    "vida": "20",
+    "consumo": "4g",
+    "dias": "5",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
