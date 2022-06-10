@@ -9,12 +9,11 @@ import 'package:app_antibioticos/widgets/widgets.dart';
 import 'package:app_antibioticos/screens/screens.dart';
 
 class TreatmentFeedback extends StatefulWidget {
-  const TreatmentFeedback(
-      {Key? key, required this.selectedMedicines, required this.contadorDias})
+  const TreatmentFeedback({Key? key, required this.listaFinal})
       : super(key: key);
 
-  final List selectedMedicines;
-  final List contadorDias;
+  final List listaFinal;
+
   @override
   State<TreatmentFeedback> createState() => _TreatmentFeedbackState();
 }
@@ -27,6 +26,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   List<int> checkDays = [];
   List daysFeedback = [];
   String muerte = "El paciente ha muerto.";
+  List cardList = [];
   @override
   void initState() {
     super.initState();
@@ -129,8 +129,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         child: Column(
           children: [
             const Life(),
-            SecondCardViewTreatmentFeedback(
-                treatmentFeedback: feedbackToUser, daysFeedback: daysFeedback),
+            SecondCardViewTreatmentFeedback(treatmentFeedback: cardList),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: Text(
@@ -168,19 +167,18 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
 
   //InitialFill
   void initialFill() {
-    daysFeedback = List.from(mochilaSeleccionada);
-
-    for (int i = 0; i < daysFeedback.length; i++) {
-      daysFeedback[i]["dias"] = widget.contadorDias[i].toString();
-    }
     for (int i = 0; i < treatmentFeedback.length; i++) {
-      for (int j = 0; j < widget.selectedMedicines.length; j++) {
+      for (int j = 0; j < widget.listaFinal.length; j++) {
         if (treatmentFeedback[i]["antibiotico"] ==
-            widget.selectedMedicines[j]["antibiotico"]) {
+            widget.listaFinal[j]["antibiotico"]) {
           feedbackToUser.add(treatmentFeedback[i]);
-          checkDays.add(int.parse(widget.selectedMedicines[j]["dias"]));
+          checkDays.add(int.parse(widget.listaFinal[j]["dias"]));
+          cardList.add(treatmentFeedback[i]);
         }
       }
+    }
+    for (int i = 0; i < checkDays.length; i++) {
+      cardList[i]["dias"] = checkDays[i].toString();
     }
     secondTreatmentFeedback = List.from(feedbackToUser);
   }

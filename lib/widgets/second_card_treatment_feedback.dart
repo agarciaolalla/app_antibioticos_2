@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 
 class SecondCardViewTreatmentFeedback extends StatefulWidget {
   const SecondCardViewTreatmentFeedback(
-      {Key? key, required this.treatmentFeedback, required this.daysFeedback})
+      {Key? key, required this.treatmentFeedback})
       : super(key: key);
 
   final List treatmentFeedback;
-  final List daysFeedback;
 
   @override
   State<SecondCardViewTreatmentFeedback> createState() =>
@@ -20,7 +19,6 @@ class _SecondCardViewTreatmentFeedbackState
 
   @override
   Widget build(BuildContext context) {
-    initialFill();
     return ListView.builder(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
@@ -61,17 +59,6 @@ class _SecondCardViewTreatmentFeedbackState
         );
       },
     );
-  }
-
-  void initialFill() {
-    for (int i = 0; i < widget.treatmentFeedback.length; i++) {
-      for (int j = 0; j < widget.daysFeedback.length; j++) {
-        if (widget.treatmentFeedback[i]["antibiotico"] ==
-            widget.daysFeedback[j]["antibiotico"]) {
-          widget.treatmentFeedback[i]["dias"] = widget.daysFeedback[j]["dias"];
-        }
-      }
-    }
   }
 
   String getAssetName(String via) {

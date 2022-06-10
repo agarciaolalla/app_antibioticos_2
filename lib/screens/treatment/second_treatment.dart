@@ -36,7 +36,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
   bool contadorDias =
       false; //Indicador de si has seleccionado o no medicamento para en caso de que no lo hayas seleccionado te diga que tienes que seleccionar al menos uno
   List listaFinal = [];
-
   String question =
       ""; //Nombre de la pregunta que se rellena desde la base de datos.
   List contadorItems =
@@ -208,19 +207,18 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                       if (checkDaysCount() == true) {
                         for (var i = 0; i < mochilaSeleccionada.length; i++) {
                           if (contadorItems[i] > 0) {
-                            String dias = mochilaSeleccionada[i]["dias"];
-                            mochilaSeleccionada[i]["dias"] =
-                                contadorItems[i].toString();
+                            String antibiotico =
+                                mochilaSeleccionada[i]["antibiotico"];
 
-                            listaFinal.add(mochilaSeleccionada[i]);
-
-                            mochilaSeleccionada[i]["dias"] = dias;
+                            listaFinal.add({
+                              "antibiotico": antibiotico,
+                              "dias": contadorItems[i].toString()
+                            });
 
                             if (mochilaSeleccionada[i]["dias"] ==
                                 (contadorItems[i]).toString()) {
-                              ///mochilaSeleccionada[i]["dias"] = "0";
+                              mochilaSeleccionada[i]["dias"] = "0";
                             } else {
-                              print("pepe");
                               mochilaSeleccionada[i]["dias"] =
                                   (int.parse(mochilaSeleccionada[i]["dias"]) -
                                           contadorItems[i])
@@ -230,12 +228,11 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
                           }
                         }
+                        print(listaFinal);
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute<void>(
                                 builder: (BuildContext context) {
-                          return TreatmentFeedback(
-                              selectedMedicines: listaFinal,
-                              contadorDias: contadorItems);
+                          return TreatmentFeedback(listaFinal: listaFinal);
                         }), (Route<dynamic> route) => false);
                       } else {
                         showDialog<String>(
@@ -300,6 +297,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
         comprobar = true;
       }
     }
+
     if (comprobar == false) {
       showDialog<String>(
         context: context,
