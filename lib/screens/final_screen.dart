@@ -9,6 +9,7 @@ class FinalScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    vidaCaso = 0;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:app_antibioticos/screens/screens.dart';
 
+import '../utilidades/constantes.dart';
+
 class Timer extends StatefulWidget {
   const Timer({Key? key}) : super(key: key);
 
@@ -36,14 +38,14 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
         barrierDismissible: false,
         builder: (BuildContext context) => AlertDialog(
               content: const Text(
-                  'El tiempo de este caso clínico se ha acabado, tu paciente ha muerto.'),
+                'Aunque esté bien reflexionar sobre el caso, hay que tomar las decisiones mas rápido. \nTu paciente ha perdido un 20% de vida, pasarás al siguiente caso.',
+                style: TextStyle(fontSize: 17, color: Colors.black),
+              ),
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const LooseScreen(
-                        informacion:
-                            "Se ha agotado el tiempo, tu paciente ha muerto.");
+                    return const FinalScreen();
                   }), (Route<dynamic> route) => false),
                   child: const Text(
                     'OK',
@@ -52,6 +54,9 @@ class TimerState extends State<Timer> with SingleTickerProviderStateMixin {
                 ),
               ],
             ));
+    int precision = 10;
+    int diff = (vidaJugador * precision).round() - (0.2 * precision).round();
+    vidaJugador = diff / precision;
   }
 
   @override

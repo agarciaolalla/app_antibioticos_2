@@ -186,13 +186,8 @@ class _FirstTreatmentFeedbackState extends State<FirstTreatmentFeedback> {
       vidaFirst = 0.2;
     }
 
-    int precision = 10;
-    int diff =
-        (vidaJugador * precision).round() - (vidaFirst * precision).round();
-    vidaJugador = diff / precision;
-    //print(vidaJugador);
+    vidaCaso = vidaFirst;
     vidaPerdida = (vidaFirst * 100.0).toInt();
-    lifeLost = vidaPerdida;
     ajustarVidaPerdida();
   }
 

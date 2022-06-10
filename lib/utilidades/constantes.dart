@@ -21,7 +21,8 @@ int points = 0;
 int pointsPerCase = 0;
 // Vida del jugador
 double vidaJugador = 1.0;
-
+//vida perdida en cada caso
+double vidaCaso = 0.0;
 //Informacion inicial para mostrar en las demas screens
 String initialInfo = "";
 //Feedback Diagnostic question para mostrar en las demas screens
