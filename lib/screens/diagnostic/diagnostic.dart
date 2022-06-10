@@ -19,14 +19,15 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
   List listAnswer = [];
   String question = "";
   String buttonText = "Comprobar";
-  bool comprobar = false;
   Color verde = Colors.white;
   Color rojo = Colors.white;
   List valorSwitch = [];
   List comprobarRespuesta = [];
   List colorSolucion = [];
   int x = 0;
+  bool rellenarCompletado = false;
   bool notifyswitch = false;
+  bool comprobar = false;
 
   @override
   void initState() {
@@ -79,7 +80,9 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
 
   @override
   Widget build(BuildContext context) {
-    fillInitialLists();
+    if (!rellenarCompletado) {
+      fillInitialLists();
+    }
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
@@ -201,7 +204,8 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         valorSwitch.add(false);
         comprobarRespuesta.add(0);
         colorSolucion.add(Colors.white);
-        feedback.add("pepe");
+        feedback.add("");
+        rellenarCompletado = true;
       }
     }
   }
@@ -229,6 +233,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     x = 1;
     notifyswitch = true;
     if (comprobar == true) {
+      print(comprobarRespuesta.length);
       for (var i = 0; i < comprobarRespuesta.length; i++) {
         feedback[i] = listAnswer[i]["feedback"];
         if (comprobarRespuesta[i] == 0) {

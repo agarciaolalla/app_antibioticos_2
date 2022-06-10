@@ -6,7 +6,6 @@ const caseSchema = new Schema({
  via: String,
  intervalo: String,
  dias: String,
- numerodosis: String,
 })
 
 module.exports = model('backpack', caseSchema);

@@ -1,5 +1,4 @@
 import 'package:app_antibioticos/theme/app_theme.dart';
-import 'package:app_antibioticos/utilidades/constantes.dart';
 import 'package:flutter/material.dart';
 
 class CardViewTreatmentFeedback extends StatelessWidget {
