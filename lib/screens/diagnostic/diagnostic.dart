@@ -133,6 +133,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           children: [
             const Life(),
             const Timer(),
+            //const Point(),
             DiagnosticQuestionHtml(questionHtml: question),
             ListView.builder(
               scrollDirection: Axis.vertical,
@@ -250,5 +251,9 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
         }
       }
     }
+
+    points = points + pointsPerCase;
+    pointsBar = pointsBar + (pointsPerCase / 100);
+    pointsPerCase = 0;
   }
 }

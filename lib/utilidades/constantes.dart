@@ -7,15 +7,18 @@ import 'package:app_antibioticos/models/player_model.dart';
 //const conexion1 = "http://172.18.22.79:50052";
 //const conexion1 = "http://172.30.67.51:50052"; //instituto ITACA
 
-const conexion1 = "//1.44.4.78:50052";
-//const conexion1 = "";
+//const conexion1 = "//1.44.4.78:50052";
+const conexion1 = "//localhost:50052";
 
 // Id del caso clinico que se va a realizar
 int idcaso = 1;
 // Mochila con los medicamentos seleccionados al inicio del juego
 List mochilaSeleccionada = [];
 
-// Puntos del jugador
+//Máxima puntuación
+int maxPoints = 32;
+// Puntos del jugador totales
+double pointsBar = 0.0;
 int points = 0;
 //Puntos obtenidos en un caso
 int pointsPerCase = 0;

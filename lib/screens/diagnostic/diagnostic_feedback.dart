@@ -92,11 +92,11 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
         child: Column(
           children: [
             const Life(),
+            const ShowPoints(),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: DiagnosticFeedbackHtml(feedback: diagnosticFeedback),
             ),
-            const ShowPoints(),
             ElevatedButton(
               onPressed: () {
                 updateTotalPoints();
