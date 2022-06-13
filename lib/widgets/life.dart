@@ -10,6 +10,7 @@ class Life extends StatefulWidget {
 }
 
 class LifeState extends State<Life> {
+  @override
   void initState() {
     super.initState();
     changeColor();
