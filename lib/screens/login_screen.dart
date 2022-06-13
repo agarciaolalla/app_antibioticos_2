@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -74,138 +75,131 @@ class _RegisterContact extends State<Login> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                const Center(
-                  child: Image(
-                    image: AssetImage('assets/login_image.png'),
-                    width: 300,
-                    height: 300,
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ListView(
+            children: [
+              const SizedBox(
+                width: 700,
+                height: 500,
+                child: RiveAnimation.asset(
+                  "animations/login.riv",
+                ),
+              ),
+              TextField(
+                controller: controllerName,
+                decoration: const InputDecoration(labelText: 'Nombre'),
+                style: const TextStyle(fontSize: 17, color: Colors.black),
+              ),
+              const SizedBox(height: 15),
+              TextField(
+                controller: controllerSurname,
+                decoration: const InputDecoration(labelText: 'Apellido'),
+                style: const TextStyle(fontSize: 17, color: Colors.black),
+              ),
+              const SizedBox(height: 10),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Si es la primera vez que accedes, introduce tu nombre y apellido y...",
+                    style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  controller: controllerName,
-                  decoration: const InputDecoration(labelText: 'Nombre'),
-                  style: const TextStyle(fontSize: 17, color: Colors.black),
-                ),
-                const SizedBox(height: 15),
-                TextField(
-                  controller: controllerSurname,
-                  decoration: const InputDecoration(labelText: 'Apellido'),
-                  style: const TextStyle(fontSize: 17, color: Colors.black),
-                ),
-                const SizedBox(height: 10),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Si es la primera vez que accedes, introduce tu nombre y apellido y...",
-                      style: TextStyle(color: Colors.black, fontSize: 20),
-                    ),
-                    const SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () async {
-                        String name = controllerName.text;
-                        String surname = controllerSurname.text;
-                        if (name.isNotEmpty && surname.isNotEmpty) {
-                          await comprobarPlayer(name, surname);
-                          if (!existeJugador) {
-                            Player p = Player(
-                              name: name,
-                              surname: surname,
-                              points: "0",
-                              challenges: "0",
-                              medicines: "0",
-                              life: "0.0",
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () async {
+                      String name = controllerName.text;
+                      String surname = controllerSurname.text;
+                      if (name.isNotEmpty && surname.isNotEmpty) {
+                        await comprobarPlayer(name, surname);
+                        if (!existeJugador) {
+                          Player p = Player(
+                            name: name,
+                            surname: surname,
+                            points: "0",
+                            challenges: "0",
+                            medicines: "0",
+                            life: "0.0",
+                          );
+                          addPlayer(p).then((player) {
+                            player = p;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomeScreen()),
                             );
-                            addPlayer(p).then((player) {
-                              player = p;
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomeScreen()),
-                              );
-                            });
-                          } else {
-                            showDialog<String>(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                content: const Text(
-                                  'Jugador ya registrado',
-                                  style: TextStyle(
-                                      fontSize: 17, color: Colors.black),
-                                ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, 'OK'),
-                                    child: const Text('OK'),
-                                  ),
-                                ],
+                          });
+                        } else {
+                          showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              content: const Text(
+                                'Jugador ya registrado',
+                                style: TextStyle(
+                                    fontSize: 17, color: Colors.black),
                               ),
-                            );
-                          }
-                        }
-                      },
-                      child: const Text(
-                        "Regístrate",
-                        style: TextStyle(fontSize: 30, color: Colors.black),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      "Si ya estas registrado",
-                      style: TextStyle(color: Colors.black, fontSize: 20),
-                    ),
-                    const SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () async {
-                        String name = controllerName.text;
-                        String surname = controllerSurname.text;
-                        if (name.isNotEmpty && surname.isNotEmpty) {
-                          await comprobarPlayer(name, surname);
-                          if (!existeJugador) {
-                            showDialog<String>(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                content: const Text(
-                                  'No existe ningún jugador con ese nombre',
-                                  style: TextStyle(
-                                      fontSize: 17, color: Colors.black),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context, 'OK'),
+                                  child: const Text('OK'),
                                 ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, 'OK'),
-                                    child: const Text('OK'),
-                                  ),
-                                ],
-                              ),
-                            );
-                          } else {
-                            Navigator.of(context).pushAndRemoveUntil(
-                                MaterialPageRoute<void>(
-                                    builder: (BuildContext context) {
-                              return const HomeScreen();
-                            }), (Route<dynamic> route) => false);
-                          }
+                              ],
+                            ),
+                          );
                         }
-                      },
-                      child: const Text(
-                        "Inicia Sesion",
-                        style: TextStyle(fontSize: 30, color: Colors.black),
-                      ),
+                      }
+                    },
+                    child: const Text(
+                      "Regístrate",
+                      style: TextStyle(fontSize: 30, color: Colors.black),
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                  const SizedBox(height: 20),
+                  const Text(
+                    "Si ya estas registrado",
+                    style: TextStyle(color: Colors.black, fontSize: 20),
+                  ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () async {
+                      String name = controllerName.text;
+                      String surname = controllerSurname.text;
+                      if (name.isNotEmpty && surname.isNotEmpty) {
+                        await comprobarPlayer(name, surname);
+                        if (!existeJugador) {
+                          showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              content: const Text(
+                                'No existe ningún jugador con ese nombre',
+                                style: TextStyle(
+                                    fontSize: 17, color: Colors.black),
+                              ),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context, 'OK'),
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                          );
+                        } else {
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute<void>(
+                                  builder: (BuildContext context) {
+                            return const HomeScreen();
+                          }), (Route<dynamic> route) => false);
+                        }
+                      }
+                    },
+                    child: const Text(
+                      "Inicia Sesion",
+                      style: TextStyle(fontSize: 30, color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ));
   }
