@@ -21,11 +21,15 @@ class TreatmentFeedback extends StatefulWidget {
 class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   List treatmentFeedback = [];
   List feedbackToUser = [];
+
   int vidaPerdida = 0;
+
   String mostrarVidaPerdida = "";
+  String feedback = "";
+  String muerte = "El paciente ha muerto.";
+
   List<int> checkDays = [];
   List daysFeedback = [];
-  String muerte = "El paciente ha muerto.";
   List cardList = [];
   @override
   void initState() {
@@ -48,6 +52,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           treatmentFeedback.add(returnlista[i]);
         }
       }
+      feedback = treatmentFeedback[0]["lastfeedback"];
     });
   }
 
@@ -133,6 +138,13 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
           children: [
             const Life(),
             const Point(),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                feedback,
+                style: const TextStyle(fontSize: 20, color: Colors.black),
+              ),
+            ),
             SecondCardViewTreatmentFeedback(treatmentFeedback: cardList),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
