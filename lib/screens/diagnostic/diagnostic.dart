@@ -159,7 +159,14 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                             : (value) => setState(() {
                                   valorSwitch[index] = value;
                                 })),
-                    Text(feedback[index]),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "  " + feedback[index],
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
+                      ),
+                    ),
                   ],
                 );
               },
@@ -235,6 +242,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     comprobar = true;
     x = 1;
     notifyswitch = true;
+    pointsPerCase = 0;
     if (comprobar == true) {
       for (var i = 0; i < comprobarRespuesta.length; i++) {
         feedback[i] = listAnswer[i]["feedback"];

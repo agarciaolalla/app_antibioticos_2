@@ -20,7 +20,7 @@ class _FinalScreenState extends State<FinalScreen> {
   void initState() {
     super.initState();
     getTreatmentFeedback();
-    updatePoints();
+    finalscren();
   }
 
   Future getTreatmentFeedback() async {
@@ -70,11 +70,10 @@ class _FinalScreenState extends State<FinalScreen> {
             const Life(),
             const Point(),
             const ShowPoints(),
-            const ShowLife(),
+            //const ShowLife(),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                updatePoints();
                 comprobarMedicamentosSuficientes();
                 if (!suficientesAntibioticos) {
                   Navigator.of(context).pushAndRemoveUntil(
@@ -110,16 +109,18 @@ class _FinalScreenState extends State<FinalScreen> {
     );
   }
 
+  void finalscren() {
+    if (idcaso > 4) {
+      screenfinal = true;
+    }
+  }
+
   String mensajeBoton() {
     if (idcaso < 5) {
       return "Siguiente caso";
     } else {
       return "Finalizar Partida";
     }
-  }
-
-  void updatePoints() {
-    pointsPerCase = 0;
   }
 
   void comprobarMedicamentosSuficientes() {

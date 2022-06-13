@@ -10,8 +10,14 @@ class ShowPoints extends StatefulWidget {
 }
 
 class ShowPointsState extends State<ShowPoints> {
+  String mostrarPuntuacion = "Puntuación actual obtenida: ";
+  int mostrarPuntos = pointsPerCase;
   @override
   Widget build(BuildContext context) {
+    if (screenfinal == true) {
+      mostrarPuntuacion = 'Puntuación final obtenida: ';
+      mostrarPuntos = points;
+    }
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: RichText(
@@ -19,9 +25,7 @@ class ShowPointsState extends State<ShowPoints> {
           style: DefaultTextStyle.of(context).style,
           children: <TextSpan>[
             TextSpan(
-                text: 'Puntuación actual: ' +
-                    pointsPerCase.toString() +
-                    " punto/s",
+                text: mostrarPuntuacion + mostrarPuntos.toString() + " punto/s",
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,

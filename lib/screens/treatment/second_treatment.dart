@@ -151,6 +151,37 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
             SingleChildScrollView(
               child: Column(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                      child: RichText(
+                        text: const TextSpan(
+                          // Note: Styles for TextSpans must be explicitly defined.
+                          // Child text spans will inherit styles from parent
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            color: Colors.black,
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text:
+                                  '¿Qué tratamiento antibiótico cree indicado?\n\nSeleccione los antibioticos que considere entre los disponibles en su mochila.\n\nPerdida maxima de vida del paciente: 20%',
+                              style:
+                                  TextStyle(fontSize: 17, color: Colors.black),
+                            ),
+                            TextSpan(
+                              text: '\n\nDías a seleccionar:',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17,
+                                  color: Colors.black),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   ListView.builder(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
