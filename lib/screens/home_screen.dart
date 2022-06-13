@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 700,
                   height: 700,
                   child: RiveAnimation.asset(
-                    "animations/gang.riv",
+                    "gang.riv",
                   ),
                 ),
                 const Padding(

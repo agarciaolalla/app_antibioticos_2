@@ -83,7 +83,7 @@ class _RegisterContact extends State<Login> {
                 width: 700,
                 height: 500,
                 child: RiveAnimation.asset(
-                  "animations/login.riv",
+                  "login.riv",
                 ),
               ),
               TextField(
