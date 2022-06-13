@@ -46,7 +46,6 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
             children: [
@@ -59,8 +58,9 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.backpack_outlined),
+                    icon: Image.asset("assets/backpack.png"),
                     tooltip: "Mochila",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -71,8 +71,9 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.info_outline),
+                    icon: Image.asset("assets/initialInfoIcon.png"),
                     tooltip: "Información Inicial",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,

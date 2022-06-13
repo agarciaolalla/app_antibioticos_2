@@ -48,8 +48,10 @@ class HomeRanking extends State<Ranking> {
     orderPlayers();
     return Scaffold(
         appBar: AppBar(
+          toolbarHeight: 60,
           flexibleSpace: SafeArea(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
                   "Ranking Jugadores",

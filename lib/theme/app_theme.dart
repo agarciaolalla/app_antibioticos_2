@@ -16,6 +16,7 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       color: primary,
       elevation: 0,
+      toolbarHeight: 100,
     ),
 
     // TextButton Theme

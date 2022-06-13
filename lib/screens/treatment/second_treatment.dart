@@ -63,7 +63,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
             children: [
@@ -76,8 +75,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.backpack_outlined),
+                    icon: Image.asset("assets/backpack.png"),
                     tooltip: "Mochila",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -88,8 +88,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.info_outline),
-                    tooltip: "Información Inicial",
+                    icon: Image.asset("assets/initialInfoIcon.png"),
+                    tooltip: "Información inicial",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -100,8 +101,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.comment_outlined),
+                    icon: Image.asset("assets/diagnosticFeedbackIcon.png"),
                     tooltip: "Feedback Pregunta Diagnóstico",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -112,8 +114,9 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.comment_bank_outlined),
+                    icon: Image.asset("assets/treatmentFeedbackIcon.png"),
                     tooltip: "Feedback Pregunta Tratamiento Empírico",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -260,7 +263,6 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                             //Si has seleccionado el medicamento se introduce en la lista que le vas a pasar al feedback
                           }
                         }
-                        print(listaFinal);
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute<void>(
                                 builder: (BuildContext context) {
