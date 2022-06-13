@@ -263,6 +263,6 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     }
 
     points = points + pointsPerCase;
-    pointsBar = pointsBar + (pointsPerCase / 100);
+    pointsBar = pointsBar + ((pointsPerCase * 3.125) / 100);
   }
 }
