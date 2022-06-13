@@ -22,7 +22,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^1.0.0
-  rive: ^0.8.4
+  rive: ^0.8.3
   
 flutter:
   uses-material-design: true
