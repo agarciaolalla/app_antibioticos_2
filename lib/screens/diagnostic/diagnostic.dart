@@ -151,7 +151,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
                         title: Text(
                           "${listAnswer[index]["respuesta"]}",
                           style: const TextStyle(
-                              fontSize: 20, color: Colors.black),
+                              fontSize: 17, color: Colors.black),
                         ),
                         value: valorSwitch[index],
                         onChanged: notifyswitch
@@ -263,6 +263,6 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
     }
 
     points = points + pointsPerCase;
-    pointsBar = pointsBar + (pointsPerCase / 100);
+    pointsBar = pointsBar + ((pointsPerCase * 3.125) / 100);
   }
 }
