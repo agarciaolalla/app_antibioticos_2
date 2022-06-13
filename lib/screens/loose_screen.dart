@@ -1,5 +1,6 @@
 import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 import 'package:app_antibioticos/services/player_peticion.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
@@ -47,8 +48,8 @@ class LooseScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Center(
+      body: ListView(children: [
+        Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -58,12 +59,15 @@ class LooseScreen extends StatelessWidget {
                   "Fin de la partida.",
                   style: TextStyle(fontSize: 25, color: Colors.red),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(
+                  width: 700,
+                  height: 500,
+                  child: RiveAnimation.asset(animation()),
+                ),
                 Text(
                   informacion,
                   style: const TextStyle(fontSize: 25, color: Colors.black),
                 ),
-                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushAndRemoveUntil(
@@ -77,7 +81,6 @@ class LooseScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 30, color: Colors.black),
                   ),
                 ),
-                const SizedBox(height: 40),
                 Padding(
                   padding: const EdgeInsets.all(15),
                   child: HtmlWidget(
@@ -90,7 +93,7 @@ class LooseScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      ]),
     );
   }
 
@@ -105,6 +108,14 @@ class LooseScreen extends StatelessWidget {
       }
     }
     return medicamentos;
+  }
+
+  String animation() {
+    if (vidaJugador <= 0) {
+      return "animations/win.riv";
+    } else {
+      return "animations/loose.riv";
+    }
   }
 
   updatePlayerStatus() {

@@ -26,7 +26,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
 
   String mostrarVidaPerdida = "";
   String feedback = "";
-  String muerte = "El paciente ha muerto.";
+  String muerte = "Has perdido...El paciente ha muerto.";
 
   List<int> checkDays = [];
   List daysFeedback = [];
