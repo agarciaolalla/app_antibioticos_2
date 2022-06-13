@@ -12,6 +12,18 @@
 
 {
     "idcaso": "5",
+    "antibiotico": "Amoxicilina/clavulánico",
+    "dosis": "875/125mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "No",
+    "comentario": "Antibiótico inadecuado en monoterapia\n El paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nUn 90% de S.aureus son resistentes a penicilina. Dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM. \nPor un lado no hace falta utilizar antibiótico con actividad frente a anaerobios o enterobacterias (espectro excesivo) y por otra es necesario incluir un antibiótico con actividad SARM.",
+    "vida": "20",
+    "dias": "2"
+}
+
+{
+    "idcaso": "5",
     "antibiotico": "Ampicilina",
     "dosis": "2g",
     "via": "Vía Intravenosa",
@@ -29,7 +41,7 @@
     "via": "Vía Intravenosa",
     "intervalo": "c/8h",
     "activo": "No",
-    "comentario": "Antibiótico potencialmente inadecuado (Espectro excesivo. Parcial)\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, cefazolina tiene un espectro excesivo\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que cefazolina no sería activa y habría que utilizar un antibiótico adicional / alternativo",
+    "comentario": "Antibiótico potencialmente inadecuado en monoterapia\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, cefazolina tiene un espectro excesivo\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que cefazolina no sería activa y habría que utilizar un antibiótico adicional / alternativo",
     "vida": "0",
     "dias": "2"
 }
@@ -41,7 +53,7 @@
     "via": "Vía Intravenosa",
     "intervalo": "c/24h",
     "activo": "No",
-    "comentario": "Antibiótico potencialmente inadecuado (Espectro excesivo. Parcial)\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, ceftriaxona tiene un espectro excesivo\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que ceftriaxona no sería activa y habría que utilizar un antibiótico adicional / alternativo",
+    "comentario": "Antibiótico inadecuado en monoterapia\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, ceftriaxona tiene un espectro excesivo\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que ceftriaxona no sería activa y habría que utilizar un antibiótico adicional / alternativo",
     "vida": "0",
     "dias": "2"
 }
@@ -77,7 +89,7 @@
     "via": "Vía Intravenosa",
     "intervalo": "c/8h",
     "activo": "No",
-    "comentario": "Antibiótico potencialmente inadecuado (Espectro excesivo. Parcial)\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, meropenem tiene un espectro muy excesivo.\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que meropenem no sería activo y habría que utilizar un antibiótico adicional / alternativo. ",
+    "comentario": "Antibiótico inadecuado en monoterapia\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, meropenem tiene un espectro muy excesivo.\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que meropenem no sería activo y habría que utilizar un antibiótico adicional / alternativo. ",
     "vida": "0",
     "dias": "2"
 }
@@ -89,7 +101,7 @@
     "via": "Vía Intravenosa",
     "intervalo": "c/6h",
     "activo": "No",
-    "comentario": "Antibiótico potencialmente inadecuado (Espectro excesivo. Parcial)\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, piperaciñoina/tacobactam tiene un espectro excesivo.\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que piperacilina/tazobactam no sería activo y habría que utilizar un antibiótico adicional / alternativo.",
+    "comentario": "Antibiótico inadecuado en monoterapia\nEl paciente tiene una celulitis grave. Los microrganismos causales más frecuentes de celulitis son los estreptococos b-hemolíticos (erisipela y celulitis) y S. aureus (celulitis supurativa o abscesos). \nPara tratar a los estreptococos b-hemolíticos y a los S. aureus, piperaciñoina/tacobactam tiene un espectro excesivo.\nNo obstante. dado el antecedente de contacto con ganado porcino el paciente tiene riesgo de estar colonizado por SARM, para el que piperacilina/tazobactam no sería activo y habría que utilizar un antibiótico adicional / alternativo.",
     "vida": "0",
     "dias": "2"
 }

@@ -12,6 +12,18 @@
 
 {
     "idcaso": "4",
+    "antibiotico": "Amoxicilina/clavulánico",
+    "dosis": "875/125mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Espectro escaso. Vía inadecuada \nEl espectro es muy corto para un paciente con una sepsis, especialmente nosocomial. No es activo frente a enterobacterias productoras de BLEE ni AmpC. Tampoco tiene actividad frente a P. aeruginosa. \nLa vía de elección en un paciente séptico es la intravenosa",
+    "vida": "20",
+    "dias": "3"
+}
+
+{
+    "idcaso": "4",
     "antibiotico": "Ampicilina",
     "dosis": "2g",
     "via": "Vía Intravenosa",

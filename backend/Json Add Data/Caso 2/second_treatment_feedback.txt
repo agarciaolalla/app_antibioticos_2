@@ -12,6 +12,18 @@
 
 {
     "idcaso": "2",
+    "antibiotico": "Amoxicilina/clavulánico",
+    "dosis": "875/125mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "dias": "5",
+    "favorable": "no",
+    "lastfeedback": "Se trata de una pielonefritis por E. coli pansensible, bacteriémica que evoluciona muy bien. Se puede pasar a vía oral exisiendo distintas opciones (b-lactámico, quinolonas, TMP/SMX). La duración total de la antibioterapia, si la evolución es favorable y se usa un TMP/SMX sería de 7-10 d."
+}
+
+{
+    "idcaso": "2",
     "antibiotico": "Ampicilina",
     "dosis": "2g",
     "via": "Vía Intravenosa",

@@ -12,6 +12,18 @@
 
 {
     "idcaso": "1",
+    "antibiotico": "Amoxicilina/clavulánico",
+    "dosis": "875/125mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Vía inadecuada. Espectro excesivo. \nÁcido clavulánico no añade actividad a amoxicilina para tratarneumococo porque los escasos casos de resistencia para este tipo de infecciones no están mediados por b-lactamasas.\nPor otro lado en el momento inicial el tratamiento debería ser intravenoso",
+    "vida": "10",
+    "dias": "2"
+}
+
+{
+    "idcaso": "1",
     "antibiotico": "Ampicilina",
     "dosis": "2g",
     "via": "Vía Intravenosa",
