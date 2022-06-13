@@ -7,6 +7,13 @@
     "numerodosis": "18"
 }
 {
+    "antibiotico": "Amoxicilina/clavulánico",
+    "dosis": "875/125 mg",
+    "via": "Via Oral",
+    "intervalo": "8",
+    "dias": "6"
+}
+{
     "antibiotico": "Ampicilina",
     "dosis": "2g",
     "via": "Via Intravenosa",

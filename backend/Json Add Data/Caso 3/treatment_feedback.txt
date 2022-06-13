@@ -12,6 +12,18 @@
 
 {
     "idcaso": "3",
+    "antibiotico": "Amoxicilina/clavulánico",
+    "dosis": "875/125mg",
+    "via": "Vía Oral",
+    "intervalo": "c/8h",
+    "activo": "Sí",
+    "comentario": "Antibiótico inadecuado (insuficiente espectro) y vía inadecuada \nEn este paciente hay que tratar fundamentalmente Enterobacterias. En nuestro entorno, E. coli, que es la más frecuente, no es sensible entre un 15 y un 20% de los casos. Hace unos años podría haber sido un tratamiento adecuado pero hoy se queda un poco corto de espectro. \nAdemás, el tratamiento antibiótico inicial en este caso debería ser por vía intravenosa",
+    "vida": "20",
+    "dias": "3"
+}
+
+{
+    "idcaso": "3",
     "antibiotico": "Ampicilina",
     "dosis": "2g",
     "via": "Vía Intravenosa",
