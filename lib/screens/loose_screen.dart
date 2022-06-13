@@ -1,5 +1,6 @@
 import 'package:app_antibioticos/screens/screens.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 import 'package:app_antibioticos/services/player_peticion.dart';
 import 'package:app_antibioticos/utilidades/constantes.dart';
@@ -29,38 +30,45 @@ class LooseScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "Fin de la partida.",
-                  style: TextStyle(fontSize: 25, color: Colors.red),
-                ),
-                Text(
-                  informacion,
-                  style: const TextStyle(fontSize: 25, color: Colors.black),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute<void>(
-                            builder: (BuildContext context) {
-                      return const Ranking();
-                    }), (Route<dynamic> route) => false);
-                  },
-                  child: const Text(
-                    'Ranking',
-                    style: TextStyle(fontSize: 30, color: Colors.black),
+      body: ListView(
+        children: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Fin de la partida.",
+                    style: TextStyle(fontSize: 25, color: Colors.red),
                   ),
-                )
-              ],
+                  SizedBox(
+                    width: 700,
+                    height: 500,
+                    child: RiveAnimation.asset(animation()),
+                  ),
+                  Text(
+                    informacion,
+                    style: const TextStyle(fontSize: 25, color: Colors.black),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute<void>(
+                              builder: (BuildContext context) {
+                        return const Ranking();
+                      }), (Route<dynamic> route) => false);
+                    },
+                    child: const Text(
+                      'Ranking',
+                      style: TextStyle(fontSize: 30, color: Colors.black),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -76,6 +84,14 @@ class LooseScreen extends StatelessWidget {
       }
     }
     return medicamentos;
+  }
+
+  String animation() {
+    if (vidaJugador <= 0) {
+      return "animations/win.riv";
+    } else {
+      return "animations/loose.riv";
+    }
   }
 
   updatePlayerStatus() {

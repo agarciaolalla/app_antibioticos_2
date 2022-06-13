@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -43,9 +44,12 @@ class _FinalScreenState extends State<FinalScreen> {
 
   List antibioticosSiguienteCaso = [];
   bool suficientesAntibioticos = false;
+  String frase =
+      "Has gastado todos los medicamentos... Pasarás a la pantalla final.";
 
   @override
   Widget build(BuildContext context) {
+    comprobarMedicamentosSuficientes();
     vidaCaso = 0;
     return Scaffold(
       appBar: AppBar(
@@ -64,47 +68,63 @@ class _FinalScreenState extends State<FinalScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Life(),
-            const Point(),
-            const ShowPoints(),
-            //const ShowLife(),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                comprobarMedicamentosSuficientes();
-                if (!suficientesAntibioticos) {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const LooseScreen(
-                      informacion:
-                          "No tienes suficientes medicamentos para afrontar el siguiente caso.",
-                    );
-                  }), (Route<dynamic> route) => false);
-                } else if (idcaso < 5) {
-                  idcaso = idcaso + 1;
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const InitialInfoScreen();
-                  }), (Route<dynamic> route) => false);
-                } else {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const LooseScreen(
-                      informacion: "¡Has finalizado la partida exitosamente!",
-                    );
-                  }), (Route<dynamic> route) => false);
-                }
-              },
-              child: Text(
-                mensajeBoton(),
-                style: const TextStyle(fontSize: 17, color: Colors.black),
+      body: ListView(
+        children: [
+          Column(
+            children: [
+              const Life(),
+              const Point(),
+              const ShowPoints(),
+              const SizedBox(height: 10),
+              const SizedBox(
+                width: 700,
+                height: 500,
+                child: RiveAnimation.asset("animations/andando.riv"),
               ),
-            ),
-          ],
-        ),
+              Text(
+                frase,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.black),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  if (!suficientesAntibioticos) {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                      return const LooseScreen(
+                        informacion:
+                            "No tienes suficientes medicamentos para afrontar el siguiente caso.",
+                      );
+                    }), (Route<dynamic> route) => false);
+                  } else if (idcaso < 5) {
+                    idcaso = idcaso + 1;
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                      return const InitialInfoScreen();
+                    }), (Route<dynamic> route) => false);
+                  } else {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                      return const LooseScreen(
+                        informacion: "¡Has finalizado la partida exitosamente!",
+                      );
+                    }), (Route<dynamic> route) => false);
+                  }
+                },
+                child: Text(
+                  mensajeBoton(),
+                  style: const TextStyle(fontSize: 17, color: Colors.black),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -112,6 +132,7 @@ class _FinalScreenState extends State<FinalScreen> {
   void finalscren() {
     if (idcaso > 4) {
       screenfinal = true;
+      frase = "¡Enhorabuena! Has terminado todos los casos.";
     }
   }
 
@@ -131,6 +152,7 @@ class _FinalScreenState extends State<FinalScreen> {
           if (int.parse(mochilaSeleccionada[i]["dias"]) >=
               int.parse(antibioticosSiguienteCaso[j]["dias"])) {
             suficientesAntibioticos = true;
+            frase = "¡Sigue así! pasamos al siguiente caso...";
           }
         }
       }
