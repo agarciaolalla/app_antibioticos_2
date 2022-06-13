@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
+import 'package:rive/rive.dart';
+
 import 'package:app_antibioticos/screens/screens.dart';
 
 import '../utilidades/constantes.dart';
