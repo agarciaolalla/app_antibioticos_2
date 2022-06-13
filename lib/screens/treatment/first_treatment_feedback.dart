@@ -52,6 +52,7 @@ class _FirstTreatmentFeedbackState extends State<FirstTreatmentFeedback> {
   Widget build(BuildContext context) {
     initialFill();
     setNewLifeFirstTreatment();
+    fillFeedbackModal();
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: SafeArea(
@@ -163,7 +164,13 @@ class _FirstTreatmentFeedbackState extends State<FirstTreatmentFeedback> {
         }
       }
     }
-    firstTreatmentFeedback = List.from(feedbackToUser);
+  }
+
+  void fillFeedbackModal() {
+    firstTreatmentFeedback = [];
+    for (int i = 0; i < feedbackToUser.length; i++) {
+      firstTreatmentFeedback.add(feedbackToUser[i]);
+    }
   }
 
   //Metodo para restar el consumo de los medicamentos utilizados en la mochila.
