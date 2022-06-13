@@ -58,7 +58,6 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
 
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
             children: [
@@ -71,8 +70,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.backpack_outlined),
+                    icon: Image.asset("assets/backpack.png"),
                     tooltip: "Mochila",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -83,8 +83,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.info_outline),
-                    tooltip: "Información Inicial",
+                    icon: Image.asset("assets/initialInfoIcon.png"),
+                    tooltip: "Información inicial",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -95,8 +96,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.comment_outlined),
+                    icon: Image.asset("assets/diagnosticFeedbackIcon.png"),
                     tooltip: "Feedback Pregunta Diagnóstico",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -107,8 +109,9 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.comment_bank_outlined),
+                    icon: Image.asset("assets/treatmentFeedbackIcon.png"),
                     tooltip: "Feedback Pregunta Tratamiento Empírico",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,

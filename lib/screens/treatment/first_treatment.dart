@@ -79,7 +79,6 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 80,
         flexibleSpace: SafeArea(
           child: Column(
             children: [
@@ -92,8 +91,9 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.backpack_outlined),
+                    icon: Image.asset("assets/backpack.png"),
                     tooltip: "Mochila",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -104,8 +104,9 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.info_outline),
+                    icon: Image.asset("assets/initialInfoIcon.png"),
                     tooltip: "Información Inicial",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -116,8 +117,9 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.comment_outlined),
+                    icon: Image.asset("assets/diagnosticFeedbackIcon.png"),
                     tooltip: "Feedback Pregunta Diagnóstico",
+                    iconSize: 50,
                     onPressed: () {
                       showDialog(
                         context: context,

@@ -54,17 +54,21 @@ class _RegisterContact extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          toolbarHeight: 60,
           automaticallyImplyLeading: false,
           flexibleSpace: SafeArea(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Padding(
                   padding: EdgeInsets.only(top: 10),
-                  child: Text("Login",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontFamily: 'FjallaOne',
-                          color: Colors.black)),
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'FjallaOne',
+                        color: Colors.black),
+                  ),
                 ),
               ],
             ),

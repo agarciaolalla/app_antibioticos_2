@@ -14,9 +14,11 @@ class LooseScreen extends StatelessWidget {
     updatePlayerStatus();
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 60,
         automaticallyImplyLeading: false,
         flexibleSpace: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text(
                 "Pantalla Final",

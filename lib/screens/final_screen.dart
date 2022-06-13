@@ -49,9 +49,11 @@ class _FinalScreenState extends State<FinalScreen> {
     vidaCaso = 0;
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 60,
         automaticallyImplyLeading: false,
         flexibleSpace: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text(
                 "Fin del caso",
