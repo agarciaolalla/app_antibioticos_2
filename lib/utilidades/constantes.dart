@@ -14,7 +14,8 @@ const conexion1 = "//1.44.4.78:50052";
 int idcaso = 1;
 // Mochila con los medicamentos seleccionados al inicio del juego
 List mochilaSeleccionada = [];
-
+//Constante para saber si estás en la screen final
+bool screenfinal = false;
 //Máxima puntuación
 int maxPoints = 32;
 // Puntos del jugador totales

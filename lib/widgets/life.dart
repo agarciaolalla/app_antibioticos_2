@@ -10,6 +10,12 @@ class Life extends StatefulWidget {
 }
 
 class LifeState extends State<Life> {
+  void initState() {
+    super.initState();
+    changeColor();
+  }
+
+  MaterialColor color = Colors.green;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,8 +28,7 @@ class LifeState extends State<Life> {
               height: 20,
               child: LinearProgressIndicator(
                 value: vidaJugador, // percent filled
-                valueColor:
-                    const AlwaysStoppedAnimation<Color>(Color(0xff00ff00)),
+                valueColor: AlwaysStoppedAnimation<Color>(color),
                 backgroundColor: const Color(0xffD6D6D6),
               ),
             ),
@@ -38,5 +43,15 @@ class LifeState extends State<Life> {
         ),
       ),
     );
+  }
+
+  void changeColor() {
+    if ((vidaJugador * 100) > 50) {
+      color = Colors.green;
+    } else if ((vidaJugador * 100) > 20) {
+      color = Colors.yellow;
+    } else {
+      color = Colors.red;
+    }
   }
 }
