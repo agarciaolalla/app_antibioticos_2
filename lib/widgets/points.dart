@@ -29,10 +29,7 @@ class PointState extends State<Point> {
             ),
             Align(
               child: Text(
-                "Has conseguido: " +
-                    points.toString() +
-                    "de :" +
-                    maxPoints.toString(),
+                "Puntos: " + points.toString() + " de " + maxPoints.toString(),
                 style: const TextStyle(fontSize: 17, color: Colors.black),
               ),
               alignment: Alignment.topCenter,

@@ -136,6 +136,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
       body: SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           const Life(),
+          const Point(),
           const Timer(),
           FirstTreatmentQuestionHtml(questionHtml: question),
           ListView.builder(

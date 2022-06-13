@@ -24,6 +24,8 @@ class HomeRanking extends State<Ranking> {
 
   //Te recoge la respuesta de la base de datos.
   Future getPlayers() async {
+    List returnlista = [];
+
     Map data;
     http.Response response =
         await http.get(Uri.parse(conexion1 + "/api/player"));
@@ -31,7 +33,13 @@ class HomeRanking extends State<Ranking> {
     data = json.decode(response.body);
 
     setState(() {
-      jugadores = data['player'];
+      returnlista = data['player'];
+
+      for (var i = 0; i < returnlista.length; i++) {
+        if (int.parse(returnlista[i]["retoscompletados"]) > 0) {
+          jugadores.add(returnlista[i]);
+        }
+      }
     });
   }
 

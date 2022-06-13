@@ -132,8 +132,8 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Life(),
+            const Point(),
             const Timer(),
-            //const Point(),
             DiagnosticQuestionHtml(questionHtml: question),
             ListView.builder(
               scrollDirection: Axis.vertical,
@@ -254,6 +254,5 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
 
     points = points + pointsPerCase;
     pointsBar = pointsBar + (pointsPerCase / 100);
-    pointsPerCase = 0;
   }
 }

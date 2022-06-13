@@ -134,6 +134,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Life(),
+            const Point(),
             const Timer(),
             Column(
               children: [

@@ -129,6 +129,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         child: Column(
           children: [
             const Life(),
+            const Point(),
             SecondCardViewTreatmentFeedback(treatmentFeedback: cardList),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),

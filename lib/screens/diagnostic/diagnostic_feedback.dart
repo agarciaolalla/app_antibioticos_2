@@ -92,6 +92,7 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
         child: Column(
           children: [
             const Life(),
+            const Point(),
             const ShowPoints(),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -99,7 +100,6 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
             ),
             ElevatedButton(
               onPressed: () {
-                updateTotalPoints();
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -117,10 +117,5 @@ class _DiagnosticFeedbackState extends State<DiagnosticFeedback> {
         ),
       ),
     );
-  }
-
-  void updateTotalPoints() {
-    points = points + pointsPerCase;
-    pointsPerCase = 0;
   }
 }
