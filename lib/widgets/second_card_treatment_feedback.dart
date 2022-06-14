@@ -20,8 +20,8 @@ class _SecondCardViewTreatmentFeedbackState
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      scrollDirection: Axis.vertical,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: widget.treatmentFeedback.length,
       itemBuilder: (BuildContext context, int index) {
         return Card(

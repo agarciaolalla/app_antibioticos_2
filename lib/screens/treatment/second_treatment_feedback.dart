@@ -196,7 +196,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
     for (int i = 0; i < checkDays.length; i++) {
       cardList[i]["dias"] = checkDays[i].toString();
     }
-    secondTreatmentFeedback = List.from(feedbackToUser);
+    //secondTreatmentFeedback = List.from(feedbackToUser);
   }
 
   void setNewLifeSecondTreatment() {

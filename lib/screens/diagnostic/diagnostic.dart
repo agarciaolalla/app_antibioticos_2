@@ -140,6 +140,7 @@ class HomeDiagnostic extends State<DiagnosticScreen> {
             ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: listAnswer.length,
               itemBuilder: (BuildContext context, int index) {
                 return Column(

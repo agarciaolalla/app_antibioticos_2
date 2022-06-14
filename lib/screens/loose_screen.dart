@@ -112,9 +112,9 @@ class LooseScreen extends StatelessWidget {
 
   String animation() {
     if (vidaJugador <= 0) {
-      return "animations/win.riv";
+      return "assets/win.riv";
     } else {
-      return "animations/loose.riv";
+      return "assets/loose.riv";
     }
   }
 

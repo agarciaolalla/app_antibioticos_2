@@ -143,6 +143,7 @@ class FirstTreatmentState extends State<FirstTreatmentScreen> {
           FirstTreatmentQuestionHtml(questionHtml: question),
           ListView.builder(
             scrollDirection: Axis.vertical,
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: backpack.length,
             itemBuilder: (BuildContext context, int index) {

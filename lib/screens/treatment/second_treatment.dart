@@ -183,7 +183,7 @@ class SecondTreatmentState extends State<SecondTreatmentScreen> {
                     ),
                   ),
                   ListView.builder(
-                    scrollDirection: Axis.vertical,
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: mochilaSeleccionada.length,
                     itemBuilder: (context, index) {

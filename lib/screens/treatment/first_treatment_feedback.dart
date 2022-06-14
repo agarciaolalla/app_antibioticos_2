@@ -163,7 +163,7 @@ class _FirstTreatmentFeedbackState extends State<FirstTreatmentFeedback> {
         }
       }
     }
-    firstTreatmentFeedback = List.from(feedbackToUser);
+    //firstTreatmentFeedback = List.from(feedbackToUser);
   }
 
   //Metodo para restar el consumo de los medicamentos utilizados en la mochila.

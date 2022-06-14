@@ -79,7 +79,7 @@ class _FinalScreenState extends State<FinalScreen> {
               const SizedBox(
                 width: 700,
                 height: 500,
-                child: RiveAnimation.asset("animations/andando.riv"),
+                child: RiveAnimation.asset("assets/andando.riv"),
               ),
               Text(
                 frase,

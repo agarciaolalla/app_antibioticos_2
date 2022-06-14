@@ -12,8 +12,8 @@ class CardViewTreatmentFeedback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      scrollDirection: Axis.vertical,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: treatmentFeedback.length,
       itemBuilder: (BuildContext context, int index) {
         return Card(
