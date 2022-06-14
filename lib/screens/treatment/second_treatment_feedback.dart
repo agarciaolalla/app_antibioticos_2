@@ -60,7 +60,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
   Widget build(BuildContext context) {
     initialFill();
     setNewLifeSecondTreatment();
-
+    fillCardList();
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: SafeArea(
@@ -193,14 +193,18 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         }
       }
     }
+  }
+
+  void fillCardList() {
     for (int i = 0; i < checkDays.length; i++) {
       cardList[i]["dias"] = checkDays[i].toString();
     }
-    //secondTreatmentFeedback = List.from(feedbackToUser);
   }
 
   void setNewLifeSecondTreatment() {
     double vidaSecond = 0.0;
+    //print(checkDays);
+    //print(feedbackToUser);
     for (int i = 0; i < feedbackToUser.length; i++) {
       if (feedbackToUser[i]["favorable"] == 'si') {
         if (int.parse(feedbackToUser[i]["dias"]) > checkDays[i]) {
@@ -210,10 +214,7 @@ class _TreatmentFeedbackState extends State<TreatmentFeedback> {
         vidaSecond = vidaSecond + 0.2;
       } else {
         if (feedbackToUser[i]["via"] == 'Vía Oral') {
-          if (int.parse(feedbackToUser[i]["dias"]) < checkDays[i]) {
-            //No le penaliza la vida en este caso.
-
-          } else {
+          if (int.parse(feedbackToUser[i]["dias"]) >= checkDays[i]) {
             vidaSecond = vidaSecond + 0.1;
           }
         } else {

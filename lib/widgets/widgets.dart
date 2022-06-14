@@ -6,7 +6,6 @@ export 'package:app_antibioticos/widgets/points.dart';
 export 'package:app_antibioticos/widgets/show_life.dart';
 export 'package:app_antibioticos/widgets/show_points.dart';
 export 'package:app_antibioticos/widgets/backpack_dialog.dart';
-export 'package:app_antibioticos/widgets/treatment_feedback_pop.dart';
 export 'package:app_antibioticos/widgets/show_antibiogram.dart';
 export 'package:app_antibioticos/widgets/initial_info_dialog.dart';
 export 'package:app_antibioticos/widgets/diagnostic_feedback_dialog.dart';
